@@ -1344,6 +1344,22 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
     border-radius: 0;
 }
 
+/* Dark-mode image shade ================================================ */
+/* Dim content images so bright/white-background graphics don't glare against
+   the dark theme; restore full brightness on hover/focus so detail is still
+   inspectable. */
+.quarto-document-content img,
+#quarto-document-content img {
+    filter: brightness(0.82) contrast(0.96);
+    transition: filter 0.2s ease;
+}
+.quarto-document-content img:hover,
+.quarto-document-content img:focus,
+#quarto-document-content img:hover,
+#quarto-document-content img:focus {
+    filter: none;
+}
+
 /* 17. Responsive ======================================================= */
 
 @media screen and (max-width: 991.98px) {
