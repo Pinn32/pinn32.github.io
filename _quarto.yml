@@ -133,9 +133,6 @@ brand: _brand.yml
 editor: source
 filters: 
   - src/filters/reading-stats.lua  # for reading time
-# comments:
-#   utterances:
-#     repo: Pinn32/dv-projects
-# comments:
-#   hypothesis: 
-#     theme: clean
+comments:
+  giscus: 
+    repo: Pinn32/pinn32.github.io

@@ -762,8 +762,9 @@ a.sidebar-item-text.sidebar-link.active > .menu-text {
 
 hr {
     border: none;
-    border-top: 1px solid var(--pf-border);
+    border-top: 1.2px solid var(--pf-border);
     margin: 2rem 0;
+    opacity: 0.8;
 }
 
 .quarto-other-formats,

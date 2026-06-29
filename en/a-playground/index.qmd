@@ -1,0 +1,50 @@
+---
+title: Playground
+author: 'Pinn Xu'
+date: 2026-06-29
+draft: true
+---
+
+<!-- Start: Visitor Counter =============================================== -->
+<p>访问次数:
+<!-- fallback -->
+<span id="counter">loading...</span>  
+<!-- counterapi -->
+<!-- "https://api.counterapi.dev/v1/workplace-name/counter-name/up" -->
+<script>
+fetch("https://api.counterapi.dev/v1/dv-proj/views/up")
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("counter").innerText = data.count;
+    });
+</script>
+</p>
+<!-- End: Visitor Counter =============================================== -->
+
+```{.yaml filename="pinn32.yml"}
+name: Pinn Xu
+bio: |
+    Enthusiastic data analyst. Passionate about data structure, 
+    visual story-telling, AI, and web development.
+skills: 
+    data: [Python, R, SQL]
+    web-dev: [React, Next.js, JS/TS, HTML/CSS]
+education: MA Emerging Media Studies (Boston University)
+interests: [coding, web-dev, drawing, music producing]
+location: Boston, MA
+languages: [en, zh, jp]
+contact: pinn.aiqi.xu@gmail.com
+```
+
+
+:::{.column-margin}
+text tsf asfasf  saflsafj sfffisdodfasf sfjsafjasj 你放假欧吹差of地画出黄f是 查收丧服拆爱上
+:::
+
+你好
+
+:::{.column-screen-inset-shaded}
+text tsf asfasf  saflsafj sfffisdodfasf sfjsafjasj 你放假欧吹差of地画出黄f是 查收丧服拆爱上
+:::
+
+原来是这个意思啊
