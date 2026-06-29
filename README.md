@@ -1,33 +1,46 @@
-# DV Projects - Personal Website
+# Quarto Website — Pinn32
 
-# Getting Started
+## Reproduce This Site
 
-## Local Preview
+### Clone the Repository
 
-**1. run dv-dev conda env**
+```bash
+git clone https://github.com/pinn32/pinn32.github.io.git
+cd pinn32.github.io
+```
 
-```zsh
+### Restore Environments 
+
+**Restore R environments**
+
+```r
+install.packages("renv")  # if not already installed
+renv::restore(lockfile = "envs/renv.lock")
+```
+
+**Restore Python environments**
+
+```bash
+conda env create -f envs/environment.yml
 conda activate dv-env
 ```
 
-or
+**Optional: verify Python environment**
 
-```zsh
-source .zshrc
+```bash
+quarto check jupyter
+# Output:
+# Path: /path/to/your/envs/dv-env/bin/python
 ```
 
-**2. quarto preview locally**
+### Local Preview
 
-run 
-
-```zsh
+```bash
 quarto preview
 ```
 
-## Deploying to GitHub Pages
+### Optional: Deploying to GitHub Pages
 
-run 
-
-```zsh
-quarto publish gh-pages --no-render
+```bash
+quarto publish gh-pages
 ```
