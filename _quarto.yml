@@ -6,7 +6,7 @@ project:
     port: 4200
 
 website:
-  site-url: https://pinn32.github.io/dv-projects
+  site-url: https://pinn32.github.io
   title: "pinn.xu"
   description: "A collection of projects by Pinn (Aiqi) Xu, showcasing work in data science, machine learning, and software development."
   favicon: src/img/favicon/spark.ico

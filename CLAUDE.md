@@ -3,7 +3,7 @@
 ## Project Overview
 
 Quarto website for data visualization projects and tutorials by Pinn (Aiqi) Xu.
-**URL:** https://pinn32.github.io/dv-projects
+**URL:** https://pinn32.github.io
 
 Content is organized into two language trees (`en/`, `zh/`), each mirroring the same structure:
 - **Projects** — analytical write-ups (Catalan referendum sentiment, visa costs, Spotify streams, student media usage)
