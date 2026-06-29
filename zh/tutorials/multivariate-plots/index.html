@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-176b38be48070efe3d434d0a95bef3fe.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-cc6cc5e7d891defee4c274192beb5e7f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-aea5b92e9509614e45c16b56b9031128.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-cc6cc5e7d891defee4c274192beb5e7f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-f8a221566d19e13d0ba65bd27385a262.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-b3a97f6714638bbb2da87c4dacea6ac4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-f8a221566d19e13d0ba65bd27385a262.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -295,7 +295,8 @@ window.Quarto = {
       }
     };
     const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
@@ -308,6 +309,14 @@ window.Quarto = {
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
     };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -622,8 +631,8 @@ window.Quarto = {
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     21 min read</span><span> · </span><span>690 EN words</span><span> · </span><span>5124 中文字</span></div>
-<div id="db5b66a2" class="cell" data-execution_count="1">
+     21 min read</span><span> · </span><span>689 EN words</span><span> · </span><span>5124 中文字</span></div>
+<div id="31b1b15c" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>环境与版本</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>python<span class="op">==</span><span class="fl">3.12</span></span>
@@ -637,13 +646,13 @@ window.Quarto = {
 <p><strong>“tidy/flat” 的表格数据:</strong> 每行为一个 <strong>observation</strong> (或 instance、record) ，每列为一个 <strong>variable</strong> (变量，也称 attribute、feature、parameter) 。</p>
 <p>通常，<strong>multivariate</strong> (多变量) 用于描述变量超过两个的数据，即，multivariate plot 通常使用了原 DataFrame 中三个或三个以上的列作为数据。</p>
 <p>绘制柱状图时，除了 x、y 两个变量之外，还可以设置 <code>hue</code> 参数，从而绘制包含三个变量的柱状图。比如 <a href="#fig-bar-variables" class="quarto-xref">图&nbsp;1</a> 中包含了 <code>'island'</code>、<code>'body_mass_g'</code>、<code>'sex'</code> 三个变量。</p>
-<div id="75ab9d0c" class="cell" data-execution_count="2">
+<div id="5abcfa30" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 导入库</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="354e7aff" class="cell" data-execution_count="3">
+<div id="91bd2545" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 从 Seaborn 加载示例数据集</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'penguins'</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -1063,7 +1072,7 @@ window.Quarto = {
 <h2 data-number="3.3" class="anchored" data-anchor-id="对数尺度"><span class="header-section-number">3.3</span> 对数尺度</h2>
 <p><strong>对数尺度 (logarithmic scale) </strong>是一个非线性测量尺度，适用于有较大范围差异的数据，如里氏震级、声学音量、光学光强、溶液 pH 值等。为此类数据绘制散点图时，可将坐标轴设置为对数尺度 (默认为线性尺度，如 <a href="#fig-scatterplot-ratio-ratio" class="quarto-xref">图&nbsp;10</a> 中 x 轴刻度 35, 40, 45, 50 是线性增长的数字) ，让原本拥挤的数据点变得较为均匀，更容易观察 (<a href="https://zh.wikipedia.org/wiki/%E5%B0%8D%E6%95%B8%E5%B0%BA%E5%BA%A6">维基百科 - 对数尺度</a>) 。</p>
 <p><a href="https://clauswilke.com/dataviz/coordinate-systems-axes.html#nonlinear-axes">Wilke (2019, p.17)</a> 以 <span class="math inline">\((1, 3.16, 10, 31.6, 100)\)</span> 为例画了四个数轴 (<a href="#fig-linear-log-scales" class="quarto-xref">图&nbsp;17</a>) ，其中 <span class="math inline">\(10^{0.5} = \sqrt{10} \approx 3.16\)</span>，<span class="math inline">\(10^{1.5} \approx 31.6\)</span>。</p>
-<div id="fig-linear-log-scales" class="quarto-float quarto-figure quarto-figure-center anchored" width="80%" alt="四个数轴 (Wilke, 2019, p.17)">
+<div id="fig-linear-log-scales" class="quarto-float quarto-figure quarto-figure-center anchored" alt="四个数轴 (Wilke, 2019, p.17)" width="80%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-linear-log-scales-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="https://clauswilke.com/dataviz/coordinate-systems-axes.html#fig:linear-log-scales"><span class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="https://clauswilke.com/dataviz/coordinate_systems_axes_files/figure-html/linear-log-scales-1.png" class="img-fluid figure-img" style="width:80.0%" alt="四个数轴 (Wilke, 2019, p.17)"></span></a>
@@ -1280,7 +1289,7 @@ window.Quarto = {
 <li><strong>选色尽量兼顾色觉缺陷读者。</strong></li>
 </ul>
 <p><a href="#fig-tech-stocks-bad-legend" class="quarto-xref">图&nbsp;27</a> 中图例和线条颜色顺序不一致，会增加阅读困难，<a href="https://clauswilke.com/dataviz/redundant-coding.html#fig:tech-stocks-bad-legend">Wilke (2019, p.248)</a> 提供了反面案例:</p>
-<div id="fig-tech-stocks-bad-legend" class="quarto-float quarto-figure quarto-figure-center anchored" width="85%" alt="反面案例：图例和线条颜色顺序不匹配">
+<div id="fig-tech-stocks-bad-legend" class="quarto-float quarto-figure quarto-figure-center anchored" alt="反面案例：图例和线条颜色顺序不匹配" width="85%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tech-stocks-bad-legend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="https://clauswilke.com/dataviz/redundant-coding.html#fig:tech-stocks-bad-legend"><span class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img src="https://clauswilke.com/dataviz/redundant_coding_files/figure-html/tech-stocks-bad-legend-1.png" class="img-fluid figure-img" style="width:85.0%" alt="反面案例：图例和线条颜色顺序不匹配"></span></a>
@@ -1291,7 +1300,7 @@ window.Quarto = {
 </figure>
 </div>
 <p>相反，<a href="#fig-tech-stocks-good-legend" class="quarto-xref">图&nbsp;28</a> 中图例和线条颜色顺序相符，<a href="https://clauswilke.com/dataviz/redundant-coding.html#fig:tech-stocks-good-legend">Wilke (2019, p.249)</a> 提供了改良后的图表:</p>
-<div id="fig-tech-stocks-good-legend" class="quarto-float quarto-figure quarto-figure-center anchored" width="85%" alt="改良版：图例和线条颜色顺序匹配 (且选色兼顾色觉缺陷读者) ">
+<div id="fig-tech-stocks-good-legend" class="quarto-float quarto-figure quarto-figure-center anchored" alt="改良版：图例和线条颜色顺序匹配 (且选色兼顾色觉缺陷读者) " width="85%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tech-stocks-good-legend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="https://clauswilke.com/dataviz/redundant-coding.html#fig:tech-stocks-good-legend"><span class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img src="https://clauswilke.com/dataviz/redundant_coding_files/figure-html/tech-stocks-good-legend-1.png" class="img-fluid figure-img" style="width:85.0%" alt="改良版：图例和线条颜色顺序匹配 (且选色兼顾色觉缺陷读者) "></span></a>
@@ -1314,7 +1323,7 @@ window.Quarto = {
 </div>
 <p>由 <a href="#fig-tech-stocks-good-legend-cvd" class="quarto-xref">图&nbsp;29</a> 可见，<a href="#fig-tech-stocks-good-legend" class="quarto-xref">图&nbsp;28</a> 的配色对三种色觉缺陷患者均可区分，去除饱和度后也能通过明度区分。因此图例与线条颜色顺序匹配尤为重要。</p>
 <p>此外，<a href="https://clauswilke.com/dataviz/redundant-coding.html#fig:tech-stocks-good-no-legend">Wilke (2019, p.251)</a> 还建议<strong>去除图例，直接在折线旁标注文字</strong> (<a href="#fig-tech-stocks-good-no-legend" class="quarto-xref">图&nbsp;30</a>) ，可节省读者对照图例的工作量，让图表更易读。但这种做法通过 Seaborn 实现较困难，本课程中使用 <a href="#fig-tech-stocks-good-legend" class="quarto-xref">图&nbsp;28</a> 中符合颜色顺序的图例即可。</p>
-<div id="fig-tech-stocks-good-no-legend" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" alt="去除图例，直接在折线旁边标注文字">
+<div id="fig-tech-stocks-good-no-legend" class="quarto-float quarto-figure quarto-figure-center anchored" alt="去除图例，直接在折线旁边标注文字" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tech-stocks-good-no-legend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="https://clauswilke.com/dataviz/redundant-coding.html#fig:tech-stocks-good-no-legend"><span class="lightbox" data-gallery="quarto-lightbox-gallery-30"><img src="https://clauswilke.com/dataviz/redundant_coding_files/figure-html/tech-stocks-good-no-legend-1.png" class="img-fluid figure-img" style="width:90.0%" alt="去除图例，直接在折线旁边标注文字"></span></a>
@@ -1862,7 +1871,7 @@ window.Quarto = {
 <section id="二维直方图" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> 二维直方图</h1>
 <p>根据 <a href="https://clauswilke.com/dataviz/overlapping-points.html#fig:nycflights-points">Wilke (2019, pp.&nbsp;222-225)</a>，含半透明点的散点图可展示数据在两个变量控制下的分布，但当数据点过多、过密时，散点图难以展示整体分布 (见 <a href="#fig-nycflights-points" class="quarto-xref">图&nbsp;34</a>: 点密度高的区域显示为均匀深色斑点，密度低的区域几乎不可见) 。</p>
-<div id="fig-nycflights-points" class="quarto-float quarto-figure quarto-figure-center anchored" width="80%" alt="数据点过多、过密的散点图 (Wilke, 2019, p. 223)">
+<div id="fig-nycflights-points" class="quarto-float quarto-figure quarto-figure-center anchored" alt="数据点过多、过密的散点图 (Wilke, 2019, p. 223)" width="80%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-nycflights-points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="https://clauswilke.com/dataviz/overlapping-points.html#fig:nycflights-points"><span class="lightbox" data-gallery="quarto-lightbox-gallery-34"><img src="https://clauswilke.com/dataviz/overlapping_points_files/figure-html/nycflights-points-1.png" class="img-fluid figure-img" style="width:80.0%" alt="数据点过多、过密的散点图 (Wilke, 2019, p. 223)"></span></a>
@@ -2079,22 +2088,99 @@ window.Quarto = {
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> 回到顶部</a></main> <!-- /main -->
-<script id="fix-code-fold">
-    const bindToggle = (id, open) => {
-        const btn = document.getElementById(id);
-        if (!btn) return;
-        btn.addEventListener('click', e => {
-            e.preventDefault();
-            document.querySelectorAll('details.code-fold').forEach(el => {
-                open ? el.setAttribute('open', '') : el.removeAttribute('open');
-            });
-        });
-    };
+<!--
+    Global Site Fixes — injected at end of <body> on every page via _quarto.yml.
+    Each concern lives in its own <script> block so its execution timing is
+    preserved (inline IIFE = before paint; DOMContentLoaded = after parse).
 
-    bindToggle('quarto-show-all-code', true);
-    bindToggle('quarto-hide-all-code', false);
+    Table of contents
+    ─────────────────
+    1. script-strip-index-html   Strip internal links' .../index.html suffixes
+    2. script-fix-navbar-active  Fix navbar active state when a global sidebar is present
+    3. script-nav-lang-switch    Switch navbar header language
+    3. script-fix-code-fold      Wire the "show all / hide all code" buttons
+    4. script-fix-sidebar-toggle Make sidebar section row's empty area toggle collapse
+    5. script-fix-sidebar-search Replace the dead sidebar search box with a working button
+    6. script-fix-tag-redirect   Redirect post-page tag links to their listing page
+    7. script-copyright-year     Update the copyright year in the footer
+
+    Page-specific scripts (responsive-tag-bar, post-type-filter)
+    live in their own files and are included separately.
+-->
+
+
+<!-- ====================================================================== -->
+<script id="script-strip-index-html">
+    // Strip internal links' .../index.html suffixes
+
+    // Runs inline at end of <body>: links are already parsed, and rewriting before paint
+    // avoids changing hrefs the user might hover mid-load.
+    (() => {
+        document.querySelectorAll('a[href]').forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href) return;
+
+            // Skip anchors, mailto/tel, protocol-relative, and absolute external URLs.
+            if (/^(#|mailto:|tel:|\/\/)/.test(href)) return;
+
+            try {
+                const url = new URL(href, window.location.href);
+                // Only touch same-origin links.
+                if (url.origin !== window.location.origin) return;
+                if (!/\/index\.html$/.test(url.pathname)) return;
+
+                url.pathname = url.pathname.replace(/\/index\.html$/, '/');
+                // Write a root-absolute path. This is safe even under the GitHub Pages
+                // `/dv-projects/` base, since `url.pathname` already includes that prefix
+                // (the original relative href was resolved against the current page).
+                link.setAttribute('href', url.pathname + url.search + url.hash);
+            } catch {
+                // Malformed href — leave it untouched.
+            }
+        });
+    })();
 </script>
-<script>
+
+
+<!-- ====================================================================== -->
+<script id="script-fix-navbar-active">
+    // Fix Quarto's incorrect navbar active state when a global sidebar is present.
+
+    // Runs inline (no DOMContentLoaded) because the script is injected at end of <body>
+    // so the navbar DOM is already parsed — executing before paint prevents the flash.
+    // Compares path sections (/en|zh/section/...) so it works without waiting for
+    // script-nav-lang-switch to rewrite hrefs on zh pages.
+    (() => {
+        const path = window.location.pathname.replace(/\/index\.html$/, '/');
+        const pageSectionMatch = path.match(/\/(?:en|zh)\/([^/]+)/);
+        const pageSection = pageSectionMatch ? pageSectionMatch[1] : null;
+
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href) return;
+
+            let linkSection = null;
+            try {
+                const linkPath = new URL(href, window.location.href).pathname.replace(/\/index\.html$/, '/');
+                const linkSectionMatch = linkPath.match(/\/(?:en|zh)\/([^/]+)/);
+                linkSection = linkSectionMatch ? linkSectionMatch[1] : null;
+            } catch {
+                // href is malformed — skip this link
+            }
+
+            const isActive = pageSection !== null && pageSection === linkSection;
+            link.classList.toggle('active', isActive);
+            if (isActive) link.setAttribute('aria-current', 'page');
+            else link.removeAttribute('aria-current');
+        });
+    })();
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-nav-lang-switch">
+    // Switch navbar header language
+
     const switchLanguage = targetLang => {
         const path = window.location.pathname;
         // Capture base (e.g. '' locally, '/dv-projects' on GitHub Pages)
@@ -2165,7 +2251,32 @@ window.Quarto = {
         });
     });
 </script>
-<script>
+
+
+<!-- ====================================================================== -->
+<script id="script-fix-code-fold">
+    // Wire the "show all / hide all code" buttons to every code-fold <details>.
+    
+    const bindToggle = (id, open) => {
+        const btn = document.getElementById(id);
+        if (!btn) return;
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+            document.querySelectorAll('details.code-fold').forEach(el => {
+                open ? el.setAttribute('open', '') : el.removeAttribute('open');
+            });
+        });
+    };
+
+    bindToggle('quarto-show-all-code', true);
+    bindToggle('quarto-hide-all-code', false);
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-fix-sidebar-toggle">
+    // Let sidebar section title empty area be clickable to toggle collapse/expand
+    
     document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.sidebar-item-section > .sidebar-item-container').forEach(row => {
             row.style.cursor = 'pointer';
@@ -2180,41 +2291,16 @@ window.Quarto = {
         });
     });
 </script>
-<script id="fix-navbar-active">
-    // Fix Quarto's incorrect navbar active state when a global sidebar is present.
-    // Runs inline (no DOMContentLoaded) because the script is injected at end of <body>
-    // so the navbar DOM is already parsed — executing before paint prevents the flash.
-    // Compares path sections (/en|zh/section/...) so it works without waiting for
-    // lang-switch.html to rewrite hrefs on zh pages.
-    (() => {
-        const path = window.location.pathname.replace(/\/index\.html$/, '/');
-        const pageSectionMatch = path.match(/\/(?:en|zh)\/([^/]+)/);
-        const pageSection = pageSectionMatch ? pageSectionMatch[1] : null;
 
-        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-            const href = link.getAttribute('href');
-            if (!href) return;
 
-            let linkSection = null;
-            try {
-                const linkPath = new URL(href, window.location.href).pathname.replace(/\/index\.html$/, '/');
-                const linkSectionMatch = linkPath.match(/\/(?:en|zh)\/([^/]+)/);
-                linkSection = linkSectionMatch ? linkSectionMatch[1] : null;
-            } catch {
-                // href is malformed — skip this link
-            }
+<!-- ====================================================================== -->
+<script id="script-fix-sidebar-search">
+    // Add-on sidebar search bar
 
-            const isActive = pageSection !== null && pageSection === linkSection;
-            link.classList.toggle('active', isActive);
-            if (isActive) link.setAttribute('aria-current', 'page');
-            else link.removeAttribute('aria-current');
-        });
-    })();
-</script>
-<script>
     // Quarto autocomplete attaches to the FIRST #quarto-search (navbar, via getElementById).
     // The sidebar's duplicate #quarto-search is never initialized. Replace it with a button
     // that opens the real search overlay via window.quartoOpenSearch().
+
     document.addEventListener('DOMContentLoaded', () => {
         const sidebarSearchWrapper = document.querySelector('#quarto-sidebar .sidebar-search');
         if (!sidebarSearchWrapper) return;
@@ -2229,81 +2315,65 @@ window.Quarto = {
         sidebarSearchWrapper.replaceChildren(btn);
     });
 </script>
-<script id="strip-index-html">
-    // Rewrite internal links ending in `/index.html` to the clean directory form `/`.
-    // Quarto always links listing cards (and other internal links) to the real output
-    // file, e.g. `.../ai-discourse/index.html`. Both the preview server and GitHub Pages
-    // also serve the directory URL, so we drop the `index.html` for cleaner addresses.
-    // Runs inline at end of <body>: links are already parsed, and rewriting before paint
-    // avoids changing hrefs the user might hover mid-load.
-    (() => {
-        document.querySelectorAll('a[href]').forEach(link => {
-            const href = link.getAttribute('href');
-            if (!href) return;
 
-            // Skip anchors, mailto/tel, protocol-relative, and absolute external URLs.
-            if (/^(#|mailto:|tel:|\/\/)/.test(href)) return;
 
-            try {
-                const url = new URL(href, window.location.href);
-                // Only touch same-origin links.
-                if (url.origin !== window.location.origin) return;
-                if (!/\/index\.html$/.test(url.pathname)) return;
+<!-- ====================================================================== -->
+<script id="script-fix-tag-redirect">
+    // Redirect post-page tag to corresponding listing page
 
-                url.pathname = url.pathname.replace(/\/index\.html$/, '/');
-                // Write a root-absolute path. This is safe even under the GitHub Pages
-                // `/dv-projects/` base, since `url.pathname` already includes that prefix
-                // (the original relative href was resolved against the current page).
-                link.setAttribute('href', url.pathname + url.search + url.hash);
-            } catch {
-                // Malformed href — leave it untouched.
-            }
-        });
-    })();
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
 
-  // 每种内容类型对应的 listing 页面（可按需增减）
-  const SECTION_MAP = {
-    projects:  "projects",
-    tutorials: "tutorials",
-    blogs:     "blogs",
-    tools:     "tools",
-  };
+        // 每种内容类型对应的 listing 页面（可按需增减）
+        const SECTION_MAP = {
+            projects:  "projects",
+            tutorials: "tutorials",
+            blogs:     "blogs",
+            tools:     "tools",
+        };
 
-  function getTarget() {
-    const path = window.location.pathname;
+        function getTarget() {
+            const path = window.location.pathname;
 
-    // 提取语言前缀 /en/ 或 /zh/，没有则为 /
-    const langMatch = path.match(/^\/(en|zh)\//);
-    const langPrefix = langMatch ? "/" + langMatch[1] + "/" : "/";
+            // 提取语言前缀 /en/ 或 /zh/，没有则为 /
+            const langMatch = path.match(/^\/(en|zh)\//);
+            const langPrefix = langMatch ? "/" + langMatch[1] + "/" : "/";
 
-    // 提取当前所在 section
-    const sectionMatch = path.match(/\/(projects|tutorials|blogs|tools)\//);
-    const section = sectionMatch ? sectionMatch[1] : null;
+            // 提取当前所在 section
+            const sectionMatch = path.match(/\/(projects|tutorials|blogs|tools)\//);
+            const section = sectionMatch ? sectionMatch[1] : null;
 
-    if (!section) return null; // 不在任何已知 section 下，不重写
+            if (!section) return null; // 不在任何已知 section 下，不重写
 
-    return langPrefix + SECTION_MAP[section] + "/";
-  }
+            return langPrefix + SECTION_MAP[section] + "/";
+        }
 
-  function rewriteTagLinks() {
-    const target = getTarget();
-    if (!target) return;
+        function rewriteTagLinks() {
+            const target = getTarget();
+            if (!target) return;
 
-    document.querySelectorAll("a[href*='#category=']").forEach(function (link) {
-      const category = link.href.split("#category=")[1];
-      if (category) {
-        link.href = target + "#category=" + category;
-      }
+            document.querySelectorAll("a[href*='#category=']").forEach(function (link) {
+                const category = link.href.split("#category=")[1];
+                if (category) {
+                    link.href = target + "#category=" + category;
+                }
+            });
+        }
+
+        rewriteTagLinks();
+        new MutationObserver(rewriteTagLinks)
+            .observe(document.body, { childList: true, subtree: true });
     });
-  }
+</script>
 
-  rewriteTagLinks();
-  new MutationObserver(rewriteTagLinks)
-    .observe(document.body, { childList: true, subtree: true });
-});
+
+<!-- ====================================================================== -->
+<script id="script-copyright-year">
+    // Update the copyright year in the footer
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        const el = document.getElementById("copyright-year");
+        if (el) el.textContent = new Date().getFullYear();
+    });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -2442,7 +2512,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/pinn32\.github\.io\/dv-projects");
+        var filterRegex = new RegExp("https:\/\/pinn32\.github\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -3444,7 +3514,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© Copyright 2026, Pinn (Aiqi) Xu. All rights reserved.</p>
+<p>© Copyright <span id="copyright-year"></span>, Pinn (Aiqi) Xu. All rights reserved.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
