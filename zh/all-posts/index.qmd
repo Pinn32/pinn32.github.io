@@ -8,7 +8,7 @@ back-to-top-navigation: false
 reading-meta-enabled: false
 
 draft: true
-draft-mode: visible
+draft-mode: unlinked
 
 listing:
   id: all-listing
