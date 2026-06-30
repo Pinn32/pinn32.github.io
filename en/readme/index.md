@@ -1,3 +1,12 @@
+---
+title: 'Reproduce This Project'
+author: 'Pinn Xu'
+date: 2026-06-30
+description: 'Instructions for reproducing this Quarto Website, or any specific R/Python projects in this website.'
+categories: [Quarto, Web Dev, Knowhow]
+sidebar: true
+---
+
 # Personal Website (built with Quarto)
 
 **URL: [pinn32.github.io](https://pinn32.github.io)**

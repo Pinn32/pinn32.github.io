@@ -1,0 +1,10 @@
+pandas==2.2.2
+plotly==5.24.1
+pyvis==0.3.2
+networkx==3.3
+ipykernel
+seaborn
+matplotlib
+pyyaml
+nbformat
+nbclient
