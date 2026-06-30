@@ -594,11 +594,13 @@ h2#featured-projects::before {
     background: var(--pf-primary-light);
     color: var(--pf-primary-hover) !important;
     border-radius: var(--pf-radius-sm);
-    padding: 0;
+    padding: 0.1rem 0.5rem;
     border: 1px solid rgba(45,212,191,0.2);
     transition: background 0.15s;
     display: flex;
 }
+/* when the category wraps a link, let the <a> carry the padding instead */
+.quarto-title .quarto-categories .quarto-category:has(a) { padding: 0; }
 .quarto-title .quarto-categories .quarto-category:hover { background: rgba(45,212,191,0.16); }
 .quarto-title .quarto-categories .quarto-category a      { padding: 0.1rem 0.5rem; }
 
