@@ -76,6 +76,8 @@ website:
           contents: "en/blogs/*/index.*md"
         - section: "Tools"
           contents: "en/tools/*/index.*md"
+        - text: "Reproduce This Project"
+          href: "en/readme/index.md"
         - text: "About"
           href: en/about/index.qmd
     - id: zh-sidebar
@@ -92,6 +94,8 @@ website:
           contents: "zh/blogs/*/index.*md"
         - section: "Web工具"
           contents: "zh/tools/*/index.*md"
+        - text: "项目复现"
+          href: "zh/readme/index.md"
         - text: "关于"
           href: zh/about/index.qmd
 

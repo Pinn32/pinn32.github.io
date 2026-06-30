@@ -1,10 +1,16 @@
 ---
-title: "About"
+title: "Pinn Xu"
+description: "fasjfodsajf; jas;fj ;asd jf;s"
 sidebar: false
 toc: false
+code-tools: false
+about:
+    template: trestles
+    # image: "https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/personal-web/pinn32-portrait.png"
+    image: "https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/personal-web/art-portrait.jpg"
 ---
 
-## About This Site
+# About This Site
 
 This is a personal data visualization and analysis portfolio built by **Pinn (Aiqi) Xu**.
 
