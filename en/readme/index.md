@@ -7,16 +7,14 @@ categories: [Quarto, Web Dev, Knowhow]
 sidebar: true
 ---
 
-# Personal Website (built with Quarto)
+This site is built with [Quarto](https://quarto.org). Because the project pages execute both Python and R code, reproducing the build requires restoring both environments.
 
-**URL: [pinn32.github.io](https://pinn32.github.io)**
+This guide covers two scenarios:
 
-Source for my personal site, built with [Quarto](https://quarto.org). Projects pages involves Python and R, so reproducing the build needs to restore both environments.
+- **[Reproduce the full website](#reproduce-the-full-website)** — restore every environment and render the complete site.
+- **[Reproduce a single project](#reproduce-a-single-project)** — rebuild one project page on its own, without the surrounding site.
 
-- To reproduce the whole Quarto website, see [Reproducing the Website](#reproducing-the-website).  
-- To reproduce specific R/Python project, see [Reproducing Specific Project](#reproducing-specific-project)
-
-## Reproducing the Website
+## Reproduce the Full Website
 
 ### Prerequisites
 
@@ -24,14 +22,14 @@ Source for my personal site, built with [Quarto](https://quarto.org). Projects p
 - [Python 3.12](https://www.python.org/downloads/release/python-31213/), via either [conda](https://docs.conda.io/en/latest/miniconda.html) or the built-in `venv`
 - [R](https://www.r-project.org/) 4.x with [`renv`](https://rstudio.github.io/renv/) for the R code
 
-### Clone
+### Clone the Repository
 
 ```bash
 git clone https://github.com/pinn32/pinn32.github.io.git
 cd pinn32.github.io
 ```
 
-### Restore Environments
+### Restore the Environments
 
 **R:**
 
@@ -57,14 +55,16 @@ source dv-env/bin/activate        # Windows: dv-env\Scripts\activate
 pip install -r envs/requirements.txt
 ```
 
-Check that Quarto sees the right Python:
+Confirm that Quarto is using the correct Python interpreter:
 
 ```bash
 quarto check jupyter
 # Path: /path/to/your/envs/dv-env/bin/python
 ```
 
-## Local Preview
+### Preview Locally
+
+With both environments restored, start the local development server:
 
 ```bash
 quarto preview
@@ -72,36 +72,34 @@ quarto preview
 
 ### Deploy to GitHub Pages
 
-Reset the remote URL to your GitHub repo:
+To publish your own copy, first point the remote at your repository:
+
 ```bash
 git remote set-url origin https://github.com/<your-username>/<repo>
 ```
 
-Reset `site-url` to your GitHub Pages URL in `_quarto.yml`:
+Update `site-url` in `_quarto.yml` to match your GitHub Pages address:
 
 ```yaml
 website:
   site-url: https://<your-username>.github.io/<repo>
 ```
 
-Deploy to GitHub Pages:
+Then publish:
+
 ```bash
 quarto publish gh-pages
 ```
 
-## Reproducing Specific Project
+## Reproduce a Single Project
 
-Same [prerequisites](#prerequisites) as above.
+The [prerequisites](#prerequisites) above still apply.
 
-Download project specific files from GitHub.
+Download the files for the project you want to rebuild — for example, `/en/projects/student-media-usage/index.qmd`. Where relevant, also retrieve the source dataset from `/src/data/` and any images from `/src/img/`.
 
-e.g. `/en/projects/student-media-usage/index.qmd`
+Using `student-media-usage` as an example, you can either keep the `.qmd` extension or convert the file to `.Rmd`.
 
-Find source dataset from `/src/data/` folder, and images from `/src/img/` folder, if any.
-
-Taking the `student-media-usage` project as an example, you can choose either maintain the `.qmd` extension or change it to `.Rmd`. 
-
-**If you prefer `.qmd`, modify the YAML options as follows:**
+**To keep the `.qmd` extension**, adjust the YAML options as follows:
 
 ```yml
 title: 'Student Social Media Usage and Well-being Analysis'
@@ -116,9 +114,9 @@ format:
     toc-location: right
 ```
 
-Run `quarto render` to build HTML.
+Then run `quarto render` to build the HTML.
 
-**If you prefer `.Rmd`, modify the YAML options as follows:**
+**To convert the file to `.Rmd`**, adjust the YAML options as follows:
 
 ```yml
 ---
@@ -136,4 +134,4 @@ output:
 ---
 ```
 
-Click `Knit` in RStudio or run `rmarkdown::render("index.Rmd")` in R console to build HTML.
+Then click `Knit` in RStudio, or run `rmarkdown::render("index.Rmd")` in the R console to build the HTML.
