@@ -1,3 +1,8 @@
-lang: zh
+lang: zh-CN
 code-fold: false
 back-to-top-navigation: false
+
+comments:
+  giscus: 
+    repo: Pinn32/pinn32.github.io
+    language: zh-CN

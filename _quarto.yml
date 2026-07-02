@@ -20,6 +20,10 @@ website:
   repo-actions: [edit, source, issue]
   repo-link-target: _blank
 
+  comments:
+    giscus: 
+      repo: Pinn32/pinn32.github.io
+
   #############################################################################
   navbar:
     left:
@@ -137,6 +141,3 @@ brand: _brand.yml
 editor: source
 filters: 
   - src/filters/reading-stats.lua  # for reading time
-comments:
-  giscus: 
-    repo: Pinn32/pinn32.github.io
