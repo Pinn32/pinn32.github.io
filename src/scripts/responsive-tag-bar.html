@@ -108,4 +108,24 @@
 
         window.addEventListener('resize', onResize);
     })();
+
+    // Toggle behaviour: clicking an already-active category clears the filter
+    // (reverts to "All") instead of re-applying it. Quarto binds its own
+    // onclick to each `.category` in the bubbling phase, so we intercept in the
+    // capture phase and stop propagation before that handler runs.
+    (() => {
+        document.addEventListener('click', (e) => {
+            const pill = e.target.closest('.quarto-listing-category .category');
+            if (!pill || !pill.classList.contains('active')) return;
+            // The "All" pill (data-category="") is already the cleared state;
+            // let Quarto handle it normally.
+            if (!pill.getAttribute('data-category')) return;
+            if (typeof activateCategory !== 'function') return;
+
+            e.stopPropagation();
+            e.preventDefault();
+            activateCategory('');
+            if (typeof setCategoryHash === 'function') setCategoryHash('');
+        }, true);
+    })();
 </script>
