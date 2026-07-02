@@ -117,7 +117,12 @@ format:
     theme:
       light: [minty, ./src/styles/portfolio.scss]
       dark:  [minty, ./src/styles/portfolio-dark.scss]
-    from: markdown+mark
+    from: markdown+mark    # enable `==mark==` syntax for highlighting text
+
+    # external links
+    link-external-icon: true
+    link-external-newwindow: true
+    link-external-filter: '^(?:https?:\/\/)?(?:pinn32\.github\.io\/(?:en|zh|dv-projects|img)|raw\.githubusercontent\.com\/Pinn32\/img)(?:\/|$)'
     
     ###### JS Scripts ######
     include-after-body:

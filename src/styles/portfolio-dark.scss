@@ -580,6 +580,10 @@ h2#featured-projects::before {
     font-size: 0.7rem;
 }
 
+/* don't stamp the external-link icon onto image links */
+a.external:has(img)::after,
+a.external[data-image-link]::after { content: none; }
+
 /* title block category pills */
 .quarto-title .quarto-categories {
     display: flex;

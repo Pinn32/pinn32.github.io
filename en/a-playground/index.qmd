@@ -22,6 +22,9 @@ fetch("https://api.counterapi.dev/v1/dv-proj/views/up")
 </p>
 <!-- End: Visitor Counter =============================================== -->
 
+
+# Bio Code Block
+
 ```{.yaml filename="pinn32.yml"}
 name: Pinn Xu
 bio: |
@@ -44,8 +47,20 @@ text tsf asfasf  saflsafj sfffisdodfasf sfjsafjasj 你放假欧吹差of地画出
 
 你好
 
+# Column Screen Inset Shaded
 :::{.column-screen-inset-shaded}
 text tsf asfasf  saflsafj sfffisdodfasf sfjsafjasj 你放假欧吹差of地画出黄f是 查收丧服拆爱上
 :::
 
 原来是这个意思啊
+
+# External Link Icon
+
+![Foo](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.VdDc3iT3PCrJnnsiThNzGgHaF_%3Fpid%3DApi&f=1&ipt=b1ccc40995df182e2c2eff80f713a003f628b499a90b020e9ef6190942ca1937&ipo=images)
+
+![Lorem Picsum](https://picsum.photos/id/237/200/300)
+
+:::{.mobile-only}
+![foo](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F20804701%2Fpexels-photo-20804701.jpeg%3Fcs%3Dsrgb%26dl%3Dpexels-agrosales-20804701.jpg%26fm%3Djpg&f=1&nofb=1&ipt=2cd9727f9c738fdc1bfbec6cdf99883a63f6dfd04a64735978488e7805214005){width=50%}
+:::
+
