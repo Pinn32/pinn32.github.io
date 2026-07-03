@@ -51,6 +51,7 @@ quarto preview                                        # local dev server
 quarto render                                         # full build
 quarto render en/tutorials/amounts-and-distribution/index.qmd  # single file
 conda activate dv-env                                 # needed for Python cells
+python3 scripts/sync-changelog.py                     # pull change-log content from Notion
 ```
 
 ## Conventions
@@ -59,6 +60,23 @@ conda activate dv-env                                 # needed for Python cells
 - **Sidebar** — manually listed in `_quarto.yml`; add new pages there when creating content
 - **Citations** — APA style (`apa.csl`); `.bib` files live alongside each project's `index.qmd`
 - Chinese content (`zh/`) is standalone `.qmd`, not converted from `.ipynb`
+
+## Change Log Page (`en/changes/`)
+
+Content lives in the Notion database "Site Change Log" (one row per timeline node;
+`Type` = Phase or Entry; entry bullets in the row's page body, day-prefixed like
+`Jun 25 · did the thing`). To update the page:
+
+1. Edit rows in Notion
+2. `NOTION_TOKEN=... python3 scripts/sync-changelog.py` — regenerates
+   `en/changes/_timeline.md` (committed; DB id in `scripts/notion-changelog.json`)
+3. `quarto render en/changes/index.md`
+
+`src/filters/changelog-timeline.lua` turns the partial's markdown convention
+(`##` phase + `range` attr, `###` entry + `date/iso/commits/hours/days` attrs)
+into the timeline HTML styled by `en/changes/changes.css`. Without a token the
+sync script exits 0 and keeps the committed partial, so builds work offline.
+`_timeline.md` can also be edited by hand in a pinch (next sync overwrites it).
 
 ## After Fixing Bugs
 - Run tests after fixing bugs until no more errors

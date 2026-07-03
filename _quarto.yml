@@ -46,6 +46,10 @@ website:
       - text: About
         href: en/about/index.qmd
 
+    right:
+      - text: Changes
+        href: en/changes/index.md
+
 
     ###### NavBar Tools #################################################
     tools: 
@@ -149,5 +153,6 @@ format:
 # lang: en
 brand: _brand.yml
 editor: source
-filters: 
+filters:
   - src/filters/reading-stats.lua  # for reading time
+  - src/filters/changelog-timeline.lua  # change-log timeline (en/changes)
