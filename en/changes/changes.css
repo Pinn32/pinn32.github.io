@@ -13,7 +13,7 @@
   text-align: center;
   font-family: var(--pf-mono);
   font-size: 0.78rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
   color: var(--pf-text-muted);
   margin: 0.25rem 0 0;
 }
@@ -98,10 +98,16 @@
   display: inline-block;
   padding: 0.45rem 1.35rem 0.5rem;
   background: var(--pf-gradient);
-  color: #fff;
+  background-size: 200% auto;
+  color: var(--pf-card);
   border-radius: var(--pf-radius-pill);
   box-shadow: var(--pf-shadow);
+  position: relative;
+  overflow: hidden;
+  animation: gradient-pan 10s ease infinite;
 }
+
+
 
 .cl-phase-name {
   display: block;
@@ -115,7 +121,8 @@
   margin-top: 0.1rem;
   font-family: var(--pf-mono);
   font-size: 0.66rem;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   opacity: 0.85;
 }
@@ -136,7 +143,7 @@
 .cl-right { margin-left: auto; }
 
 .cl-item:hover {
-  border-color: var(--pf-primary-mid);
+  border-color: var(--pf-primary);
   box-shadow: var(--pf-shadow-hover);
 }
 
@@ -153,8 +160,8 @@
   z-index: 2;
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
-.cl-left::before  { right: calc(-2.75rem - 9.5px); }
-.cl-right::before { left:  calc(-2.75rem - 9.5px); }
+.cl-left::before  { right: calc(-2.75rem - 7.5px); }
+.cl-right::before { left:  calc(-2.75rem - 7.5px); }
 
 .cl-item[open]::before {
   background: var(--pf-primary);
@@ -165,13 +172,13 @@
 .cl-item::after {
   content: "";
   position: absolute;
-  top: calc(1.3rem + 8.5px);
+  top: calc(1.3rem + 6px);
   height: 2px;
-  width: calc(2.75rem - 9.5px);
+  width: calc(2.75rem - 7.5px);
   background: var(--pf-border);
 }
-.cl-left::after  { right: calc(-2.75rem + 9.5px); }
-.cl-right::after { left:  calc(-2.75rem + 9.5px); }
+.cl-left::after  { right: calc(-2.75rem + 6px); }
+.cl-right::after { left:  calc(-2.75rem + 6px); }
 
 /* --- card header (the clickable summary) ----------------------------------- */
 .cl-head {
@@ -193,7 +200,7 @@
   display: inline-block;
   font-family: var(--pf-mono);
   font-size: 0.7rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--pf-primary);
 }
@@ -305,15 +312,15 @@
 
   .cl-left::before,
   .cl-right::before {
-    left: calc(-2.4rem + 0.5px);
+    left: -2.15rem;
     right: auto;
   }
 
   .cl-left::after,
   .cl-right::after {
-    left: calc(-2.4rem + 19.5px);
+    left: calc(-2.4rem + 17px);
     right: auto;
-    width: calc(2.4rem - 19.5px);
+    width: calc(2.4rem - 19px);
   }
 
   .cl-phase {

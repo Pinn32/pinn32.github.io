@@ -13,6 +13,6 @@ format:
     css: changes.css
 ---
 
-This page tracks how the site has been built, from the first `quarto render` to the features you see now. The work falls into six phases. Click any card to see the day-by-day changes behind it.
+This page tracks how the site has been built, from the first `quarto render` to the features you see now. The work falls into phases. Click any card to see the day-by-day changes behind it.
 
 {{< include _timeline.md >}}
