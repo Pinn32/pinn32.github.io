@@ -34,6 +34,11 @@ local TAG_CLASS = {
     dev = 'dev', fix = 'dev', style = 'dev', script = 'dev',
 }
 
+local function tag_class(html)
+    local tag = html:match('^(%a+):')
+    return tag and TAG_CLASS[tag:lower()] or nil
+end
+
 local function colorize_tag(html)
     local tag, rest = html:match('^(%a+):%s*(.*)$')
     local cls = tag and TAG_CLASS[tag:lower()]
@@ -73,7 +78,7 @@ end
 
 local DAY = 86400
 
--- daily: iso date -> { entries, commits, hours, approx }
+-- daily: iso date -> { commits, hours, feat, content, dev, approx }
 local function build_heatmap(daily)
     local dates = {}
     for k in pairs(daily) do table.insert(dates, k) end
@@ -88,7 +93,7 @@ local function build_heatmap(daily)
     local start = first - dow * DAY
     local weeks = math.floor((last - start) / (7 * DAY)) + 1
 
-    local max = { commits = 0, hours = 0, entries = 0 }
+    local max = { commits = 0, feat = 0, content = 0, dev = 0 }
     for _, v in pairs(daily) do
         for k in pairs(max) do
             if v[k] > max[k] then max[k] = v[k] end
@@ -127,24 +132,22 @@ local function build_heatmap(daily)
             local v = daily[os.date('%Y-%m-%d', ts)]
             if v then
                 local approx = v.approx and '~' or ''
-                local e = math.floor(v.entries + 0.5)
                 local c = math.floor(v.commits + 0.5)
-                local tip = string.format('%s · %d %s · %s%d %s · %s%s h',
-                    label, e, e == 1 and 'entry' or 'entries',
-                    approx, c, c == 1 and 'commit' or 'commits',
+                local tip = string.format('%s · %s%d %s · %s%sh',
+                    label, approx, c, c == 1 and 'commit' or 'commits',
                     approx, fmt(round(v.hours, 10)))
                 table.insert(cells, string.format(
                     '<button type="button" class="cl-hm-cell" data-level="%d"' ..
-                    ' data-c="%s" data-h="%s" data-e="%d"' ..
+                    ' data-c="%s" data-feat="%d" data-content="%d" data-dev="%d"' ..
                     ' data-tip="%s" aria-label="%s"></button>',
                     level(v.commits, max.commits),
-                    fmt(round(v.commits, 100)), fmt(round(v.hours, 100)), e,
+                    fmt(round(v.commits, 100)), v.feat, v.content, v.dev,
                     tip, tip))
             else
                 table.insert(cells,
                     '<span class="cl-hm-cell" data-level="0" data-c="0"' ..
-                    ' data-h="0" data-e="0" data-tip="' .. label ..
-                    ' · no activity"></span>')
+                    ' data-feat="0" data-content="0" data-dev="0"' ..
+                    ' data-tip="' .. label .. ' · no activity"></span>')
             end
         end
         ts = ts + DAY
@@ -152,13 +155,14 @@ local function build_heatmap(daily)
 
     return table.concat({
         '<section class="cl-heatmap" aria-label="Daily activity heat map"',
-        ' style="--hm-weeks:', weeks, '">',
+        ' data-metric="commits" style="--hm-weeks:', weeks, '">',
         '<div class="cl-hm-top">',
         '<span class="cl-hm-title">daily activity</span>',
         '<div class="cl-hm-toggle" role="group" aria-label="Heatmap metric">',
-        '<button type="button" class="cl-hm-btn" data-metric="c" aria-pressed="true">commits</button>',
-        '<button type="button" class="cl-hm-btn" data-metric="h" aria-pressed="false">hours</button>',
-        '<button type="button" class="cl-hm-btn" data-metric="e" aria-pressed="false">entries</button>',
+        '<button type="button" class="cl-hm-btn" data-metric="commits" aria-pressed="true">commits</button>',
+        '<button type="button" class="cl-hm-btn" data-metric="feat" aria-pressed="false">feat</button>',
+        '<button type="button" class="cl-hm-btn" data-metric="content" aria-pressed="false">content</button>',
+        '<button type="button" class="cl-hm-btn" data-metric="dev" aria-pressed="false">dev</button>',
         '</div></div>',
         '<div class="cl-hm-scroll"><div class="cl-hm-grid">',
         '<div class="cl-hm-months" aria-hidden="true">', table.concat(months), '</div>',
@@ -185,12 +189,15 @@ local HEATMAP_SCRIPT = [[
     const cells = Array.from(hm.querySelectorAll('.cl-hm-cells .cl-hm-cell'));
     const tip = hm.querySelector('.cl-hm-tip');
 
-    // metric toggle: recompute quartile levels from the cells' data attributes
+    // metric toggle: recompute quartile levels from the cells' data
+    // attributes; data-metric on the section switches the color ramp
+    const KEY = { commits: 'c', feat: 'feat', content: 'content', dev: 'dev' };
     hm.querySelectorAll('.cl-hm-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         hm.querySelectorAll('.cl-hm-btn').forEach(b =>
           b.setAttribute('aria-pressed', String(b === btn)));
-        const k = btn.dataset.metric;
+        hm.dataset.metric = btn.dataset.metric;
+        const k = KEY[btn.dataset.metric];
         const max = cells.reduce((m, c) => Math.max(m, +c.dataset[k] || 0), 0);
         cells.forEach(c => {
           const v = +c.dataset[k] || 0;
@@ -298,31 +305,35 @@ function Pandoc(doc)
         if not entry.has_summary then
             entry.head = entry.head .. entry.meta
         end
-        -- fold the entry into the per-day heatmap data: bullet counts are
-        -- exact per day; commits/hours are the entry's totals, split across
-        -- its days by bullet share (approx marks multi-day splits)
+        -- fold the entry into the per-day heatmap data: per-type bullet
+        -- counts are exact per day; commits/hours are the entry's totals,
+        -- split across its days by bullet share (approx marks the splits)
         if entry.iso and entry.iso ~= '' then
             local total, ndays = 0, 0
-            for _, n in pairs(entry.day_counts) do
-                total = total + n
+            for _, dc in pairs(entry.day_counts) do
+                total = total + dc.n
                 ndays = ndays + 1
             end
             local approx = ndays > 1
-            local function add(key, n, share)
-                local d = daily[key] or
-                    { entries = 0, commits = 0, hours = 0, approx = false }
-                d.entries = d.entries + n
+            local function add(key, dc, share)
+                local d = daily[key] or {
+                    commits = 0, hours = 0,
+                    feat = 0, content = 0, dev = 0, approx = false,
+                }
                 d.commits = d.commits + entry.commits * share
                 d.hours   = d.hours   + entry.hours * share
+                d.feat    = d.feat    + dc.feat
+                d.content = d.content + dc.content
+                d.dev     = d.dev     + dc.dev
                 d.approx  = d.approx or approx
                 daily[key] = d
             end
             if total > 0 then
-                for key, n in pairs(entry.day_counts) do
-                    add(key, n, n / total)
+                for key, dc in pairs(entry.day_counts) do
+                    add(key, dc, dc.n / total)
                 end
             else
-                add(entry.iso, 0, 1)
+                add(entry.iso, { feat = 0, content = 0, dev = 0 }, 1)
             end
         end
         table.insert(current_phase().entries, entry)
@@ -370,7 +381,8 @@ function Pandoc(doc)
                 iso = a['iso'] or '',
                 commits = commits,
                 hours = hours,
-                day_counts = {},    -- iso date -> bullet count
+                -- iso date -> { n = bullets, feat/content/dev = typed counts }
+                day_counts = {},
             }
 
         elseif entry and blk.t == 'Para' and not entry.has_summary then
@@ -405,10 +417,14 @@ function Pandoc(doc)
                 end
             end
 
-            local function count_day(key)
-                if key then
-                    entry.day_counts[key] = (entry.day_counts[key] or 0) + 1
-                end
+            local function count_day(key, text)
+                if not key then return end
+                local dc = entry.day_counts[key] or
+                    { n = 0, feat = 0, content = 0, dev = 0 }
+                dc.n = dc.n + 1
+                local cls = tag_class(text)
+                if cls then dc[cls] = dc[cls] + 1 end
+                entry.day_counts[key] = dc
             end
 
             local cur_key = nil
@@ -422,14 +438,14 @@ function Pandoc(doc)
                         cur_date, cur_items = d, {}
                         cur_key = entry.iso ~= '' and label_to_iso(d, entry.iso) or nil
                     end
-                    count_day(cur_key)
+                    count_day(cur_key, rest)
                     table.insert(cur_items, '<li>' .. colorize_tag(rest) .. '</li>')
                 elseif cur_date then
                     -- undated bullet inside a day group: continuation
-                    count_day(cur_key)
+                    count_day(cur_key, item_html)
                     table.insert(cur_items, '<li>' .. colorize_tag(item_html) .. '</li>')
                 else
-                    count_day(entry.iso ~= '' and entry.iso or nil)
+                    count_day(entry.iso ~= '' and entry.iso or nil, item_html)
                     table.insert(plain, '<li>' .. colorize_tag(item_html) .. '</li>')
                 end
             end

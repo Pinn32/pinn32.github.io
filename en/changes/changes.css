@@ -51,8 +51,10 @@
 }
 
 /* --- daily activity heatmap ------------------------------------------------ */
-/* sequential teal ramp per mode; both validated (monotone lightness,
-   step gaps >= 0.06 L, light end >= 2:1 on its surface) */
+/* one sequential ramp per metric tab and mode, all validated (monotone
+   lightness, step gaps >= 0.06 L, light end >= 2:1 on its surface);
+   teal = commits, then the tag-group hues: feat green, content amber,
+   dev blue (matching .cl-tag-*) */
 .cl-heatmap {
   --hm-0: #edf1f5;
   --hm-1: #14b8a6;
@@ -67,12 +69,54 @@
   font-family: var(--pf-mono);
 }
 
+.cl-heatmap[data-metric="feat"] {
+  --hm-1: #22c55e;
+  --hm-2: #16a34a;
+  --hm-3: #15803d;
+  --hm-4: #14532d;
+}
+
+.cl-heatmap[data-metric="content"] {
+  --hm-1: #f59e0b;
+  --hm-2: #d97706;
+  --hm-3: #b45309;
+  --hm-4: #78350f;
+}
+
+.cl-heatmap[data-metric="dev"] {
+  --hm-1: #60a5fa;
+  --hm-2: #3b82f6;
+  --hm-3: #2563eb;
+  --hm-4: #1e3a8a;
+}
+
 body.quarto-dark .cl-heatmap {
   --hm-0: rgba(255, 255, 255, 0.06);
   --hm-1: #115e59;
   --hm-2: #0f766e;
   --hm-3: #14b8a6;
   --hm-4: #5eead4;
+}
+
+body.quarto-dark .cl-heatmap[data-metric="feat"] {
+  --hm-1: #14532d;
+  --hm-2: #15803d;
+  --hm-3: #22c55e;
+  --hm-4: #86efac;
+}
+
+body.quarto-dark .cl-heatmap[data-metric="content"] {
+  --hm-1: #92400e;
+  --hm-2: #d97706;
+  --hm-3: #f59e0b;
+  --hm-4: #fbbf24;
+}
+
+body.quarto-dark .cl-heatmap[data-metric="dev"] {
+  --hm-1: #1e40af;
+  --hm-2: #3b82f6;
+  --hm-3: #60a5fa;
+  --hm-4: #93c5fd;
 }
 
 .cl-hm-top {
@@ -113,6 +157,15 @@ body.quarto-dark .cl-heatmap {
   border-color: var(--pf-primary);
   color: var(--pf-primary);
 }
+
+/* pressed type tabs pick up their tag-group hue (see .cl-tag-*) */
+.cl-hm-btn[data-metric="feat"][aria-pressed="true"]    { border-color: #16a34a; color: #16a34a; }
+.cl-hm-btn[data-metric="content"][aria-pressed="true"] { border-color: #d97706; color: #d97706; }
+.cl-hm-btn[data-metric="dev"][aria-pressed="true"]     { border-color: #2563eb; color: #2563eb; }
+
+body.quarto-dark .cl-hm-btn[data-metric="feat"][aria-pressed="true"]    { border-color: #4ade80; color: #4ade80; }
+body.quarto-dark .cl-hm-btn[data-metric="content"][aria-pressed="true"] { border-color: #fbbf24; color: #fbbf24; }
+body.quarto-dark .cl-hm-btn[data-metric="dev"][aria-pressed="true"]     { border-color: #60a5fa; color: #60a5fa; }
 
 .cl-hm-btn:focus-visible {
   outline: 2px solid var(--pf-primary);
