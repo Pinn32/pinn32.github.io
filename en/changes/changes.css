@@ -18,6 +18,38 @@
   margin: 0.25rem 0 0;
 }
 
+/* sort-order toggle */
+.cl-order {
+  display: flex;
+  justify-content: center;
+  margin: 0.7rem 0 0;
+}
+
+.cl-order-btn {
+  font-family: var(--pf-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pf-text-secondary);
+  background: var(--pf-card);
+  border: 1px solid var(--pf-border);
+  border-radius: var(--pf-radius-pill);
+  padding: 0.3rem 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cl-order-btn:hover {
+  border-color: var(--pf-primary-mid);
+  color: var(--pf-primary);
+  box-shadow: var(--pf-shadow);
+}
+
+.cl-order-btn:focus-visible {
+  outline: 2px solid var(--pf-primary);
+  outline-offset: 2px;
+}
+
 /* --- container & spine ---------------------------------------------------- */
 .cl-timeline {
   position: relative;
@@ -60,7 +92,7 @@
   text-align: center;
   margin: 2.5rem 0 1.6rem;
 }
-.cl-phase:first-child { margin-top: 0.25rem; }
+.cl-timeline > .cl-phase-group:first-child .cl-phase { margin-top: 0.25rem; }
 
 .cl-phase-pill {
   display: inline-block;
@@ -223,12 +255,22 @@
 }
 .cl-body li { margin: 0.28rem 0; }
 
-/* per-day prefix inside detail lists */
+/* per-day groups inside detail lists: date label shown once, items beneath */
 .cl-d {
   font-family: var(--pf-mono);
   font-size: 0.7rem;
   color: var(--pf-text-muted);
   margin-right: 0.25rem;
+}
+
+.cl-day { margin-top: 0.6rem; }
+.cl-day:first-child { margin-top: 0; }
+
+.cl-day .cl-d {
+  display: block;
+  margin: 0 0 0.15rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 /* animated open/close where ::details-content is supported */

@@ -28,3 +28,4 @@ __pycache__/
 .claude/
 node_modules/
 /archive/
+/.luarc.json
