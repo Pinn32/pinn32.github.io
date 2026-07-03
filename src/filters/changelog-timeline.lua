@@ -26,6 +26,201 @@ local function fmt(n)
     return string.format('%g', n)
 end
 
+-- bullet tag prefixes ("feat: ...") grouped for coloring (see changes.css)
+local TAG_CLASS = {
+    contnt = 'content', proj = 'content', blg = 'content',
+    tool = 'content', hobb = 'content', ttl = 'content',
+    feat = 'feat',
+    dev = 'dev', fix = 'dev', style = 'dev', script = 'dev',
+}
+
+local function colorize_tag(html)
+    local tag, rest = html:match('^(%a+):%s*(.*)$')
+    local cls = tag and TAG_CLASS[tag:lower()]
+    if not cls then return html end
+    return '<span class="cl-tag cl-tag-' .. cls .. '">' .. tag .. ':</span> ' .. rest
+end
+
+--------------------------------------------------
+-- Daily activity heatmap (calendar grid above the
+-- stats line; per-day data derived from the same
+-- Notion-synced attributes the cards use)
+--------------------------------------------------
+
+local MONTHS = {
+    jan = 1, feb = 2, mar = 3, apr = 4,  may = 5,  jun = 6,
+    jul = 7, aug = 8, sep = 9, oct = 10, nov = 11, dec = 12,
+}
+
+local function iso_to_ts(iso)
+    local y, m, d = iso:match('^(%d+)-(%d+)-(%d+)$')
+    if not y then return nil end
+    return os.time({ year = tonumber(y), month = tonumber(m),
+                     day = tonumber(d), hour = 12 })
+end
+
+-- "Mar 31" + the entry's iso date -> "2026-03-31" (year taken from iso,
+-- bumped when the label month wrapped past December)
+local function label_to_iso(label, iso)
+    local mon, day = label:match('^(%a+) (%d+)$')
+    local m = mon and MONTHS[mon:lower()]
+    local y, im = iso:match('^(%d+)-(%d+)')
+    if not (m and y) then return nil end
+    y = tonumber(y)
+    if m < tonumber(im) - 6 then y = y + 1 end
+    return string.format('%04d-%02d-%02d', y, m, tonumber(day))
+end
+
+local DAY = 86400
+
+-- daily: iso date -> { entries, commits, hours, approx }
+local function build_heatmap(daily)
+    local dates = {}
+    for k in pairs(daily) do table.insert(dates, k) end
+    if #dates == 0 then return '' end
+    table.sort(dates)
+    local first = iso_to_ts(dates[1])
+    local last  = iso_to_ts(dates[#dates])
+    if not (first and last) then return '' end
+
+    -- back up to the Monday of the first week; columns are weeks Mon->Sun
+    local dow = (os.date('*t', first).wday + 5) % 7   -- 0=Mon .. 6=Sun
+    local start = first - dow * DAY
+    local weeks = math.floor((last - start) / (7 * DAY)) + 1
+
+    local max = { commits = 0, hours = 0, entries = 0 }
+    for _, v in pairs(daily) do
+        for k in pairs(max) do
+            if v[k] > max[k] then max[k] = v[k] end
+        end
+    end
+    local function level(v, m)
+        if v <= 0 or m <= 0 then return 0 end
+        return math.min(4, math.max(1, math.ceil(v / m * 4)))
+    end
+    local function round(v, mult)
+        return math.floor(v * mult + 0.5) / mult
+    end
+
+    local cells, months = {}, {}
+    local prev_month, last_label_col
+    local ts, col = start, 0
+    while ts <= last do
+        local t = os.date('*t', ts)
+        if (t.wday + 5) % 7 == 0 then
+            col = col + 1
+            local mon = os.date('%b', ts)
+            if mon ~= prev_month then
+                -- a label needs ~3 columns of room; drop the cramped one
+                if last_label_col and col - last_label_col < 3 then
+                    table.remove(months)
+                end
+                table.insert(months,
+                    '<span style="grid-column:' .. col .. '">' .. mon .. '</span>')
+                prev_month, last_label_col = mon, col
+            end
+        end
+        if ts < first then
+            table.insert(cells, '<span class="cl-hm-pad"></span>')
+        else
+            local label = os.date('%b', ts) .. ' ' .. t.day
+            local v = daily[os.date('%Y-%m-%d', ts)]
+            if v then
+                local approx = v.approx and '~' or ''
+                local e = math.floor(v.entries + 0.5)
+                local c = math.floor(v.commits + 0.5)
+                local tip = string.format('%s · %d %s · %s%d %s · %s%s h',
+                    label, e, e == 1 and 'entry' or 'entries',
+                    approx, c, c == 1 and 'commit' or 'commits',
+                    approx, fmt(round(v.hours, 10)))
+                table.insert(cells, string.format(
+                    '<button type="button" class="cl-hm-cell" data-level="%d"' ..
+                    ' data-c="%s" data-h="%s" data-e="%d"' ..
+                    ' data-tip="%s" aria-label="%s"></button>',
+                    level(v.commits, max.commits),
+                    fmt(round(v.commits, 100)), fmt(round(v.hours, 100)), e,
+                    tip, tip))
+            else
+                table.insert(cells,
+                    '<span class="cl-hm-cell" data-level="0" data-c="0"' ..
+                    ' data-h="0" data-e="0" data-tip="' .. label ..
+                    ' · no activity"></span>')
+            end
+        end
+        ts = ts + DAY
+    end
+
+    return table.concat({
+        '<section class="cl-heatmap" aria-label="Daily activity heat map"',
+        ' style="--hm-weeks:', weeks, '">',
+        '<div class="cl-hm-top">',
+        '<span class="cl-hm-title">daily activity</span>',
+        '<div class="cl-hm-toggle" role="group" aria-label="Heatmap metric">',
+        '<button type="button" class="cl-hm-btn" data-metric="c" aria-pressed="true">commits</button>',
+        '<button type="button" class="cl-hm-btn" data-metric="h" aria-pressed="false">hours</button>',
+        '<button type="button" class="cl-hm-btn" data-metric="e" aria-pressed="false">entries</button>',
+        '</div></div>',
+        '<div class="cl-hm-scroll"><div class="cl-hm-grid">',
+        '<div class="cl-hm-months" aria-hidden="true">', table.concat(months), '</div>',
+        '<div class="cl-hm-wdays" aria-hidden="true"><span>Mon</span><span>Wed</span><span>Fri</span></div>',
+        '<div class="cl-hm-cells">', table.concat(cells), '</div>',
+        '</div></div>',
+        '<div class="cl-hm-legend" aria-hidden="true"><span>less</span>',
+        '<span class="cl-hm-cell" data-level="0"></span>',
+        '<span class="cl-hm-cell" data-level="1"></span>',
+        '<span class="cl-hm-cell" data-level="2"></span>',
+        '<span class="cl-hm-cell" data-level="3"></span>',
+        '<span class="cl-hm-cell" data-level="4"></span>',
+        '<span>more</span></div>',
+        '<div class="cl-hm-tip" role="tooltip" hidden></div>',
+        '</section>',
+    })
+end
+
+local HEATMAP_SCRIPT = [[
+<script>
+  (() => {
+    const hm = document.querySelector('.cl-heatmap');
+    if (!hm) return;
+    const cells = Array.from(hm.querySelectorAll('.cl-hm-cells .cl-hm-cell'));
+    const tip = hm.querySelector('.cl-hm-tip');
+
+    // metric toggle: recompute quartile levels from the cells' data attributes
+    hm.querySelectorAll('.cl-hm-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        hm.querySelectorAll('.cl-hm-btn').forEach(b =>
+          b.setAttribute('aria-pressed', String(b === btn)));
+        const k = btn.dataset.metric;
+        const max = cells.reduce((m, c) => Math.max(m, +c.dataset[k] || 0), 0);
+        cells.forEach(c => {
+          const v = +c.dataset[k] || 0;
+          c.dataset.level = (v <= 0 || max <= 0) ? 0
+            : Math.min(4, Math.max(1, Math.ceil(v / max * 4)));
+        });
+      });
+    });
+
+    // one shared tooltip, shown above the hovered/focused cell
+    const show = (cell) => {
+      tip.textContent = cell.dataset.tip || '';
+      tip.hidden = false;
+      const hr = hm.getBoundingClientRect();
+      const cr = cell.getBoundingClientRect();
+      const x = cr.left - hr.left + cr.width / 2 - tip.offsetWidth / 2;
+      tip.style.left = Math.max(0, Math.min(x, hr.width - tip.offsetWidth)) + 'px';
+      tip.style.top = (cr.top - hr.top - tip.offsetHeight - 7) + 'px';
+    };
+    const hide = () => { tip.hidden = true; };
+    cells.forEach(c => {
+      c.addEventListener('pointerenter', () => show(c));
+      c.addEventListener('pointerleave', hide);
+      c.addEventListener('focus', () => show(c));
+      c.addEventListener('blur', hide);
+    });
+  })();
+</script>
+]]
+
 local ORDER_SCRIPT = [[
 <script>
   (() => {
@@ -89,6 +284,7 @@ function Pandoc(doc)
     local phases = {}           -- { pill = html|nil, entries = { {head, body} } }
     local entry = nil           -- open entry being collected
     local totals = { commits = 0, hours = 0, days = 0 }
+    local daily = {}            -- iso date -> { entries, commits, hours, approx }
 
     local function current_phase()
         if #phases == 0 then
@@ -101,6 +297,33 @@ function Pandoc(doc)
         if not entry then return end
         if not entry.has_summary then
             entry.head = entry.head .. entry.meta
+        end
+        -- fold the entry into the per-day heatmap data: bullet counts are
+        -- exact per day; commits/hours are the entry's totals, split across
+        -- its days by bullet share (approx marks multi-day splits)
+        if entry.iso and entry.iso ~= '' then
+            local total, ndays = 0, 0
+            for _, n in pairs(entry.day_counts) do
+                total = total + n
+                ndays = ndays + 1
+            end
+            local approx = ndays > 1
+            local function add(key, n, share)
+                local d = daily[key] or
+                    { entries = 0, commits = 0, hours = 0, approx = false }
+                d.entries = d.entries + n
+                d.commits = d.commits + entry.commits * share
+                d.hours   = d.hours   + entry.hours * share
+                d.approx  = d.approx or approx
+                daily[key] = d
+            end
+            if total > 0 then
+                for key, n in pairs(entry.day_counts) do
+                    add(key, n, n / total)
+                end
+            else
+                add(entry.iso, 0, 1)
+            end
         end
         table.insert(current_phase().entries, entry)
         entry = nil
@@ -144,6 +367,10 @@ function Pandoc(doc)
                     ' &middot; ' .. fmt(hours) .. ' h</span>',
                 body = nil,
                 has_summary = false,
+                iso = a['iso'] or '',
+                commits = commits,
+                hours = hours,
+                day_counts = {},    -- iso date -> bullet count
             }
 
         elseif entry and blk.t == 'Para' and not entry.has_summary then
@@ -178,6 +405,13 @@ function Pandoc(doc)
                 end
             end
 
+            local function count_day(key)
+                if key then
+                    entry.day_counts[key] = (entry.day_counts[key] or 0) + 1
+                end
+            end
+
+            local cur_key = nil
             for _, item in ipairs(blk.content) do
                 local item_html = inlines_to_html(pandoc.utils.blocks_to_inlines(item))
                 local d, rest = item_html:match('^(%a%a%a %d%d?) · (.*)$')
@@ -186,13 +420,17 @@ function Pandoc(doc)
                     if d ~= cur_date then
                         flush_day()
                         cur_date, cur_items = d, {}
+                        cur_key = entry.iso ~= '' and label_to_iso(d, entry.iso) or nil
                     end
-                    table.insert(cur_items, '<li>' .. rest .. '</li>')
+                    count_day(cur_key)
+                    table.insert(cur_items, '<li>' .. colorize_tag(rest) .. '</li>')
                 elseif cur_date then
                     -- undated bullet inside a day group: continuation
-                    table.insert(cur_items, '<li>' .. item_html .. '</li>')
+                    count_day(cur_key)
+                    table.insert(cur_items, '<li>' .. colorize_tag(item_html) .. '</li>')
                 else
-                    table.insert(plain, '<li>' .. item_html .. '</li>')
+                    count_day(entry.iso ~= '' and entry.iso or nil)
+                    table.insert(plain, '<li>' .. colorize_tag(item_html) .. '</li>')
                 end
             end
             flush_plain()
@@ -247,9 +485,9 @@ function Pandoc(doc)
         ' data-order="newest">&#8595; newest first</button></div>'
 
     out:insert(pandoc.RawBlock('html',
-        stats .. order_btn ..
+        build_heatmap(daily) .. stats .. order_btn ..
         '<div class="cl-timeline">' .. table.concat(html) .. '</div>' ..
-        ORDER_SCRIPT))
+        ORDER_SCRIPT .. HEATMAP_SCRIPT))
     out:extend(tail)
 
     doc.blocks = out

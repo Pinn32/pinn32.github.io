@@ -50,6 +50,180 @@
   outline-offset: 2px;
 }
 
+/* --- daily activity heatmap ------------------------------------------------ */
+/* sequential teal ramp per mode; both validated (monotone lightness,
+   step gaps >= 0.06 L, light end >= 2:1 on its surface) */
+.cl-heatmap {
+  --hm-0: #edf1f5;
+  --hm-1: #14b8a6;
+  --hm-2: #0d9488;
+  --hm-3: #0f766e;
+  --hm-4: #134e4a;
+  --hm-cell: 13px;
+  --hm-gap: 3px;
+  position: relative;
+  max-width: 54rem;
+  margin: 1.6rem auto 1.9rem;
+  font-family: var(--pf-mono);
+}
+
+body.quarto-dark .cl-heatmap {
+  --hm-0: rgba(255, 255, 255, 0.06);
+  --hm-1: #115e59;
+  --hm-2: #0f766e;
+  --hm-3: #14b8a6;
+  --hm-4: #5eead4;
+}
+
+.cl-hm-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem 1.1rem;
+  margin-bottom: 0.9rem;
+}
+
+.cl-hm-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pf-text-secondary);
+}
+
+.cl-hm-toggle { display: flex; gap: 0.35rem; }
+
+.cl-hm-btn {
+  font-family: var(--pf-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--pf-text-muted);
+  background: var(--pf-card);
+  border: 1px solid var(--pf-border);
+  border-radius: var(--pf-radius-pill);
+  padding: 0.18rem 0.65rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.cl-hm-btn:hover { border-color: var(--pf-primary-mid); color: var(--pf-primary); }
+
+.cl-hm-btn[aria-pressed="true"] {
+  border-color: var(--pf-primary);
+  color: var(--pf-primary);
+}
+
+.cl-hm-btn:focus-visible {
+  outline: 2px solid var(--pf-primary);
+  outline-offset: 2px;
+}
+
+.cl-hm-scroll { overflow-x: auto; padding: 2px; }
+
+.cl-hm-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: max-content;
+  margin: 0 auto;
+  column-gap: 0.45rem;
+  row-gap: 0.3rem;
+}
+
+.cl-hm-months {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--hm-weeks), var(--hm-cell));
+  gap: var(--hm-gap);
+  font-size: 0.62rem;
+  color: var(--pf-text-muted);
+}
+
+.cl-hm-months span { grid-row: 1; white-space: nowrap; }
+
+.cl-hm-wdays {
+  grid-column: 1;
+  grid-row: 2;
+  display: grid;
+  grid-template-rows: repeat(7, var(--hm-cell));
+  row-gap: var(--hm-gap);
+  font-size: 0.62rem;
+  color: var(--pf-text-muted);
+}
+
+.cl-hm-wdays span { align-self: center; }
+.cl-hm-wdays span:nth-child(1) { grid-row: 1; }
+.cl-hm-wdays span:nth-child(2) { grid-row: 3; }
+.cl-hm-wdays span:nth-child(3) { grid-row: 5; }
+
+.cl-hm-cells {
+  grid-column: 2;
+  grid-row: 2;
+  display: grid;
+  grid-template-rows: repeat(7, var(--hm-cell));
+  grid-auto-flow: column;
+  grid-auto-columns: var(--hm-cell);
+  gap: var(--hm-gap);
+}
+
+.cl-hm-pad { width: var(--hm-cell); height: var(--hm-cell); }
+
+.cl-hm-cell {
+  display: inline-block;
+  width: var(--hm-cell);
+  height: var(--hm-cell);
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: var(--hm-0);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+body.quarto-dark .cl-hm-cell {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.cl-hm-cell[data-level="1"] { background: var(--hm-1); }
+.cl-hm-cell[data-level="2"] { background: var(--hm-2); }
+.cl-hm-cell[data-level="3"] { background: var(--hm-3); }
+.cl-hm-cell[data-level="4"] { background: var(--hm-4); }
+
+.cl-hm-cells .cl-hm-cell { cursor: pointer; }
+
+.cl-hm-cells .cl-hm-cell:hover,
+.cl-hm-cells .cl-hm-cell:focus-visible {
+  outline: 2px solid var(--pf-primary);
+  outline-offset: 1px;
+}
+
+.cl-hm-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--hm-gap);
+  margin-top: 0.65rem;
+  font-size: 0.62rem;
+  color: var(--pf-text-muted);
+}
+
+.cl-hm-legend span:first-child { margin-right: 0.25rem; }
+.cl-hm-legend span:last-child  { margin-left: 0.25rem; }
+
+.cl-hm-tip {
+  position: absolute;
+  z-index: 10;
+  background: var(--pf-card);
+  border: 1px solid var(--pf-border);
+  border-radius: var(--pf-radius-sm);
+  box-shadow: var(--pf-shadow);
+  padding: 0.28rem 0.6rem;
+  font-size: 0.68rem;
+  color: var(--pf-text);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
 /* --- container & spine ---------------------------------------------------- */
 .cl-timeline {
   position: relative;
@@ -279,6 +453,22 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
+
+/* colored tag prefixes on detail bullets ("feat:", "dev:", "blg:", ...)
+   grouped in changelog-timeline.lua: content / feat / dev */
+.cl-tag {
+  font-family: var(--pf-mono);
+  font-size: 0.94em;
+  font-weight: 600;
+}
+
+.cl-tag-feat    { color: #16a34a; }  /* feat */
+.cl-tag-dev     { color: #2563eb; }  /* dev, fix, style, script */
+.cl-tag-content { color: #d97706; }  /* contnt, proj, blg, tool, hobb, ttl */
+
+body.quarto-dark .cl-tag-feat    { color: #4ade80; }
+body.quarto-dark .cl-tag-dev     { color: #60a5fa; }
+body.quarto-dark .cl-tag-content { color: #fbbf24; }
 
 /* animated open/close where ::details-content is supported */
 .cl-item::details-content {

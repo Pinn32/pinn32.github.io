@@ -74,7 +74,10 @@ Content lives in the Notion database "Site Change Log" (one row per timeline nod
 
 `src/filters/changelog-timeline.lua` turns the partial's markdown convention
 (`##` phase + `range` attr, `###` entry + `date/iso/commits/hours/days` attrs)
-into the timeline HTML styled by `en/changes/changes.css`. Without a token the
+into the timeline HTML styled by `en/changes/changes.css`. The filter also
+derives the daily-activity heatmap above the stats line from the same parsed
+data (day-prefixed bullets → per-day entry counts; entry commits/hours split
+across days by bullet share), so it stays in sync with Notion automatically. Without a token the
 sync script exits 0 and keeps the committed partial, so builds work offline.
 `_timeline.md` can also be edited by hand in a pinch (next sync overwrites it).
 
