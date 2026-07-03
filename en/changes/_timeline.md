@@ -4,46 +4,43 @@
 
 ### Project bootstrapped {date="Mar 31 - Apr 1" iso="2026-03-31" commits="12" hours="7.75" days="2"}
 
-Installed Quarto, tried RStudio, settled on VS Code, and put the site skeleton in place with the first four project documents.
+Initialized Quarto website project and skeleton with four data analysis projects.
 
-- Mar 31 · installed Quarto; started in RStudio, then switched to VS Code
-- Mar 31 · added the first four project documents
-- Apr 1 · tracked CSV datasets with git LFS; added `.gitignore`
-- Apr 1 · recorded the conda environment in `envs/environment.yml`
-- Apr 1 · set up the layout config: `_quarto.yml`, `_metadata.yml`
-- Apr 1 · shaped the document tree and the Catalan referendum page layout
-- Apr 1 · added custom `styles.css` and the `fix-code-fold` script
+- Mar 31 · dev: init Quarto; start in RStudio, switch to VS Code
+- Mar 31 · proj: add the first 4 project docs (ipynb & Rmd)
+- Apr 1 · dev: track CSV with git LFS; record conda env in `envs/environment.yml` ; set up layout config `_quarto.yml` & `_metadata.yml`
+- Apr 1 · proj: shape doc tree & catalan-referendum page layout
+- Apr 1 · style: add custom `styles.css`
+- Apr 1 · fix: code-tool not working with `fix-code-fold` script
 
 ### Catalan page finished {date="Apr 2" iso="2026-04-02" commits="3" hours="4" days="1"}
 
-Rewrote and restructured the Catalan referendum project page, the site's first complete article.
+Refined Catalan Referendum project page, the site's first complete article.
 
-- refined YAML headers across project pages; added tables of contents
-- cleaned up routes in `_quarto.yml`
-- finished rewriting `catalan-referendum/index.qmd`
+- dev: refine YAML headers across project pages; add tables of contents (TOC)
+- dev: clean up routes in `_quarto.yml`
+- proj: finish rewriting `catalan-referendum/index.qmd`
 
 ### Python pipeline and repo restructure {date="Apr 3" iso="2026-04-03" commits="17" hours="11.75" days="1"}
 
 The heaviest day of the setup phase. Python projects moved to the Jupyter renderer, notebooks became .qmd files, and static assets moved into /src/.
 
-- added sidebar and breadcrumb navigation styles
-- converted notebooks to .qmd; switched Python projects from knitr to the Jupyter renderer
-- added environment and package version chunks to all project pages (Python chunks need `#|` for YAML options)
-- extracted images from base64 and styled their captions (`.caption` class)
-- customized page tag styles; compressed code cells in global-visa
-- restructured the tree into `/src/styles`, `/src/scripts`, `/src/img`
-- extracted inline HTML page styles into CSS
-- added the 404 and home pages, a favicon, and the `fix-navbar-active` script
-- initialized tutorial pages
+- style: sidebar, breadcrumb navigation and page tag styles; extract inline styles into CSS; add `.caption` class
+- dev: convert .ipynb/.Rmd to .qmd; switch Python projects from knitr to Jupyter renderer
+- dev: add env and package version chunks to all project pages (Python chunks need `#|` for YAML options)
+- dev: restructure the tree into `/src/styles`, `/src/scripts`, `/src/img` ; add 404, home pages, and favicon
+- proj: extract images from base64; compressed code cells in global-visa
+- script: fix navbar active error with `fix-navbar-active` script
+- ttl: init tutorial pages
 
 ### Sidebar and link fixes {date="Apr 4" iso="2026-04-04" commits="4" hours="1" days="1"}
 
-A small cleanup pass over sidebar active styles, external documentation links, and homepage wording.
+A small cleanup for pass over sidebar active styles, external documentation links, and homepage wording.
 
-- customized the sidebar active style so it works on both localhost and the published site
-- dropped the `fix-navbar-active` script from the About page in favor of `sidebar: false`
-- fixed URL references to pandas and Python docs
-- refined wording and the homepage layout
+- fix: sidebar active style error with diff classnames in localhost & gh-pages
+- fix: drop `fix-navbar-active` script from the About page, use `sidebar: false` instead
+- proj: fix URL references to pandas and Python docs
+- contnt: refined wording and homepage layout
 
 ## Phase 2 · Tutorials & cross-referencing {range="Apr 5 - Apr 8"}
 
@@ -51,19 +48,17 @@ A small cleanup pass over sidebar active styles, external documentation links, a
 
 All tutorial files came in at once: converted to .qmd, images extracted, and folders restructured for future en/zh versions.
 
-- added all tutorial files and converted them to .qmd
-- extracted every embedded image
-- restructured the tutorials folder into English and Chinese variants
-- replaced caption spans with cross-ref options (`#| label`, `#| fig-cap`)
+- ttl: add all tutorial files, convert to .qmd, extract all base64 img to `src`
+- ttl: restructure tutorials into en/zh folders
+- dev: replace caption spans with cross-ref options (`#| label`, `#| fig-cap`)
 
 ### Cross-reference system {date="Apr 7 - Apr 8" iso="2026-04-07" commits="4" hours="1.75" days="2"}
 
 In-text citations switched to Quarto cross-refs, and the bibliography moved into a .bib file with APA formatting.
 
-- Apr 7 · refined wording in the amounts-and-distribution tutorial
-- Apr 7 · added `@fig-`/`@tbl-`/`@sec-` cross-refs for in-text citations
-- Apr 7 · extracted the bibliography to `reference.bib`; added the APA style file
-- Apr 8 · linked in-text citations to the appendix
+- Apr 7 · ttl: refine wording in amounts-and-distribution
+- Apr 7 · proj: add `@fig-`/`@tbl-`/`@sec-` cross-refs; extract bibliography to `reference.bib`; add `src/apa.csl` 
+- Apr 8 · proj: link in-text citations to the appendix
 
 ## Phase 3 · Style revamp & i18n groundwork {range="Apr 10 - Apr 11"}
 
@@ -71,18 +66,18 @@ In-text citations switched to Quarto cross-refs, and the bibliography moved into
 
 The whole stylesheet was rewritten as portfolio.css, and the site gained a Chinese mirror tree with a language switch.
 
-- rewrote the site CSS in `src/styles/portfolio.css`; added `_brand.yml`
-- fixed the copy button, nav toggle color, dropdown menu, and scrollbar styles
-- added the hobbies page and Chinese tutorial drafts
-- added the en/zh switch; moved Chinese pages into a `/zh/` mirror of the site tree
-- moved shared datasets and images into `/src/` so both languages reuse them
-- translated all English pages to Chinese
+- style: rewrote site CSS in `src/styles/portfolio.css`; add logo in `_brand.yml`
+- fix: copy button, nav toggle color, dropdown menu, and scrollbar styles
+- hobb: init hobbies page; 
+- dev: add en/zh lang-switch; move zh pages into a `/zh/` mirror of the site tree
+- dev: move shared datasets and img into `/src/` so both languages reuse them
+- contnt: translated all English pages to Chinese
 
 ### Data-processing tutorial in English {date="Apr 11" iso="2026-04-11" commits="1" hours="4" days="1"}
 
 Finished the English version of the data-processing tutorial. The last entry before a seven-week pause.
 
-- finished `en/tutorials/data-processing`
+- ttl: finish data-processing en
 
 ## Phase 4 · Restart, translation & first publish {range="May 31 - Jun 5"}
 
@@ -90,34 +85,35 @@ Finished the English version of the data-processing tutorial. The last entry bef
 
 Work resumed after seven weeks with a README, manual cross-refs for outputs, and a translation pass across most projects and tutorials.
 
-- May 31 · added `README.md`; wrote a cross-ref SOP note
-- May 31 · added manual cross-refs for outputs in student-media-usage
-- May 31 · translated data-processing, student-media-usage, and catalan into Chinese
-- Jun 2 · translated and fixed the songs, visa, and catalan projects
-- Jun 2 · translated the amounts-and-distribution tutorial into English
-- Jun 2 · refined the Chinese multivariate-plots tutorial: figures, text, cross-refs
-- Jun 2 · added back-to-top navigation
+- May 31 · dev: init `README.md` ; write cross-ref SOP notes
+- May 31 · proj: add manual cross-refs for outputs in student-media-usage
+- May 31 · proj: translate data-processing, student-media-usage, and catalan into zh
+- Jun 2 · proj: translate & fix songs, visa, and catalan
+- Jun 2 · ttl: translate amounts-and-distribution into en
+- Jun 2 · ttl: refine zh multivariate-plots’ figures, text, cross-refs
+- Jun 2 · dev: add back-to-top navigation
 
 ### First publish to GitHub Pages {date="Jun 3" iso="2026-06-03" commits="7" hours="8.75" days="1"}
 
-The site went live. Same day: a reading-time filter written in Lua, language-switcher fixes, and a refined sankey tutorial.
+The site went live. Added a reading-time filter written in Lua, language-switcher fixes, and a refined sankey tutorial.
 
-- published to gh-pages
-- added reading time via a Lua filter
-- fixed the language switcher and the homepage reroute
-- fixed number-sections; tidied textual bugs and the hobbies placeholder
-- translated the multivariate-plots tutorial into English; refined the Chinese sankey tutorial
+- dev: publish to gh-pages
+- feat: add reading time via `reading-stats.lua`
+- fix: lang-switch; add home reroute (`/` → `/en/`); number-sections
+- contnt: textual bugs; hobb placeholder
+- ttl: translate multivariate into en; refine zh sankey
 
 ### AI-tweets project and R-tips tutorial {date="Jun 4 - Jun 5" iso="2026-06-04" commits="11" hours="8.5" days="2"}
 
 Two new pieces of content, plus fixes for the language switcher, reading time, and homepage cards.
 
-- Jun 4 · fixed lang-switcher reroutes to `root/en` and the zh/en reading-time bug
-- Jun 4 · translated the sankey tutorial into English; fixed the homepage card clickable area
-- Jun 4 · added the ai-tweets project and fixed its rendering bug
-- Jun 5 · fixed the language switch in the navbar
-- Jun 5 · refined all ai-tweets tables, added comments, translated it into Chinese
-- Jun 5 · added the Chinese R-tips tutorial, with a `==mark==` highlight rule
+- Jun 4 · fix: lang-switch reroutes to `root/en` ; zh/en diff reading-time; home card clickable area
+- Jun 4 · ttl: translate sankey into en
+- Jun 4 · proj: add ai-tweets; fix its rendering bug
+- Jun 5 · fix: nav-bar lang-switch drop-down menu
+- Jun 5 · proj: ai-tweets all tables, code comments, translate into zh
+- Jun 5 · ttl: add R-tips zh
+- Jun 5 · dev: enable `==mark==` syntax in `_quarto.yml`
 
 ## Phase 5 · Blogs, styling & mobile {range="Jun 7 - Jun 21"}
 
@@ -125,54 +121,54 @@ Two new pieces of content, plus fixes for the language switcher, reading time, a
 
 A round of small fixes: the 404 page finally respects language and route, listings got cover images, and the favicon became a spark.
 
-- Jun 7 · fixed the sidebar toggle area; changed the favicon to a spark
-- Jun 7 · switched publishing to `quarto publish gh-pages --no-render`
-- Jun 7 · renamed r-tips from .md to .qmd so it shows in listings
-- Jun 9 · fixed the 404 page (language and route); renamed ai-tweets to ai-discourse
-- Jun 9 · added env/version blocks and number-sections to projects
-- Jun 9 · refined global-visa and r-tips, with translation
-- Jun 9 · added a cover image field to listings; refined categories and descriptions
+- Jun 7 · fix: sidebar toggle area; change favicon to spark
+- Jun 7 · dev: switch publishing to `quarto publish gh-pages --no-render` ; rename r-tips from .md to .qmd so it shows in listings
+- Jun 9 · fix: 404 page language & route with in-page scripts
+- Jun 9 · feat: add env/version blocks & number-sections to projects; add image field to listing (card cover)
+- Jun 9 · contnt: refactor ai-tweets to ai-discourse; refine & translate global-visa & r-tips; refine all categories and descriptions
 
 ### Blog section opened {date="Jun 11 - Jun 13" iso="2026-06-11" commits="4" hours="4" days="3"}
 
 The blog section started with a post on misplaced system folders. Also fixed the long-standing navbar active-anchor bug.
 
-- Jun 11 · fixed the navbar active anchor; brought all JS in line with one convention
-- Jun 12 · refined the homepage
-- Jun 13 · added the blog `fix-misplaced-sysfolders` and its listing page
-- Jun 13 · refined the sidebar YAML and layout; added a cover image
-- Jun 13 · fixed the search cancel button style
+- Jun 11 · fix: navbar active anchor; refine all JS with code convention
+- Jun 12 · contnt: refine homepage
+- Jun 13 · blg: init blogs listing page, add fix-misplaced-sysfolders (now shellfolders)
+- Jun 13 · dev: refine sidebar YAML & layout; add cover images
+- Jun 13 · style: fix search bar cancel button line wrap
 
 ### Figure styles solved; image-hosting workflow {date="Jun 14 - Jun 16" iso="2026-06-14" commits="12" hours="20.5" days="3"}
 
 Three long days on the shellfolder blog and figure styling. The image sizing and centering fix became its own post, quarto-img-styles.
 
-- Jun 14 · fixed sidebar search not showing; styled the navbar dropdown
-- Jun 14 · added Bootstrap icons to quicklinks; fixed inline code wrap and non-executable code cell styles
-- Jun 14 · refined the Chinese fix-misplaced-sysfolders post
-- Jun 15 · solved responsive image sizing and centering in Quarto
-- Jun 15 · set up PicGo with GitHub as the image host
-- Jun 15 · wrote the fix up as a blog post; styled the lightbox and line breaks
-- Jun 16 · refined and translated quarto-img-styles; refined both shellfolder versions
+- Jun 14 · fix: sidebar search not showing bug (repeated #quarto-search)
+- Jun 14 · style: navbar dropdown; in-line code wrap; non-executable code block; line break styles
+- Jun 14 · dev: add Bootstrap icons to quicklinks
+- Jun 14 · blg: refine fix-misplaced-sysfolders zh
+- Jun 15 · fix: responsive image sizing and centering
+- Jun 15 · blg: add fix notes to blg (quarto-img-styles)
+- Jun 15 · dev: set up PicGo with GitHub as image host
+- Jun 15 · feat: enable img lightbox
+- Jun 16 · blg: refine & translate quarto-img-styles; refine shellfolder en/zh
 
 ### Shellfolder blog finished; second publish {date="Jun 17 - Jun 19" iso="2026-06-17" commits="7" hours="11.5" days="3"}
 
 The shellfolder post reached its final structure in both languages, and the site was republished with cleaner routes.
 
-- Jun 17 · refined shellfolder structure and TOC options
-- Jun 18 · style pass: dropdown items, listing tag counts, centered figure captions, title-block tags, spacing
-- Jun 19 · finished quarto-img-styles refinement and translation
-- Jun 19 · stripped `/index.html` from routes with a script; refined the listing sort and filter UI
-- Jun 19 · published to gh-pages
+- Jun 17 · blg: refine shellfolder (structure + TOC opts)
+- Jun 18 · style: dropdown-item; rm toc padding transit; show listing-tag counts; centered all fig-caps; title-block tags; rem/pad/mar
+- Jun 19 · blg: finish quarto-img-styles
+- Jun 19 · fix: strip `/index.html` from routes with script; refined the listing sort and filter UI
+- Jun 19 · dev: publish to gh-pages
 
 ### Mobile pass {date="Jun 20 - Jun 21" iso="2026-06-20" commits="4" hours="5.25" days="2"}
 
 First proper mobile work: button layout, tag collapse, dropdown layering, and a host setting for testing on a phone.
 
-- Jun 20 · made home buttons flex on mobile; collapsed listing page tags
-- Jun 20 · moved the nav dropdown menu above the sidebar layer
-- Jun 20 · added a default host and port so the site previews on a phone
-- Jun 21 · set up listing home pages in YAML
+- Jun 20 · feat: home buttons flex on mobile; collapsed listing page tags with script
+- Jun 20 · fix: nav-dropdown overlayed by sidebar on mobile
+- Jun 20 · dev: add default host & port for mobile dev
+- Jun 21 · feat: set up homepage listing (replacing hard-coded cards)
 
 ## Phase 6 · Tools, dark mode & features {range="Jun 22 - Jul 3"}
 
@@ -180,57 +176,59 @@ First proper mobile work: button layout, tag collapse, dropdown layering, and a 
 
 An all-posts listing with post-type filters, plus an edit-this-page link on every article.
 
-- added the all-posts page and its post-type filter script
-- fixed the responsive tag bar's render delay
-- added edit-this-page
+- feat: add all-posts page and its post-type filter script
+- feat: enable edit-this-page
+- fix: responsive tag bar's render delay
 
 ### Tools section {date="Jun 23 - Jun 24" iso="2026-06-23" commits="8" hours="10.25" days="2"}
 
-A new section for small web tools: a URL shortener, a cat image hub, and a news hub.
+A new section for web tools: URL shortener, Cat Image Hub, News Hub, etc.
 
-- Jun 23 · initialized the tools section; built url-shortener and cat-img-hub
-- Jun 23 · fixed the page tag redirect; refined tags and the home intro
-- Jun 24 · finished news-hub; refined the other two tools
-- Jun 24 · aliased ai-tweets; fixed mobile font sizes in nav, sidebar, and buttons
-- Jun 24 · published to gh-pages
+- Jun 23 · tool: init tools section; add url-shortener and cat-img-hub
+- Jun 23 · fix: page tag redirect (caused by listing-page>1)
+- JUn 23 · contnt: refine tags and home intro
+- Jun 24 · tool: finish news-hub; refine the other two tools
+- Jun 24 · fix: mobile font sizes in nav, sidebar, and buttons
+- Jun 24 · dev: alias ai-tweets; published to gh-pages
 
 ### Dark mode {date="Jun 25 - Jun 26" iso="2026-06-25" commits="4" hours="8" days="2"}
 
 All styles merged into portfolio.scss, and the site gained a full dark theme in portfolio-dark.
 
-- Jun 25 · restructured the styles
-- Jun 26 · combined every stylesheet into `portfolio.scss`; added `portfolio-dark` and dark mode
-- Jun 26 · refined all styles; moved notes in content into callout blocks
+- Jun 25 · dev: restructure all styles
+- Jun 26 · dev: enable light-dark themes `portfolio.scss` and `portfolio-dark.scss` 
+- Jun 26 · style: refine all styles; enable callout blocks
 - Jun 26 · published to gh-pages
 
 ### Mobile line breaks and a contribution graph {date="Jun 27 - Jun 28" iso="2026-06-27" commits="7" hours="11.25" days="2"}
 
 Mobile tables stopped overflowing, the homepage got a GitHub contribution graph, and every script moved into one structure.
 
-- Jun 27 · fixed line breaks on mobile (the shellfolder table); noted the `<wbr>` lesson
-- Jun 27 · added a GitHub contribution graph to both homepages
-- Jun 27 · enabled mobile-only and mobile-hide utility classes
-- Jun 28 · added macbook-frame and img-frame components for blogs and tools
-- Jun 28 · added a copyright-year script; restructured all scripts
-- Jun 28 · styled code-with-filename; reset the site URL, which fixed a 404 render bug
+- Jun 27 · fix: line breaks on mobile (esp. table cell, use `<wbr>` if needed)
+- Jun 27 · feat: add responsive GitHub contribution graph to home; enabled mobile-only and mobile-hide utility classes
+- Jun 28 · feat: add macbook-frame and img-frame components for blogs and tools
+- Jun 28 · feat: add copyright-year script; restructure all JS
+- Jun 28 · style: enable code-with-filename
+- Jun 28 · reset site URL (fixing 404 render bug)
 
 ### Comments and a reproduction guide {date="Jun 29 - Jul 1" iso="2026-06-29" commits="6" hours="11.75" days="2"}
 
 Giscus comments went live, and a new page documents how to reproduce the R and Python environments. README in both languages.
 
-- Jun 29 · added giscus comments; styled hr and the dark-mode image shade
-- Jun 29 · built a visitor counter and bio playground
-- Jun 29 · documented the R and Python environments; wrote the Reproduce This Project page
-- Jun 29 · fixed readme page tag padding; re-initialized the About page
-- Jul 1 · wrote the Chinese README; finished the readme page in both languages
+- Jun 29 · feat: add giscus comments; 
+- Jun 29 · style: refine hr; add dark-mode image shade; fix readme page tag padding
+- Jun 29 · dev: document R & Python env; add Reproduce instruction; explore visitor counter and bio yml in dev-playground
+- Jun 29 · contnt: re-init About page
+- Jul 1 · contnt: README.zh; readme (Reproduce instruction) en/zh
 
-### Language-aware comments and this page {date="Jul 2 - Jul 3" iso="2026-07-02" commits="6" hours="10.5" days="2"}
+### Language-aware comments & Change Logs {date="Jul 2 - Jul 3" iso="2026-07-02" commits="6" hours="10.5" days="2"}
 
-Giscus now follows the page language, active tags toggle off on a second click, and external links show an icon. This change log closes out the phase.
+Giscus now follows the page language, active tags toggle off on a second click, and external links show an icon. Implemented change logs.
 
-- Jul 2 · set giscus to English on `/en/` and Chinese on `/zh/`
-- Jul 2 · made the tag bar revert to All when the active tag is clicked again
-- Jul 2 · added the external links YAML and link icons; fixed the icon on image links
-- Jul 2 · added GitHub Actions to keep supabase and mongodb from expiring
-- Jul 2 · refined `.gitignore`; added About to the nav
-- Jul 3 · added this change log page
+- Jul 2 · feat: enable giscus en/zh-CN
+- Jul 2 · feat: tag bar revert to All after clicking active tag
+- Jul 2 · feat: add external links YAML & link icons; fix icon on image links
+- Jul 2 · dev: add gh-actions to keep supabase and mongodb alive; refine `.gitignore`; add About to nav
+- Jul 2 · contnt: (external sites:) build Bayanihan demo; refine URL-shortener footer
+- Jul 3 · feat: add change log page
+- Jul 3 · fix: cross-ref (no space allowed in `tbl-colwitdths`); lang zh (instead of zh-CN) in Quarto; archive render error (config `render` options)
