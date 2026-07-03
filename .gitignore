@@ -18,6 +18,7 @@ __pycache__/
 .ipynb_checkpoints/
 *.pyc
 **/*.quarto_ipynb
+**/*.quarto_ipynb*
 
 # System
 .DS_Store

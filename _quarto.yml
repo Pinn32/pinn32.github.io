@@ -41,8 +41,9 @@ website:
       #   href: en/hobbies/index.qmd
       # - text: All Posts
       #   href: en/all-posts/index.qmd
-      # - text: About
-      #   href: about/index.qmd
+      - text: About
+        href: en/about/index.qmd
+
 
     ###### NavBar Tools #################################################
     tools: 
