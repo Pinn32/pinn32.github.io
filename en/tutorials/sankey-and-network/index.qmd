@@ -376,10 +376,10 @@ fig.show()
 
 ## Comparing Sankey Diagrams and Network Graphs
 
-Both Sankey diagrams and network graphs visualize relational data, but with different emphases, as shown in @tbl-sankey-network:
+Both Sankey diagrams and network graphs visualize relational data, but with different emphases, as shown in @tbl-sankey-vs-network:
 
 | Feature | Sankey Diagram | Network Graph |
-|:------:|:--------:|:--------:|
+|:-------:|:---------------:|:-------------:|
 | Primary Use | Visualize resource flow quantities | Visualize connections between nodes |
 | Node Meaning | Process stage or entity | Individual (e.g., a user) |
 | Connection Name | Link | Edge |
@@ -388,7 +388,9 @@ Both Sankey diagrams and network graphs visualize relational data, but with diff
 | Key Characteristics | Hierarchical, flow conservation | Connection strength and relational distance |
 | Application Examples | Energy distribution, cost allocation | Social networks, computer networks |
 
-: Comparison of Sankey Diagrams and Network Graphs {#tbl-sankey-network tbl-colwidths=[20, 35, 45]}
+: Comparison of Sankey Diagrams and Network Graphs {#tbl-sankey-vs-network tbl-colwidths=[20,35,45]}
+
+
 
 ## Drawing Network Graphs
 
