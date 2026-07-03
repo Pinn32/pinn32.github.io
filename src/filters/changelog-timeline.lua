@@ -181,7 +181,7 @@ local function build_heatmap(daily)
     })
 end
 
-local HEATMAP_SCRIPT = [[
+local HEATMAP_SCRIPT = [=[
 <script>
   (() => {
     const hm = document.querySelector('.cl-heatmap');
@@ -207,9 +207,18 @@ local HEATMAP_SCRIPT = [[
       });
     });
 
-    // one shared tooltip, shown above the hovered/focused cell
+    // one shared tooltip, shown above the hovered/focused cell; on the
+    // type tabs it shows that type's count instead of commits/hours
+    const tipText = (cell) => {
+      const metric = hm.dataset.metric;
+      const base = cell.dataset.tip || '';
+      if (metric === 'commits') return base;
+      const v = +cell.dataset[KEY[metric]] || 0;
+      if (v === 0 && !+cell.dataset.c) return base;   // "no activity" days
+      return base.split(' · ')[0] + ' · ' + v + ' ' + metric;
+    };
     const show = (cell) => {
-      tip.textContent = cell.dataset.tip || '';
+      tip.textContent = tipText(cell);
       tip.hidden = false;
       const hr = hm.getBoundingClientRect();
       const cr = cell.getBoundingClientRect();
@@ -226,7 +235,7 @@ local HEATMAP_SCRIPT = [[
     });
   })();
 </script>
-]]
+]=]
 
 local ORDER_SCRIPT = [[
 <script>
