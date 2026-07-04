@@ -389,7 +389,7 @@ window.Quarto = {
           </li>
       </ul>
     </div>
-    <a href="https://github.com/Pinn32/dv-projects" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Pinn32/pinn32.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
     <a href="https://www.linkedin.com/in/aiqi-xu-71943b378/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -601,7 +601,7 @@ window.Quarto = {
   <li><a href="#joint-plot" id="toc-joint-plot" class="nav-link" data-scroll-target="#joint-plot"><span class="header-section-number">7</span> Joint Plot</a></li>
   <li><a href="#pair-plot" id="toc-pair-plot" class="nav-link" data-scroll-target="#pair-plot"><span class="header-section-number">8</span> Pair Plot</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Pinn32/dv-projects/edit/main/en/tutorials/multivariate-plots/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Pinn32/dv-projects/blob/main/en/tutorials/multivariate-plots/index.qmd" target="_blank" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Pinn32/dv-projects/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Pinn32/pinn32.github.io/edit/main/en/tutorials/multivariate-plots/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/blob/main/en/tutorials/multivariate-plots/index.qmd" target="_blank" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -652,8 +652,8 @@ window.Quarto = {
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     20 min read</span><span> · </span><span>3839 EN words</span><span> · </span><span>0 中文字</span></div>
-<div id="f6ba4dda" class="cell" data-execution_count="1">
+     20 min read</span><span> · </span><span>3841 EN words</span><span> · </span><span>0 中文字</span></div>
+<div id="44063fc2" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Environment and Versions</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>python<span class="op">==</span><span class="fl">3.12</span></span>
@@ -667,13 +667,13 @@ window.Quarto = {
 <p><strong>“Tidy/flat” tabular data:</strong> Each row is one <strong>observation</strong> (also called instance or record), and each column is one <strong>variable</strong> (also called attribute, feature, or parameter).</p>
 <p>Typically, <strong>multivariate</strong> refers to data with more than two variables — a multivariate plot generally uses three or more columns from the original DataFrame.</p>
 <p>When creating a bar chart, in addition to the x and y variables, you can also set the <code>hue</code> parameter to include a third variable. For example, <a href="#fig-bar-variables" class="quarto-xref">Figure&nbsp;1</a> includes three variables: <code>'island'</code>, <code>'body_mass_g'</code>, and <code>'sex'</code>.</p>
-<div id="64a4369d" class="cell" data-execution_count="2">
+<div id="27b53f5e" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import libraries</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="d29d497b" class="cell" data-execution_count="3">
+<div id="251869ee" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load example dataset from Seaborn</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'penguins'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -3591,7 +3591,7 @@ Figure&nbsp;41: Pair plot: histogram form
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Pinn32/dv-projects/edit/main/en/tutorials/multivariate-plots/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Pinn32/dv-projects/blob/main/en/tutorials/multivariate-plots/index.qmd" target="_blank" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Pinn32/dv-projects/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Pinn32/pinn32.github.io/edit/main/en/tutorials/multivariate-plots/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/blob/main/en/tutorials/multivariate-plots/index.qmd" target="_blank" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

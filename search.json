@@ -4,7 +4,7 @@
     "href": "zh/tutorials/sankey-and-network/index.html",
     "title": "桑基图与网络图",
     "section": "",
-    "text": "8 min read · 252 EN words · 1953 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nplotly==5.24.1\nmatplotlib==3.9.x\npyvis==0.3.2\nnetworkx==3.3",
+    "text": "8 min read · 254 EN words · 1953 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nplotly==5.24.1\nmatplotlib==3.9.x\npyvis==0.3.2\nnetworkx==3.3",
     "crumbs": [
       "数据分析教程",
       "桑基图与网络图"
@@ -103,7 +103,7 @@
     "href": "zh/tutorials/multivariate-plots/index.html",
     "title": "多变量图表",
     "section": "",
-    "text": "21 min read · 704 EN words · 5134 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "21 min read · 706 EN words · 5134 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "数据分析教程",
       "多变量图表"
@@ -180,7 +180,7 @@
     "href": "zh/tutorials/data-processing/index.html",
     "title": "数据清理",
     "section": "",
-    "text": "10 min read · 857 EN words · 1477 中文字\n环境与版本\npython==3.12\npandas==2.2.2",
+    "text": "10 min read · 859 EN words · 1477 中文字\n环境与版本\npython==3.12\npandas==2.2.2",
     "crumbs": [
       "数据分析教程",
       "数据清理"
@@ -268,7 +268,7 @@
     "href": "zh/tools/url-shortener/index.html",
     "title": "短链接生成器",
     "section": "",
-    "text": "3 min read · 152 EN words · 586 中文字",
+    "text": "3 min read · 154 EN words · 586 中文字",
     "crumbs": [
       "Web工具",
       "短链接生成器"
@@ -351,7 +351,7 @@
     "href": "zh/projects/most-streamed-songs/index.html",
     "title": "Spotify 最高播放量歌曲——音乐特征与受众趋势分析",
     "section": "",
-    "text": "9 min read · 241 EN words · 2236 中文字\n环境与版本\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
+    "text": "9 min read · 243 EN words · 2236 中文字\n环境与版本\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
     "crumbs": [
       "可视化项目",
       "Spotify 最高播放量歌曲——音乐特征与受众趋势分析"
@@ -472,7 +472,7 @@
     "href": "zh/projects/global-visa-cost/index.html",
     "title": "全球签证费用地区分析",
     "section": "",
-    "text": "10 min read · 248 EN words · 2503 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nplotly==5.24.1",
+    "text": "10 min read · 250 EN words · 2503 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nplotly==5.24.1",
     "crumbs": [
       "可视化项目",
       "全球签证费用地区分析"
@@ -538,7 +538,7 @@
     "href": "zh/projects/ai-discourse/index.html",
     "title": "网络AI话语的演变",
     "section": "",
-    "text": "34 min read · 999 EN words · 8586 中文字\n环境与版本\nR==4.5.2\nMASS==7.3.65\ntidyverse==2.0.0\ntidytext==0.4.3\ntextdata==0.4.5\ntopicmodels==0.2.17\nscales==1.4.0\nbroom==1.0.12\ntextutils==0.4.3\nknitr==1.51",
+    "text": "34 min read · 1001 EN words · 8586 中文字\n环境与版本\nR==4.5.2\nMASS==7.3.65\ntidyverse==2.0.0\ntidytext==0.4.3\ntextdata==0.4.5\ntopicmodels==0.2.17\nscales==1.4.0\nbroom==1.0.12\ntextutils==0.4.3\nknitr==1.51",
     "crumbs": [
       "可视化项目",
       "网络AI话语的演变"
@@ -736,7 +736,7 @@
     "href": "zh/blogs/recover-shellfolder/index.html",
     "title": "误移系统文件夹恢复",
     "section": "",
-    "text": "9 min read · 222 EN words · 2116 中文字",
+    "text": "9 min read · 224 EN words · 2116 中文字",
     "crumbs": [
       "经验博客",
       "误移系统文件夹恢复"
@@ -822,7 +822,7 @@
     "href": "en/tutorials/sankey-and-network/index.html",
     "title": "Sankey Diagrams and Network Graphs",
     "section": "",
-    "text": "7 min read · 1325 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nplotly==5.24.1\nmatplotlib==3.9.x\npyvis==0.3.2\nnetworkx==3.3",
+    "text": "7 min read · 1327 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nplotly==5.24.1\nmatplotlib==3.9.x\npyvis==0.3.2\nnetworkx==3.3",
     "crumbs": [
       "Projects",
       "Tutorials",
@@ -930,7 +930,7 @@
     "href": "en/tutorials/multivariate-plots/index.html",
     "title": "Multivariate Plots",
     "section": "",
-    "text": "20 min read · 3839 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "20 min read · 3841 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "Projects",
       "Tutorials",
@@ -1014,7 +1014,7 @@
     "href": "en/tutorials/data-processing/index.html",
     "title": "Data Processing",
     "section": "",
-    "text": "8 min read · 1577 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2",
+    "text": "8 min read · 1579 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2",
     "crumbs": [
       "Projects",
       "Tutorials",
@@ -1110,7 +1110,7 @@
     "href": "en/tools/url-shortener/index.html",
     "title": "URL Shortener",
     "section": "",
-    "text": "3 min read · 409 EN words · 0 中文字",
+    "text": "3 min read · 411 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Tools",
@@ -1201,7 +1201,7 @@
     "href": "en/projects/most-streamed-songs/index.html",
     "title": "Spotify Most Streamed Songs",
     "section": "",
-    "text": "8 min read · 1567 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
+    "text": "8 min read · 1569 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
     "crumbs": [
       "Projects",
       "Spotify Most Streamed Songs"
@@ -1322,7 +1322,7 @@
     "href": "en/projects/global-visa-cost/index.html",
     "title": "Global Visa Cost Geographical Analysis",
     "section": "",
-    "text": "9 min read · 1750 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nplotly==5.24.1",
+    "text": "9 min read · 1752 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nplotly==5.24.1",
     "crumbs": [
       "Projects",
       "Global Visa Cost Geographical Analysis"
@@ -1388,7 +1388,7 @@
     "href": "en/projects/ai-discourse/index.html",
     "title": "Evolution of Online AI Discourse",
     "section": "",
-    "text": "28 min read · 5545 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nMASS==7.3.65\ntidyverse==2.0.0\ntidytext==0.4.3\ntextdata==0.4.5\ntopicmodels==0.2.17\nscales==1.4.0\nbroom==1.0.12\ntextutils==0.4.3\nknitr==1.51",
+    "text": "28 min read · 5547 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nMASS==7.3.65\ntidyverse==2.0.0\ntidytext==0.4.3\ntextdata==0.4.5\ntopicmodels==0.2.17\nscales==1.4.0\nbroom==1.0.12\ntextutils==0.4.3\nknitr==1.51",
     "crumbs": [
       "Projects",
       "Evolution of Online AI Discourse"
@@ -1586,7 +1586,7 @@
     "href": "en/blogs/recover-shellfolder/index.html",
     "title": "Recovering Misplaced Windows Shell Folders",
     "section": "",
-    "text": "9 min read · 1618 EN words · 29 中文字",
+    "text": "9 min read · 1620 EN words · 29 中文字",
     "crumbs": [
       "Projects",
       "Blogs",
@@ -1704,11 +1704,18 @@
     "text": "复现特定项目\n前置要求与上文 前置要求 相同。\n从 GitHub 下载特定项目的相关文件。\n例如：/en/projects/student-media-usage/index.qmd\n如有需要，从 /src/data/ 文件夹中找到源数据集，从 /src/img/ 文件夹中找到图片。\n以 student-media-usage 项目为例，你可以选择保留 .qmd 扩展名，或将其改为 .Rmd。\n如果你更倾向使用 .qmd，请按如下方式修改 YAML 选项：\ntitle: 'Student Social Media Usage and Well-being Analysis'\nauthor: 'Pinn Xu'\ndate: '2026-02-23'\nformat:\n  html:\n    code-fold: true\n    highlight-style: pygments\n    theme: flatly\n    toc: true\n    toc-location: right\n运行 quarto render 构建 HTML。\n如果你更倾向使用 .Rmd，请按如下方式修改 YAML 选项：\n---\ntitle: 'Student Social Media Usage and Well-being Analysis'\nauthor: 'Pinn Xu'\ndate: '2026-02-23'\noutput:\n  html_document:\n    code_folding: hide\n    highlight: \"pygments\"\n    theme: \"sandstone\"\n    toc: true\n    toc_float:\n      collapsed: true\n---\n在 RStudio 中点击 Knit，或在 R 控制台运行 rmarkdown::render(\"index.Rmd\") 构建 HTML。"
   },
   {
+    "objectID": "README.zh.html#从-notion-数据库获取变更日志",
+    "href": "README.zh.html#从-notion-数据库获取变更日志",
+    "title": "",
+    "section": "从 Notion 数据库获取变更日志",
+    "text": "从 Notion 数据库获取变更日志\n将 scripts/notion-changelog.json 中的 \"database_id\" 替换为你自己的数据库 ID，然后运行：\npython3 scripts/sync-changelog.py --strict\n前往 Notion 开发者平台 创建你自己的 Notion connection token，复制其中的 “Secret” 值，并将其保存为环境变量 NOTION_TOKEN=...（例如写入 ~/.zshrc）。"
+  },
+  {
     "objectID": "en/blogs/quarto-img-styles/index.html",
     "href": "en/blogs/quarto-img-styles/index.html",
     "title": "Quarto Image Centering Styles",
     "section": "",
-    "text": "4 min read · 662 EN words · 0 中文字",
+    "text": "4 min read · 664 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Blogs",
@@ -1817,7 +1824,7 @@
     "href": "en/projects/catalan-referendum/index.html",
     "title": "Twitter Sentiment Analysis of Catalan Referendum",
     "section": "",
-    "text": "8 min read · 1490 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "8 min read · 1492 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "Projects",
       "Twitter Sentiment Analysis of Catalan Referendum"
@@ -1915,7 +1922,7 @@
     "href": "en/projects/student-media-usage/index.html",
     "title": "Student Social Media Usage and Well-being Analysis",
     "section": "",
-    "text": "17 min read · 3207 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
+    "text": "17 min read · 3209 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
     "crumbs": [
       "Projects",
       "Student Social Media Usage and Well-being Analysis"
@@ -2146,7 +2153,7 @@
     "href": "en/tools/cat-img-hub/index.html",
     "title": "Cat Image Hub",
     "section": "",
-    "text": "3 min read · 519 EN words · 0 中文字",
+    "text": "3 min read · 521 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Tools",
@@ -2206,7 +2213,7 @@
     "href": "en/tools/news-hub/index.html",
     "title": "News Hub",
     "section": "",
-    "text": "3 min read · 429 EN words · 0 中文字",
+    "text": "3 min read · 431 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Tools",
@@ -2254,7 +2261,7 @@
     "href": "en/tutorials/amounts-and-distribution/index.html",
     "title": "Amounts and Distribution",
     "section": "",
-    "text": "9 min read · 1624 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "9 min read · 1626 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "Projects",
       "Tutorials",
@@ -2421,7 +2428,7 @@
     "href": "en/tutorials/r-tips/index.html",
     "title": "R Tips",
     "section": "",
-    "text": "5 min read · 924 EN words · 0 中文字",
+    "text": "5 min read · 926 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Tutorials",
@@ -2728,7 +2735,7 @@
     "href": "zh/blogs/quarto-img-styles/index.html",
     "title": "Quarto 图片居中样式",
     "section": "",
-    "text": "5 min read · 168 EN words · 954 中文字",
+    "text": "5 min read · 170 EN words · 954 中文字",
     "crumbs": [
       "经验博客",
       "Quarto 图片居中样式"
@@ -2829,7 +2836,7 @@
     "href": "zh/projects/catalan-referendum/index.html",
     "title": "Twitter 加泰罗尼亚公投情感分析",
     "section": "",
-    "text": "9 min read · 326 EN words · 1973 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "9 min read · 328 EN words · 1973 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "可视化项目",
       "Twitter 加泰罗尼亚公投情感分析"
@@ -2927,7 +2934,7 @@
     "href": "zh/projects/student-media-usage/index.html",
     "title": "学生社交媒体使用与幸福感分析",
     "section": "",
-    "text": "18 min read · 354 EN words · 4709 中文字\n环境与版本\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
+    "text": "18 min read · 356 EN words · 4709 中文字\n环境与版本\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
     "crumbs": [
       "可视化项目",
       "学生社交媒体使用与幸福感分析"
@@ -3158,7 +3165,7 @@
     "href": "zh/tools/cat-img-hub/index.html",
     "title": "猫咪图片收藏站",
     "section": "",
-    "text": "4 min read · 212 EN words · 742 中文字",
+    "text": "4 min read · 214 EN words · 742 中文字",
     "crumbs": [
       "Web工具",
       "猫咪图片收藏站"
@@ -3213,7 +3220,7 @@
     "href": "zh/tools/news-hub/index.html",
     "title": "新闻汇总收藏站",
     "section": "",
-    "text": "4 min read · 197 EN words · 607 中文字",
+    "text": "4 min read · 199 EN words · 607 中文字",
     "crumbs": [
       "Web工具",
       "新闻汇总收藏站"
@@ -3257,7 +3264,7 @@
     "href": "zh/tutorials/amounts-and-distribution/index.html",
     "title": "数量与分布可视化",
     "section": "",
-    "text": "10 min read · 424 EN words · 2183 中文字\n环境和版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "10 min read · 422 EN words · 2183 中文字\n环境和版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "数据分析教程",
       "数量与分布可视化"
@@ -3410,7 +3417,7 @@
     "href": "zh/tutorials/r-tips/index.html",
     "title": "R 语言技巧",
     "section": "",
-    "text": "6 min read · 349 EN words · 1260 中文字",
+    "text": "6 min read · 351 EN words · 1260 中文字",
     "crumbs": [
       "数据分析教程",
       "R 语言技巧"
