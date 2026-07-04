@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
-"""Sync the change-log timeline from Notion into en/changes/_timeline.md.
+"""Sync the change-log timeline from Notion into en/ and zh/ changes/_timeline.md.
 
 Reads the "Site Change Log" Notion database (one row per timeline node,
 Type = Phase | Entry; entry detail bullets live in the row's page body)
-and regenerates the markdown partial consumed by
+and regenerates the markdown partials consumed by
 src/filters/changelog-timeline.lua.
+
+Chinese translations live in the same database and fall back to English
+wherever absent, so only new content ever needs translating:
+    - row properties "Name zh" and "Summary zh" (rich text)
+    - each bullet's translation is a nested child bullet under the English
+      bullet, written as "tag: 中文文本" (no day prefix; the day prefix and a
+      missing tag are inherited from the English parent)
+After each sync a report lists whatever is still untranslated.
 
 Usage:
     NOTION_TOKEN=ntn_... python3 scripts/sync-changelog.py [--strict]
@@ -17,8 +25,8 @@ Config:
 Behavior:
     - stdlib only; no third-party packages
     - graceful degrade: missing token/config or any network error prints a
-      warning and exits 0, keeping the existing _timeline.md, so builds
-      work offline. --strict turns those cases into exit 1.
+      warning and exits 0, keeping the existing _timeline.md files, so
+      builds work offline. --strict turns those cases into exit 1.
     - writes only if content changed (atomic replace), so repeated runs
       don't churn file mtimes.
 
@@ -29,6 +37,7 @@ data-source queries; revisit if the pin ever stops working.
 
 import json
 import os
+import re
 import sys
 import time
 import urllib.error
@@ -36,7 +45,10 @@ import urllib.request
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-OUT_FILE = REPO_ROOT / "en" / "changes" / "_timeline.md"
+OUT_FILES = {
+    "en": REPO_ROOT / "en" / "changes" / "_timeline.md",
+    "zh": REPO_ROOT / "zh" / "changes" / "_timeline.md",
+}
 CONFIG_FILE = REPO_ROOT / "scripts" / "notion-changelog.json"
 
 API_BASE = "https://api.notion.com/v1"
@@ -51,7 +63,7 @@ HEADER_COMMENT = (
 
 
 class SyncSkip(Exception):
-    """Non-fatal condition: keep the existing file."""
+    """Non-fatal condition: keep the existing files."""
 
 
 def warn(msg):
@@ -94,7 +106,8 @@ def query_database(token, db_id):
 
 
 def fetch_bullets(token, page_id):
-    """Return the rich-text arrays of the page's bulleted list items."""
+    """Return the page's bulleted list items as dicts:
+    {"spans": rich_text, "id": block_id, "has_children": bool}."""
     bullets = []
     url = f"{API_BASE}/blocks/{page_id}/children?page_size=100"
     while True:
@@ -102,13 +115,41 @@ def fetch_bullets(token, page_id):
         for block in data.get("results", []):
             btype = block.get("type")
             if btype == "bulleted_list_item":
-                bullets.append(block[btype].get("rich_text", []))
+                bullets.append({
+                    "spans": block[btype].get("rich_text", []),
+                    "id": block.get("id"),
+                    "has_children": block.get("has_children", False),
+                })
             else:
                 warn(f"skipping non-bullet block '{btype}' on page {page_id}")
         if not data.get("has_more"):
             return bullets
         url = (
             f"{API_BASE}/blocks/{page_id}/children"
+            f"?page_size=100&start_cursor={data['next_cursor']}"
+        )
+
+
+def fetch_bullet_translation(token, block_id):
+    """Return the rich text of a bullet's first child bullet (its zh
+    translation), or None. Extra/non-bullet children are warned about."""
+    time.sleep(BLOCK_FETCH_DELAY)
+    first = None
+    url = f"{API_BASE}/blocks/{block_id}/children?page_size=100"
+    while True:
+        data = notion_request(token, "GET", url)
+        for block in data.get("results", []):
+            btype = block.get("type")
+            if btype != "bulleted_list_item":
+                warn(f"skipping non-bullet child '{btype}' under {block_id}")
+            elif first is None:
+                first = block[btype].get("rich_text", [])
+            else:
+                warn(f"extra child bullet under {block_id} ignored")
+        if not data.get("has_more"):
+            return first
+        url = (
+            f"{API_BASE}/blocks/{block_id}/children"
             f"?page_size=100&start_cursor={data['next_cursor']}"
         )
 
@@ -200,60 +241,179 @@ def fmt_num(x):
 
 
 # ---------------------------------------------------------------------------
-# Markdown generation
+# Fetch: one API pass -> language-neutral nodes + untranslated report
 # ---------------------------------------------------------------------------
 
-def render_markdown(token, rows):
-    def sort_key(page):
-        start = prop_date(page, "Start") or "9999-12-31"
-        is_entry = 1 if prop_select(page, "Type") == "Entry" else 0
-        return (start, is_entry)
+def sort_key(page):
+    start = prop_date(page, "Start") or "9999-12-31"
+    is_entry = 1 if prop_select(page, "Type") == "Entry" else 0
+    return (start, is_entry)
 
-    lines = [HEADER_COMMENT, ""]
+
+def fetch_timeline(token, rows):
+    """Build plain node dicts for both languages in a single API pass.
+
+    Returns (nodes, missing) where missing records per-row untranslated
+    fields/bullets for the report."""
+    nodes, missing = [], []
     for page in sorted(rows, key=sort_key):
         ptype = prop_select(page, "Type")
         name = rich_text_to_md(_prop(page, "Name").get("title", []))
+        name_zh = rich_text_to_md(prop_rich(page, "Name zh")) or None
+        miss = {"title": prop_title(page, "Name"), "fields": [], "bullets": []}
+        if not name_zh:
+            miss["fields"].append("Name zh")
 
         if ptype == "Phase":
-            lines.append(f'## {name} {{range="{attr_escape(prop_text(page, "Date label"))}"}}')
-            lines.append("")
+            nodes.append({
+                "type": "Phase",
+                "name": name,
+                "name_zh": name_zh,
+                "range": prop_text(page, "Date label"),
+            })
         elif ptype == "Entry":
+            summary = rich_text_to_md(prop_rich(page, "Summary"))
+            summary_zh = rich_text_to_md(prop_rich(page, "Summary zh")) or None
+            if summary and not summary_zh:
+                miss["fields"].append("Summary zh")
+            time.sleep(BLOCK_FETCH_DELAY)
+            bullets = []
+            for b in fetch_bullets(token, page["id"]):
+                en_md = rich_text_to_md(b["spans"])
+                if not en_md.strip():
+                    warn(f"skipping empty bullet on row {miss['title']!r}")
+                    continue
+                zh_md = None
+                if b["has_children"]:
+                    spans = fetch_bullet_translation(token, b["id"])
+                    if spans:
+                        zh_md = rich_text_to_md(spans)
+                if zh_md is None:
+                    miss["bullets"].append(en_md)
+                bullets.append({"en": en_md, "zh": zh_md})
+            nodes.append({
+                "type": "Entry",
+                "name": name,
+                "name_zh": name_zh,
+                "date_label": prop_text(page, "Date label"),
+                "iso": prop_date(page, "Start") or "",
+                "commits": fmt_num(prop_number(page, "Commits")),
+                "hours": fmt_num(prop_number(page, "Hours")),
+                "days": fmt_num(prop_number(page, "Days")),
+                "summary": summary,
+                "summary_zh": summary_zh,
+                "bullets": bullets,
+            })
+        else:
+            warn(f"row with unknown Type {ptype!r} skipped: {name!r}")
+            continue
+
+        if miss["fields"] or miss["bullets"]:
+            missing.append(miss)
+    return nodes, missing
+
+
+# ---------------------------------------------------------------------------
+# Markdown generation (pure; no API access)
+# ---------------------------------------------------------------------------
+
+DAY_PREFIX_RE = re.compile(r"^([A-Za-z]{3} \d{1,2}) · ")
+TAG_RE = re.compile(r"^([A-Za-z]+): ")
+
+
+def zh_bullet_line(en_md, zh_md):
+    """Compose the zh bullet: the child bullet holds "tag: 中文" without a day
+    prefix, so reuse the English day prefix and inherit a missing tag. Only
+    adds pieces, never strips, so a fully-formed child passes through."""
+    if zh_md is None:
+        return en_md
+    if DAY_PREFIX_RE.match(zh_md):
+        return zh_md    # translator wrote the full line; take it as-is
+    day, rest = None, en_md
+    m = DAY_PREFIX_RE.match(en_md)
+    if m:
+        day = m.group(1)
+        rest = en_md[m.end():]
+    if not TAG_RE.match(zh_md):
+        tag = TAG_RE.match(rest)
+        if tag:
+            zh_md = f"{tag.group(1)}: {zh_md}"
+    if day:
+        zh_md = f"{day} · {zh_md}"
+    return zh_md
+
+
+def render_markdown(nodes, lang):
+    zh = lang == "zh"
+
+    def pick(node, key):
+        return (node[f"{key}_zh"] or node[key]) if zh else node[key]
+
+    lines = [HEADER_COMMENT, ""]
+    for node in nodes:
+        if node["type"] == "Phase":
+            lines.append(
+                f'## {pick(node, "name")} {{range="{attr_escape(node["range"])}"}}'
+            )
+            lines.append("")
+        else:
             attrs = " ".join(
                 f'{k}="{attr_escape(v)}"'
                 for k, v in [
-                    ("date", prop_text(page, "Date label")),
-                    ("iso", prop_date(page, "Start") or ""),
-                    ("commits", fmt_num(prop_number(page, "Commits"))),
-                    ("hours", fmt_num(prop_number(page, "Hours"))),
-                    ("days", fmt_num(prop_number(page, "Days"))),
+                    ("date", node["date_label"]),
+                    ("iso", node["iso"]),
+                    ("commits", node["commits"]),
+                    ("hours", node["hours"]),
+                    ("days", node["days"]),
                 ]
             )
-            lines.append(f"### {name} {{{attrs}}}")
+            lines.append(f'### {pick(node, "name")} {{{attrs}}}')
             lines.append("")
-            summary = rich_text_to_md(prop_rich(page, "Summary"))
+            summary = pick(node, "summary")
             if summary:
                 lines.append(summary)
                 lines.append("")
-            time.sleep(BLOCK_FETCH_DELAY)
-            bullets = fetch_bullets(token, page["id"])
-            if bullets:
-                for spans in bullets:
-                    lines.append(f"- {rich_text_to_md(spans)}")
+            if node["bullets"]:
+                for b in node["bullets"]:
+                    text = zh_bullet_line(b["en"], b["zh"]) if zh else b["en"]
+                    lines.append(f"- {text}")
                 lines.append("")
-        else:
-            warn(f"row with unknown Type {ptype!r} skipped: {name!r}")
     return "\n".join(lines).rstrip() + "\n"
+
+
+def print_translation_report(missing):
+    if not missing:
+        print("translation: complete — every row and bullet has zh")
+        return
+    total = sum(len(m["fields"]) + len(m["bullets"]) for m in missing)
+    print(f"untranslated ({total}):")
+    for m in missing:
+        fields = f'  [missing {", ".join(m["fields"])}]' if m["fields"] else ""
+        print(f'  {m["title"]}{fields}')
+        for b in m["bullets"]:
+            print(f"    - {b}")
 
 
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
+def write_if_changed(path, content):
+    if path.exists() and path.read_text() == content:
+        print(f"unchanged: {path.relative_to(REPO_ROOT)}")
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(".md.tmp")
+    tmp.write_text(content)
+    os.replace(tmp, path)
+    print(f"wrote {path.relative_to(REPO_ROOT)}")
+
+
 def main():
     strict = "--strict" in sys.argv[1:]
 
     def bail(msg):
-        warn(f"{msg}; keeping existing {OUT_FILE.relative_to(REPO_ROOT)}")
+        warn(f"{msg}; keeping existing timeline partials")
         sys.exit(1 if strict else 0)
 
     token = os.environ.get("NOTION_TOKEN")
@@ -271,18 +431,13 @@ def main():
 
     try:
         rows = query_database(token, db_id)
-        content = render_markdown(token, rows)
+        nodes, missing = fetch_timeline(token, rows)
     except SyncSkip as e:
         bail(str(e))
 
-    if OUT_FILE.exists() and OUT_FILE.read_text() == content:
-        print(f"unchanged: {OUT_FILE.relative_to(REPO_ROOT)}")
-        return
-
-    tmp = OUT_FILE.with_suffix(".md.tmp")
-    tmp.write_text(content)
-    os.replace(tmp, OUT_FILE)
-    print(f"wrote {OUT_FILE.relative_to(REPO_ROOT)} ({len(rows)} rows)")
+    for lang, path in OUT_FILES.items():
+        write_if_changed(path, render_markdown(nodes, lang))
+    print_translation_report(missing)
 
 
 if __name__ == "__main__":

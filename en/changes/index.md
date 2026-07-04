@@ -11,7 +11,7 @@ code-tools: false
 changelog-timeline: true
 format:
   html:
-    css: changes.css
+    css: ../../src/styles/changes.css
 ---
 
 {{< include _timeline.md >}}

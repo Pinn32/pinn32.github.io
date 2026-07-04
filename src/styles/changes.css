@@ -1,7 +1,7 @@
 /* =============================================================================
-   changes.css — vertical double-sided timeline for en/changes/index.md
-   Uses only var(--pf-*) tokens (see src/styles/portfolio.scss), so the same
-   rules work in both the light and dark themes with no overrides.
+   changes.css — vertical double-sided timeline for en/changes/ and zh/changes/
+   index.md. Uses only var(--pf-*) tokens (see src/styles/portfolio.scss), so
+   the same rules work in both the light and dark themes with no overrides.
    ========================================================================== */
 
 /* progressive enhancement: animatable height for <details> open/close */

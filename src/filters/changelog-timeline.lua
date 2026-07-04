@@ -1,6 +1,6 @@
 -- changelog-timeline.lua
 -- transforms conventional markdown into the change-log timeline HTML
--- (classes styled by en/changes/changes.css)
+-- (classes styled by src/styles/changes.css)
 -- only runs when changelog-timeline: true is set in metadata
 --
 -- convention (see en/changes/_timeline.md, generated from Notion):
@@ -38,6 +38,47 @@ local function tag_class(html)
     local tag = html:match('^(%a+):')
     return tag and TAG_CLASS[tag:lower()] or nil
 end
+
+-- UI chrome strings keyed by page language (doc.meta.lang). Data conventions
+-- stay English on every page: day prefixes ("Jun 25 · "), tag prefixes
+-- ("feat:"), date labels, and the heatmap tabs/weekday/month labels — the
+-- parsing regexes and the heatmap depend on them.
+local STRINGS = {
+    en = {
+        commit_one   = ' commit',
+        commit_many  = ' commits',
+        meta_hours   = ' h',
+        tip_commit_one  = ' commit',
+        tip_commit_many = ' commits',
+        tip_hours    = 'h',
+        no_activity  = 'no activity',
+        hm_title     = 'daily activity',
+        hm_aria      = 'Daily activity heat map',
+        less         = 'less',
+        more         = 'more',
+        stats        = '%s work days &middot; %s commits &middot; %s hours logged',
+        newest       = '&#8595; newest first',
+        oldest       = '&#8593; oldest first',
+        more_updates = 'More updates coming&hellip;',
+    },
+    zh = {
+        commit_one   = ' 次提交',
+        commit_many  = ' 次提交',
+        meta_hours   = ' 小时',
+        tip_commit_one  = ' 次提交',
+        tip_commit_many = ' 次提交',
+        tip_hours    = ' 小时',
+        no_activity  = '无活动',
+        hm_title     = '每日活动',
+        hm_aria      = '每日活动热力图',
+        less         = '少',
+        more         = '多',
+        stats        = '%s 个工作日 &middot; %s 次提交 &middot; 记录 %s 小时',
+        newest       = '&#8595; 最新在前',
+        oldest       = '&#8593; 最早在前',
+        more_updates = '更多更新，敬请期待&hellip;',
+    },
+}
 
 local function colorize_tag(html)
     local tag, rest = html:match('^(%a+):%s*(.*)$')
@@ -79,7 +120,8 @@ end
 local DAY = 86400
 
 -- daily: iso date -> { commits, hours, feat, content, dev, approx }
-local function build_heatmap(daily)
+-- L: resolved STRINGS entry for the page language
+local function build_heatmap(daily, L)
     local dates = {}
     for k in pairs(daily) do table.insert(dates, k) end
     if #dates == 0 then return '' end
@@ -133,9 +175,10 @@ local function build_heatmap(daily)
             if v then
                 local approx = v.approx and '~' or ''
                 local c = math.floor(v.commits + 0.5)
-                local tip = string.format('%s · %s%d %s · %s%sh',
-                    label, approx, c, c == 1 and 'commit' or 'commits',
-                    approx, fmt(round(v.hours, 10)))
+                local tip = string.format('%s · %s%d%s · %s%s%s',
+                    label, approx, c,
+                    c == 1 and L.tip_commit_one or L.tip_commit_many,
+                    approx, fmt(round(v.hours, 10)), L.tip_hours)
                 table.insert(cells, string.format(
                     '<button type="button" class="cl-hm-cell" data-level="%d"' ..
                     ' data-c="%s" data-feat="%d" data-content="%d" data-dev="%d"' ..
@@ -147,17 +190,18 @@ local function build_heatmap(daily)
                 table.insert(cells,
                     '<span class="cl-hm-cell" data-level="0" data-c="0"' ..
                     ' data-feat="0" data-content="0" data-dev="0"' ..
-                    ' data-tip="' .. label .. ' · no activity"></span>')
+                    ' data-tip="' .. label .. ' · ' .. L.no_activity ..
+                    '"></span>')
             end
         end
         ts = ts + DAY
     end
 
     return table.concat({
-        '<section class="cl-heatmap" aria-label="Daily activity heat map"',
+        '<section class="cl-heatmap" aria-label="', L.hm_aria, '"',
         ' data-metric="commits" style="--hm-weeks:', weeks, '">',
         '<div class="cl-hm-top">',
-        '<span class="cl-hm-title">daily activity</span>',
+        '<span class="cl-hm-title">', L.hm_title, '</span>',
         '<div class="cl-hm-toggle" role="group" aria-label="Heatmap metric">',
         '<button type="button" class="cl-hm-btn" data-metric="commits" aria-pressed="true">commits</button>',
         '<button type="button" class="cl-hm-btn" data-metric="feat" aria-pressed="false">feat</button>',
@@ -169,13 +213,13 @@ local function build_heatmap(daily)
         '<div class="cl-hm-wdays" aria-hidden="true"><span>Mon</span><span>Wed</span><span>Fri</span></div>',
         '<div class="cl-hm-cells">', table.concat(cells), '</div>',
         '</div></div>',
-        '<div class="cl-hm-legend" aria-hidden="true"><span>less</span>',
+        '<div class="cl-hm-legend" aria-hidden="true"><span>', L.less, '</span>',
         '<span class="cl-hm-cell" data-level="0"></span>',
         '<span class="cl-hm-cell" data-level="1"></span>',
         '<span class="cl-hm-cell" data-level="2"></span>',
         '<span class="cl-hm-cell" data-level="3"></span>',
         '<span class="cl-hm-cell" data-level="4"></span>',
-        '<span>more</span></div>',
+        '<span>', L.more, '</span></div>',
         '<div class="cl-hm-tip" role="tooltip" hidden></div>',
         '</section>',
     })
@@ -280,7 +324,8 @@ local ORDER_SCRIPT = [[
       });
       tl.dataset.order = newest ? 'newest' : 'oldest';
       btn.dataset.order = newest ? 'newest' : 'oldest';
-      btn.innerHTML = newest ? '&#8595; newest first' : '&#8593; oldest first';
+      // localized labels are provided by the filter as data attributes
+      btn.textContent = newest ? btn.dataset.labelNewest : btn.dataset.labelOldest;
       // replay the scroll-reveal for the reordered cards
       if (window.clReveal) window.clReveal();
     });
@@ -324,6 +369,10 @@ local REVEAL_SCRIPT = [[
 function Pandoc(doc)
 
     if not doc.meta['changelog-timeline'] then return doc end
+
+    -- UI chrome language ('zh' pages inherit lang from zh/_metadata.yml)
+    local lang = doc.meta.lang and pandoc.utils.stringify(doc.meta.lang) or 'en'
+    local L = STRINGS[lang:match('^%a+')] or STRINGS.en
 
     --------------------------------------------------
     -- Flatten section Divs (defensive: harmless when
@@ -430,7 +479,7 @@ function Pandoc(doc)
             totals.commits = totals.commits + commits
             totals.hours   = totals.hours + hours
             totals.days    = totals.days + (tonumber(a['days']) or 0)
-            local unit = (commits == 1) and ' commit' or ' commits'
+            local unit = (commits == 1) and L.commit_one or L.commit_many
             entry = {
                 head =
                     '<time class="cl-date" datetime="' .. (a['iso'] or '') .. '">' ..
@@ -438,7 +487,7 @@ function Pandoc(doc)
                     '<span class="cl-title">' .. inlines_to_html(blk.content) .. '</span>',
                 meta =
                     '<span class="cl-meta">' .. fmt(commits) .. unit ..
-                    ' &middot; ' .. fmt(hours) .. ' h</span>',
+                    ' &middot; ' .. fmt(hours) .. L.meta_hours .. '</span>',
                 body = nil,
                 has_summary = false,
                 iso = a['iso'] or '',
@@ -556,19 +605,23 @@ function Pandoc(doc)
 
     local stats =
         '<p class="cl-stats">' ..
-        fmt(totals.days) .. ' work days &middot; ' ..
-        fmt(totals.commits) .. ' commits &middot; ' ..
-        fmt(math.floor(totals.hours + 0.5)) .. ' hours logged</p>'
+        string.format(L.stats,
+            fmt(totals.days), fmt(totals.commits),
+            fmt(math.floor(totals.hours + 0.5))) ..
+        '</p>'
 
     local order_btn =
         '<div class="cl-order"><button type="button" class="cl-order-btn"' ..
-        ' data-order="newest">&#8595; newest first</button></div>'
+        ' data-order="newest"' ..
+        ' data-label-newest="' .. L.newest .. '"' ..
+        ' data-label-oldest="' .. L.oldest .. '">' ..
+        L.newest .. '</button></div>'
 
     out:insert(pandoc.RawBlock('html',
-        build_heatmap(daily) .. stats .. order_btn ..
+        build_heatmap(daily, L) .. stats .. order_btn ..
         '<div class="cl-timeline" data-order="newest">' ..
         table.concat(html) .. '</div>' ..
-        '<div class="cl-more">More updates coming&hellip;</div>' ..
+        '<div class="cl-more">' .. L.more_updates .. '</div>' ..
         REVEAL_SCRIPT .. ORDER_SCRIPT .. HEATMAP_SCRIPT))
     out:extend(tail)
 

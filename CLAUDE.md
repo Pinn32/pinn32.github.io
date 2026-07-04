@@ -34,6 +34,7 @@ src/
   styles/
     portfolio.scss         # self-contained LIGHT theme (tokens, layout, code, listings)
     portfolio-dark.scss    # self-contained DARK theme (same section order as portfolio.css)
+    changes.css            # change-log timeline + heatmap (en/ and zh/ changes pages)
   scripts/
     fix-code-fold.html    # JS post-processing
     lang-switch.html      # language switcher logic
@@ -61,25 +62,33 @@ python3 scripts/sync-changelog.py                     # pull change-log content 
 - **Citations** — APA style (`apa.csl`); `.bib` files live alongside each project's `index.qmd`
 - Chinese content (`zh/`) is standalone `.qmd`, not converted from `.ipynb`
 
-## Change Log Page (`en/changes/`)
+## Change Log Pages (`en/changes/`, `zh/changes/`)
 
 Content lives in the Notion database "Site Change Log" (one row per timeline node;
 `Type` = Phase or Entry; entry bullets in the row's page body, day-prefixed like
-`Jun 25 · did the thing`). To update the page:
+`Jun 25 · did the thing`). Chinese translations live in the same database and
+fall back to English wherever absent (translate incrementally — only new content):
+row properties `Name zh` and `Summary zh`, and per-bullet a nested child bullet
+written as `tag: 中文文本` (no day prefix; day prefix and a missing tag are
+inherited from the English parent bullet). To update the pages:
 
-1. Edit rows in Notion
+1. Edit rows in Notion (translations included)
 2. `NOTION_TOKEN=... python3 scripts/sync-changelog.py` — regenerates
-   `en/changes/_timeline.md` (committed; DB id in `scripts/notion-changelog.json`)
-3. `quarto render en/changes/index.md`
+   `en/changes/_timeline.md` **and** `zh/changes/_timeline.md` (both committed;
+   DB id in `scripts/notion-changelog.json`) and prints a report of anything
+   still untranslated
+3. `quarto render en/changes/index.md zh/changes/index.md`
 
-`src/filters/changelog-timeline.lua` turns the partial's markdown convention
+`src/filters/changelog-timeline.lua` turns the partials' markdown convention
 (`##` phase + `range` attr, `###` entry + `date/iso/commits/hours/days` attrs)
-into the timeline HTML styled by `en/changes/changes.css`. The filter also
-derives the daily-activity heatmap above the stats line from the same parsed
-data (day-prefixed bullets → per-day counts overall and per tag group
+into the timeline HTML styled by `src/styles/changes.css`; UI chrome strings are
+localized via its `STRINGS` table keyed on page `lang` (day prefixes, tag
+prefixes, date labels, and heatmap tabs stay English — parsing depends on them).
+The filter also derives the daily-activity heatmap above the stats line from the
+same parsed data (day-prefixed bullets → per-day counts overall and per tag group
 feat/content/dev; entry commits/hours split across days by bullet share), so
 it stays in sync with Notion automatically. Without a token the
-sync script exits 0 and keeps the committed partial, so builds work offline.
+sync script exits 0 and keeps the committed partials, so builds work offline.
 `_timeline.md` can also be edited by hand in a pinch (next sync overwrites it).
 
 ## After Fixing Bugs

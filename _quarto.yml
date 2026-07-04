@@ -109,6 +109,8 @@ website:
           contents: "zh/tools/*/index.*md"
         - text: "项目复现"
           href: "zh/readme/index.md"
+        - text: "更新日志"
+          href: "zh/changes/index.md"
         - text: "关于"
           href: zh/about/index.qmd
 

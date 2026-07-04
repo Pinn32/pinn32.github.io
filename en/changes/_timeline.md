@@ -30,7 +30,7 @@ The heaviest day of the setup phase. Python projects moved to the Jupyter render
 - dev: add env and package version chunks to all project pages (Python chunks need `#|` for YAML options)
 - dev: restructure the tree into `/src/styles`, `/src/scripts`, `/src/img` ; add 404, home pages, and favicon
 - proj: extract images from base64; compressed code cells in global-visa
-- script: fix navbar active error with `fix-navbar-active` script
+- fix: navbar active error with `fix-navbar-active` script
 - ttl: init tutorial pages
 
 ### Sidebar and link fixes {date="Apr 4" iso="2026-04-04" commits="4" hours="1" days="1"}
@@ -221,14 +221,17 @@ Giscus comments went live, and a new page documents how to reproduce the R and P
 - Jun 29 · contnt: re-init About page
 - Jul 1 · contnt: README.zh; readme (Reproduce instruction) en/zh
 
-### Language-aware comments & Change Logs {date="Jul 2 - Jul 3" iso="2026-07-02" commits="6" hours="10.5" days="2"}
+### Language-aware comments & external builds {date="Jul 2" iso="2026-07-02" commits="6" hours="10.5" days="1"}
 
 Giscus now follows the page language, active tags toggle off on a second click, and external links show an icon. Implemented change logs.
 
-- Jul 2 · feat: enable giscus en/zh-CN
-- Jul 2 · feat: tag bar revert to All after clicking active tag
-- Jul 2 · feat: add external links YAML & link icons; fix icon on image links
-- Jul 2 · dev: add gh-actions to keep supabase and mongodb alive; refine `.gitignore`; add About to nav
-- Jul 2 · contnt: (external sites:) build Bayanihan demo; refine URL-shortener footer
-- Jul 3 · feat: add change log page
-- Jul 3 · fix: cross-ref (no space allowed in `tbl-colwitdths`); lang zh (instead of zh-CN) in Quarto; archive render error (config `render` options)
+- feat: enable giscus en/zh-CN
+- feat: tag bar revert to All after clicking active tag
+- feat: add external links YAML & link icons; fix icon on image links
+- dev: add gh-actions to keep supabase and mongodb alive; refine `.gitignore`; add About to nav
+- contnt: (external sites:) build Bayanihan demo; refine URL-shortener footer
+
+### Change Log {date="Jul 2 - Jul 3" iso="2026-07-03" commits="0" hours="0" days="1"}
+
+- feat: add change log page
+- fix: cross-ref (no space allowed in `tbl-colwitdths`); lang zh (instead of zh-CN) in Quarto; archive render error (config `render` options)
