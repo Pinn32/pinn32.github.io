@@ -566,17 +566,17 @@ h2#featured-projects::before {
 .quarto-title-meta div:first-child .quarto-title-meta-contents {
     display: flex;
     flex-wrap: wrap;
-    // column-gap: 0.6rem;
+    column-gap: 0.6rem;
 }
 .quarto-title-meta div:first-child .quarto-title-meta-contents p {
     flex: 0 0 auto;
 }
 /* comma between authors, only for one line */
-.quarto-title-meta div:first-child .quarto-title-meta-contents p:not(:first-child)::before {
-    content: ',';
-    margin-right: 0.3rem;
-    color: var(--pf-text-muted);
-}
+// .quarto-title-meta div:first-child .quarto-title-meta-contents p:not(:first-child)::before {
+//     content: ',';
+//     margin-right: 0.3rem;
+//     color: var(--pf-text-muted);
+// }
 
 
 /* don't stamp the external-link icon onto image links */
