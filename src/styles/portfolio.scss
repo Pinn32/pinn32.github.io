@@ -810,6 +810,11 @@ hr {
 .dropdown-item:hover { background-color: #5ab5ad; }
 .navbar .dropdown-menu[data-bs-popper] { left: -50%; }
 
+button#quarto-code-tools-menu, button#quarto-code-tools-source {
+    padding: 0 .5rem;
+    border-color: transparent;
+}
+
 /*  The lang dropdown lives inside #quarto-header (.fixed-top, z-index:1030) and
     can't escape that stacking context. On mobile the open sidebar (z-index:1055,
     a header sibling) would paint over it — fixed by lifting #quarto-header above

@@ -135,3 +135,13 @@ output:
 ```
 
 Then click `Knit` in RStudio, or run `rmarkdown::render("index.Rmd")` in the R console to build the HTML.
+
+## Fetch Change Log from Notion Database
+
+Replace `"database_id"` in `scripts/notion-changelog.json` with your own database ID, then run:
+
+```zsh
+python3 scripts/sync-changelog.py --strict
+```
+
+Create your own Notion connection token at [Notion Developers](https://app.notion.com/developers/connections), copy the "Secret" value and store it as the environment variable `NOTION_TOKEN=...` (e.g. in `~/.zshrc`).
