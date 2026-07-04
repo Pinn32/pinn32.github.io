@@ -565,6 +565,7 @@ h2#featured-projects::before {
 
 /* don't stamp the external-link icon onto image links */
 a.external:has(img)::after,
+a.external.btn::after,
 a.external[data-image-link]::after { content: none; }
 
 /* title block category pills */
