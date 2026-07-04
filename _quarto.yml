@@ -18,7 +18,7 @@ website:
     left: | 
       © Copyright <span id="copyright-year"></span>, Pinn (Aiqi) Xu. All rights reserved.
   
-  repo-url: https://github.com/Pinn32/dv-projects
+  repo-url: https://github.com/Pinn32/pinn32.github.io
   repo-actions: [edit, source, issue]
   repo-link-target: _blank
 
@@ -62,7 +62,7 @@ website:
             href: "#"
 
       - icon: github
-        href: https://github.com/Pinn32/dv-projects
+        href: https://github.com/Pinn32/pinn32.github.io
 
       - icon: linkedin
         href: https://www.linkedin.com/in/aiqi-xu-71943b378/

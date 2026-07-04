@@ -442,7 +442,7 @@ gp.show('net.html', notebook=False)
 # only use True when you are using Jupyter & browser
 ```
 
-The output standalone HTML file is saved in the current directory ([view source code and files](https://github.com/Pinn32/dv-projects/tree/main/zh/tutorials/sankey-and-network)). In Colab, it can be found in the left file panel, as shown in @fig-colab. Download it and open it in a browser to see the result shown in @fig-network-sample.
+The output standalone HTML file is saved in the current directory ([view source code and files](https://github.com/Pinn32/pinn32.github.io/tree/main/zh/tutorials/sankey-and-network)). In Colab, it can be found in the left file panel, as shown in @fig-colab. Download it and open it in a browser to see the result shown in @fig-network-sample.
 
 ![The output HTML file is automatically saved in Colab's file panel](../../../src/img/ttl/sankey/fig6-colab.png){#fig-colab}
 
@@ -470,7 +470,7 @@ The modified result is shown in @fig-network-sample-modified:
 
 ## Reading Network Relationships from a File
 
-In addition to manual creation, network relationship data can also be read from a CSV file. The following example uses ***beer and curry*** tweet data [(view source file)](https://github.com/Pinn32/dv-projects/blob/main/src/data/beer-and-curry.csv): original posters mentioned other users, forming directed edges from the original poster (source node) to the mentioned user (target node).
+In addition to manual creation, network relationship data can also be read from a CSV file. The following example uses ***beer and curry*** tweet data [(view source file)](https://github.com/Pinn32/pinn32.github.io/blob/main/src/data/beer-and-curry.csv): original posters mentioned other users, forming directed edges from the original poster (source node) to the mentioned user (target node).
 
 ```{python}
 #| output: false

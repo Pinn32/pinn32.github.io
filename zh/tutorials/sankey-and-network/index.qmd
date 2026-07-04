@@ -445,7 +445,7 @@ gp.show('net.html', notebook=False)
 # only use True when you are using Jupyter & browser
 ```
 
-输出的的独立 HTML 文件会保存在当前目录下 ([查看源码和文件](https://github.com/Pinn32/dv-projects/tree/main/zh/tutorials/sankey-and-network))。在 Colab 中可在左侧文件栏看到，如 @fig-colab 所示。下载后用浏览器打开，效果见 @fig-network-sample。
+输出的的独立 HTML 文件会保存在当前目录下 ([查看源码和文件](https://github.com/Pinn32/pinn32.github.io/tree/main/zh/tutorials/sankey-and-network))。在 Colab 中可在左侧文件栏看到，如 @fig-colab 所示。下载后用浏览器打开，效果见 @fig-network-sample。
 
 ![输出的 html 文件自动储存在 Colab 文件中](../../../src/img/ttl/sankey/fig6-colab.png){#fig-colab}
 
@@ -473,7 +473,7 @@ gp.show('net-modified.html', notebook=False)
 
 ## 从文件中读取网络关系
 
-除手动创建外，也可从 CSV 文件读取网络关系数据。以下示例使用 beer and curry 推文数据 [(查看源文件)](https://github.com/Pinn32/dv-projects/blob/main/src/data/beer-and-curry.csv): 原贴主艾特了其他用户，构成从原贴主 (源节点) 指向被艾特用户 (目标节点) 的有向边。
+除手动创建外，也可从 CSV 文件读取网络关系数据。以下示例使用 beer and curry 推文数据 [(查看源文件)](https://github.com/Pinn32/pinn32.github.io/blob/main/src/data/beer-and-curry.csv): 原贴主艾特了其他用户，构成从原贴主 (源节点) 指向被艾特用户 (目标节点) 的有向边。
 
 ```{python}
 #| output: false
