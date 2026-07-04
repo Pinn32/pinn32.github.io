@@ -433,7 +433,7 @@ body.quarto-dark .cl-hm-cell {
 .cl-right { margin-left: auto; }
 
 .cl-item:hover {
-  border-color: var(--pf-primary);
+  border-color: #15b8a6;
   box-shadow: var(--pf-shadow-hover);
 }
 

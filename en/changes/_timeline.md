@@ -242,5 +242,3 @@ New feature: Change Logs. With timeline, Notion CMS and heatmap. Fixed rendering
 - feat: change-log timeline reversible; connected to Notion csms; heatmap with tabs
 - feat: change-log zh connected to Notion & translated via agents; `sync-changelog.py` added progress bar
 - style: refine & fix change-log, add transitions & colors; fix .intro section of homepages
-
-### XXXXXX {date="" iso="2026-07-04" commits="0" hours="0" days="0"}
