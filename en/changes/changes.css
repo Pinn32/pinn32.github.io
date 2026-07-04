@@ -286,6 +286,8 @@ body.quarto-dark .cl-hm-cell {
   animation: cl-rise 0.5s ease both;
 }
 
+/* spine gradient follows the sort order: the teal end marks the first
+   commit — bottom in newest-first (default), top in oldest-first */
 .cl-timeline::before {
   content: "";
   position: absolute;
@@ -294,6 +296,16 @@ body.quarto-dark .cl-hm-cell {
   bottom: 0;
   width: 2px;
   transform: translateX(-50%);
+  background: linear-gradient(
+    to top,
+    var(--pf-primary-mid),
+    var(--pf-border) 18%,
+    var(--pf-border) 94%,
+    transparent
+  );
+}
+
+.cl-timeline[data-order="oldest"]::before {
   background: linear-gradient(
     to bottom,
     var(--pf-primary-mid),
@@ -308,8 +320,50 @@ body.quarto-dark .cl-hm-cell {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* scroll reveal: .cl-anim is added by JS, so cards stay visible without it;
+   cards fade in as they enter the viewport (and again after a sort flip) */
+.cl-anim details.cl-item { opacity: 0; }
+
+.cl-anim details.cl-item.cl-in {
+  opacity: 1;
+  animation: cl-card-in 0.55s ease both;
+}
+
+@keyframes cl-card-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* footer note below the spine, in reading position for either sort order */
+.cl-more {
+  text-align: center;
+  font-family: var(--pf-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--pf-text-muted);
+  margin: -1.8rem 0 3rem;
+}
+
+.cl-more::before {
+  content: "";
+  display: block;
+  width: 9px;
+  height: 9px;
+  margin: 0 auto 0.5rem;
+  border-radius: 50%;
+  background: var(--pf-primary-mid);
+  animation: cl-pulse 2.4s ease infinite;
+}
+
+@keyframes cl-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(0.8); }
+  50%      { opacity: 1;    transform: scale(1); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cl-timeline { animation: none; }
+  .cl-anim details.cl-item { opacity: 1; animation: none; }
+  .cl-more::before { animation: none; }
 }
 
 /* --- phase markers on the spine ------------------------------------------- */
@@ -319,7 +373,10 @@ body.quarto-dark .cl-hm-cell {
   text-align: center;
   margin: 2.5rem 0 1.6rem;
 }
-.cl-timeline > .cl-phase-group:first-child .cl-phase { margin-top: 0.25rem; }
+/* tighter top margin only when a pill actually opens the timeline (oldest) */
+.cl-timeline[data-order="oldest"] > .cl-phase-group:first-child .cl-phase {
+  margin-top: 0.25rem;
+}
 
 .cl-phase-pill {
   display: inline-block;
@@ -370,7 +427,7 @@ body.quarto-dark .cl-hm-cell {
 .cl-right { margin-left: auto; }
 
 .cl-item:hover {
-  border-color: var(--pf-primary);
+  border-color: var(--pf-primary-mid);
   box-shadow: var(--pf-shadow-hover);
 }
 

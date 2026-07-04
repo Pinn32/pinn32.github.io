@@ -244,10 +244,17 @@ local ORDER_SCRIPT = [[
     const tl  = document.querySelector('.cl-timeline');
     if (!btn || !tl) return;
     btn.addEventListener('click', () => {
-      // reverse group order, and card order within each group (pill stays first)
+      const newest = btn.dataset.order !== 'newest';
+      // reverse group order, and card order within each group
       Array.from(tl.querySelectorAll('.cl-phase-group')).reverse().forEach(group => {
         Array.from(group.querySelectorAll('details.cl-item')).reverse()
           .forEach(item => group.appendChild(item));
+        // phase pill sits below its cards in newest-first, above in oldest-first
+        const pill = group.querySelector('.cl-phase');
+        if (pill) {
+          if (newest) group.appendChild(pill);
+          else group.insertBefore(pill, group.firstChild);
+        }
         tl.appendChild(group);
       });
       // reassign left/right alternation in display order, restarting per phase
@@ -259,10 +266,45 @@ local ORDER_SCRIPT = [[
           side = (side === 'cl-left') ? 'cl-right' : 'cl-left';
         });
       });
-      const newest = btn.dataset.order !== 'newest';
+      tl.dataset.order = newest ? 'newest' : 'oldest';
       btn.dataset.order = newest ? 'newest' : 'oldest';
       btn.innerHTML = newest ? '&#8595; newest first' : '&#8593; oldest first';
+      // replay the scroll-reveal for the reordered cards
+      if (window.clReveal) window.clReveal();
     });
+  })();
+</script>
+]]
+
+local REVEAL_SCRIPT = [[
+<script>
+  (() => {
+    const tl = document.querySelector('.cl-timeline');
+    if (!tl || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    tl.classList.add('cl-anim');
+    const io = new IntersectionObserver((entries) => {
+      let i = 0;   // stagger cards revealed in the same batch
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        en.target.style.animationDelay = (i++ * 70) + 'ms';
+        en.target.classList.add('cl-in');
+        io.unobserve(en.target);
+      });
+    }, { rootMargin: '0px 0px -7% 0px', threshold: 0.05 });
+    const observeAll = () =>
+      tl.querySelectorAll('details.cl-item').forEach(c => io.observe(c));
+    observeAll();
+    // rerun after the sort order flips (called by the order toggle)
+    window.clReveal = () => {
+      tl.querySelectorAll('details.cl-item').forEach(c => {
+        io.unobserve(c);
+        c.classList.remove('cl-in');
+        c.style.animationDelay = '';
+      });
+      void tl.offsetWidth;
+      observeAll();
+    };
   })();
 </script>
 ]]
@@ -482,7 +524,6 @@ function Pandoc(doc)
     for pi = #phases, 1, -1 do
         local ph = phases[pi]
         table.insert(html, '<section class="cl-phase-group">')
-        if ph.pill then table.insert(html, ph.pill) end
         local side = 'cl-left'
         for ei = #ph.entries, 1, -1 do
             local e = ph.entries[ei]
@@ -496,6 +537,8 @@ function Pandoc(doc)
             table.insert(html, '</details>')
             side = (side == 'cl-left') and 'cl-right' or 'cl-left'
         end
+        -- newest-first: the phase pill closes its group below the cards
+        if ph.pill then table.insert(html, ph.pill) end
         table.insert(html, '</section>')
     end
 
@@ -511,8 +554,10 @@ function Pandoc(doc)
 
     out:insert(pandoc.RawBlock('html',
         build_heatmap(daily) .. stats .. order_btn ..
-        '<div class="cl-timeline">' .. table.concat(html) .. '</div>' ..
-        ORDER_SCRIPT .. HEATMAP_SCRIPT))
+        '<div class="cl-timeline" data-order="newest">' ..
+        table.concat(html) .. '</div>' ..
+        '<div class="cl-more">More updates coming&hellip;</div>' ..
+        REVEAL_SCRIPT .. ORDER_SCRIPT .. HEATMAP_SCRIPT))
     out:extend(tail)
 
     doc.blocks = out
