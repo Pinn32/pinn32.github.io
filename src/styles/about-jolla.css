@@ -17,7 +17,17 @@ div.quarto-about-jolla img {
     height: 10rem !important;
 }
 
-/* change desktop */
+/* Dark mode image shade ================================================ */
+.quarto-dark div.quarto-about-jolla img {
+    filter: brightness(0.82) contrast(0.96);
+    transition: filter 0.2s ease;
+}
+.quarto-dark div.quarto-about-jolla img:hover {
+    filter: brightness(1) contrast(1);
+}
+
+
+/* change desktop ======================================================== */
 @media (min-width: 480px) {
     div.quarto-about-jolla .about-links {
         flex-direction: row !important;
@@ -32,8 +42,14 @@ div.quarto-about-jolla img {
     }
 }
 
-/* change mobile*/
+/* change mobile ======================================================== */
 @media (max-width: 480px) {
+    div.quarto-about-jolla {
+        margin-top: 10% !important;
+    }
+    div.quarto-about-jolla main {
+        margin: 0;
+    }
     div.quarto-about-jolla .about-links {
         width: 85%;
     }
