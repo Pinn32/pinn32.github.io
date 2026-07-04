@@ -190,8 +190,17 @@ local HEATMAP_SCRIPT = [=[
     const tip = hm.querySelector('.cl-hm-tip');
 
     // metric toggle: recompute quartile levels from the cells' data
-    // attributes; data-metric on the section switches the color ramp
+    // attributes; data-metric on the section switches the color ramp.
+    // The recolor sweeps left to right: each week column's cells get a
+    // small transition-delay on top of the background cross-fade.
     const KEY = { commits: 'c', feat: 'feat', content: 'content', dev: 'dev' };
+    const reduceMotion =
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const left0 = Math.min(...cells.map(c => c.offsetLeft));
+    const colStep = cells[0].offsetWidth + 3;
+    cells.forEach(c => {
+      c.dataset.col = Math.round((c.offsetLeft - left0) / colStep);
+    });
     hm.querySelectorAll('.cl-hm-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         hm.querySelectorAll('.cl-hm-btn').forEach(b =>
@@ -200,6 +209,9 @@ local HEATMAP_SCRIPT = [=[
         const k = KEY[btn.dataset.metric];
         const max = cells.reduce((m, c) => Math.max(m, +c.dataset[k] || 0), 0);
         cells.forEach(c => {
+          if (!reduceMotion) {
+            c.style.transitionDelay = (c.dataset.col * 12) + 'ms';
+          }
           const v = +c.dataset[k] || 0;
           c.dataset.level = (v <= 0 || max <= 0) ? 0
             : Math.min(4, Math.max(1, Math.ceil(v / max * 4)));
