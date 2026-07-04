@@ -1,16 +1,54 @@
 ---
-title: "Pinn Xu"
-description: "fasjfodsajf; jas;fj ;asd jf;s"
+title: "Pinn (Aiqi) Xu"
+subtitle: "Passionate data analyst, coder, explorer and artist."
 sidebar: false
 toc: false
 code-tools: false
+css: "../../src/styles/about-jolla.css"
 about:
-    template: trestles
+    template: jolla
     image: "https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/personal-web/pinn32-portrait.png"
     # image: "https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/personal-web/art-portrait.jpg"
+    links:
+        - icon: envelope-fill
+          text: Email
+          href: mailto:pinn.aiqi.xu@gmail.com
+        - icon: github
+          text: GitHub
+          href: https://github.com/pinn32
+        - icon: linkedin
+          text: LinkedIn
+          href: https://www.linkedin.com/in/aiqi-xu-71943b378/
 ---
 
-## About Me
+:::{.caption}
+"Coding saves lifes."
+:::
+
+
+
+
+
+<!-- Finley Malloc is the Chief Data Scientist at Wengo Analytics. When not innovating on data platforms, Finley enjoys spending time unicycling and playing with her pet iguana.
+
+## Education
+
+University of California, San Diego | San Diego, CA
+PhD in Mathematics | Sept 2011 - June 2015
+
+Macalester College | St. Paul, MN
+B.A in Economics | Sept 2007 - June 2011
+
+## Experience
+
+Wengo Analytics | Head Data Scientist | April 2018 - present
+
+GeoScynce | Chief Analyst | Spet 2012 - April 2018 -->
+
+
+<!-- ====================================================================== -->
+
+<!-- ## About Me
 
 This is a personal data visualization and analysis portfolio built by **Pinn (Aiqi) Xu**.
 
@@ -32,4 +70,4 @@ The site collects data projects exploring real-world datasets through explorator
 
 ## Contact
 
-Feel free to reach out or explore the source code on [GitHub](https://github.com/pinn32).
+Feel free to reach out or explore the source code on [GitHub](https://github.com/pinn32). -->

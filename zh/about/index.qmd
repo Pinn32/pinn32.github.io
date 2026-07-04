@@ -1,10 +1,33 @@
 ---
-title: "关于"
+title: "Pinn (Aiqi) Xu"
+subtitle: "你好🫲，我是爱玩电脑的网友一枚。"
 sidebar: false
 toc: false
+code-tools: false
+css: "../../src/styles/about-jolla.css"
+about:
+    template: jolla
+    image: "https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/personal-web/pinn32-portrait.png"
+    # image: "https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/personal-web/art-portrait.jpg"
+    links:
+        - icon: envelope-fill
+          text: Email
+          href: mailto:pinn.aiqi.xu@gmail.com
+        - icon: github
+          text: GitHub
+          href: https://github.com/pinn32
+        - icon: linkedin
+          text: LinkedIn
+          href: https://www.linkedin.com/in/aiqi-xu-71943b378/
 ---
 
-## 关于本站
+:::{.caption}
+欢迎私联喵↓
+:::
+
+
+
+<!-- ## 关于本站
 
 本站是由 **Pinn (Aiqi) Xu** 构建的个人数据可视化与分析作品集。
 
@@ -26,4 +49,4 @@ toc: false
 
 ## 联系方式
 
-欢迎通过 [GitHub](https://github.com/Pinn32) 查看源代码或与我联系。
+欢迎通过 [GitHub](https://github.com/Pinn32) 查看源代码或与我联系。 -->
