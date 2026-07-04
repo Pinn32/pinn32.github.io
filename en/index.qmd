@@ -23,7 +23,9 @@ listing:
 
 <!-- This site collects my data projects: exploratory analyses, NLP experiments, and interactive visualizations built with **R** and **Python**, published with [Quarto](https://quarto.org/). -->
 
+:::{.intro}
 This site collects my data analysis projects, web tools, and blogs. Data projects are built with **R** and **Python**, published with [Quarto](https://quarto.org/){target="_blank"}. Web tools are developed with React, Next.js, and TypeScript.
+:::
 
 <!-- : exploratory analyses, NLP experiments, and interactive visualizations built with **R** and **Python**, published with [Quarto](https://quarto.org/). -->
 

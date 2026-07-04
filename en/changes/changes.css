@@ -299,8 +299,8 @@ body.quarto-dark .cl-hm-cell {
   background: linear-gradient(
     to top,
     var(--pf-primary-mid),
-    var(--pf-border) 18%,
-    var(--pf-border) 94%,
+    var(--pf-border) 80%,
+    var(--pf-border) 90%,
     transparent
   );
 }
@@ -309,8 +309,8 @@ body.quarto-dark .cl-hm-cell {
   background: linear-gradient(
     to bottom,
     var(--pf-primary-mid),
-    var(--pf-border) 18%,
-    var(--pf-border) 94%,
+    var(--pf-border) 80%,
+    var(--pf-border) 90%,
     transparent
   );
 }
@@ -427,7 +427,7 @@ body.quarto-dark .cl-hm-cell {
 .cl-right { margin-left: auto; }
 
 .cl-item:hover {
-  border-color: var(--pf-primary-mid);
+  border-color: var(--pf-primary);
   box-shadow: var(--pf-shadow-hover);
 }
 
@@ -484,9 +484,28 @@ body.quarto-dark .cl-hm-cell {
   display: inline-block;
   font-family: var(--pf-mono);
   font-size: 0.7rem;
+  font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--pf-primary);
+}
+
+/* two-sided layout only: the date crosses the spine to sit beside the node
+    dot (dot center = card edge + 2.75rem, dot outer radius 9.5px), and the
+    card head reclaims the row it occupied; <= 768px keeps the date in-card */
+@media (min-width: 769px) {
+  .cl-date {
+    pointer-events: none;
+    position: absolute;
+    top: calc(1.3rem + 1px);   /* optically centered on the dot */
+    white-space: nowrap;
+    top: 1.15rem;
+  }
+
+  .cl-left .cl-date  { left:  calc(100% + 2.75rem + 18px); }
+  .cl-right .cl-date { right: calc(100% + 2.75rem + 18px); }
+
+  .cl-title { margin-top: 0; }
 }
 
 .cl-title {

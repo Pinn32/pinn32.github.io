@@ -381,7 +381,8 @@ body:not(.quarto-sidebar-visible) .quarto-title p.subtitle {
 p.subtitle.lead { margin: 1rem 0; }
 
 /* intro paragraph below the title block */
-header.quarto-title-block ~ p:first-of-type {
+// header.quarto-title-block ~ p:first-of-type {
+.intro {
     font-size: 1.05rem;
     color: var(--pf-text-secondary);
     line-height: 1.7;
