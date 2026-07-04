@@ -44,6 +44,21 @@ The page you're looking for doesn't exist or has been moved.
         document.title = '404 页面未找到';
         const h1 = document.querySelector('h1.title');
         if (h1) h1.textContent = '404 页面未找到';
+
+        // giscus is embedded with a static build-time language (en); since this
+        // page toggles en/zh client-side, override it once giscus is ready.
+        // The iframe's presence in the DOM doesn't mean its cross-origin app has
+        // mounted yet, so a postMessage sent right away is silently dropped;
+        // wait for giscus's own readiness message instead.
+        // https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#isetconfigmessage
+        window.addEventListener('message', function onGiscusReady(event) {
+            if (event.origin !== 'https://giscus.app') return;
+            if (!(event.data?.giscus)) return;
+            window.removeEventListener('message', onGiscusReady);
+            const iframe = document.querySelector('iframe.giscus-frame');
+            if (!iframe) return;
+            iframe.contentWindow.postMessage({ giscus: { setConfig: { lang: 'zh-CN' } } }, 'https://giscus.app');
+        });
     }
 })();
 </script>
