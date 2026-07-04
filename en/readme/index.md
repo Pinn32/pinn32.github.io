@@ -145,3 +145,4 @@ python3 scripts/sync-changelog.py --strict
 ```
 
 Create your own Notion connection token at [Notion Developers](https://app.notion.com/developers/connections), copy the "Secret" value and store it as the environment variable `NOTION_TOKEN=...` (e.g. in `~/.zshrc`).
+

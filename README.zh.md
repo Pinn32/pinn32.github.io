@@ -1,5 +1,7 @@
 # 个人网站（基于 Quarto 构建）
 
+[English](README.md) | 中文
+
 **网址：[pinn32.github.io](https://pinn32.github.io)**
 
 我的个人网站源码，使用 [Quarto](https://quarto.org) 构建。项目页面涉及 Python 和 R，因此复现构建需要同时还原这两套环境。
@@ -130,3 +132,15 @@ output:
 ```
 
 在 RStudio 中点击 `Knit`，或在 R 控制台运行 `rmarkdown::render("index.Rmd")` 构建 HTML。
+
+
+## 从 Notion 数据库获取变更日志
+
+将 `scripts/notion-changelog.json` 中的 `"database_id"` 替换为你自己的数据库 ID，然后运行：
+
+```zsh
+python3 scripts/sync-changelog.py --strict
+```
+
+前往 [Notion 开发者平台](https://app.notion.com/developers/connections) 创建你自己的 Notion connection token，复制其中的 “Secret” 值，并将其保存为环境变量 `NOTION_TOKEN=...`（例如写入 `~/.zshrc`）。
+

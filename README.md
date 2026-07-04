@@ -1,5 +1,7 @@
 # Personal Website (built with Quarto)
 
+English | [中文](README.zh.md)
+
 **URL: [pinn32.github.io](https://pinn32.github.io)**
 
 Source for my personal site, built with [Quarto](https://quarto.org). Projects pages involves Python and R, so reproducing the build needs to restore both environments.
@@ -128,3 +130,15 @@ output:
 ```
 
 Click `Knit` in RStudio or run `rmarkdown::render("index.Rmd")` in R console to build HTML.
+
+
+## Fetch Change Log from Notion Database
+
+Replace `"database_id"` in `scripts/notion-changelog.json` with your own database ID, then run:
+
+```zsh
+python3 scripts/sync-changelog.py --strict
+```
+
+Create your own Notion connection token at [Notion Developers](https://app.notion.com/developers/connections), copy the "Secret" value and store it as the environment variable `NOTION_TOKEN=...` (e.g. in `~/.zshrc`).
+
