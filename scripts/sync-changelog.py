@@ -66,8 +66,31 @@ class SyncSkip(Exception):
     """Non-fatal condition: keep the existing files."""
 
 
+_progress_state = {"active": False, "width": 0}
+
+
 def warn(msg):
+    if _progress_state["active"]:
+        sys.stderr.write("\r" + " " * _progress_state["width"] + "\r")
+        _progress_state["active"] = False
     print(f"warning: {msg}", file=sys.stderr)
+
+
+def progress(current, total, label):
+    """Redraw a single-line progress bar on stderr; a no-op when stderr
+    isn't a tty (e.g. CI logs), so redirected output stays clean."""
+    if not sys.stderr.isatty() or total <= 0:
+        return
+    bar_width = 30
+    filled = round(bar_width * current / total)
+    bar = "#" * filled + "-" * (bar_width - filled)
+    line = f"\r[{bar}] {current}/{total} {label}"
+    _progress_state["width"] = max(_progress_state["width"], len(line))
+    sys.stderr.write(line.ljust(_progress_state["width"]))
+    sys.stderr.flush()
+    _progress_state["active"] = current < total
+    if current >= total:
+        sys.stderr.write("\n")
 
 
 # ---------------------------------------------------------------------------
@@ -256,9 +279,12 @@ def fetch_timeline(token, rows):
     Returns (nodes, missing) where missing records per-row untranslated
     fields/bullets for the report."""
     nodes, missing = [], []
-    for page in sorted(rows, key=sort_key):
+    sorted_rows = sorted(rows, key=sort_key)
+    total = len(sorted_rows)
+    for i, page in enumerate(sorted_rows, start=1):
         ptype = prop_select(page, "Type")
         name = rich_text_to_md(_prop(page, "Name").get("title", []))
+        progress(i, total, name or prop_title(page, "Name"))
         name_zh = rich_text_to_md(prop_rich(page, "Name zh")) or None
         miss = {"title": prop_title(page, "Name"), "fields": [], "bullets": []}
         if not name_zh:
