@@ -103,9 +103,9 @@ div.csl-indent {
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-176b38be48070efe3d434d0a95bef3fe.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-f8a221566d19e13d0ba65bd27385a262.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-b3a97f6714638bbb2da87c4dacea6ac4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-f8a221566d19e13d0ba65bd27385a262.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-d3b0859ed840ef745be2362e4d82aedc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-f4d8148e586938ab7920e4e945196b9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-d3b0859ed840ef745be2362e4d82aedc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -350,6 +350,16 @@ div.csl-indent {
 <span class="menu-text">Blogs</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../en/about/index.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../en/changes/index.html"> 
+<span class="menu-text">Changes</span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
     <div class="dropdown">
@@ -534,8 +544,20 @@ div.csl-indent {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../en/readme/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reproduce This Project</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../en/changes/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Change Log</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../en/about/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">Contact</span></a>
   </div>
 </li>
     </ul>
@@ -653,7 +675,7 @@ div.csl-indent {
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     28 min read</span><span> · </span><span>5525 EN words</span><span> · </span><span>0 中文字</span></div>
+     28 min read</span><span> · </span><span>5545 EN words</span><span> · </span><span>0 中文字</span></div>
 <div class="cell">
 <details class="code-fold">
 <summary>Environment &amp; Versions</summary>
@@ -3690,7 +3712,9 @@ Stone, P., Brooks, R., Brynjolfsson, E., Calo, R., Etzioni, O., Hager, G., Hirsc
             Blogs: 'Blogs',
             Hobbies: 'Hobbies',
             'All Posts': 'All Posts',
-            About: 'About'
+            About: 'About',
+            Contact: 'Contact',
+            Changes: 'Changes'
         },
         zh: {
             Projects: '项目',
@@ -3699,7 +3723,9 @@ Stone, P., Brooks, R., Brynjolfsson, E., Calo, R., Etzioni, O., Hager, G., Hirsc
             Blogs: '博客',
             Hobbies: '爱好',
             'All Posts': '所有文章',
-            About: '关于'
+            About: '关于',
+            Contact: '联系作者',
+            Changes: '更新日志'
         },
     };
 
@@ -4000,7 +4026,7 @@ Stone, P., Brooks, R., Brynjolfsson, E., Calo, R., Etzioni, O., Hager, G., Hirsc
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/pinn32\.github\.io");
+        var filterRegex = new RegExp("^(?:https?:\/\/)?(?:pinn32\.github\.io\/(?:en|zh|dv-projects|img)|raw\.githubusercontent\.com\/Pinn32\/img)(?:\/|$)");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -4014,6 +4040,13 @@ Stone, P., Brooks, R., Brynjolfsson, E., Calo, R., Etzioni, O., Hager, G., Hirsc
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -4326,7 +4359,39 @@ Stone, P., Brooks, R., Brynjolfsson, E., Calo, R., Etzioni, O., Hager, G., Hirsc
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+  </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      if (authorPrefersDark) {
+          [baseTheme, altTheme] = [altTheme, baseTheme];
+      }
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "Pinn32/pinn32.github.io";
+    script.dataset.repoId = "R_kgDOR3HFKA";
+    script.dataset.category = "General";
+    script.dataset.categoryId = "DIC_kwDOR3HFKM4DAHgX";
+    script.dataset.mapping = "title";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb93" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> 'Evolution of Online AI Discourse'</span></span>
 <span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> 'A Longitudinal Analysis of Public Sentiment and Thematic Trends in AI-Related Tweets'</span></span>

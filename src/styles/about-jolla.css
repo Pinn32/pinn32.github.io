@@ -1,0 +1,45 @@
+/* about page style adaption for template jolla */
+
+div.quarto-about-jolla * {
+    text-align: center !important;
+}
+div.quarto-about-jolla main {
+    margin: 0 0 2rem;
+}
+div.quarto-about-jolla hr.about-sep {
+    margin-top: 0.5rem !important;
+}
+div.quarto-about-jolla {
+    margin-top: 5% !important;
+}
+div.quarto-about-jolla img {
+    width: 10rem !important;
+    height: 10rem !important;
+}
+
+/* change desktop */
+@media (min-width: 480px) {
+    div.quarto-about-jolla .about-links {
+        flex-direction: row !important;
+        justify-content: center !important;
+        column-gap: .8em !important;
+        flex-wrap: wrap !important;
+    }
+    div.quarto-about-jolla .about-link {
+        font-size: 0.8rem !important;
+        padding: .35em .7em;
+        border-radius: 4px;
+    }
+}
+
+/* change mobile*/
+@media (max-width: 480px) {
+    div.quarto-about-jolla .about-links {
+        width: 85%;
+    }
+    div.quarto-about-jolla .about-link {
+        font-size: 1rem !important;
+        padding: .7em 0;
+        border-radius: 4px;
+    }
+}

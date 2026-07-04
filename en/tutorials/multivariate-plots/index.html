@@ -83,9 +83,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-176b38be48070efe3d434d0a95bef3fe.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-f8a221566d19e13d0ba65bd27385a262.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-b3a97f6714638bbb2da87c4dacea6ac4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-f8a221566d19e13d0ba65bd27385a262.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-d3b0859ed840ef745be2362e4d82aedc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-f4d8148e586938ab7920e4e945196b9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-d3b0859ed840ef745be2362e4d82aedc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -362,6 +362,16 @@ window.Quarto = {
 <span class="menu-text">Blogs</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../en/about/index.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../en/changes/index.html"> 
+<span class="menu-text">Changes</span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
     <div class="dropdown">
@@ -546,8 +556,20 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../en/readme/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reproduce This Project</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../en/changes/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Change Log</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../en/about/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">Contact</span></a>
   </div>
 </li>
     </ul>
@@ -630,8 +652,8 @@ window.Quarto = {
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     20 min read</span><span> · </span><span>3819 EN words</span><span> · </span><span>0 中文字</span></div>
-<div id="389c0d27" class="cell" data-execution_count="1">
+     20 min read</span><span> · </span><span>3839 EN words</span><span> · </span><span>0 中文字</span></div>
+<div id="aab131ef" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Environment and Versions</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>python<span class="op">==</span><span class="fl">3.12</span></span>
@@ -645,13 +667,13 @@ window.Quarto = {
 <p><strong>“Tidy/flat” tabular data:</strong> Each row is one <strong>observation</strong> (also called instance or record), and each column is one <strong>variable</strong> (also called attribute, feature, or parameter).</p>
 <p>Typically, <strong>multivariate</strong> refers to data with more than two variables — a multivariate plot generally uses three or more columns from the original DataFrame.</p>
 <p>When creating a bar chart, in addition to the x and y variables, you can also set the <code>hue</code> parameter to include a third variable. For example, <a href="#fig-bar-variables" class="quarto-xref">Figure&nbsp;1</a> includes three variables: <code>'island'</code>, <code>'body_mass_g'</code>, and <code>'sex'</code>.</p>
-<div id="61d1e062" class="cell" data-execution_count="2">
+<div id="cf1d8eb2" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import libraries</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="8047a6bd" class="cell" data-execution_count="3">
+<div id="b5ae32b8" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load example dataset from Seaborn</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'penguins'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -2208,7 +2230,9 @@ Figure&nbsp;41: Pair plot: histogram form
             Blogs: 'Blogs',
             Hobbies: 'Hobbies',
             'All Posts': 'All Posts',
-            About: 'About'
+            About: 'About',
+            Contact: 'Contact',
+            Changes: 'Changes'
         },
         zh: {
             Projects: '项目',
@@ -2217,7 +2241,9 @@ Figure&nbsp;41: Pair plot: histogram form
             Blogs: '博客',
             Hobbies: '爱好',
             'All Posts': '所有文章',
-            About: '关于'
+            About: '关于',
+            Contact: '联系作者',
+            Changes: '更新日志'
         },
     };
 
@@ -2518,7 +2544,7 @@ Figure&nbsp;41: Pair plot: histogram form
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/pinn32\.github\.io");
+        var filterRegex = new RegExp("^(?:https?:\/\/)?(?:pinn32\.github\.io\/(?:en|zh|dv-projects|img)|raw\.githubusercontent\.com\/Pinn32\/img)(?:\/|$)");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -2532,6 +2558,13 @@ Figure&nbsp;41: Pair plot: histogram form
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -2844,7 +2877,39 @@ Figure&nbsp;41: Pair plot: histogram form
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+  </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      if (authorPrefersDark) {
+          [baseTheme, altTheme] = [altTheme, baseTheme];
+      }
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "Pinn32/pinn32.github.io";
+    script.dataset.repoId = "R_kgDOR3HFKA";
+    script.dataset.category = "General";
+    script.dataset.categoryId = "DIC_kwDOR3HFKM4DAHgX";
+    script.dataset.mapping = "title";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> 'Multivariate Plots'</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> 'Pinn Xu'</span></span>

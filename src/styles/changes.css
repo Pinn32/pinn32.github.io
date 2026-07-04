@@ -1,0 +1,655 @@
+/* =============================================================================
+   changes.css — vertical double-sided timeline for en/changes/ and zh/changes/
+   index.md. Uses only var(--pf-*) tokens (see src/styles/portfolio.scss), so
+   the same rules work in both the light and dark themes with no overrides.
+   ========================================================================== */
+
+/* progressive enhancement: animatable height for <details> open/close */
+@supports (interpolate-size: allow-keywords) {
+  :root { interpolate-size: allow-keywords; }
+}
+
+.cl-stats {
+  text-align: center;
+  font-family: var(--pf-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--pf-text-muted);
+  margin: 0.25rem 0 0;
+}
+
+/* sort-order toggle */
+.cl-order {
+  display: flex;
+  justify-content: center;
+  margin: 0.7rem 0 0;
+}
+
+.cl-order-btn {
+  font-family: var(--pf-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pf-text-secondary);
+  background: var(--pf-card);
+  border: 1px solid var(--pf-border);
+  border-radius: var(--pf-radius-pill);
+  padding: 0.3rem 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cl-order-btn:hover {
+  border-color: var(--pf-primary-mid);
+  color: var(--pf-primary);
+  box-shadow: var(--pf-shadow);
+}
+
+.cl-order-btn:focus-visible {
+  outline: 2px solid var(--pf-primary);
+  outline-offset: 2px;
+}
+
+/* --- daily activity heatmap ------------------------------------------------ */
+/* one sequential ramp per metric tab and mode, all validated (monotone
+   lightness, step gaps >= 0.06 L, light end >= 2:1 on its surface);
+   teal = commits, then the tag-group hues: feat green, content amber,
+   dev blue (matching .cl-tag-*) */
+.cl-heatmap {
+  --hm-0: #edf1f5;
+  --hm-1: #14b8a6;
+  --hm-2: #0d9488;
+  --hm-3: #0f766e;
+  --hm-4: #134e4a;
+  --hm-cell: 13px;
+  --hm-gap: 3px;
+  position: relative;
+  max-width: 54rem;
+  margin: 1.6rem auto 1.9rem;
+  font-family: var(--pf-mono);
+}
+
+.cl-heatmap[data-metric="feat"] {
+  --hm-1: #22c55e;
+  --hm-2: #16a34a;
+  --hm-3: #15803d;
+  --hm-4: #14532d;
+}
+
+.cl-heatmap[data-metric="content"] {
+  --hm-1: #f59e0b;
+  --hm-2: #d97706;
+  --hm-3: #b45309;
+  --hm-4: #78350f;
+}
+
+.cl-heatmap[data-metric="dev"] {
+  --hm-1: #60a5fa;
+  --hm-2: #3b82f6;
+  --hm-3: #2563eb;
+  --hm-4: #1e3a8a;
+}
+
+body.quarto-dark .cl-heatmap {
+  --hm-0: rgba(255, 255, 255, 0.06);
+  --hm-1: #115e59;
+  --hm-2: #0f766e;
+  --hm-3: #14b8a6;
+  --hm-4: #5eead4;
+}
+
+body.quarto-dark .cl-heatmap[data-metric="feat"] {
+  --hm-1: #14532d;
+  --hm-2: #15803d;
+  --hm-3: #22c55e;
+  --hm-4: #86efac;
+}
+
+body.quarto-dark .cl-heatmap[data-metric="content"] {
+  --hm-1: #92400e;
+  --hm-2: #d97706;
+  --hm-3: #f59e0b;
+  --hm-4: #fbbf24;
+}
+
+body.quarto-dark .cl-heatmap[data-metric="dev"] {
+  --hm-1: #1e40af;
+  --hm-2: #3b82f6;
+  --hm-3: #60a5fa;
+  --hm-4: #93c5fd;
+}
+
+.cl-hm-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem 1.1rem;
+  margin-bottom: 0.9rem;
+}
+
+.cl-hm-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pf-text-secondary);
+}
+
+.cl-hm-toggle { display: flex; gap: 0.35rem; }
+
+.cl-hm-btn {
+  font-family: var(--pf-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--pf-text-muted);
+  background: var(--pf-card);
+  border: 1px solid var(--pf-border);
+  border-radius: var(--pf-radius-pill);
+  padding: 0.18rem 0.65rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.cl-hm-btn:hover { border-color: var(--pf-primary-mid); color: var(--pf-primary); }
+
+.cl-hm-btn[aria-pressed="true"] {
+  border-color: var(--pf-primary);
+  color: var(--pf-primary);
+}
+
+/* pressed type tabs pick up their tag-group hue (see .cl-tag-*) */
+.cl-hm-btn[data-metric="feat"][aria-pressed="true"]    { border-color: #16a34a; color: #16a34a; }
+.cl-hm-btn[data-metric="content"][aria-pressed="true"] { border-color: #d97706; color: #d97706; }
+.cl-hm-btn[data-metric="dev"][aria-pressed="true"]     { border-color: #2563eb; color: #2563eb; }
+
+body.quarto-dark .cl-hm-btn[data-metric="feat"][aria-pressed="true"]    { border-color: #4ade80; color: #4ade80; }
+body.quarto-dark .cl-hm-btn[data-metric="content"][aria-pressed="true"] { border-color: #fbbf24; color: #fbbf24; }
+body.quarto-dark .cl-hm-btn[data-metric="dev"][aria-pressed="true"]     { border-color: #60a5fa; color: #60a5fa; }
+
+.cl-hm-btn:focus-visible {
+  outline: 2px solid var(--pf-primary);
+  outline-offset: 2px;
+}
+
+.cl-hm-scroll { overflow-x: auto; padding: 2px; }
+
+.cl-hm-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: max-content;
+  margin: 0 auto;
+  column-gap: 0.45rem;
+  row-gap: 0.3rem;
+}
+
+.cl-hm-months {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--hm-weeks), var(--hm-cell));
+  gap: var(--hm-gap);
+  font-size: 0.62rem;
+  color: var(--pf-text-muted);
+}
+
+.cl-hm-months span { grid-row: 1; white-space: nowrap; }
+
+.cl-hm-wdays {
+  grid-column: 1;
+  grid-row: 2;
+  display: grid;
+  grid-template-rows: repeat(7, var(--hm-cell));
+  row-gap: var(--hm-gap);
+  font-size: 0.62rem;
+  color: var(--pf-text-muted);
+}
+
+.cl-hm-wdays span { align-self: center; }
+.cl-hm-wdays span:nth-child(1) { grid-row: 1; }
+.cl-hm-wdays span:nth-child(2) { grid-row: 3; }
+.cl-hm-wdays span:nth-child(3) { grid-row: 5; }
+
+.cl-hm-cells {
+  grid-column: 2;
+  grid-row: 2;
+  display: grid;
+  grid-template-rows: repeat(7, var(--hm-cell));
+  grid-auto-flow: column;
+  grid-auto-columns: var(--hm-cell);
+  gap: var(--hm-gap);
+}
+
+.cl-hm-pad { width: var(--hm-cell); height: var(--hm-cell); }
+
+.cl-hm-cell {
+  display: inline-block;
+  width: var(--hm-cell);
+  height: var(--hm-cell);
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: var(--hm-0);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  /* cross-fade on tab switch; the script adds a per-week delay for a wave */
+  transition: background-color 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cl-hm-cell { transition: none; }
+}
+
+body.quarto-dark .cl-hm-cell {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.cl-hm-cell[data-level="1"] { background: var(--hm-1); }
+.cl-hm-cell[data-level="2"] { background: var(--hm-2); }
+.cl-hm-cell[data-level="3"] { background: var(--hm-3); }
+.cl-hm-cell[data-level="4"] { background: var(--hm-4); }
+
+.cl-hm-cells .cl-hm-cell { cursor: pointer; }
+
+.cl-hm-cells .cl-hm-cell:hover,
+.cl-hm-cells .cl-hm-cell:focus-visible {
+  outline: 2px solid var(--pf-primary);
+  outline-offset: 1px;
+}
+
+.cl-hm-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--hm-gap);
+  margin-top: 0.65rem;
+  font-size: 0.62rem;
+  color: var(--pf-text-muted);
+}
+
+.cl-hm-legend span:first-child { margin-right: 0.25rem; }
+.cl-hm-legend span:last-child  { margin-left: 0.25rem; }
+
+.cl-hm-tip {
+  position: absolute;
+  z-index: 10;
+  background: var(--pf-card);
+  border: 1px solid var(--pf-border);
+  border-radius: var(--pf-radius-sm);
+  box-shadow: var(--pf-shadow);
+  padding: 0.28rem 0.6rem;
+  font-size: 0.68rem;
+  color: var(--pf-text);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* --- container & spine ---------------------------------------------------- */
+.cl-timeline {
+  position: relative;
+  max-width: 54rem;
+  margin: 1.75rem auto 3rem;
+  padding: 0.5rem 0 1rem;
+  animation: cl-rise 0.5s ease both;
+}
+
+/* spine gradient follows the sort order: the teal end marks the first
+   commit — bottom in newest-first (default), top in oldest-first */
+.cl-timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to top,
+    var(--pf-primary-mid),
+    var(--pf-border) 80%,
+    var(--pf-border) 90%,
+    transparent
+  );
+}
+
+.cl-timeline[data-order="oldest"]::before {
+  background: linear-gradient(
+    to bottom,
+    var(--pf-primary-mid),
+    var(--pf-border) 80%,
+    var(--pf-border) 90%,
+    transparent
+  );
+}
+
+@keyframes cl-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* scroll reveal: .cl-anim is added by JS, so cards stay visible without it;
+   cards fade in as they enter the viewport (and again after a sort flip) */
+.cl-anim details.cl-item { opacity: 0; }
+
+.cl-anim details.cl-item.cl-in {
+  opacity: 1;
+  animation: cl-card-in 0.55s ease both;
+}
+
+@keyframes cl-card-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* footer note below the spine, in reading position for either sort order */
+.cl-more {
+  text-align: center;
+  font-family: var(--pf-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--pf-text-muted);
+  margin: -1.8rem 0 3rem;
+}
+
+.cl-more::before {
+  content: "";
+  display: block;
+  width: 9px;
+  height: 9px;
+  margin: 0 auto 0.5rem;
+  border-radius: 50%;
+  background: var(--pf-primary-mid);
+  animation: cl-pulse 2.4s ease infinite;
+}
+
+@keyframes cl-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(0.8); }
+  50%      { opacity: 1;    transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cl-timeline { animation: none; }
+  .cl-anim details.cl-item { opacity: 1; animation: none; }
+  .cl-more::before { animation: none; }
+}
+
+/* --- phase markers on the spine ------------------------------------------- */
+.cl-phase {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin: 2.5rem 0 1.6rem;
+}
+/* tighter top margin only when a pill actually opens the timeline (oldest) */
+.cl-timeline[data-order="oldest"] > .cl-phase-group:first-child .cl-phase {
+  margin-top: 0.25rem;
+}
+
+.cl-phase-pill {
+  display: inline-block;
+  padding: 0.45rem 1.35rem 0.5rem;
+  background: var(--pf-gradient);
+  background-size: 200% auto;
+  color: var(--pf-card);
+  border-radius: var(--pf-radius-pill);
+  box-shadow: var(--pf-shadow);
+  position: relative;
+  overflow: hidden;
+  animation: gradient-pan 10s ease infinite;
+}
+
+
+
+.cl-phase-name {
+  display: block;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+}
+
+.cl-phase-range {
+  display: block;
+  margin-top: 0.1rem;
+  font-family: var(--pf-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* --- entry cards ----------------------------------------------------------- */
+.cl-item {
+  position: relative;
+  width: calc(50% - 2.75rem);
+  margin: 0 0 1.25rem;
+  background: var(--pf-card);
+  border: 1px solid var(--pf-border);
+  border-radius: var(--pf-radius);
+  box-shadow: var(--pf-shadow);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cl-left  { margin-right: auto; }
+.cl-right { margin-left: auto; }
+
+.cl-item:hover {
+  border-color: #15b8a6;
+  box-shadow: var(--pf-shadow-hover);
+}
+
+/* node dot, centered on the spine (dot outer size = 13px + 2*3px border) */
+.cl-item::before {
+  content: "";
+  position: absolute;
+  top: 1.3rem;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--pf-card);
+  border: 3px solid var(--pf-primary);
+  z-index: 2;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.cl-left::before  { right: calc(-2.75rem - 7.5px); }
+.cl-right::before { left:  calc(-2.75rem - 7.5px); }
+
+.cl-item[open]::before {
+  background: var(--pf-primary);
+  box-shadow: var(--pf-glow);
+}
+
+/* connector from card edge to dot */
+.cl-item::after {
+  content: "";
+  position: absolute;
+  top: calc(1.3rem + 6px);
+  height: 2px;
+  width: calc(2.75rem - 7.5px);
+  background: var(--pf-border);
+}
+.cl-left::after  { right: calc(-2.75rem + 6px); }
+.cl-right::after { left:  calc(-2.75rem + 6px); }
+
+/* --- card header (the clickable summary) ----------------------------------- */
+.cl-head {
+  display: block;
+  position: relative;
+  padding: 0.95rem 2.4rem 0.95rem 1.15rem;
+  cursor: pointer;
+  list-style: none;
+  border-radius: var(--pf-radius);
+}
+.cl-head::-webkit-details-marker { display: none; }
+
+.cl-head:focus-visible {
+  outline: 2px solid var(--pf-primary);
+  outline-offset: 2px;
+}
+
+.cl-date {
+  display: inline-block;
+  font-family: var(--pf-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--pf-primary);
+}
+
+/* two-sided layout only: the date crosses the spine to sit beside the node
+    dot (dot center = card edge + 2.75rem, dot outer radius 9.5px), and the
+    card head reclaims the row it occupied; <= 768px keeps the date in-card */
+@media (min-width: 769px) {
+  .cl-date {
+    pointer-events: none;
+    position: absolute;
+    top: calc(1.3rem + 1px);   /* optically centered on the dot */
+    white-space: nowrap;
+    top: 1.15rem;
+  }
+
+  .cl-left .cl-date  { left:  calc(100% + 2.75rem + 18px); }
+  .cl-right .cl-date { right: calc(100% + 2.75rem + 18px); }
+
+  .cl-title { margin-top: 0; }
+}
+
+.cl-title {
+  display: block;
+  margin: 0.15rem 0 0.3rem;
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--pf-text);
+}
+
+.cl-summary {
+  margin: 0;
+  font-size: 0.87rem;
+  line-height: 1.55;
+  color: var(--pf-text-secondary);
+}
+
+.cl-meta {
+  display: block;
+  margin-top: 0.55rem;
+  font-family: var(--pf-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--pf-text-muted);
+}
+
+/* chevron indicator */
+.cl-chevron {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.15rem;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--pf-text-muted);
+  border-bottom: 2px solid var(--pf-text-muted);
+  transform: rotate(45deg);
+  transition: transform 0.25s ease, border-color 0.2s ease;
+}
+.cl-item[open] .cl-chevron {
+  transform: rotate(-135deg) translate(-2px, -2px);
+  border-color: var(--pf-primary);
+}
+
+/* --- expandable detail body ------------------------------------------------ */
+.cl-body {
+  margin: 0 1.15rem;
+  padding: 0.7rem 0 1rem;
+  border-top: 1px dashed var(--pf-border);
+}
+
+.cl-body ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--pf-text-secondary);
+}
+.cl-body li { margin: 0.28rem 0; }
+
+/* per-day groups inside detail lists: date label shown once, items beneath */
+.cl-d {
+  font-family: var(--pf-mono);
+  font-size: 0.7rem;
+  color: var(--pf-text-muted);
+  margin-right: 0.25rem;
+}
+
+.cl-day { margin-top: 0.6rem; }
+.cl-day:first-child { margin-top: 0; }
+
+.cl-day .cl-d {
+  display: block;
+  margin: 0 0 0.15rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* colored tag prefixes on detail bullets ("feat:", "dev:", "blg:", ...)
+   grouped in changelog-timeline.lua: content / feat / dev */
+.cl-tag {
+  font-family: var(--pf-mono);
+  font-size: 0.94em;
+  font-weight: 600;
+}
+
+.cl-tag-feat    { color: #16a34a; }  /* feat */
+.cl-tag-dev     { color: #2563eb; }  /* dev, fix, style, script */
+.cl-tag-content { color: #d97706; }  /* contnt, proj, blg, tool, hobb, ttl */
+
+body.quarto-dark .cl-tag-feat    { color: #4ade80; }
+body.quarto-dark .cl-tag-dev     { color: #60a5fa; }
+body.quarto-dark .cl-tag-content { color: #fbbf24; }
+
+/* animated open/close where ::details-content is supported */
+.cl-item::details-content {
+  opacity: 0;
+  block-size: 0;
+  overflow-y: clip;
+  transition:
+    content-visibility 0.3s allow-discrete,
+    opacity 0.3s ease,
+    block-size 0.3s ease;
+}
+.cl-item[open]::details-content {
+  opacity: 1;
+  block-size: auto;
+}
+
+/* --- mobile: single-sided layout ------------------------------------------- */
+@media (max-width: 768px) {
+  .cl-timeline::before {
+    left: 10px;
+    transform: none;
+  }
+
+  .cl-item,
+  .cl-left,
+  .cl-right {
+    width: calc(100% - 2.4rem);
+    margin-left: 2.4rem;
+    margin-right: 0;
+  }
+
+  .cl-left::before,
+  .cl-right::before {
+    left: -2.15rem;
+    right: auto;
+  }
+
+  .cl-left::after,
+  .cl-right::after {
+    left: calc(-2.4rem + 17px);
+    right: auto;
+    width: calc(2.4rem - 19px);
+  }
+
+  .cl-phase {
+    text-align: left;
+    padding-left: 2.4rem;
+  }
+}

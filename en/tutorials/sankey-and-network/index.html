@@ -83,9 +83,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-176b38be48070efe3d434d0a95bef3fe.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-f8a221566d19e13d0ba65bd27385a262.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-b3a97f6714638bbb2da87c4dacea6ac4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-f8a221566d19e13d0ba65bd27385a262.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-d3b0859ed840ef745be2362e4d82aedc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-f4d8148e586938ab7920e4e945196b9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-d3b0859ed840ef745be2362e4d82aedc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -349,6 +349,16 @@ require(['plotly'], function(Plotly) {
 <span class="menu-text">Blogs</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../en/about/index.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../en/changes/index.html"> 
+<span class="menu-text">Changes</span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
     <div class="dropdown">
@@ -533,8 +543,20 @@ require(['plotly'], function(Plotly) {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../en/readme/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reproduce This Project</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../en/changes/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Change Log</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../en/about/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">Contact</span></a>
   </div>
 </li>
     </ul>
@@ -620,8 +642,8 @@ require(['plotly'], function(Plotly) {
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     7 min read</span><span> · </span><span>1305 EN words</span><span> · </span><span>0 中文字</span></div>
-<div id="b727b388" class="cell" data-execution_count="1">
+     7 min read</span><span> · </span><span>1325 EN words</span><span> · </span><span>0 中文字</span></div>
+<div id="cb1a5bf7" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Environment and Versions</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>python<span class="op">==</span><span class="fl">3.12</span></span>
@@ -671,7 +693,7 @@ Figure&nbsp;2: Shopping website order classification Sankey diagram
 <strong>High-Level Interface</strong>: Provides highly integrated functions that are convenient to use but less flexible.<br>
 For example, <code>matplotlib.pyplot</code> is Matplotlib’s high-level interface (<code>plt.hist()</code>), while importing the lower-level <code>matplotlib</code> module gives access to functions like <code>mpl.axes.Axes()</code>.</p>
 </blockquote>
-<div id="d1e6a961" class="cell" data-execution_count="2">
+<div id="72011c3a" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import plotly via low-level interface, aliased as go</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -729,7 +751,7 @@ Table&nbsp;1: Python terminology relationships (note: <code>pd</code>, <code>go<
 <section id="dictionaries" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="dictionaries"><span class="header-section-number">1.4</span> Dictionaries</h2>
 <p>A <strong>dictionary (dict)</strong> is a Python data structure that stores data as <strong>key-value pairs</strong>. There are three common ways to create one:</p>
-<div id="6ebfbed2" class="cell" data-execution_count="3">
+<div id="4617dffb" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Method 1</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>d1 <span class="op">=</span> {<span class="st">'a'</span>: <span class="dv">1</span>, <span class="st">'b'</span>: <span class="dv">2</span>, <span class="st">'c'</span>: <span class="dv">3</span>}  <span class="co"># keys must be quoted</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -755,19 +777,19 @@ Table&nbsp;1: Python terminology relationships (note: <code>pd</code>, <code>go<
 <li>Lists are ordered, elements can repeat, and elements are accessed by position (index, starting from 0).</li>
 <li>Dictionaries are unordered, keys must be unique (values can repeat), and values are accessed by key.</li>
 </ul>
-<div id="3c8ac869" class="cell" data-execution_count="4">
+<div id="e77621b0" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: animals and their sounds</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>animal_with_sound <span class="op">=</span> {<span class="st">'cat'</span>: <span class="st">'meow'</span>, <span class="st">'dog'</span>: <span class="st">'woof'</span>, <span class="st">'duck'</span>: <span class="st">'quack'</span>}</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sound <span class="op">=</span> [<span class="st">'meow'</span>, <span class="st">'woof'</span>, <span class="st">'quack'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="35c2170b" class="cell" data-execution_count="5">
+<div id="1f365186" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List: access elements by position (index)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sound[<span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>'meow'</code></pre>
 </div>
 </div>
-<div id="a6a97f71" class="cell" data-execution_count="6">
+<div id="e9552c43" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dict: access values by key (note: dicts are unordered, cannot use index)</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>animal_with_sound[<span class="st">'cat'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -785,7 +807,7 @@ Table&nbsp;1: Python terminology relationships (note: <code>pd</code>, <code>go<
 <section id="building-the-sankey-object" class="level3" data-number="1.5.1">
 <h3 data-number="1.5.1" class="anchored" data-anchor-id="building-the-sankey-object"><span class="header-section-number">1.5.1</span> Building the Sankey Object</h3>
 <p><strong>Step 1:</strong> Use <code>go.Sankey()</code> to create the Sankey diagram object. In the node names, A/B/C represent three stages, and numbers represent different nodes within the same stage.</p>
-<div id="0924e1c1" class="cell" data-execution_count="7">
+<div id="78edf578" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameter configuration for go.Sankey()</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>sankey_data <span class="op">=</span> go.Sankey(   <span class="co"># define the sankey_data variable</span></span>
@@ -892,9 +914,9 @@ Content:
 <div id="fig-sankey-sample" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sankey-sample-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>                            <div id="fac87569-0c49-418b-bd5e-032f58b31e0b" class="plotly-graph-div" style="height:400px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("fac87569-0c49-418b-bd5e-032f58b31e0b")) {                    Plotly.newPlot(                        "fac87569-0c49-418b-bd5e-032f58b31e0b",                        [{"link":{"arrowlen":15,"color":["sandybrown","sandybrown","sandybrown","thistle","thistle","thistle"],"source":[0,1,0,2,3,3],"target":[2,3,3,4,4,5],"value":[8,4,2,8,4,2]},"node":{"color":["yellow","yellow","tomato","tomato","cornflowerblue","cornflowerblue"],"label":["A1","A2","B1","B2","C1","C2"],"line":{"color":"black","width":5},"pad":30,"thickness":20},"type":"sankey"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"title":{"text":"Sample Sankey Diagram","x":0.5,"y":0.95},"margin":{"l":60,"r":60,"t":60,"b":20},"font":{"style":"italic"},"height":400},                        {"responsive": true}                    ).then(function(){
+<div>                            <div id="718d153b-6f92-46ff-a982-5fdedc69969a" class="plotly-graph-div" style="height:400px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("718d153b-6f92-46ff-a982-5fdedc69969a")) {                    Plotly.newPlot(                        "718d153b-6f92-46ff-a982-5fdedc69969a",                        [{"link":{"arrowlen":15,"color":["sandybrown","sandybrown","sandybrown","thistle","thistle","thistle"],"source":[0,1,0,2,3,3],"target":[2,3,3,4,4,5],"value":[8,4,2,8,4,2]},"node":{"color":["yellow","yellow","tomato","tomato","cornflowerblue","cornflowerblue"],"label":["A1","A2","B1","B2","C1","C2"],"line":{"color":"black","width":5},"pad":30,"thickness":20},"type":"sankey"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"title":{"text":"Sample Sankey Diagram","x":0.5,"y":0.95},"margin":{"l":60,"r":60,"t":60,"b":20},"font":{"style":"italic"},"height":400},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('fac87569-0c49-418b-bd5e-032f58b31e0b');
+var gd = document.getElementById('718d153b-6f92-46ff-a982-5fdedc69969a');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -929,7 +951,7 @@ Figure&nbsp;3: Sample Sankey Diagram
 <section id="pre-defining-variables" class="level3" data-number="1.5.3">
 <h3 data-number="1.5.3" class="anchored" data-anchor-id="pre-defining-variables"><span class="header-section-number">1.5.3</span> Pre-defining Variables</h3>
 <p>As the number of nodes grows, managing indices becomes difficult. To address this, we can define a dictionary to <strong>look up the index of a node by its name</strong>, making the data construction more intuitive:</p>
-<div id="6f0fc596" class="cell" data-execution_count="9">
+<div id="39a2f5a0" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a list variable to store node names</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>node_names <span class="op">=</span> [<span class="st">'A1'</span>, <span class="st">'A2'</span>, <span class="st">'B1'</span>, <span class="st">'B2'</span>, <span class="st">'C1'</span>, <span class="st">'C2'</span>]</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -939,7 +961,7 @@ Figure&nbsp;3: Sample Sankey Diagram
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Build a name-to-index dictionary</span></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>nodes <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(node_names, node_ids))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="46c21a86" class="cell" data-execution_count="10">
+<div id="d336ae96" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>nodes[<span class="st">'B2'</span>]  <span class="co"># look up the index for a node by name</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>3</code></pre>
@@ -1020,9 +1042,9 @@ Figure&nbsp;3: Sample Sankey Diagram
 <div id="fig-sankey-sample-new" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sankey-sample-new-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>                            <div id="5ac3d36d-03cd-4d28-9a7e-94c3c71c6bcd" class="plotly-graph-div" style="height:400px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("5ac3d36d-03cd-4d28-9a7e-94c3c71c6bcd")) {                    Plotly.newPlot(                        "5ac3d36d-03cd-4d28-9a7e-94c3c71c6bcd",                        [{"link":{"arrowlen":15,"color":["sandybrown","sandybrown","sandybrown","thistle","thistle","thistle"],"source":[0,0,1,2,3,3],"target":[2,3,3,4,4,5],"value":[8,4,2,8,4,2]},"node":{"color":["yellow","yellow","tomato","tomato","cornflowerblue","cornflowerblue"],"label":["A1","A2","B1","B2","C1","C2"],"line":{"color":"black","width":5},"pad":15,"thickness":20},"type":"sankey"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"title":{"text":"Sample Sankey Diagram - Redrawn","x":0.5,"y":0.95},"margin":{"l":60,"r":60,"t":60,"b":20},"font":{"style":"italic"},"height":400},                        {"responsive": true}                    ).then(function(){
+<div>                            <div id="9ad51004-11d9-4935-b51c-1efced58142f" class="plotly-graph-div" style="height:400px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("9ad51004-11d9-4935-b51c-1efced58142f")) {                    Plotly.newPlot(                        "9ad51004-11d9-4935-b51c-1efced58142f",                        [{"link":{"arrowlen":15,"color":["sandybrown","sandybrown","sandybrown","thistle","thistle","thistle"],"source":[0,0,1,2,3,3],"target":[2,3,3,4,4,5],"value":[8,4,2,8,4,2]},"node":{"color":["yellow","yellow","tomato","tomato","cornflowerblue","cornflowerblue"],"label":["A1","A2","B1","B2","C1","C2"],"line":{"color":"black","width":5},"pad":15,"thickness":20},"type":"sankey"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"title":{"text":"Sample Sankey Diagram - Redrawn","x":0.5,"y":0.95},"margin":{"l":60,"r":60,"t":60,"b":20},"font":{"style":"italic"},"height":400},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('5ac3d36d-03cd-4d28-9a7e-94c3c71c6bcd');
+var gd = document.getElementById('9ad51004-11d9-4935-b51c-1efced58142f');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -1057,11 +1079,11 @@ Figure&nbsp;4: Sample Sankey Diagram - Redrawn
 <section id="modifying-color-transparency" class="level3" data-number="1.5.4">
 <h3 data-number="1.5.4" class="anchored" data-anchor-id="modifying-color-transparency"><span class="header-section-number">1.5.4</span> Modifying Color Transparency</h3>
 <p>To <strong>modify link color transparency</strong>, use RGBA values instead of color name strings. The RGBA format is <code>(red, green, blue, alpha)</code>, where <code>alpha</code> represents opacity (0 = fully transparent, 1 = fully opaque). Both <code>"sandybrown"</code> and <code>"thistle"</code> are CSS preset color names, which can be found at <a href="https://www.w3schools.com/cssref/css_colors.php">w3schools CSS Colors</a> or the <a href="https://matplotlib.org/stable/gallery/color/named_colors.html">Matplotlib Color Reference</a>.</p>
-<div id="79d4ab0d" class="cell" data-execution_count="12">
+<div id="33812d2c" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import library for handling RGBA values</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.colors <span class="im">as</span> c</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="ad4fda48" class="cell" data-execution_count="13">
+<div id="2901f250" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use c.to_rgba() to find RGB values and set alpha</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>c.to_rgba(<span class="st">'sandybrown'</span>, <span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
@@ -1069,7 +1091,7 @@ Figure&nbsp;4: Sample Sankey Diagram - Redrawn
 </div>
 </div>
 <p>Plotly supports specifying RGBA colors using the string format <code>'rgba(r, g, b, a)'</code>.</p>
-<div id="76bc01d1" class="cell" data-execution_count="14">
+<div id="821cdf68" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define strings to store RGBA values for transparent colors</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>faint_sandybrown <span class="op">=</span> <span class="st">'rgba'</span> <span class="op">+</span> <span class="bu">str</span>(c.to_rgba(<span class="st">'sandybrown'</span>, <span class="fl">0.5</span>)) <span class="co"># + concatenates strings</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>faint_thistle <span class="op">=</span> <span class="st">'rgba'</span> <span class="op">+</span> <span class="bu">str</span>(c.to_rgba(<span class="st">'thistle'</span>, <span class="fl">0.5</span>))</span>
@@ -1105,9 +1127,9 @@ rgba(0.8470588235294118, 0.7490196078431373, 0.8470588235294118, 0.5)</code></pr
 <div id="fig-sankey-sample-faint" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sankey-sample-faint-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>                            <div id="6447b8a1-e229-4498-ab9e-ca6a6f60ed46" class="plotly-graph-div" style="height:400px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("6447b8a1-e229-4498-ab9e-ca6a6f60ed46")) {                    Plotly.newPlot(                        "6447b8a1-e229-4498-ab9e-ca6a6f60ed46",                        [{"link":{"arrowlen":15,"color":["rgba(0.9568627450980393, 0.6431372549019608, 0.3764705882352941, 0.5)","rgba(0.9568627450980393, 0.6431372549019608, 0.3764705882352941, 0.5)","rgba(0.9568627450980393, 0.6431372549019608, 0.3764705882352941, 0.5)","rgba(0.8470588235294118, 0.7490196078431373, 0.8470588235294118, 0.5)","rgba(0.8470588235294118, 0.7490196078431373, 0.8470588235294118, 0.5)","rgba(0.8470588235294118, 0.7490196078431373, 0.8470588235294118, 0.5)"],"source":[0,0,1,2,3,3],"target":[2,3,3,4,4,5],"value":[8,4,2,8,4,2]},"node":{"color":["yellow","yellow","tomato","tomato","cornflowerblue","cornflowerblue"],"label":["A1","A2","B1","B2","C1","C2"],"line":{"color":"black","width":5},"pad":15,"thickness":20},"type":"sankey"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"title":{"text":"Sample Sankey Diagram - 50% Link Transparency","x":0.5,"y":0.95},"margin":{"l":60,"r":60,"t":60,"b":20},"font":{"style":"italic"},"height":400},                        {"responsive": true}                    ).then(function(){
+<div>                            <div id="f3233884-13bc-4605-a6cd-4a7e90e658f9" class="plotly-graph-div" style="height:400px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("f3233884-13bc-4605-a6cd-4a7e90e658f9")) {                    Plotly.newPlot(                        "f3233884-13bc-4605-a6cd-4a7e90e658f9",                        [{"link":{"arrowlen":15,"color":["rgba(0.9568627450980393, 0.6431372549019608, 0.3764705882352941, 0.5)","rgba(0.9568627450980393, 0.6431372549019608, 0.3764705882352941, 0.5)","rgba(0.9568627450980393, 0.6431372549019608, 0.3764705882352941, 0.5)","rgba(0.8470588235294118, 0.7490196078431373, 0.8470588235294118, 0.5)","rgba(0.8470588235294118, 0.7490196078431373, 0.8470588235294118, 0.5)","rgba(0.8470588235294118, 0.7490196078431373, 0.8470588235294118, 0.5)"],"source":[0,0,1,2,3,3],"target":[2,3,3,4,4,5],"value":[8,4,2,8,4,2]},"node":{"color":["yellow","yellow","tomato","tomato","cornflowerblue","cornflowerblue"],"label":["A1","A2","B1","B2","C1","C2"],"line":{"color":"black","width":5},"pad":15,"thickness":20},"type":"sankey"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"title":{"text":"Sample Sankey Diagram - 50% Link Transparency","x":0.5,"y":0.95},"margin":{"l":60,"r":60,"t":60,"b":20},"font":{"style":"italic"},"height":400},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('6447b8a1-e229-4498-ab9e-ca6a6f60ed46');
+var gd = document.getElementById('f3233884-13bc-4605-a6cd-4a7e90e658f9');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -1144,18 +1166,18 @@ Figure&nbsp;5: Sample Sankey Diagram - 50% Link Transparency
 <h1 data-number="2"><span class="header-section-number">2</span> Network Graphs</h1>
 <section id="comparing-sankey-diagrams-and-network-graphs" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="comparing-sankey-diagrams-and-network-graphs"><span class="header-section-number">2.1</span> Comparing Sankey Diagrams and Network Graphs</h2>
-<p>Both Sankey diagrams and network graphs visualize relational data, but with different emphases, as shown in <strong>?@tbl-sankey-network</strong>:</p>
-<div id="tbl-sankey-network-tbl-colwidths20-35-45" class="quarto-float quarto-figure quarto-figure-center anchored">
+<p>Both Sankey diagrams and network graphs visualize relational data, but with different emphases, as shown in <a href="#tbl-sankey-vs-network" class="quarto-xref">Table&nbsp;2</a>:</p>
+<div id="tbl-sankey-vs-network" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[20,35,45]">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sankey-network-tbl-colwidths20-35-45-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sankey-vs-network-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;2: Comparison of Sankey Diagrams and Network Graphs
 </figcaption>
-<div aria-describedby="tbl-sankey-network-tbl-colwidths20-35-45-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="tbl-sankey-vs-network-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 28%">
+<col style="width: 20%">
 <col style="width: 35%">
-<col style="width: 35%">
+<col style="width: 45%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1209,22 +1231,22 @@ Table&nbsp;2: Comparison of Sankey Diagrams and Network Graphs
 <section id="drawing-network-graphs" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="drawing-network-graphs"><span class="header-section-number">2.2</span> Drawing Network Graphs</h2>
 <p>Install <code>pyvis</code> before use (includes networkx).</p>
-<div id="e98c3c92" class="cell" data-execution_count="16">
+<div id="b8ca8e68" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pip install pyvis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>In a local environment (Jupyter), installation persists and can be reused; in Google Colab’s virtual environment, installation only applies to the current file and must be repeated for new files.</p>
-<div id="55a103ea" class="cell" data-execution_count="17">
+<div id="d8a04114" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import libraries for drawing network graphs</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyvis.network <span class="im">import</span> Network</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Step 1: Create network relationships with networkx</strong></p>
-<div id="b2571e5c" class="cell" data-execution_count="18">
+<div id="1a3acd54" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty undirected graph</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>gx <span class="op">=</span> nx.Graph()</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: use nx.MultiDiGraph() to create a directed graph instead</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="a7919d23" class="cell" data-execution_count="19">
+<div id="403d05cf" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add nodes and edges to the empty graph gx</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>gx.add_edge(<span class="st">'a'</span>, <span class="st">'b'</span>)  <span class="co"># edge from 'a' to 'b'</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>gx.add_edge(<span class="st">'b'</span>, <span class="st">'d'</span>)</span>
@@ -1233,7 +1255,7 @@ Table&nbsp;2: Comparison of Sankey Diagrams and Network Graphs
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>gx.add_edge(<span class="st">'c'</span>, <span class="st">'d'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Step 2: Output an interactive network graph with pyvis</strong></p>
-<div id="59017889" class="cell" data-execution_count="20">
+<div id="2012efef" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty interactive network graph object</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>gp <span class="op">=</span> Network()</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1266,14 +1288,14 @@ Figure&nbsp;7: Network graph HTML output demonstration (animated GIF)
 </figcaption>
 </figure>
 </div>
-<div id="f90b886d" class="cell" data-execution_count="21">
+<div id="8ec8f227" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gp.nodes[<span class="dv">0</span>])    <span class="co"># view info for the first node (index 0)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{'color': '#97c2fc', 'size': 10, 'id': 'a', 'label': 'a', 'shape': 'dot'}</code></pre>
 </div>
 </div>
 <p><strong>Manually modifying node attributes:</strong></p>
-<div id="f498d147" class="cell" data-execution_count="22">
+<div id="02573d90" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modify node attributes</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>gp.nodes[<span class="dv">0</span>][<span class="st">'color'</span>] <span class="op">=</span> <span class="st">'red'</span> <span class="co"># color</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>gp.nodes[<span class="dv">0</span>][<span class="st">'size'</span>] <span class="op">=</span> <span class="dv">20</span>     <span class="co"># size</span></span>
@@ -1296,7 +1318,7 @@ Figure&nbsp;8: Modified network graph
 <section id="reading-network-relationships-from-a-file" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="reading-network-relationships-from-a-file"><span class="header-section-number">2.3</span> Reading Network Relationships from a File</h2>
 <p>In addition to manual creation, network relationship data can also be read from a CSV file. The following example uses <strong><em>beer and curry</em></strong> tweet data <a href="https://github.com/Pinn32/dv-projects/blob/main/src/data/beer-and-curry.csv">(view source file)</a>: original posters mentioned other users, forming directed edges from the original poster (source node) to the mentioned user (target node).</p>
-<div id="ec2ca6d1" class="cell" data-execution_count="23">
+<div id="86bb4e62" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">###############################################################################</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Data preprocessing</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1478,7 +1500,9 @@ Figure&nbsp;10: Social network graph: detail view
             Blogs: 'Blogs',
             Hobbies: 'Hobbies',
             'All Posts': 'All Posts',
-            About: 'About'
+            About: 'About',
+            Contact: 'Contact',
+            Changes: 'Changes'
         },
         zh: {
             Projects: '项目',
@@ -1487,7 +1511,9 @@ Figure&nbsp;10: Social network graph: detail view
             Blogs: '博客',
             Hobbies: '爱好',
             'All Posts': '所有文章',
-            About: '关于'
+            About: '关于',
+            Contact: '联系作者',
+            Changes: '更新日志'
         },
     };
 
@@ -1788,7 +1814,7 @@ Figure&nbsp;10: Social network graph: detail view
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/pinn32\.github\.io");
+        var filterRegex = new RegExp("^(?:https?:\/\/)?(?:pinn32\.github\.io\/(?:en|zh|dv-projects|img)|raw\.githubusercontent\.com\/Pinn32\/img)(?:\/|$)");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1802,6 +1828,13 @@ Figure&nbsp;10: Social network graph: detail view
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -2114,7 +2147,39 @@ Figure&nbsp;10: Social network graph: detail view
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+  </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      if (authorPrefersDark) {
+          [baseTheme, altTheme] = [altTheme, baseTheme];
+      }
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "Pinn32/pinn32.github.io";
+    script.dataset.repoId = "R_kgDOR3HFKA";
+    script.dataset.category = "General";
+    script.dataset.categoryId = "DIC_kwDOR3HFKM4DAHgX";
+    script.dataset.mapping = "title";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> 'Sankey Diagrams and Network Graphs'</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> 'Pinn Xu'</span></span>
@@ -2493,10 +2558,10 @@ Figure&nbsp;10: Social network graph: detail view
 <span id="cb32-406"><a href="#cb32-406" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-407"><a href="#cb32-407" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparing Sankey Diagrams and Network Graphs</span></span>
 <span id="cb32-408"><a href="#cb32-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-409"><a href="#cb32-409" aria-hidden="true" tabindex="-1"></a>Both Sankey diagrams and network graphs visualize relational data, but with different emphases, as shown in @tbl-sankey-network:</span>
+<span id="cb32-409"><a href="#cb32-409" aria-hidden="true" tabindex="-1"></a>Both Sankey diagrams and network graphs visualize relational data, but with different emphases, as shown in @tbl-sankey-vs-network:</span>
 <span id="cb32-410"><a href="#cb32-410" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-411"><a href="#cb32-411" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Feature <span class="pp">|</span> Sankey Diagram <span class="pp">|</span> Network Graph <span class="pp">|</span></span>
-<span id="cb32-412"><a href="#cb32-412" aria-hidden="true" tabindex="-1"></a><span class="pp">|:------:|:--------:|:--------:|</span></span>
+<span id="cb32-412"><a href="#cb32-412" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-------:|:---------------:|:-------------:|</span></span>
 <span id="cb32-413"><a href="#cb32-413" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Primary Use <span class="pp">|</span> Visualize resource flow quantities <span class="pp">|</span> Visualize connections between nodes <span class="pp">|</span></span>
 <span id="cb32-414"><a href="#cb32-414" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Node Meaning <span class="pp">|</span> Process stage or entity <span class="pp">|</span> Individual (e.g., a user) <span class="pp">|</span></span>
 <span id="cb32-415"><a href="#cb32-415" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Connection Name <span class="pp">|</span> Link <span class="pp">|</span> Edge <span class="pp">|</span></span>
@@ -2505,135 +2570,137 @@ Figure&nbsp;10: Social network graph: detail view
 <span id="cb32-418"><a href="#cb32-418" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Key Characteristics <span class="pp">|</span> Hierarchical, flow conservation <span class="pp">|</span> Connection strength and relational distance <span class="pp">|</span></span>
 <span id="cb32-419"><a href="#cb32-419" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Application Examples <span class="pp">|</span> Energy distribution, cost allocation <span class="pp">|</span> Social networks, computer networks <span class="pp">|</span></span>
 <span id="cb32-420"><a href="#cb32-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-421"><a href="#cb32-421" aria-hidden="true" tabindex="-1"></a>: Comparison of Sankey Diagrams and Network Graphs {#tbl-sankey-network tbl-colwidths=<span class="co">[</span><span class="ot">20, 35, 45</span><span class="co">]</span>}</span>
+<span id="cb32-421"><a href="#cb32-421" aria-hidden="true" tabindex="-1"></a>: Comparison of Sankey Diagrams and Network Graphs {#tbl-sankey-vs-network tbl-colwidths=<span class="co">[</span><span class="ot">20,35,45</span><span class="co">]</span>}</span>
 <span id="cb32-422"><a href="#cb32-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-423"><a href="#cb32-423" aria-hidden="true" tabindex="-1"></a><span class="fu">## Drawing Network Graphs</span></span>
+<span id="cb32-423"><a href="#cb32-423" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-424"><a href="#cb32-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-425"><a href="#cb32-425" aria-hidden="true" tabindex="-1"></a>Install <span class="in">`pyvis`</span> before use (includes networkx).</span>
+<span id="cb32-425"><a href="#cb32-425" aria-hidden="true" tabindex="-1"></a><span class="fu">## Drawing Network Graphs</span></span>
 <span id="cb32-426"><a href="#cb32-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-429"><a href="#cb32-429" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb32-430"><a href="#cb32-430" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: False</span></span>
-<span id="cb32-431"><a href="#cb32-431" aria-hidden="true" tabindex="-1"></a>pip install pyvis</span>
-<span id="cb32-432"><a href="#cb32-432" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-433"><a href="#cb32-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-434"><a href="#cb32-434" aria-hidden="true" tabindex="-1"></a>In a local environment (Jupyter), installation persists and can be reused; in Google Colab's virtual environment, installation only applies to the current file and must be repeated for new files.</span>
+<span id="cb32-427"><a href="#cb32-427" aria-hidden="true" tabindex="-1"></a>Install <span class="in">`pyvis`</span> before use (includes networkx).</span>
+<span id="cb32-428"><a href="#cb32-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-431"><a href="#cb32-431" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb32-432"><a href="#cb32-432" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: False</span></span>
+<span id="cb32-433"><a href="#cb32-433" aria-hidden="true" tabindex="-1"></a>pip install pyvis</span>
+<span id="cb32-434"><a href="#cb32-434" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-435"><a href="#cb32-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-438"><a href="#cb32-438" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb32-439"><a href="#cb32-439" aria-hidden="true" tabindex="-1"></a><span class="co"># Import libraries for drawing network graphs</span></span>
-<span id="cb32-440"><a href="#cb32-440" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyvis.network <span class="im">import</span> Network</span>
-<span id="cb32-441"><a href="#cb32-441" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
-<span id="cb32-442"><a href="#cb32-442" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-443"><a href="#cb32-443" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-444"><a href="#cb32-444" aria-hidden="true" tabindex="-1"></a>**Step 1: Create network relationships with networkx**</span>
+<span id="cb32-436"><a href="#cb32-436" aria-hidden="true" tabindex="-1"></a>In a local environment (Jupyter), installation persists and can be reused; in Google Colab's virtual environment, installation only applies to the current file and must be repeated for new files.</span>
+<span id="cb32-437"><a href="#cb32-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-440"><a href="#cb32-440" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb32-441"><a href="#cb32-441" aria-hidden="true" tabindex="-1"></a><span class="co"># Import libraries for drawing network graphs</span></span>
+<span id="cb32-442"><a href="#cb32-442" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyvis.network <span class="im">import</span> Network</span>
+<span id="cb32-443"><a href="#cb32-443" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb32-444"><a href="#cb32-444" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-445"><a href="#cb32-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-448"><a href="#cb32-448" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb32-449"><a href="#cb32-449" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty undirected graph</span></span>
-<span id="cb32-450"><a href="#cb32-450" aria-hidden="true" tabindex="-1"></a>gx <span class="op">=</span> nx.Graph()</span>
-<span id="cb32-451"><a href="#cb32-451" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: use nx.MultiDiGraph() to create a directed graph instead</span></span>
-<span id="cb32-452"><a href="#cb32-452" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-453"><a href="#cb32-453" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-456"><a href="#cb32-456" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb32-457"><a href="#cb32-457" aria-hidden="true" tabindex="-1"></a><span class="co"># Add nodes and edges to the empty graph gx</span></span>
-<span id="cb32-458"><a href="#cb32-458" aria-hidden="true" tabindex="-1"></a>gx.add_edge(<span class="st">'a'</span>, <span class="st">'b'</span>)  <span class="co"># edge from 'a' to 'b'</span></span>
-<span id="cb32-459"><a href="#cb32-459" aria-hidden="true" tabindex="-1"></a>gx.add_edge(<span class="st">'b'</span>, <span class="st">'d'</span>)</span>
-<span id="cb32-460"><a href="#cb32-460" aria-hidden="true" tabindex="-1"></a>gx.add_edge(<span class="st">'c'</span>, <span class="st">'e'</span>)</span>
-<span id="cb32-461"><a href="#cb32-461" aria-hidden="true" tabindex="-1"></a>gx.add_edge(<span class="st">'e'</span>, <span class="st">'a'</span>)</span>
-<span id="cb32-462"><a href="#cb32-462" aria-hidden="true" tabindex="-1"></a>gx.add_edge(<span class="st">'c'</span>, <span class="st">'d'</span>)</span>
-<span id="cb32-463"><a href="#cb32-463" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-464"><a href="#cb32-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-465"><a href="#cb32-465" aria-hidden="true" tabindex="-1"></a>**Step 2: Output an interactive network graph with pyvis**</span>
+<span id="cb32-446"><a href="#cb32-446" aria-hidden="true" tabindex="-1"></a>**Step 1: Create network relationships with networkx**</span>
+<span id="cb32-447"><a href="#cb32-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-450"><a href="#cb32-450" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb32-451"><a href="#cb32-451" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty undirected graph</span></span>
+<span id="cb32-452"><a href="#cb32-452" aria-hidden="true" tabindex="-1"></a>gx <span class="op">=</span> nx.Graph()</span>
+<span id="cb32-453"><a href="#cb32-453" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: use nx.MultiDiGraph() to create a directed graph instead</span></span>
+<span id="cb32-454"><a href="#cb32-454" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-455"><a href="#cb32-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-458"><a href="#cb32-458" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb32-459"><a href="#cb32-459" aria-hidden="true" tabindex="-1"></a><span class="co"># Add nodes and edges to the empty graph gx</span></span>
+<span id="cb32-460"><a href="#cb32-460" aria-hidden="true" tabindex="-1"></a>gx.add_edge(<span class="st">'a'</span>, <span class="st">'b'</span>)  <span class="co"># edge from 'a' to 'b'</span></span>
+<span id="cb32-461"><a href="#cb32-461" aria-hidden="true" tabindex="-1"></a>gx.add_edge(<span class="st">'b'</span>, <span class="st">'d'</span>)</span>
+<span id="cb32-462"><a href="#cb32-462" aria-hidden="true" tabindex="-1"></a>gx.add_edge(<span class="st">'c'</span>, <span class="st">'e'</span>)</span>
+<span id="cb32-463"><a href="#cb32-463" aria-hidden="true" tabindex="-1"></a>gx.add_edge(<span class="st">'e'</span>, <span class="st">'a'</span>)</span>
+<span id="cb32-464"><a href="#cb32-464" aria-hidden="true" tabindex="-1"></a>gx.add_edge(<span class="st">'c'</span>, <span class="st">'d'</span>)</span>
+<span id="cb32-465"><a href="#cb32-465" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-466"><a href="#cb32-466" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-469"><a href="#cb32-469" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb32-470"><a href="#cb32-470" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false # not show output cell, but eval</span></span>
-<span id="cb32-471"><a href="#cb32-471" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty interactive network graph object</span></span>
-<span id="cb32-472"><a href="#cb32-472" aria-hidden="true" tabindex="-1"></a>gp <span class="op">=</span> Network()</span>
-<span id="cb32-473"><a href="#cb32-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-474"><a href="#cb32-474" aria-hidden="true" tabindex="-1"></a><span class="co"># Load network relationships from gx</span></span>
-<span id="cb32-475"><a href="#cb32-475" aria-hidden="true" tabindex="-1"></a>gp.from_nx(gx)</span>
-<span id="cb32-476"><a href="#cb32-476" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-477"><a href="#cb32-477" aria-hidden="true" tabindex="-1"></a><span class="co"># Output as a standalone HTML file</span></span>
-<span id="cb32-478"><a href="#cb32-478" aria-hidden="true" tabindex="-1"></a>gp.show(<span class="st">'net.html'</span>, notebook<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb32-479"><a href="#cb32-479" aria-hidden="true" tabindex="-1"></a><span class="co"># notebook=False let the fig not be rendered in Jupyter output cell</span></span>
-<span id="cb32-480"><a href="#cb32-480" aria-hidden="true" tabindex="-1"></a><span class="co"># only use True when you are using Jupyter &amp; browser</span></span>
-<span id="cb32-481"><a href="#cb32-481" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-482"><a href="#cb32-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-483"><a href="#cb32-483" aria-hidden="true" tabindex="-1"></a>The output standalone HTML file is saved in the current directory (<span class="co">[</span><span class="ot">view source code and files</span><span class="co">](https://github.com/Pinn32/dv-projects/tree/main/zh/tutorials/sankey-and-network)</span>). In Colab, it can be found in the left file panel, as shown in @fig-colab. Download it and open it in a browser to see the result shown in @fig-network-sample.</span>
+<span id="cb32-467"><a href="#cb32-467" aria-hidden="true" tabindex="-1"></a>**Step 2: Output an interactive network graph with pyvis**</span>
+<span id="cb32-468"><a href="#cb32-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-471"><a href="#cb32-471" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb32-472"><a href="#cb32-472" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false # not show output cell, but eval</span></span>
+<span id="cb32-473"><a href="#cb32-473" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty interactive network graph object</span></span>
+<span id="cb32-474"><a href="#cb32-474" aria-hidden="true" tabindex="-1"></a>gp <span class="op">=</span> Network()</span>
+<span id="cb32-475"><a href="#cb32-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-476"><a href="#cb32-476" aria-hidden="true" tabindex="-1"></a><span class="co"># Load network relationships from gx</span></span>
+<span id="cb32-477"><a href="#cb32-477" aria-hidden="true" tabindex="-1"></a>gp.from_nx(gx)</span>
+<span id="cb32-478"><a href="#cb32-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-479"><a href="#cb32-479" aria-hidden="true" tabindex="-1"></a><span class="co"># Output as a standalone HTML file</span></span>
+<span id="cb32-480"><a href="#cb32-480" aria-hidden="true" tabindex="-1"></a>gp.show(<span class="st">'net.html'</span>, notebook<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb32-481"><a href="#cb32-481" aria-hidden="true" tabindex="-1"></a><span class="co"># notebook=False let the fig not be rendered in Jupyter output cell</span></span>
+<span id="cb32-482"><a href="#cb32-482" aria-hidden="true" tabindex="-1"></a><span class="co"># only use True when you are using Jupyter &amp; browser</span></span>
+<span id="cb32-483"><a href="#cb32-483" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-484"><a href="#cb32-484" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-485"><a href="#cb32-485" aria-hidden="true" tabindex="-1"></a><span class="al">![The output HTML file is automatically saved in Colab's file panel](../../../src/img/ttl/sankey/fig6-colab.png)</span>{#fig-colab}</span>
+<span id="cb32-485"><a href="#cb32-485" aria-hidden="true" tabindex="-1"></a>The output standalone HTML file is saved in the current directory (<span class="co">[</span><span class="ot">view source code and files</span><span class="co">](https://github.com/Pinn32/dv-projects/tree/main/zh/tutorials/sankey-and-network)</span>). In Colab, it can be found in the left file panel, as shown in @fig-colab. Download it and open it in a browser to see the result shown in @fig-network-sample.</span>
 <span id="cb32-486"><a href="#cb32-486" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-487"><a href="#cb32-487" aria-hidden="true" tabindex="-1"></a><span class="al">![Network graph HTML output demonstration (animated GIF)](../../../src/img/ttl/sankey/fig7-network-sample.gif)</span>{#fig-network-sample width="60%"}</span>
+<span id="cb32-487"><a href="#cb32-487" aria-hidden="true" tabindex="-1"></a><span class="al">![The output HTML file is automatically saved in Colab's file panel](../../../src/img/ttl/sankey/fig6-colab.png)</span>{#fig-colab}</span>
 <span id="cb32-488"><a href="#cb32-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-491"><a href="#cb32-491" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb32-492"><a href="#cb32-492" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gp.nodes[<span class="dv">0</span>])    <span class="co"># view info for the first node (index 0)</span></span>
-<span id="cb32-493"><a href="#cb32-493" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-494"><a href="#cb32-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-495"><a href="#cb32-495" aria-hidden="true" tabindex="-1"></a>**Manually modifying node attributes:**</span>
+<span id="cb32-489"><a href="#cb32-489" aria-hidden="true" tabindex="-1"></a><span class="al">![Network graph HTML output demonstration (animated GIF)](../../../src/img/ttl/sankey/fig7-network-sample.gif)</span>{#fig-network-sample width="60%"}</span>
+<span id="cb32-490"><a href="#cb32-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-493"><a href="#cb32-493" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb32-494"><a href="#cb32-494" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gp.nodes[<span class="dv">0</span>])    <span class="co"># view info for the first node (index 0)</span></span>
+<span id="cb32-495"><a href="#cb32-495" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-496"><a href="#cb32-496" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-499"><a href="#cb32-499" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb32-500"><a href="#cb32-500" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
-<span id="cb32-501"><a href="#cb32-501" aria-hidden="true" tabindex="-1"></a><span class="co"># Modify node attributes</span></span>
-<span id="cb32-502"><a href="#cb32-502" aria-hidden="true" tabindex="-1"></a>gp.nodes[<span class="dv">0</span>][<span class="st">'color'</span>] <span class="op">=</span> <span class="st">'red'</span> <span class="co"># color</span></span>
-<span id="cb32-503"><a href="#cb32-503" aria-hidden="true" tabindex="-1"></a>gp.nodes[<span class="dv">0</span>][<span class="st">'size'</span>] <span class="op">=</span> <span class="dv">20</span>     <span class="co"># size</span></span>
-<span id="cb32-504"><a href="#cb32-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-505"><a href="#cb32-505" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename the output file to avoid overwriting the original</span></span>
-<span id="cb32-506"><a href="#cb32-506" aria-hidden="true" tabindex="-1"></a>gp.show(<span class="st">'net-modified.html'</span>, notebook<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb32-507"><a href="#cb32-507" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-508"><a href="#cb32-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-509"><a href="#cb32-509" aria-hidden="true" tabindex="-1"></a>The modified result is shown in @fig-network-sample-modified:</span>
+<span id="cb32-497"><a href="#cb32-497" aria-hidden="true" tabindex="-1"></a>**Manually modifying node attributes:**</span>
+<span id="cb32-498"><a href="#cb32-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-501"><a href="#cb32-501" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb32-502"><a href="#cb32-502" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb32-503"><a href="#cb32-503" aria-hidden="true" tabindex="-1"></a><span class="co"># Modify node attributes</span></span>
+<span id="cb32-504"><a href="#cb32-504" aria-hidden="true" tabindex="-1"></a>gp.nodes[<span class="dv">0</span>][<span class="st">'color'</span>] <span class="op">=</span> <span class="st">'red'</span> <span class="co"># color</span></span>
+<span id="cb32-505"><a href="#cb32-505" aria-hidden="true" tabindex="-1"></a>gp.nodes[<span class="dv">0</span>][<span class="st">'size'</span>] <span class="op">=</span> <span class="dv">20</span>     <span class="co"># size</span></span>
+<span id="cb32-506"><a href="#cb32-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-507"><a href="#cb32-507" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename the output file to avoid overwriting the original</span></span>
+<span id="cb32-508"><a href="#cb32-508" aria-hidden="true" tabindex="-1"></a>gp.show(<span class="st">'net-modified.html'</span>, notebook<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb32-509"><a href="#cb32-509" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-510"><a href="#cb32-510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-511"><a href="#cb32-511" aria-hidden="true" tabindex="-1"></a><span class="al">![Modified network graph](../../../src/img/ttl/sankey/fig8-network-sample-modified.png)</span>{#fig-network-sample-modified width="50%"}</span>
+<span id="cb32-511"><a href="#cb32-511" aria-hidden="true" tabindex="-1"></a>The modified result is shown in @fig-network-sample-modified:</span>
 <span id="cb32-512"><a href="#cb32-512" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-513"><a href="#cb32-513" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reading Network Relationships from a File</span></span>
+<span id="cb32-513"><a href="#cb32-513" aria-hidden="true" tabindex="-1"></a><span class="al">![Modified network graph](../../../src/img/ttl/sankey/fig8-network-sample-modified.png)</span>{#fig-network-sample-modified width="50%"}</span>
 <span id="cb32-514"><a href="#cb32-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-515"><a href="#cb32-515" aria-hidden="true" tabindex="-1"></a>In addition to manual creation, network relationship data can also be read from a CSV file. The following example uses ***beer and curry*** tweet data <span class="co">[</span><span class="ot">(view source file)</span><span class="co">](https://github.com/Pinn32/dv-projects/blob/main/src/data/beer-and-curry.csv)</span>: original posters mentioned other users, forming directed edges from the original poster (source node) to the mentioned user (target node).</span>
+<span id="cb32-515"><a href="#cb32-515" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reading Network Relationships from a File</span></span>
 <span id="cb32-516"><a href="#cb32-516" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-519"><a href="#cb32-519" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb32-520"><a href="#cb32-520" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
-<span id="cb32-521"><a href="#cb32-521" aria-hidden="true" tabindex="-1"></a><span class="co">###############################################################################</span></span>
-<span id="cb32-522"><a href="#cb32-522" aria-hidden="true" tabindex="-1"></a><span class="co"># Data preprocessing</span></span>
-<span id="cb32-523"><a href="#cb32-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-524"><a href="#cb32-524" aria-hidden="true" tabindex="-1"></a><span class="co"># Import pandas to handle the CSV file</span></span>
-<span id="cb32-525"><a href="#cb32-525" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb32-526"><a href="#cb32-526" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-527"><a href="#cb32-527" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the CSV file</span></span>
-<span id="cb32-528"><a href="#cb32-528" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">'../../../src/data/beer-and-curry.csv'</span></span>
-<span id="cb32-529"><a href="#cb32-529" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(path)</span>
-<span id="cb32-530"><a href="#cb32-530" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-531"><a href="#cb32-531" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows with no mentions</span></span>
-<span id="cb32-532"><a href="#cb32-532" aria-hidden="true" tabindex="-1"></a>df.dropna(subset<span class="op">=</span><span class="st">'mentions'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb32-533"><a href="#cb32-533" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-534"><a href="#cb32-534" aria-hidden="true" tabindex="-1"></a><span class="co">###############################################################################</span></span>
-<span id="cb32-535"><a href="#cb32-535" aria-hidden="true" tabindex="-1"></a><span class="co"># Create network relationships</span></span>
-<span id="cb32-536"><a href="#cb32-536" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-537"><a href="#cb32-537" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty directed graph</span></span>
-<span id="cb32-538"><a href="#cb32-538" aria-hidden="true" tabindex="-1"></a>gx1 <span class="op">=</span> nx.MultiDiGraph()</span>
-<span id="cb32-539"><a href="#cb32-539" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-540"><a href="#cb32-540" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop over all rows</span></span>
-<span id="cb32-541"><a href="#cb32-541" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> df.index:</span>
-<span id="cb32-542"><a href="#cb32-542" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> df.loc[i, <span class="st">'user'</span>]              <span class="co"># get the user as source node</span></span>
-<span id="cb32-543"><a href="#cb32-543" aria-hidden="true" tabindex="-1"></a>    mentions <span class="op">=</span> df.loc[i, <span class="st">'mentions'</span>]      <span class="co"># get all mentions in a post</span></span>
-<span id="cb32-544"><a href="#cb32-544" aria-hidden="true" tabindex="-1"></a>    mentions <span class="op">=</span> mentions.replace(<span class="st">' '</span>, <span class="st">''</span>)  <span class="co"># remove spaces</span></span>
-<span id="cb32-545"><a href="#cb32-545" aria-hidden="true" tabindex="-1"></a>    mentions <span class="op">=</span> mentions.split(<span class="st">'@'</span>)        <span class="co"># split by '@' to get individual mentions</span></span>
-<span id="cb32-546"><a href="#cb32-546" aria-hidden="true" tabindex="-1"></a>    mentions.pop(<span class="dv">0</span>)                       <span class="co"># first element after split is empty, remove it</span></span>
-<span id="cb32-547"><a href="#cb32-547" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-548"><a href="#cb32-548" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> mention <span class="kw">in</span> mentions:</span>
-<span id="cb32-549"><a href="#cb32-549" aria-hidden="true" tabindex="-1"></a>        gx1.add_edge(user, mention)       <span class="co"># add all nodes and edges</span></span>
-<span id="cb32-550"><a href="#cb32-550" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-551"><a href="#cb32-551" aria-hidden="true" tabindex="-1"></a><span class="co">###############################################################################</span></span>
-<span id="cb32-552"><a href="#cb32-552" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw the network graph</span></span>
-<span id="cb32-553"><a href="#cb32-553" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-554"><a href="#cb32-554" aria-hidden="true" tabindex="-1"></a>gp1 <span class="op">=</span> Network()   <span class="co"># create an empty network graph</span></span>
-<span id="cb32-555"><a href="#cb32-555" aria-hidden="true" tabindex="-1"></a>gp1.from_nx(gx1)  <span class="co"># load network relationships</span></span>
-<span id="cb32-556"><a href="#cb32-556" aria-hidden="true" tabindex="-1"></a>gp1.show(<span class="st">'net-from-csv.html'</span>, notebook<span class="op">=</span><span class="va">False</span>)  <span class="co"># output HTML file</span></span>
-<span id="cb32-557"><a href="#cb32-557" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-558"><a href="#cb32-558" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-559"><a href="#cb32-559" aria-hidden="true" tabindex="-1"></a>The output network graph is complex; rendering may take 1–2 minutes — do not close the browser during this time. The overall view is shown in @fig-network-overview, and a detail view in @fig-network-detail.</span>
+<span id="cb32-517"><a href="#cb32-517" aria-hidden="true" tabindex="-1"></a>In addition to manual creation, network relationship data can also be read from a CSV file. The following example uses ***beer and curry*** tweet data <span class="co">[</span><span class="ot">(view source file)</span><span class="co">](https://github.com/Pinn32/dv-projects/blob/main/src/data/beer-and-curry.csv)</span>: original posters mentioned other users, forming directed edges from the original poster (source node) to the mentioned user (target node).</span>
+<span id="cb32-518"><a href="#cb32-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-521"><a href="#cb32-521" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb32-522"><a href="#cb32-522" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb32-523"><a href="#cb32-523" aria-hidden="true" tabindex="-1"></a><span class="co">###############################################################################</span></span>
+<span id="cb32-524"><a href="#cb32-524" aria-hidden="true" tabindex="-1"></a><span class="co"># Data preprocessing</span></span>
+<span id="cb32-525"><a href="#cb32-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-526"><a href="#cb32-526" aria-hidden="true" tabindex="-1"></a><span class="co"># Import pandas to handle the CSV file</span></span>
+<span id="cb32-527"><a href="#cb32-527" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb32-528"><a href="#cb32-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-529"><a href="#cb32-529" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the CSV file</span></span>
+<span id="cb32-530"><a href="#cb32-530" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">'../../../src/data/beer-and-curry.csv'</span></span>
+<span id="cb32-531"><a href="#cb32-531" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(path)</span>
+<span id="cb32-532"><a href="#cb32-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-533"><a href="#cb32-533" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows with no mentions</span></span>
+<span id="cb32-534"><a href="#cb32-534" aria-hidden="true" tabindex="-1"></a>df.dropna(subset<span class="op">=</span><span class="st">'mentions'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb32-535"><a href="#cb32-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-536"><a href="#cb32-536" aria-hidden="true" tabindex="-1"></a><span class="co">###############################################################################</span></span>
+<span id="cb32-537"><a href="#cb32-537" aria-hidden="true" tabindex="-1"></a><span class="co"># Create network relationships</span></span>
+<span id="cb32-538"><a href="#cb32-538" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-539"><a href="#cb32-539" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty directed graph</span></span>
+<span id="cb32-540"><a href="#cb32-540" aria-hidden="true" tabindex="-1"></a>gx1 <span class="op">=</span> nx.MultiDiGraph()</span>
+<span id="cb32-541"><a href="#cb32-541" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-542"><a href="#cb32-542" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop over all rows</span></span>
+<span id="cb32-543"><a href="#cb32-543" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> df.index:</span>
+<span id="cb32-544"><a href="#cb32-544" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> df.loc[i, <span class="st">'user'</span>]              <span class="co"># get the user as source node</span></span>
+<span id="cb32-545"><a href="#cb32-545" aria-hidden="true" tabindex="-1"></a>    mentions <span class="op">=</span> df.loc[i, <span class="st">'mentions'</span>]      <span class="co"># get all mentions in a post</span></span>
+<span id="cb32-546"><a href="#cb32-546" aria-hidden="true" tabindex="-1"></a>    mentions <span class="op">=</span> mentions.replace(<span class="st">' '</span>, <span class="st">''</span>)  <span class="co"># remove spaces</span></span>
+<span id="cb32-547"><a href="#cb32-547" aria-hidden="true" tabindex="-1"></a>    mentions <span class="op">=</span> mentions.split(<span class="st">'@'</span>)        <span class="co"># split by '@' to get individual mentions</span></span>
+<span id="cb32-548"><a href="#cb32-548" aria-hidden="true" tabindex="-1"></a>    mentions.pop(<span class="dv">0</span>)                       <span class="co"># first element after split is empty, remove it</span></span>
+<span id="cb32-549"><a href="#cb32-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-550"><a href="#cb32-550" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> mention <span class="kw">in</span> mentions:</span>
+<span id="cb32-551"><a href="#cb32-551" aria-hidden="true" tabindex="-1"></a>        gx1.add_edge(user, mention)       <span class="co"># add all nodes and edges</span></span>
+<span id="cb32-552"><a href="#cb32-552" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-553"><a href="#cb32-553" aria-hidden="true" tabindex="-1"></a><span class="co">###############################################################################</span></span>
+<span id="cb32-554"><a href="#cb32-554" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw the network graph</span></span>
+<span id="cb32-555"><a href="#cb32-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-556"><a href="#cb32-556" aria-hidden="true" tabindex="-1"></a>gp1 <span class="op">=</span> Network()   <span class="co"># create an empty network graph</span></span>
+<span id="cb32-557"><a href="#cb32-557" aria-hidden="true" tabindex="-1"></a>gp1.from_nx(gx1)  <span class="co"># load network relationships</span></span>
+<span id="cb32-558"><a href="#cb32-558" aria-hidden="true" tabindex="-1"></a>gp1.show(<span class="st">'net-from-csv.html'</span>, notebook<span class="op">=</span><span class="va">False</span>)  <span class="co"># output HTML file</span></span>
+<span id="cb32-559"><a href="#cb32-559" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-560"><a href="#cb32-560" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-561"><a href="#cb32-561" aria-hidden="true" tabindex="-1"></a><span class="al">![Social network graph: overall view](../../../src/img/ttl/sankey/fig9-network-overview.png)</span>{#fig-network-overview}</span>
+<span id="cb32-561"><a href="#cb32-561" aria-hidden="true" tabindex="-1"></a>The output network graph is complex; rendering may take 1–2 minutes — do not close the browser during this time. The overall view is shown in @fig-network-overview, and a detail view in @fig-network-detail.</span>
 <span id="cb32-562"><a href="#cb32-562" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-563"><a href="#cb32-563" aria-hidden="true" tabindex="-1"></a><span class="al">![Social network graph: detail view](../../../src/img/ttl/sankey/fig10-network-detail.png)</span>{#fig-network-detail}</span>
+<span id="cb32-563"><a href="#cb32-563" aria-hidden="true" tabindex="-1"></a><span class="al">![Social network graph: overall view](../../../src/img/ttl/sankey/fig9-network-overview.png)</span>{#fig-network-overview}</span>
 <span id="cb32-564"><a href="#cb32-564" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-565"><a href="#cb32-565" aria-hidden="true" tabindex="-1"></a>Network graphs can be used to study social networks, identify strong/weak connections and high-influence users, and analyze potential information cocoon or echo chamber phenomena.</span>
+<span id="cb32-565"><a href="#cb32-565" aria-hidden="true" tabindex="-1"></a><span class="al">![Social network graph: detail view](../../../src/img/ttl/sankey/fig10-network-detail.png)</span>{#fig-network-detail}</span>
+<span id="cb32-566"><a href="#cb32-566" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-567"><a href="#cb32-567" aria-hidden="true" tabindex="-1"></a>Network graphs can be used to study social networks, identify strong/weak connections and high-influence users, and analyze potential information cocoon or echo chamber phenomena.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

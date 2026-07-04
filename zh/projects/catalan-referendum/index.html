@@ -102,9 +102,9 @@ div.csl-indent {
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-176b38be48070efe3d434d0a95bef3fe.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-f8a221566d19e13d0ba65bd27385a262.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-b3a97f6714638bbb2da87c4dacea6ac4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-f8a221566d19e13d0ba65bd27385a262.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-d3b0859ed840ef745be2362e4d82aedc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-f4d8148e586938ab7920e4e945196b9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-d3b0859ed840ef745be2362e4d82aedc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -381,6 +381,16 @@ window.Quarto = {
 <span class="menu-text">Blogs</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../en/about/index.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../en/changes/index.html"> 
+<span class="menu-text">Changes</span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
     <div class="dropdown">
@@ -565,8 +575,20 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../zh/readme/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">项目复现</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../zh/changes/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">更新日志</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../zh/about/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">关于</span></a>
+ <span class="menu-text">联系作者</span></a>
   </div>
 </li>
     </ul>
@@ -654,8 +676,8 @@ window.Quarto = {
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     9 min read</span><span> · </span><span>310 EN words</span><span> · </span><span>1963 中文字</span></div>
-<div id="7865373f" class="cell" data-execution_count="1">
+     9 min read</span><span> · </span><span>326 EN words</span><span> · </span><span>1973 中文字</span></div>
+<div id="bfce5d04" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>环境与版本</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>python<span class="op">==</span><span class="fl">3.12</span></span>
@@ -667,7 +689,7 @@ window.Quarto = {
 <section id="简介" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> 简介</h1>
 <p>本项目使用一份关于西班牙加泰罗尼亚公投的 Twitter 推文数据集，属性包括每条推文的基本信息及由不同词典检测到的情感词计数 <span class="citation" data-cites="jimenezZafra2021">(<a href="#ref-jimenezZafra2021" role="doc-biblioref"><span class="nocase">Jiménez-Zafra 等</span>, 2021</a>)</span>（属性详细说明见<a href="#appendix-attributes">附录一</a>）。本文通过条形图展示各词典在推文情感检测上的表现差异，并以直方图按情感类别呈现所有推文的作者受欢迎度分布。</p>
-<div id="888a4e4f" class="cell" data-execution_count="2">
+<div id="a63d94f6" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>代码</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 导入库</span></span>
@@ -840,7 +862,7 @@ window.Quarto = {
 </section>
 <section id="数据处理" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> 数据处理</h1>
-<div id="5f737889" class="cell" data-execution_count="3">
+<div id="6033821f" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>代码</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 删除缺失值（见附录二）</span></span>
@@ -863,7 +885,7 @@ window.Quarto = {
 </div>
 <section id="计数属性设置" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="计数属性设置"><span class="header-section-number">2.1</span> 计数属性设置</h2>
-<div id="a5f1cae2" class="cell" data-execution_count="4">
+<div id="694442ae" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>代码</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 检查属性数据类型</span></span>
@@ -909,7 +931,7 @@ memory usage: 156.4+ KB</code></pre>
 </figcaption>
 </figure>
 </div>
-<div id="c3dfcc3d" class="cell" data-results="hold" data-execution_count="5">
+<div id="c598d238" class="cell" data-results="hold" data-execution_count="5">
 <details class="code-fold">
 <summary>代码</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 检查 3 个 object 类型计数属性的数据类型</span></span>
@@ -948,7 +970,7 @@ True True True</code></pre>
 </section>
 <section id="布尔属性设置" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="布尔属性设置"><span class="header-section-number">2.2</span> 布尔属性设置</h2>
-<div id="270e4aca" class="cell" data-results="hold" data-execution_count="6">
+<div id="3157661a" class="cell" data-results="hold" data-execution_count="6">
 <details class="code-fold">
 <summary>代码</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 确认布尔列只包含 'True'/'False' 字符串</span></span>
@@ -970,7 +992,7 @@ True True True</code></pre>
 <h1 data-number="3"><span class="header-section-number">3</span> 数据可视化</h1>
 <section id="情感分布" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="情感分布"><span class="header-section-number">3.1</span> 情感分布</h2>
-<div id="529c1df8" class="cell" data-execution_count="7">
+<div id="59ed6c95" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>代码</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 将情感词计数列转换为长格式，便于可视化</span></span>
@@ -1506,7 +1528,9 @@ Wilke, C. O. (2019). <em>Fundamentals of Data Visualization: <span>A</span> Prim
             Blogs: 'Blogs',
             Hobbies: 'Hobbies',
             'All Posts': 'All Posts',
-            About: 'About'
+            About: 'About',
+            Contact: 'Contact',
+            Changes: 'Changes'
         },
         zh: {
             Projects: '项目',
@@ -1515,7 +1539,9 @@ Wilke, C. O. (2019). <em>Fundamentals of Data Visualization: <span>A</span> Prim
             Blogs: '博客',
             Hobbies: '爱好',
             'All Posts': '所有文章',
-            About: '关于'
+            About: '关于',
+            Contact: '联系作者',
+            Changes: '更新日志'
         },
     };
 
@@ -1816,7 +1842,7 @@ Wilke, C. O. (2019). <em>Fundamentals of Data Visualization: <span>A</span> Prim
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/pinn32\.github\.io");
+        var filterRegex = new RegExp("^(?:https?:\/\/)?(?:pinn32\.github\.io\/(?:en|zh|dv-projects|img)|raw\.githubusercontent\.com\/Pinn32\/img)(?:\/|$)");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1830,6 +1856,13 @@ Wilke, C. O. (2019). <em>Fundamentals of Data Visualization: <span>A</span> Prim
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -2142,7 +2175,39 @@ Wilke, C. O. (2019). <em>Fundamentals of Data Visualization: <span>A</span> Prim
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">源代码</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+  </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      if (authorPrefersDark) {
+          [baseTheme, altTheme] = [altTheme, baseTheme];
+      }
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "Pinn32/pinn32.github.io";
+    script.dataset.repoId = "R_kgDOR3HFKA";
+    script.dataset.category = "General";
+    script.dataset.categoryId = "DIC_kwDOR3HFKM4DAHgX";
+    script.dataset.mapping = "title";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "zh-CN";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">源代码</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> 'Twitter 加泰罗尼亚公投情感分析'</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> 'Pinn Xu'</span></span>

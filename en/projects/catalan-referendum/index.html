@@ -103,9 +103,9 @@ div.csl-indent {
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-176b38be48070efe3d434d0a95bef3fe.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-f8a221566d19e13d0ba65bd27385a262.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-b3a97f6714638bbb2da87c4dacea6ac4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-f8a221566d19e13d0ba65bd27385a262.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-d3b0859ed840ef745be2362e4d82aedc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-f4d8148e586938ab7920e4e945196b9a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-d3b0859ed840ef745be2362e4d82aedc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -382,6 +382,16 @@ window.Quarto = {
 <span class="menu-text">Blogs</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../en/about/index.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../en/changes/index.html"> 
+<span class="menu-text">Changes</span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
     <div class="dropdown">
@@ -566,8 +576,20 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../en/readme/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reproduce This Project</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../en/changes/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Change Log</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../en/about/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">Contact</span></a>
   </div>
 </li>
     </ul>
@@ -654,8 +676,8 @@ window.Quarto = {
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     8 min read</span><span> · </span><span>1470 EN words</span><span> · </span><span>0 中文字</span></div>
-<div id="ae2a8e46" class="cell" data-execution_count="1">
+     8 min read</span><span> · </span><span>1490 EN words</span><span> · </span><span>0 中文字</span></div>
+<div id="d84ee8aa" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Environment &amp; Versions</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>python<span class="op">==</span><span class="fl">3.12</span></span>
@@ -667,7 +689,7 @@ window.Quarto = {
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
 <p>This project uses a data set consisting of tweets about the Catalan referendum in Spain on Twitter, with attributes including basic information and emotional word counts of each tweet detected by different lexicons <span class="citation" data-cites="jimenezZafra2021">(<a href="#ref-jimenezZafra2021" role="doc-biblioref"><span class="nocase">Jiménez-Zafra et al.</span>, 2021</a>)</span> (see <a href="#appendix-attributes">Appendix I</a> for further description of attributes). A bar plot addresses performance differences between lexicons in detecting sentiment among tweets. In addition, the distribution of the author’s popularity among all tweets is illustrated by a histogram, distinguished by sentiments.</p>
-<div id="7ae6ea88" class="cell" data-execution_count="2">
+<div id="e149073b" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import libraries</span></span>
@@ -840,7 +862,7 @@ window.Quarto = {
 </section>
 <section id="data-processing" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Data Processing</h1>
-<div id="1ee7fa50" class="cell" data-execution_count="3">
+<div id="91874f62" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Drop missing values (see Appendix II)</span></span>
@@ -863,7 +885,7 @@ window.Quarto = {
 </div>
 <section id="setting-count-attributes" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="setting-count-attributes"><span class="header-section-number">2.1</span> Setting Count Attributes</h2>
-<div id="0ce3c5a4" class="cell" data-execution_count="4">
+<div id="58caa146" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect attribute datatypes</span></span>
@@ -909,7 +931,7 @@ Figure&nbsp;1: Datatypes and Attributes
 </figcaption>
 </figure>
 </div>
-<div id="792983d3" class="cell" data-results="hold" data-execution_count="5">
+<div id="9e42c5af" class="cell" data-results="hold" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Check dtypes of 3 object-type count attributes</span></span>
@@ -948,7 +970,7 @@ True True True</code></pre>
 </section>
 <section id="setting-boolean-attributes" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="setting-boolean-attributes"><span class="header-section-number">2.2</span> Setting Boolean Attributes</h2>
-<div id="d33c3922" class="cell" data-results="hold" data-execution_count="6">
+<div id="ca4e2582" class="cell" data-results="hold" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Confirm bool columns only contain 'True'/'False' strings</span></span>
@@ -970,7 +992,7 @@ True True True</code></pre>
 <h1 data-number="3"><span class="header-section-number">3</span> Data Visualisation</h1>
 <section id="sentiment-distribution" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="sentiment-distribution"><span class="header-section-number">3.1</span> Sentiment Distribution</h2>
-<div id="eeb76a18" class="cell" data-execution_count="7">
+<div id="8f391f3d" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Melt sentiment word count columns to long format for visualisation</span></span>
@@ -1497,7 +1519,9 @@ Figure&nbsp;7: First Attempt
             Blogs: 'Blogs',
             Hobbies: 'Hobbies',
             'All Posts': 'All Posts',
-            About: 'About'
+            About: 'About',
+            Contact: 'Contact',
+            Changes: 'Changes'
         },
         zh: {
             Projects: '项目',
@@ -1506,7 +1530,9 @@ Figure&nbsp;7: First Attempt
             Blogs: '博客',
             Hobbies: '爱好',
             'All Posts': '所有文章',
-            About: '关于'
+            About: '关于',
+            Contact: '联系作者',
+            Changes: '更新日志'
         },
     };
 
@@ -1807,7 +1833,7 @@ Figure&nbsp;7: First Attempt
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/pinn32\.github\.io");
+        var filterRegex = new RegExp("^(?:https?:\/\/)?(?:pinn32\.github\.io\/(?:en|zh|dv-projects|img)|raw\.githubusercontent\.com\/Pinn32\/img)(?:\/|$)");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1821,6 +1847,13 @@ Figure&nbsp;7: First Attempt
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -2133,7 +2166,39 @@ Figure&nbsp;7: First Attempt
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+  </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      if (authorPrefersDark) {
+          [baseTheme, altTheme] = [altTheme, baseTheme];
+      }
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "Pinn32/pinn32.github.io";
+    script.dataset.repoId = "R_kgDOR3HFKA";
+    script.dataset.category = "General";
+    script.dataset.categoryId = "DIC_kwDOR3HFKM4DAHgX";
+    script.dataset.mapping = "title";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> 'Twitter Sentiment Analysis of Catalan Referendum'</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> 'Pinn Xu'</span></span>
