@@ -7,7 +7,7 @@
 搭建了 Quarto 网站项目框架，包含四个数据分析项目的雏形。
 
 - Mar 31 · dev: 初始化 Quarto 项目；先用 RStudio 开发，后来换成 VS Code
-- Mar 31 · proj: 添加最初的 4 个项目文档（ipynb 和 Rmd）
+- Mar 31 · feat: 添加最初的 4 个项目文档（ipynb 和 Rmd）
 - Apr 1 · dev: 用 git LFS 追踪 CSV 文件；把 conda 环境记录到 `envs/environment.yml`；配置 `_quarto.yml` 与 `_metadata.yml` 的布局
 - Apr 1 · proj: 搭建文档目录结构和 catalan-referendum 页面布局
 - Apr 1 · style: 新增自定义 `styles.css`
@@ -31,7 +31,7 @@
 - dev: 把目录重构为 `/src/styles`、`/src/scripts`、`/src/img`；新增 404 页、首页和 favicon
 - proj: 把 base64 图片提取出来；压缩 global-visa 里的代码单元格
 - fix: 用 `fix-navbar-active` 脚本修复导航栏高亮错误
-- ttl: 初始化教程页面
+- feat: 初始化教程页面
 
 ### 侧边栏与链接修复 {date="Apr 4" iso="2026-04-04" commits="4" hours="1" days="1"}
 
@@ -68,7 +68,7 @@
 
 - style: 把网站 CSS 重写进 `src/styles/portfolio.css`；在 `_brand.yml` 中加上 logo
 - fix: 修复复制按钮、导航切换按钮颜色、下拉菜单和滚动条样式
-- hobb: 初始化 hobbies 页面
+- feat: 初始化 hobbies 页面
 - dev: 加上中英语言切换；把中文页面移进 `/zh/` 镜像目录
 - dev: 把共用数据集和图片移进 `/src/`，供两种语言共用
 - contnt: 把所有英文页面翻译成中文
@@ -134,7 +134,8 @@
 - Jun 11 · fix: 修复导航栏高亮锚点；按代码规范整理所有 JS
 - Jun 12 · contnt: 打磨首页
 - Jun 13 · blg: 初始化博客列表页，新增 fix-misplaced-sysfolders（后改名 shellfolders）
-- Jun 13 · dev: 完善侧边栏 YAML 和布局；加上封面图
+- Jun 13 · dev: 完善侧边栏 YAML 和布局
+- Jun 13 · feat: 给列表页增加封面图
 - Jun 13 · style: 修复搜索框取消按钮的换行问题
 
 ### 图片样式定型，图床流程成型 {date="Jun 14 - Jun 16" iso="2026-06-14" commits="12" hours="20.5" days="3"}
@@ -159,13 +160,14 @@ shellfolder 一文的中英文版本都定稿，网站以更简洁的路由重�
 - Jun 18 · style: 下拉菜单项样式；去掉目录内边距过渡动画；列表页标签显示数量；图注全部居中；标题区标签；调整 rem/内边距/外边距
 - Jun 19 · blg: 完成 quarto-img-styles
 - Jun 19 · fix: 用脚本从路由中去掉 `/index.html`；打磨列表页的排序和筛选界面
+- Jun 19 · feat: 所有页面已支持中/英文切换
 - Jun 19 · dev: 发布到 gh-pages
 
 ### 移动端适配 {date="Jun 20 - Jun 21" iso="2026-06-20" commits="4" hours="5.25" days="2"}
 
 第一次认真做移动端适配：按钮布局、标签折叠、下拉菜单层级，还加了方便手机测试的 host 设置。
 
-- Jun 20 · feat: 首页按钮在移动端改用 flex 布局；用脚本折叠列表页标签
+- Jun 20 · style: 首页按钮在移动端改用 flex 布局；用脚本折叠列表页标签
 - Jun 20 · fix: 修复移动端导航下拉菜单被侧边栏遮挡的问题
 - Jun 20 · dev: 加上移动端调试用的默认 host 和端口
 - Jun 21 · feat: 用列表页替换首页写死的卡片
@@ -184,7 +186,7 @@ shellfolder 一文的中英文版本都定稿，网站以更简洁的路由重�
 
 新增一个网页工具板块：短链接生成器、猫图集散地、新闻聚合等。
 
-- Jun 23 · tool: 初始化工具板块；新增短链接生成器和猫图集散地
+- Jun 23 · feat: 初始化工具板块；新增短链接生成器和猫图集散地
 - Jun 23 · fix: 修复页面标签跳转问题（由 listing-page>1 引起）
 - JUn 23 · contnt: 打磨标签和首页介绍
 - Jun 24 · tool: 完成新闻聚合；打磨另外两个工具
@@ -198,7 +200,7 @@ shellfolder 一文的中英文版本都定稿，网站以更简洁的路由重�
 - Jun 25 · dev: 重构所有样式
 - Jun 26 · dev: 启用亮/暗主题 `portfolio.scss` 和 `portfolio-dark.scss`
 - Jun 26 · style: 打磨所有样式；启用 callout 区块
-- Jun 26 · 发布到 gh-pages
+- Jun 26 · dev: 发布到 gh-pages
 
 ### 移动端换行修复与贡献图 {date="Jun 27 - Jun 28" iso="2026-06-27" commits="7" hours="11.25" days="2"}
 
@@ -209,17 +211,17 @@ shellfolder 一文的中英文版本都定稿，网站以更简洁的路由重�
 - Jun 28 · feat: 给博客和工具加上 macbook-frame 和 img-frame 组件
 - Jun 28 · feat: 新增版权年份脚本；重构所有 JS
 - Jun 28 · style: 启用 code-with-filename
-- Jun 28 · 重设网站 URL（修复 404 渲染错误）
+- Jun 28 · feat: 重设网站 URL（修复 404 渲染错误）
 
 ### 评论功能与复现指南 {date="Jun 29 - Jul 1" iso="2026-06-29" commits="6" hours="11.75" days="2"}
 
 上线 Giscus 评论功能，新增一页说明如何复现 R 和 Python 环境，README 也补齐了中英文版本。
 
 - Jun 29 · feat: 新增 Giscus 评论功能
-- Jun 29 · style: 打磨分割线；暗色模式下给图片加阴影；修复 readme 页面标签内边距
+- Jun 29 · style: 优化分割线；暗色模式下给图片加阴影；修复 readme 页面标签内边距
 - Jun 29 · dev: 记录 R 和 Python 环境；新增复现说明；在 dev-playground 里试验访客计数器和 bio yml
-- Jun 29 · contnt: 重新整理 About 页面
-- Jul 1 · contnt: 新增 `README.zh`；补充中英文版复现说明
+- Jun 29 · feat: 重新排版 About 页面布局
+- Jul 1 · feat: 新增中英文 README，补充中英文版复现说明
 
 ### 评论跟随语言，外部构建 {date="Jul 2" iso="2026-07-02" commits="6" hours="10.5" days="1"}
 
@@ -229,7 +231,7 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - feat: 标签栏在点击已激活标签后回到「全部」
 - feat: 新增外部链接 YAML 及图标；修复图片链接上的图标
 - dev: 新增 GitHub Actions 保持 Supabase 和 MongoDB 活跃；完善 `.gitignore`；把 About 加进导航
-- contnt: （外部站点：）搭建 Bayanihan 演示；打磨短链接生成器页脚
+- contnt: (外部站点) 搭建 Bayanihan demo；优化短链接生成器页脚
 
 ### 更新日志 {date="Jul 2 - Jul 3" iso="2026-07-03" commits="5" hours="11.5" days="1"}
 
@@ -238,5 +240,7 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - feat: 新增更新日志页面
 - fix: 修复交叉引用问题（`tbl-colwidths` 中不能有空格）；Quarto 语言设为 `zh`（而非 `zh-CN`）；修复归档渲染错误（配置 render 选项）
 - feat: 更新日志支持时间正/倒序；连接 Notion CMS；新增带标签页的更新热力图
-- feat: 中文版变更日志连接 Notion，并通过 Agents 自动翻译
-- style: 优化并修复变更日志，增加过渡动画与配色；修复首页的 `.intro` 部分
+- feat: 中文版更新日志连接 Notion，并通过 Agents 自动翻译；`sync-changelog.py` 增加进度条显示
+- style: 优化并修复更新日志，增加过渡动画与配色；修复首页的 `.intro` 部分
+
+### XXXXXX {date="" iso="2026-07-04" commits="0" hours="0" days="0"}

@@ -7,7 +7,7 @@
 Initialized Quarto website project and skeleton with four data analysis projects.
 
 - Mar 31 · dev: init Quarto; start in RStudio, switch to VS Code
-- Mar 31 · proj: add the first 4 project docs (ipynb & Rmd)
+- Mar 31 · feat: add the first 4 project docs (ipynb & Rmd)
 - Apr 1 · dev: track CSV with git LFS; record conda env in `envs/environment.yml` ; set up layout config `_quarto.yml` & `_metadata.yml`
 - Apr 1 · proj: shape doc tree & catalan-referendum page layout
 - Apr 1 · style: add custom `styles.css`
@@ -31,7 +31,7 @@ The heaviest day of the setup phase. Python projects moved to the Jupyter render
 - dev: restructure the tree into `/src/styles`, `/src/scripts`, `/src/img` ; add 404, home pages, and favicon
 - proj: extract images from base64; compressed code cells in global-visa
 - fix: navbar active error with `fix-navbar-active` script
-- ttl: init tutorial pages
+- feat: init tutorial pages
 
 ### Sidebar and link fixes {date="Apr 4" iso="2026-04-04" commits="4" hours="1" days="1"}
 
@@ -68,7 +68,7 @@ The whole stylesheet was rewritten as portfolio.css, and the site gained a Chine
 
 - style: rewrote site CSS in `src/styles/portfolio.css`; add logo in `_brand.yml`
 - fix: copy button, nav toggle color, dropdown menu, and scrollbar styles
-- hobb: init hobbies page; 
+- feat: init hobbies page; 
 - dev: add en/zh lang-switch; move zh pages into a `/zh/` mirror of the site tree
 - dev: move shared datasets and img into `/src/` so both languages reuse them
 - contnt: translated all English pages to Chinese
@@ -134,7 +134,8 @@ The blog section started with a post on misplaced system folders. Also fixed the
 - Jun 11 · fix: navbar active anchor; refine all JS with code convention
 - Jun 12 · contnt: refine homepage
 - Jun 13 · blg: init blogs listing page, add fix-misplaced-sysfolders (now shellfolders)
-- Jun 13 · dev: refine sidebar YAML & layout; add cover images
+- Jun 13 · dev: refine sidebar YAML & layout
+- Jun 13 · feat: add cover images to listing pages
 - Jun 13 · style: fix search bar cancel button line wrap
 
 ### Figure styles solved; image-hosting workflow {date="Jun 14 - Jun 16" iso="2026-06-14" commits="12" hours="20.5" days="3"}
@@ -159,13 +160,14 @@ The shellfolder post reached its final structure in both languages, and the site
 - Jun 18 · style: dropdown-item; rm toc padding transit; show listing-tag counts; centered all fig-caps; title-block tags; rem/pad/mar
 - Jun 19 · blg: finish quarto-img-styles
 - Jun 19 · fix: strip `/index.html` from routes with script; refined the listing sort and filter UI
+- Jun 19 · feat: all pages support en/zh languages
 - Jun 19 · dev: publish to gh-pages
 
 ### Mobile pass {date="Jun 20 - Jun 21" iso="2026-06-20" commits="4" hours="5.25" days="2"}
 
 First proper mobile work: button layout, tag collapse, dropdown layering, and a host setting for testing on a phone.
 
-- Jun 20 · feat: home buttons flex on mobile; collapsed listing page tags with script
+- Jun 20 · style: home buttons flex on mobile; collapsed listing page tags with script
 - Jun 20 · fix: nav-dropdown overlayed by sidebar on mobile
 - Jun 20 · dev: add default host & port for mobile dev
 - Jun 21 · feat: set up homepage listing (replacing hard-coded cards)
@@ -184,7 +186,7 @@ An all-posts listing with post-type filters, plus an edit-this-page link on ever
 
 A new section for web tools: URL shortener, Cat Image Hub, News Hub, etc.
 
-- Jun 23 · tool: init tools section; add url-shortener and cat-img-hub
+- Jun 23 · feat: init tools section; add url-shortener and cat-img-hub
 - Jun 23 · fix: page tag redirect (caused by listing-page>1)
 - JUn 23 · contnt: refine tags and home intro
 - Jun 24 · tool: finish news-hub; refine the other two tools
@@ -198,7 +200,7 @@ All styles merged into portfolio.scss, and the site gained a full dark theme in 
 - Jun 25 · dev: restructure all styles
 - Jun 26 · dev: enable light-dark themes `portfolio.scss` and `portfolio-dark.scss` 
 - Jun 26 · style: refine all styles; enable callout blocks
-- Jun 26 · published to gh-pages
+- Jun 26 · dev: published to gh-pages
 
 ### Mobile line breaks and a contribution graph {date="Jun 27 - Jun 28" iso="2026-06-27" commits="7" hours="11.25" days="2"}
 
@@ -209,7 +211,7 @@ Mobile tables stopped overflowing, the homepage got a GitHub contribution graph,
 - Jun 28 · feat: add macbook-frame and img-frame components for blogs and tools
 - Jun 28 · feat: add copyright-year script; restructure all JS
 - Jun 28 · style: enable code-with-filename
-- Jun 28 · reset site URL (fixing 404 render bug)
+- Jun 28 · feat: reset site URL (fixing 404 render bug)
 
 ### Comments and a reproduction guide {date="Jun 29 - Jul 1" iso="2026-06-29" commits="6" hours="11.75" days="2"}
 
@@ -218,8 +220,8 @@ Giscus comments went live, and a new page documents how to reproduce the R and P
 - Jun 29 · feat: add giscus comments; 
 - Jun 29 · style: refine hr; add dark-mode image shade; fix readme page tag padding
 - Jun 29 · dev: document R & Python env; add Reproduce instruction; explore visitor counter and bio yml in dev-playground
-- Jun 29 · contnt: re-init About page
-- Jul 1 · contnt: README.zh; readme (Reproduce instruction) en/zh
+- Jun 29 · feat: re-init About page layout
+- Jul 1 · feat: add README en/zh; add Reproduce instruction (readme) en/zh
 
 ### Language-aware comments & external builds {date="Jul 2" iso="2026-07-02" commits="6" hours="10.5" days="1"}
 
@@ -229,7 +231,7 @@ Giscus now follows the page language, active tags toggle off on a second click, 
 - feat: tag bar revert to All after clicking active tag
 - feat: add external links YAML & link icons; fix icon on image links
 - dev: add gh-actions to keep supabase and mongodb alive; refine `.gitignore`; add About to nav
-- contnt: (external sites:) build Bayanihan demo; refine URL-shortener footer
+- contnt: (external sites) build Bayanihan demo; refine URL-shortener footer
 
 ### Change Log {date="Jul 2 - Jul 3" iso="2026-07-03" commits="5" hours="11.5" days="1"}
 
@@ -238,5 +240,7 @@ New feature: Change Logs. With timeline, Notion CMS and heatmap. Fixed rendering
 - feat: add change log page
 - fix: cross-ref (no space allowed in `tbl-colwitdths`); lang zh (instead of zh-CN) in Quarto; archive render error (config `render` options)
 - feat: change-log timeline reversible; connected to Notion csms; heatmap with tabs
-- feat: change-log zh connected to Notion & translated via agents
+- feat: change-log zh connected to Notion & translated via agents; `sync-changelog.py` added progress bar
 - style: refine & fix change-log, add transitions & colors; fix .intro section of homepages
+
+### XXXXXX {date="" iso="2026-07-04" commits="0" hours="0" days="0"}
