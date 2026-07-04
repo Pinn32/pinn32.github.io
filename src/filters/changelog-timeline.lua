@@ -41,8 +41,11 @@ end
 
 -- UI chrome strings keyed by page language (doc.meta.lang). Data conventions
 -- stay English on every page: day prefixes ("Jun 25 · "), tag prefixes
--- ("feat:"), date labels, and the heatmap tabs/weekday/month labels — the
--- parsing regexes and the heatmap depend on them.
+-- ("feat:"), date labels, and the heatmap's weekday/month labels — the
+-- parsing regexes and the heatmap depend on them. The heatmap metric tabs
+-- (data-metric="commits"/"feat"/"content"/"dev") and their hover text are
+-- localized via metric_* / tip_metric_fmt below; the data-metric values
+-- themselves stay English since the JS keys off them.
 local STRINGS = {
     en = {
         commit_one   = ' commit',
@@ -60,6 +63,11 @@ local STRINGS = {
         newest       = '&#8595; newest first',
         oldest       = '&#8593; oldest first',
         more_updates = 'More updates coming&hellip;',
+        metric_commits = 'commits',
+        metric_feat    = 'feat',
+        metric_content = 'content',
+        metric_dev     = 'dev',
+        tip_metric_fmt = '{n} {label}',
     },
     zh = {
         commit_one   = ' 次提交',
@@ -77,6 +85,11 @@ local STRINGS = {
         newest       = '&#8595; 最新在前',
         oldest       = '&#8593; 最早在前',
         more_updates = '更多更新，敬请期待&hellip;',
+        metric_commits = '提交',
+        metric_feat    = '功能',
+        metric_content = '内容',
+        metric_dev     = '开发',
+        tip_metric_fmt = '{n} 项{label}',
     },
 }
 
@@ -199,14 +212,15 @@ local function build_heatmap(daily, L)
 
     return table.concat({
         '<section class="cl-heatmap" aria-label="', L.hm_aria, '"',
-        ' data-metric="commits" style="--hm-weeks:', weeks, '">',
+        ' data-metric="commits" data-tip-metric-fmt="', L.tip_metric_fmt, '"',
+        ' style="--hm-weeks:', weeks, '">',
         '<div class="cl-hm-top">',
         '<span class="cl-hm-title">', L.hm_title, '</span>',
         '<div class="cl-hm-toggle" role="group" aria-label="Heatmap metric">',
-        '<button type="button" class="cl-hm-btn" data-metric="commits" aria-pressed="true">commits</button>',
-        '<button type="button" class="cl-hm-btn" data-metric="feat" aria-pressed="false">feat</button>',
-        '<button type="button" class="cl-hm-btn" data-metric="content" aria-pressed="false">content</button>',
-        '<button type="button" class="cl-hm-btn" data-metric="dev" aria-pressed="false">dev</button>',
+        '<button type="button" class="cl-hm-btn" data-metric="commits" aria-pressed="true">', L.metric_commits, '</button>',
+        '<button type="button" class="cl-hm-btn" data-metric="feat" aria-pressed="false">', L.metric_feat, '</button>',
+        '<button type="button" class="cl-hm-btn" data-metric="content" aria-pressed="false">', L.metric_content, '</button>',
+        '<button type="button" class="cl-hm-btn" data-metric="dev" aria-pressed="false">', L.metric_dev, '</button>',
         '</div></div>',
         '<div class="cl-hm-scroll"><div class="cl-hm-grid">',
         '<div class="cl-hm-months" aria-hidden="true">', table.concat(months), '</div>',
@@ -238,6 +252,12 @@ local HEATMAP_SCRIPT = [=[
     // The recolor sweeps left to right: each week column's cells get a
     // small transition-delay on top of the background cross-fade.
     const KEY = { commits: 'c', feat: 'feat', content: 'content', dev: 'dev' };
+    // localized tab labels, read from the buttons' own (already-localized) text
+    const METRIC_LABEL = {};
+    hm.querySelectorAll('.cl-hm-btn').forEach(btn => {
+      METRIC_LABEL[btn.dataset.metric] = btn.textContent;
+    });
+    const tipMetricFmt = hm.dataset.tipMetricFmt || '{n} {label}';
     const reduceMotion =
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const left0 = Math.min(...cells.map(c => c.offsetLeft));
@@ -271,7 +291,9 @@ local HEATMAP_SCRIPT = [=[
       if (metric === 'commits') return base;
       const v = +cell.dataset[KEY[metric]] || 0;
       if (v === 0 && !+cell.dataset.c) return base;   // "no activity" days
-      return base.split(' · ')[0] + ' · ' + v + ' ' + metric;
+      const label = tipMetricFmt.replace('{n}', v)
+        .replace('{label}', METRIC_LABEL[metric] || metric);
+      return base.split(' · ')[0] + ' · ' + label;
     };
     const show = (cell) => {
       tip.textContent = tipText(cell);

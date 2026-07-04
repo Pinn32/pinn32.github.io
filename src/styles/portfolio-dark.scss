@@ -316,6 +316,13 @@ a {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%232dd4bf' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+/* Margin between Nav Right and Nav Tools */
+@media (min-width: 992px) {
+    .navbar .quarto-navbar-tools {
+        margin-left: 1rem;
+    }
+}
+
 /* Search cancel button — keep on one line */
 button.aa-DetachedCancelButton { flex: 0 0 auto; white-space: nowrap; }
 
@@ -839,6 +846,11 @@ hr {
 }
 .dropdown-item:hover { background-color: rgba(45,212,191,0.14); color: var(--pf-primary); }
 .navbar .dropdown-menu[data-bs-popper] { left: -50%; }
+
+button#quarto-code-tools-menu, button#quarto-code-tools-source {
+    padding: 0 .5rem;
+    border-color: transparent;
+}
 
 /*  The lang dropdown lives inside #quarto-header (.fixed-top, z-index:1030) and
     can't escape that stacking context. On mobile the open sidebar (z-index:1055,

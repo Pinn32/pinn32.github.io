@@ -43,10 +43,10 @@ website:
       #   href: en/hobbies/index.qmd
       # - text: All Posts
       #   href: en/all-posts/index.qmd
-      - text: About
-        href: en/about/index.qmd
 
     right:
+      - text: About
+        href: en/about/index.qmd
       - text: Changes
         href: en/changes/index.md
 

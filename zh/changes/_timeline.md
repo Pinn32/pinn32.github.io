@@ -231,7 +231,12 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - dev: 新增 GitHub Actions 保持 Supabase 和 MongoDB 活跃；完善 `.gitignore`；把 About 加进导航
 - contnt: （外部站点：）搭建 Bayanihan 演示；打磨短链接生成器页脚
 
-### 更新日志 {date="Jul 2 - Jul 3" iso="2026-07-03" commits="0" hours="0" days="1"}
+### 更新日志 {date="Jul 2 - Jul 3" iso="2026-07-03" commits="5" hours="11.5" days="1"}
+
+新增「更新日志」页面，包含时间轴、Notion CMS 整合与更新热力图；修复渲染与配置问题，并优化整体界面。
 
 - feat: 新增更新日志页面
 - fix: 修复交叉引用问题（`tbl-colwidths` 中不能有空格）；Quarto 语言设为 `zh`（而非 `zh-CN`）；修复归档渲染错误（配置 render 选项）
+- feat: 更新日志支持时间正/倒序；连接 Notion CMS；新增带标签页的更新热力图
+- feat: 中文版变更日志连接 Notion，并通过 Agents 自动翻译
+- style: 优化并修复变更日志，增加过渡动画与配色；修复首页的 `.intro` 部分

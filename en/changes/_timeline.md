@@ -231,7 +231,12 @@ Giscus now follows the page language, active tags toggle off on a second click, 
 - dev: add gh-actions to keep supabase and mongodb alive; refine `.gitignore`; add About to nav
 - contnt: (external sites:) build Bayanihan demo; refine URL-shortener footer
 
-### Change Log {date="Jul 2 - Jul 3" iso="2026-07-03" commits="0" hours="0" days="1"}
+### Change Log {date="Jul 2 - Jul 3" iso="2026-07-03" commits="5" hours="11.5" days="1"}
+
+New feature: Change Logs. With timeline, Notion CMS and heatmap. Fixed rendering & config. Polished UI.
 
 - feat: add change log page
 - fix: cross-ref (no space allowed in `tbl-colwitdths`); lang zh (instead of zh-CN) in Quarto; archive render error (config `render` options)
+- feat: change-log timeline reversible; connected to Notion csms; heatmap with tabs
+- feat: change-log zh connected to Notion & translated via agents
+- style: refine & fix change-log, add transitions & colors; fix .intro section of homepages
