@@ -2,16 +2,16 @@
 title: 'Bayanihan UI/UX Design'
 author: ['Pinn Xu', 'Mandy Chen', 'Danica Juntura', 'Junli Long']
 date: 2025-12-10
-description: ''
+description: "Redesigning Bayanihan's website in Figma focusing on navigation, accessibility, and artist engagement."
 categories: [UI/UX, Figma, design]
-image: "https://raw.githubusercontent.com/Pinn32/img/main/placeholders/Project.png"
+image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704194910663.gif"
 toc-expand: 2
 # order: 7
 ---
 
 # Bayanihan UI/UX Design
 
-Bayanihan is a student-run Filipino arts and fashion magazine, affiliated with the Boston University Filipino Student Association (BUFSA). This project redesigns its website with [Figma](#fig-figma-prototype-structure), built for the course **Developing Interactivity** in fall 2025. The goal was a site that's easier to navigate on mobile, more engaging for readers, and more useful for the artists who contribute to it.
+*Bayanihan* is a student-run Filipino arts and fashion magazine, affiliated with the Boston University Filipino Student Association (BUFSA). This project redesigns its website with [Figma](#fig-figma-prototype-structure), built for the course *Developing Interactivity* in fall 2025. The goal was a site that's easier to navigate on mobile, more engaging for readers, and more useful for the artists who contribute to it.
 
 :::{style="text-align:center;"}
 [View Live Prototype](https://pinn32.github.io/bayanihan/){.btn .btn-outline-primary}
@@ -21,43 +21,6 @@ Bayanihan is a student-run Filipino arts and fashion magazine, affiliated with t
 :::{.macbook-frame style="width:35rem;"}
 ![Bayanihan website redesign](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704194910663.gif)
 :::
-
-## Design Process
-
-```{mermaid}
-%%| label: fig-design-process
-%%| fig-cap: Design Process Flowchart
-%%| look: handDrawn
-flowchart LR
-A(Research)--> B(Persona Construction) --> C(Ideation) --> D(Prototyping) --> E(Testing)
-E -.-> A
-```
-
-<!-- ![UI/UX Design Process](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704193141234.png){#fig-ux-design-process} -->
-
-- Stakeholder interviews and competitor analysis to identify gaps in the current site
-- User interviews and focus groups with readers and contributors
-- [Two personas:](#personas) 1) Sophia, a Filipino-American undergraduate reader; and 2) Ramon, a Filipino graduate artist and contributor
-- Sitemap, user flow, and low-fidelity sketches to test layout ideas early
-- High-fidelity [Figma prototyping](#prototype), including color, typography, and branding
-- Usability testing on the prototype, with revisions based on feedback
-
-## Key Features
-
-- A clear navigation bar separating issues, blogs, and community sections
-- Likes, comments, and share buttons on articles
-- A homepage carousel for the newest issue
-- A dedicated portal for artist contributors
-- Search with tag filters and suggestions
-
-## Personas
-
-![Persona: Sophia the Reader](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704163917372.png){#fig-persona-sophia}
-
-![Persona: Ramon the Artist](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704164114551.png){#fig-persona-ramon}
-
-
-# Prototype
 
 ## Design Tokens
 
@@ -213,8 +176,42 @@ Color variables of the UI design for Bayanihan: a sage-and-marigold color palett
 <!-- End: Design Tokens (color tokens) -->
 <!-- ===================================================================== -->
 
+# Design Process
 
-## Interactive Prototype
+```{mermaid}
+%%| label: fig-design-process
+%%| fig-cap: Design Process Flowchart
+%%| look: handDrawn
+flowchart LR
+A(Research)--> B(Persona Construction) --> C(Ideation) --> D(Prototyping) --> E(Testing)
+E -.-> A
+```
+
+<!-- ![UI/UX Design Process](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704193141234.png){#fig-ux-design-process} -->
+
+- Stakeholder interviews and competitor analysis to identify gaps in the current site
+- User interviews and focus groups with readers and contributors
+- [Two personas:](#personas) 1) Sophia, a Filipino-American undergraduate reader; and 2) Ramon, a Filipino graduate artist and contributor
+- Sitemap, user flow, and low-fidelity sketches to test layout ideas early
+- High-fidelity [Figma prototyping](#prototype), including color, typography, and branding
+- Usability testing on the prototype, with revisions based on feedback
+
+## Key Features
+
+- A clear navigation bar separating issues, blogs, and community sections
+- Likes, comments, and share buttons on articles
+- A homepage carousel for the newest issue
+- A dedicated portal for artist contributors
+- Search with tag filters and suggestions
+
+## Personas
+
+![Persona: Sophia the Reader](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704163917372.png){#fig-persona-sophia}
+
+![Persona: Ramon the Artist](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704164114551.png){#fig-persona-ramon}
+
+
+## Prototype
 
 The final prototype covers five pages: Home, Issues, Blogs/Works, Artists Community, and Our Team. [View Live Prototype](https://pinn32.github.io/bayanihan/)
 

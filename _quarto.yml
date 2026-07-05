@@ -45,7 +45,7 @@ website:
       #   href: en/all-posts/index.qmd
 
     right:
-      - text: Contact
+      - text: About
         href: en/about/index.qmd
       - text: Changes
         href: en/changes/index.md
@@ -91,7 +91,7 @@ website:
           href: "en/readme/index.md"
         - text: "Change Log"
           href: "en/changes/index.md"
-        - text: "Contact"
+        - text: "About"
           href: en/about/index.qmd
     - id: zh-sidebar
       logo: false

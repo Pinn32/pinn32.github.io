@@ -1,6 +1,6 @@
 ---
 title: "Pinn (Aiqi) Xu"
-subtitle: "数据科学与可视化作品集"
+subtitle: "数据与设计作品集：分析、交互与可视化实践"
 sidebar: false
 toc: false
 lightbox: false
@@ -20,7 +20,7 @@ listing:
 <!-- 你好，我是 **Pinn** —— 热衷于数据分析、数据叙事与编程的数据爱好者。 -->
 
 :::{.intro}
-本站收录了我的数据分析项目、网页工具与博客。数据项目使用 **R** 和 **Python** 构建，通过 [Quarto](https://quarto.org/){target="_blank"} 发布；网页工具则基于 React、Next.js 与 TypeScript 开发。
+本站收录了我的数据分析项目、UI/UX设计、网页工具、R/Python教程、博客等。网站通过 [Quarto](https://quarto.org/){target="_blank"} 搭建；网页工具则基于 React、Next.js 和 TypeScript 开发。
 :::
 
 :::{style="line-height:3.6;"}

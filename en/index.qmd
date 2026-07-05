@@ -1,6 +1,6 @@
 ---
 title: "Pinn (Aiqi) Xu"
-subtitle: "Data Analysis & Visualization Portfolio"
+subtitle: "Data Analysis, UI/UX Design, and WebDev Portfolio"
 # subtitle: "Hi, I'm **Pinn** — a data enthusiast working at the intersection of analysis, storytelling, and code. "
 sidebar: false
 toc: false
@@ -24,10 +24,8 @@ listing:
 <!-- This site collects my data projects: exploratory analyses, NLP experiments, and interactive visualizations built with **R** and **Python**, published with [Quarto](https://quarto.org/). -->
 
 :::{.intro}
-This site collects my data analysis projects, web tools, and blogs. Data projects are built with **R** and **Python**, published with [Quarto](https://quarto.org/){target="_blank"}. Web tools are developed with React, Next.js, and TypeScript.
+**Data analysis** projects, **UI/UX** designs, **web** tools, R/Python tutorials, and blogs, published with [Quarto](https://quarto.org/){target="_blank"}. Web tools were developed with React, Next.js, and TypeScript.
 :::
-
-<!-- : exploratory analyses, NLP experiments, and interactive visualizations built with **R** and **Python**, published with [Quarto](https://quarto.org/). -->
 
 :::{style="line-height:3.6;"}
 [Browse All Projects →](projects/){.btn .btn-primary style="margin-right:12px"}
@@ -84,7 +82,8 @@ This site collects my data analysis projects, web tools, and blogs. Data project
 
 
 
-
+```{=html}
+<!-- ====================================================================== -->
 <!-- 
 
 ::::::: grid
@@ -115,10 +114,11 @@ Analysis of social media habits and addiction patterns among students.\
 ::::::: 
 
 -->
-
+<!-- ====================================================================== -->
+```
 
 
 
 ------------------------------------------------------------------------
 
-[About this site →](about/){.btn .btn-outline-primary}
+[All Projects →](projects/){.btn .btn-outline-primary}
