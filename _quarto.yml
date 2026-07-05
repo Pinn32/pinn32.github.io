@@ -83,16 +83,18 @@ website:
           contents: "en/projects/*/index.*md"
         - section: "Tutorials"
           contents: "en/tutorials/*/index.*md"
-        - section: "Blogs"
-          contents: "en/blogs/*/index.*md"
         - section: "Tools"
           contents: "en/tools/*/index.*md"
+        - section: "Blogs"
+          contents: "en/blogs/*/index.*md"
         - text: "Reproduce This Project"
           href: "en/readme/index.md"
         - text: "Change Log"
           href: "en/changes/index.md"
         - text: "About"
           href: en/about/index.qmd
+        - text: "Playground"
+          href: en/a-playground/index.qmd
     - id: zh-sidebar
       logo: false
       search: true
@@ -103,16 +105,18 @@ website:
           contents: "zh/projects/*/index.*md"
         - section: "数据分析教程"
           contents: "zh/tutorials/*/index.*md"
-        - section: "经验博客"
-          contents: "zh/blogs/*/index.*md"
         - section: "Web工具"
           contents: "zh/tools/*/index.*md"
+        - section: "经验博客"
+          contents: "zh/blogs/*/index.*md"
         - text: "项目复现"
           href: "zh/readme/index.md"
         - text: "更新日志"
           href: "zh/changes/index.md"
         - text: "联系作者"
           href: zh/about/index.qmd
+        - text: "Playground"
+          href: en/a-playground/index.qmd
 
 
 ###############################################################################

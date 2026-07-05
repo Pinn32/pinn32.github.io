@@ -296,7 +296,7 @@ a {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%230d9488' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* Margin between Nav Right and Nav Tools */
+/* Desktop: Margin between Nav Right and Nav Tools */
 @media (min-width: 992px) {
     .navbar .quarto-navbar-tools {
         margin-left: 1rem;
@@ -741,6 +741,23 @@ a.sidebar-item-text.sidebar-link.active > .menu-text {
     &:hover {
         border-color: var(--pf-primary);
         color: var(--pf-text);
+    }
+}
+
+/* Desktop: Sidebar layout (site-tools on bottom) */
+@media (min-width: 992px) {
+    /* Height controls margin of bottom sections */
+    div.sidebar-menu-container {
+        height: 100%;
+    }
+    div.sidebar-menu-container > ul {
+        display: flex;
+        flex-direction: column;
+        height: 95%;
+    }
+    div.sidebar-menu-container > ul > li.sidebar-item:nth-last-child(3) {
+        margin-top: auto;
+        padding-top: .6rem;
     }
 }
 
