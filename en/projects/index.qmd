@@ -1,6 +1,7 @@
 ---
 title: 'Projects'
-subtitle: 'Data analysis & visualization projects using R/Python.'
+# subtitle: 'Data analysis & visualization projects using R/Python.'
+subtitle: 'Projects across data analysis and UI/UX design.'
 include-after-body: '../../src/scripts/responsive-tag-bar.html'
 toc: false
 sidebar: false
