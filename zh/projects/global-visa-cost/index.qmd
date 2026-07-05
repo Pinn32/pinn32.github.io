@@ -314,7 +314,7 @@ fig1 = go.Figure(sankey_data)
 # 更新图形布局
 fig1.update_layout(
     # width = 800, height = 600,
-    margin = dict(t = 60, b = 10),  # 上下边距
+    margin = dict(t=60, b=24, l=20, r=20),  # 边距
     title_text = '''
         各地区平均旅游签证费用桑基图
     ''',

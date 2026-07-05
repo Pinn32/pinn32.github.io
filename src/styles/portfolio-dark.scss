@@ -1379,14 +1379,16 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
    the dark theme; restore full brightness on hover/focus so detail is still
    inspectable. */
 .quarto-document-content img,
-#quarto-document-content img {
+#quarto-document-content img,
+.plot-container.plotly {
     filter: brightness(0.82) contrast(0.96);
     transition: filter 0.2s ease;
 }
 .quarto-document-content img:hover,
 .quarto-document-content img:focus,
 #quarto-document-content img:hover,
-#quarto-document-content img:focus {
+#quarto-document-content img:focus,
+.plot-container.plotly:hover {
     filter: none;
 }
 

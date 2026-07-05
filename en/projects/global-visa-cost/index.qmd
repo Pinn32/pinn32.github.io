@@ -325,7 +325,7 @@ fig1 = go.Figure(sankey_data)
 # Updating layout of the figure
 fig1.update_layout(
     # width = 800, height = 600,
-    margin = dict(t = 60, b = 10),  # margin top & bottom
+    margin = dict(t=60, b=24, l=20, r=20),  # margins
     title_text = '''
         Sankey diagram of average tourist visa costs from each area
     ''',
