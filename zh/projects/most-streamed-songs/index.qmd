@@ -1,9 +1,9 @@
 ---
-title: 'Spotify 最高播放量歌曲——音乐特征与受众趋势分析'
+title: 'Spotify 流量歌曲的音乐特征与受众趋势分析'
 author: 'Pinn Xu'
 date: '2026-02-25'
 categories: [R, EDA, 音乐, 可视化, 抽样]
-description: '对 2023 年 Spotify 最高播放量歌曲进行探索性分析，揭示音乐流行趋势。'
+description: '对 2023 年 Spotify 播放量前列的歌曲进行探索性分析，揭示音乐流行趋势。'
 image: ../../../src/img/proj/songs/cover.png
 
 order: 5

@@ -1,0 +1,269 @@
+---
+title: 'Bayanihan UI/UX 设计'
+author: ['Pinn Xu', 'Mandy Chen', 'Danica Juntura', 'Junli Long']
+date: 2025-12-10
+description: "在 Figma 中重新设计 Bayanihan 网站，聚焦导航体验、无障碍设计与艺术家互动。"
+categories: [UI/UX, Figma, 设计]
+image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704194910663.gif"
+toc-expand: 2
+# order: 7
+---
+
+# Bayanihan UI/UX 设计
+
+*Bayanihan* 是一本由学生运营的菲律宾艺术与时尚杂志，隶属于波士顿大学菲律宾学生协会（BUFSA）。本项目使用 [Figma](#fig-figma-prototype-structure) 重新设计了该杂志的网站，是 2025 年秋季课程 *Developing Interactivity* 的项目成果。目标是打造一个在移动端更易导航、对读者更具吸引力、也更方便投稿艺术家使用的网站。
+
+:::{style="text-align:center;"}
+[查看在线原型](https://pinn32.github.io/bayanihan/){.btn .btn-outline-primary}
+:::
+
+<!-- TODO: 替换为在线原型的实际截图 -->
+:::{.macbook-frame style="width:35rem;"}
+![Bayanihan 网站改版设计](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704194910663.gif)
+:::
+
+## 设计令牌
+
+Bayanihan UI 设计的颜色变量：鼠尾草绿与万寿菊黄的配色方案。点击任意色块即可复制其十六进制色值。
+
+<!-- ===================================================================== -->
+<!-- Start: Design Tokens (color tokens) -->
+```{=html}
+<div class="token-section">
+    <p><strong>颜色令牌</strong></p>
+    <div class="token-grid">
+        <color-token name="sage-green" hex="6C765B"></color-token>
+        <color-token name="green-light" hex="A5A58D"></color-token>
+        <color-token name="green-dark" hex="494B40"></color-token>
+        <color-token name="gradient-yellow" hex="A8AB55"></color-token>
+        <color-token name="yellow" hex="EDDB76"></color-token>
+        <color-token name="ivory" hex="FEFFF1"></color-token>
+    </div>
+</div>
+
+<style>
+.token-section { margin: 1.5rem 0; }
+.token-section > strong:first-child,
+.token-section p:first-child {
+    display: block;
+    font-family: var(--pf-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--pf-text-muted);
+    margin-bottom: 0.6rem;
+}
+.token-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 0;
+    border-radius: var(--pf-radius, 10px);
+    overflow: hidden;
+    border: 1px solid var(--pf-border, #e2e8f0);
+    box-shadow: var(--pf-shadow, 0 1px 4px rgba(0,0,0,0.06));
+}
+.token-grid color-token {
+    flex: 1 1 120px;
+    min-width: 120px;
+}
+</style>
+
+<script>
+(function () {
+    function luminance(hex) {
+        const [r, g, b] = [0, 2, 4].map(i => parseInt(hex.slice(i, i + 2), 16) / 255);
+        const lin = c => (c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4));
+        return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+    }
+
+    async function copy(text, feedbackEl) {
+        try {
+            await navigator.clipboard.writeText(text);
+        } catch (e) {
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+        }
+        feedbackEl.classList.add("show-copied");
+        clearTimeout(feedbackEl._t);
+        feedbackEl._t = setTimeout(() => feedbackEl.classList.remove("show-copied"), 1100);
+    }
+
+    const sharedStyle = `
+        :host { display: block; height: 100%; }
+        button {
+            all: unset;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            background: var(--pf-card, #fff);
+            overflow: hidden;
+            font-family: var(--bs-body-font-family, Inter, system-ui, sans-serif);
+        }
+        button:focus-visible { outline: 2px solid var(--pf-primary, #0d9488); outline-offset: -2px; }
+        .label {
+            flex: 1 1 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0.45rem 0.65rem;
+            font-size: 0.78rem;
+        }
+        .name { font-weight: 600; color: var(--pf-text, #0f172a); }
+        .copied-badge {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(13,148,136,0.92);
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 600;
+            font-family: var(--pf-mono);
+            opacity: 0;
+            transition: opacity 0.15s ease;
+            pointer-events: none;
+        }
+        .show-copied .copied-badge { opacity: 1; }
+    `;
+
+    class ColorToken extends HTMLElement {
+        connectedCallback() {
+            const name = this.getAttribute("name") || "";
+            const hex = (this.getAttribute("hex") || "000000").replace("#", "");
+            const textColor = luminance(hex) > 0.5 ? "#1a1a1a" : "#ffffff";
+            const root = this.attachShadow({ mode: "open" });
+            root.innerHTML = `
+                <style>
+                    ${sharedStyle}
+                    .swatch {
+                        position: relative;
+                        flex: 0 0 auto;
+                        height: 64px;
+                        background: #${hex};
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-family: var(--pf-mono);
+                        font-size: 0.72rem;
+                        color: ${textColor};
+                        letter-spacing: 0.02em;
+                    }
+                </style>
+                <button type="button" aria-label="复制 #${hex}">
+                    <div class="swatch">#${hex}<div class="copied-badge">已复制！</div></div>
+                    <div class="label"><span class="name">${name}</span></div>
+                </button>
+            `;
+            const btn = root.querySelector("button");
+            btn.addEventListener("click", () => copy("#" + hex, btn));
+        }
+    }
+
+    customElements.define("color-token", ColorToken);
+})();
+</script>
+```
+<!-- End: Design Tokens (color tokens) -->
+<!-- ===================================================================== -->
+
+# 设计流程
+
+```{mermaid}
+%%| label: fig-design-process
+%%| fig-cap: 设计流程图
+%%| look: handDrawn
+flowchart LR
+A(调研)--> B(用户画像构建) --> C(构思) --> D(原型设计) --> E(测试)
+E -.-> A
+```
+
+<!-- ![UI/UX 设计流程](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704193141234.png){#fig-ux-design-process} -->
+
+- 通过利益相关者访谈与竞品分析，找出现有网站的不足
+- 对读者与投稿者进行用户访谈与焦点小组研究
+- [两个用户画像：](#personas) 1) Sophia，菲律宾裔美国本科生读者；2) Ramon，菲律宾研究生艺术家兼投稿者
+- 绘制站点地图、用户流程与低保真草图，尽早验证布局思路
+- 高保真 [Figma 原型设计](#prototype)，涵盖配色、字体与品牌风格
+- 基于原型开展可用性测试，并根据反馈进行修订
+
+## 核心功能
+
+- 清晰的导航栏，将期刊、博客与社区板块分开
+- 文章支持点赞、评论与分享按钮
+- 首页轮播展示最新一期内容
+- 为投稿艺术家提供专属入口
+- 支持标签筛选与联想建议的搜索功能
+
+## 用户画像
+
+![用户画像：读者 Sophia](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704163917372.png){#fig-persona-sophia}
+
+![用户画像：艺术家 Ramon](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704164114551.png){#fig-persona-ramon}
+
+
+## 原型
+
+最终原型涵盖五个页面：首页、期刊、博客/作品、艺术家社区和团队介绍。[查看在线原型](https://pinn32.github.io/bayanihan/)
+
+<!-- ===================================================================== -->
+
+:::{.macbook-frame style="width:35rem;"}
+![Figma 原型结构](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704200150592.png){#fig-figma-prototype-structure}
+:::
+
+:::{style="text-align:center;"}
+[Figma 原型结构]{.caption}
+:::
+
+<!-- ===================================================================== -->
+
+:::{.macbook-frame style="width:40rem;"}
+![导航](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704194910663.gif){#fig-navigation}
+:::
+
+:::{style="text-align:center;"}
+[导航]{.caption}
+:::
+
+<!-- ===================================================================== -->
+
+:::{.macbook-frame style="width:40rem;"}
+![站内搜索](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704195616532.gif){#fig-site-search}
+:::
+
+:::{style="text-align:center;"}
+[站内搜索]{.caption}
+:::
+
+<!-- ===================================================================== -->
+
+:::{.macbook-frame style="width:40rem;"}
+![首页轮播组件](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704195045298.gif){#fig-home-swiper}
+:::
+
+:::{style="text-align:center;"}
+[首页轮播组件]{.caption}
+:::
+
+<!-- ===================================================================== -->
+
+:::{.macbook-frame style="width:35rem;"}
+![文章版式](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704195417565.png){#fig-article-layout}
+:::
+
+:::{style="text-align:center;"}
+[文章版式]{.caption}
+:::
+
+
+[>> 在 GitHub 查看源码](https://github.com/Pinn32/em757-web-design-project)
