@@ -33,7 +33,7 @@ The heaviest day of the setup phase. Python projects moved to the Jupyter render
 - fix: navbar active error with `fix-navbar-active` script
 - feat: init tutorial pages
 
-### Sidebar and link fixes {date="Apr 4" iso="2026-04-04" commits="4" hours="1" days="1"}
+### Sidebar and link fixes {date="Apr 4" iso="2026-04-04" commits="4" hours="3.5" days="1"}
 
 A small cleanup for pass over sidebar active styles, external documentation links, and homepage wording.
 
@@ -62,7 +62,7 @@ In-text citations switched to Quarto cross-refs, and the bibliography moved into
 
 ## Phase 3 · Style revamp & i18n groundwork {range="Apr 10 - Apr 11"}
 
-### Full style revamp and en/zh switch {date="Apr 10" iso="2026-04-10" commits="14" hours="8.25" days="1"}
+### Full style revamp and en/zh switch {date="Apr 10 - Apr 11" iso="2026-04-10" commits="14" hours="8.25" days="1"}
 
 The whole stylesheet was rewritten as portfolio.css, and the site gained a Chinese mirror tree with a language switch.
 
@@ -73,7 +73,7 @@ The whole stylesheet was rewritten as portfolio.css, and the site gained a Chine
 - dev: move shared datasets and img into `/src/` so both languages reuse them
 - contnt: translated all English pages to Chinese
 
-### Data-processing tutorial in English {date="Apr 11" iso="2026-04-11" commits="1" hours="4" days="1"}
+### Data-processing tutorial in English {date="Apr 11" iso="2026-04-11" commits="1" hours="1.25" days="1"}
 
 Finished the English version of the data-processing tutorial. The last entry before a seven-week pause.
 
@@ -81,7 +81,7 @@ Finished the English version of the data-processing tutorial. The last entry bef
 
 ## Phase 4 · Restart, translation & first publish {range="May 31 - Jun 5"}
 
-### Project restarted; translation push {date="May 31 - Jun 2" iso="2026-05-31" commits="11" hours="9.25" days="2"}
+### Project restarted; translation push {date="May 31 - Jun 3" iso="2026-05-31" commits="11" hours="9.25" days="2"}
 
 Work resumed after seven weeks with a README, manual cross-refs for outputs, and a translation pass across most projects and tutorials.
 
@@ -93,7 +93,7 @@ Work resumed after seven weeks with a README, manual cross-refs for outputs, and
 - Jun 2 · ttl: refine zh multivariate-plots’ figures, text, cross-refs
 - Jun 2 · dev: add back-to-top navigation
 
-### First publish to GitHub Pages {date="Jun 3" iso="2026-06-03" commits="7" hours="8.75" days="1"}
+### First publish to GitHub Pages {date="Jun 3 - Jun 4" iso="2026-06-03" commits="7" hours="8.75" days="1"}
 
 The site went live. Added a reading-time filter written in Lua, language-switcher fixes, and a refined sankey tutorial.
 
@@ -103,7 +103,7 @@ The site went live. Added a reading-time filter written in Lua, language-switche
 - contnt: textual bugs; hobb placeholder
 - ttl: translate multivariate into en; refine zh sankey
 
-### AI-tweets project and R-tips tutorial {date="Jun 4 - Jun 5" iso="2026-06-04" commits="11" hours="8.5" days="2"}
+### AI-tweets project and R-tips tutorial {date="Jun 4 - Jun 5" iso="2026-06-04" commits="11" hours="13.75" days="2"}
 
 Two new pieces of content, plus fixes for the language switcher, reading time, and homepage cards.
 
@@ -117,7 +117,7 @@ Two new pieces of content, plus fixes for the language switcher, reading time, a
 
 ## Phase 5 · Blogs, styling & mobile {range="Jun 7 - Jun 21"}
 
-### Listing polish and 404 fix {date="Jun 7 - Jun 9" iso="2026-06-07" commits="8" hours="7" days="2"}
+### Listing polish and 404 fix {date="Jun 8 - Jun 9" iso="2026-06-08" commits="8" hours="6" days="2"}
 
 A round of small fixes: the 404 page finally respects language and route, listings got cover images, and the favicon became a spark.
 
@@ -127,7 +127,7 @@ A round of small fixes: the 404 page finally respects language and route, listin
 - Jun 9 · feat: add env/version blocks & number-sections to projects; add image field to listing (card cover)
 - Jun 9 · contnt: refactor ai-tweets to ai-discourse; refine & translate global-visa & r-tips; refine all categories and descriptions
 
-### Blog section opened {date="Jun 11 - Jun 13" iso="2026-06-11" commits="4" hours="4" days="3"}
+### Blog section opened {date="Jun 11 - Jun 14" iso="2026-06-11" commits="4" hours="5.25" days="4"}
 
 The blog section started with a post on misplaced system folders. Also fixed the long-standing navbar active-anchor bug.
 
@@ -152,7 +152,7 @@ Three long days on the shellfolder blog and figure styling. The image sizing and
 - Jun 15 · feat: enable img lightbox
 - Jun 16 · blg: refine & translate quarto-img-styles; refine shellfolder en/zh
 
-### Shellfolder blog finished; second publish {date="Jun 17 - Jun 19" iso="2026-06-17" commits="7" hours="11.5" days="3"}
+### Shellfolder blog finished; second publish {date="Jun 17 - Jun 20" iso="2026-06-17" commits="7" hours="11.5" days="3"}
 
 The shellfolder post reached its final structure in both languages, and the site was republished with cleaner routes.
 
@@ -172,7 +172,7 @@ First proper mobile work: button layout, tag collapse, dropdown layering, and a 
 - Jun 20 · dev: add default host & port for mobile dev
 - Jun 21 · feat: set up homepage listing (replacing hard-coded cards)
 
-## Phase 6 · Tools, dark mode & features {range="Jun 22 - Jul 3"}
+## Phase 6 · Tools, dark mode & features {range="Jun 22 - Jul 2"}
 
 ### All-posts page and edit-this-page {date="Jun 22" iso="2026-06-22" commits="3" hours="2.5" days="1"}
 
@@ -193,7 +193,7 @@ A new section for web tools: URL shortener, Cat Image Hub, News Hub, etc.
 - Jun 24 · fix: mobile font sizes in nav, sidebar, and buttons
 - Jun 24 · dev: alias ai-tweets; published to gh-pages
 
-### Dark mode {date="Jun 25 - Jun 26" iso="2026-06-25" commits="4" hours="8" days="2"}
+### Dark mode {date="Jun 25 - Jun 27" iso="2026-06-25" commits="4" hours="8" days="2"}
 
 All styles merged into portfolio.scss, and the site gained a full dark theme in portfolio-dark.
 
@@ -202,7 +202,7 @@ All styles merged into portfolio.scss, and the site gained a full dark theme in 
 - Jun 26 · style: refine all styles; enable callout blocks
 - Jun 26 · dev: published to gh-pages
 
-### Mobile line breaks and a contribution graph {date="Jun 27 - Jun 28" iso="2026-06-27" commits="7" hours="11.25" days="2"}
+### Mobile line breaks and a contribution graph {date="Jun 27 - Jun 29" iso="2026-06-27" commits="7" hours="12.25" days="2"}
 
 Mobile tables stopped overflowing, the homepage got a GitHub contribution graph, and every script moved into one structure.
 
@@ -213,7 +213,7 @@ Mobile tables stopped overflowing, the homepage got a GitHub contribution graph,
 - Jun 28 · style: enable code-with-filename
 - Jun 28 · feat: reset site URL (fixing 404 render bug)
 
-### Comments and a reproduction guide {date="Jun 29 - Jul 1" iso="2026-06-29" commits="6" hours="11.75" days="2"}
+### Comments and a reproduction guide {date="Jun 29 - Jul 1" iso="2026-06-29" commits="6" hours="12.5" days="3"}
 
 Giscus comments went live, and a new page documents how to reproduce the R and Python environments. README in both languages.
 
@@ -223,7 +223,7 @@ Giscus comments went live, and a new page documents how to reproduce the R and P
 - Jun 29 · feat: re-init About page layout
 - Jul 1 · feat: add README en/zh; add Reproduce instruction (readme) en/zh
 
-### Language-aware comments & external builds {date="Jul 2" iso="2026-07-02" commits="6" hours="10.5" days="1"}
+### Language-aware comments & external builds {date="Jul 2" iso="2026-07-02" commits="6" hours="10" days="1"}
 
 Giscus now follows the page language, active tags toggle off on a second click, and external links show an icon. Implemented change logs.
 
@@ -233,7 +233,9 @@ Giscus now follows the page language, active tags toggle off on a second click, 
 - dev: add gh-actions to keep supabase and mongodb alive; refine `.gitignore`; add About to nav
 - contnt: (external sites) build Bayanihan demo; refine URL-shortener footer
 
-### Change Log {date="Jul 2 - Jul 3" iso="2026-07-03" commits="5" hours="11.5" days="1"}
+## Phase 7 · Tools, dark mode & features {range="Jul 3 - now"}
+
+### Change Log {date="Jul 3" iso="2026-07-03" commits="5" hours="11.5" days="1"}
 
 New feature: Change Logs. With timeline, Notion CMS and heatmap. Fixed rendering & config. Polished UI.
 
@@ -242,3 +244,25 @@ New feature: Change Logs. With timeline, Notion CMS and heatmap. Fixed rendering
 - feat: change-log timeline reversible; connected to Notion csms; heatmap with tabs
 - feat: change-log zh connected to Notion & translated via agents; `sync-changelog.py` added progress bar
 - style: refine & fix change-log, add transitions & colors; fix .intro section of homepages
+
+### Bayanihan UI/UX Design & About Page {date="Jul 4 - Jul 5" iso="2026-07-04" commits="8" hours="13.25" days="1"}
+
+New project of an UI/UX design for Bayanihan. Redesign About page. Bug fixed & style refined.
+
+- contnt: about pages (contact for now); refine change-log; homepage; refine zh/proj/songs’ title
+- style: add about-jolla.css; refine cl-item:hover border-color; rm ::after icon from external links with .btn
+- fix: refactor repo-url & links to repo's CSV
+- fix: giscus lang-switch in 404 with in-page scripts
+- feat: ini bayanihan proj; add interactive color-token-bar
+- proj: translate bayanihan to zh
+- style: disable about-page dark-img-shade; refine plotly in dark (img-shade & margin)
+- feat: let title-meta-author be flex; mv sidebar site-tool sections to bottom
+
+### Automate Quarto Dev/Log Notion Databases Workflow {date="Jul 5 - Jul 7" iso="2026-07-05" commits="4" hours="13.5" days="3"}
+
+Restructure Notion dev/log databses; replace manual properties to Notion Formulas; build automation workflow.
+
+- dev: restructure Notion All Projects databases; connect Quarto databases with Relation & Rollup; let claude do repetitive work
+- dev: replace manual props with Rollup & Formula (eg. start/hours/days/date-label); built automate workflow
+- fix: n\_uniques of  `_start` (dev db) ≠ sum of `Days` (log db)
+- fix: python sync script (add dev db to Notion connection)

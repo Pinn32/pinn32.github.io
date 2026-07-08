@@ -30,9 +30,17 @@ Behavior:
     - writes only if content changed (atomic replace), so repeated runs
       don't churn file mtimes.
 
-API note: pinned to Notion-Version 2022-06-28 (classic database endpoints).
-Newer API versions (2025-09+) replace databases/{id}/query with
-data-source queries; revisit if the pin ever stops working.
+API note: pinned to Notion-Version 2026-03-11, the latest as of writing
+(https://developers.notion.com/reference/changes-by-version). It carries
+forward the 2025-09-03 data-source split: a database is now a container
+that holds one or more data sources, and querying moves from
+POST /databases/{id}/query to POST /data_sources/{id}/query.
+NOTION_CHANGELOG_DB (or the id in scripts/notion-changelog.json) is
+still a database id; the script resolves it to a data source id via
+GET /databases/{id} at startup. 2026-03-11 also renames `archived` to
+`in_trash` in responses and `transcription` blocks to `meeting_notes`
+(this script reads neither field) and changes pagination on Append
+Block Children only, which this script doesn't call.
 """
 
 import json
@@ -52,8 +60,9 @@ OUT_FILES = {
 CONFIG_FILE = REPO_ROOT / "scripts" / "notion-changelog.json"
 
 API_BASE = "https://api.notion.com/v1"
-NOTION_VERSION = "2022-06-28"
-TIMEOUT = 15
+NOTION_VERSION = "2026-03-11"
+TIMEOUT = 30
+MAX_RETRIES = 3  # for rate limits, 5xx, and transient network errors
 BLOCK_FETCH_DELAY = 0.35  # stay under Notion's ~3 req/s limit
 
 HEADER_COMMENT = (
@@ -97,30 +106,53 @@ def progress(current, total, label):
 # Notion API
 # ---------------------------------------------------------------------------
 
-def notion_request(token, method, url, payload=None, retried=False):
+def notion_request(token, method, url, payload=None):
+    """One Notion API call, retrying transient failures with backoff so a
+    single slow request doesn't abort the whole sync. Retryable: HTTP 429
+    (honoring Retry-After), 5xx, and network errors like read timeouts."""
     data = json.dumps(payload).encode() if payload is not None else None
-    req = urllib.request.Request(url, data=data, method=method)
-    req.add_header("Authorization", f"Bearer {token}")
-    req.add_header("Notion-Version", NOTION_VERSION)
-    req.add_header("Content-Type", "application/json")
-    try:
-        with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
-            return json.load(resp)
-    except urllib.error.HTTPError as e:
-        if e.code == 429 and not retried:
-            time.sleep(float(e.headers.get("Retry-After", 1)))
-            return notion_request(token, method, url, payload, retried=True)
-        raise SyncSkip(f"Notion API HTTP {e.code} for {url}") from e
-    except (urllib.error.URLError, TimeoutError, OSError) as e:
-        raise SyncSkip(f"network error: {e}") from e
+    for attempt in range(MAX_RETRIES + 1):
+        req = urllib.request.Request(url, data=data, method=method)
+        req.add_header("Authorization", f"Bearer {token}")
+        req.add_header("Notion-Version", NOTION_VERSION)
+        req.add_header("Content-Type", "application/json")
+        try:
+            with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+                return json.load(resp)
+        except urllib.error.HTTPError as e:
+            if (e.code == 429 or 500 <= e.code < 600) and attempt < MAX_RETRIES:
+                time.sleep(float(e.headers.get("Retry-After", 2 ** attempt)))
+                continue
+            raise SyncSkip(f"Notion API HTTP {e.code} for {url}") from e
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            if attempt < MAX_RETRIES:
+                time.sleep(2 ** attempt)
+                continue
+            raise SyncSkip(f"network error: {e}") from e
 
 
-def query_database(token, db_id):
+def resolve_data_source_id(token, db_id):
+    """A database is a container for one or more data sources as of
+    Notion-Version 2025-09-03+; querying happens against a data source id,
+    not the database id itself."""
+    data = notion_request(token, "GET", f"{API_BASE}/databases/{db_id}")
+    sources = data.get("data_sources", [])
+    if not sources:
+        raise SyncSkip(f"database {db_id} has no data sources")
+    if len(sources) > 1:
+        warn(
+            f"database {db_id} has {len(sources)} data sources; "
+            f"using the first ({sources[0].get('name')!r})"
+        )
+    return sources[0]["id"]
+
+
+def query_data_source(token, data_source_id):
     rows = []
     payload = {"page_size": 100}
     while True:
         data = notion_request(
-            token, "POST", f"{API_BASE}/databases/{db_id}/query", payload
+            token, "POST", f"{API_BASE}/data_sources/{data_source_id}/query", payload
         )
         rows.extend(data.get("results", []))
         if not data.get("has_more"):
@@ -193,10 +225,6 @@ def prop_rich(page, name):
     return _prop(page, name).get("rich_text", [])
 
 
-def prop_text(page, name):
-    return "".join(s.get("plain_text", "") for s in prop_rich(page, name))
-
-
 def prop_number(page, name):
     return _prop(page, name).get("number")
 
@@ -206,9 +234,20 @@ def prop_select(page, name):
     return sel.get("name") if sel else None
 
 
-def prop_date(page, name):
-    d = _prop(page, name).get("date")
-    return d.get("start") if d else None
+def prop_formula(page, name):
+    """Unwrap a formula property by its output subtype. A formula result
+    carries its own type tag (string | number | boolean | date); date is
+    returned as its ISO start, the rest as-is, None when empty.
+
+    Start, Date label, Hours, and Days are formula properties (their manual
+    predecessors are backed up in the "<name>_BU" columns and no longer read
+    here)."""
+    f = _prop(page, name).get("formula", {})
+    t = f.get("type")
+    if t == "date":
+        d = f.get("date")
+        return d.get("start") if d else None
+    return f.get(t) if t else None
 
 
 # ---------------------------------------------------------------------------
@@ -268,7 +307,7 @@ def fmt_num(x):
 # ---------------------------------------------------------------------------
 
 def sort_key(page):
-    start = prop_date(page, "Start") or "9999-12-31"
+    start = prop_formula(page, "Start") or "9999-12-31"
     is_entry = 1 if prop_select(page, "Type") == "Entry" else 0
     return (start, is_entry)
 
@@ -279,6 +318,7 @@ def fetch_timeline(token, rows):
     Returns (nodes, missing) where missing records per-row untranslated
     fields/bullets for the report."""
     nodes, missing = [], []
+    blank_formula = 0  # rows whose Start/Date label formulas came through empty
     sorted_rows = sorted(rows, key=sort_key)
     total = len(sorted_rows)
     for i, page in enumerate(sorted_rows, start=1):
@@ -291,11 +331,14 @@ def fetch_timeline(token, rows):
             miss["fields"].append("Name zh")
 
         if ptype == "Phase":
+            date_range = prop_formula(page, "Date label") or ""
+            if not date_range:
+                blank_formula += 1
             nodes.append({
                 "type": "Phase",
                 "name": name,
                 "name_zh": name_zh,
-                "range": prop_text(page, "Date label"),
+                "range": date_range,
             })
         elif ptype == "Entry":
             summary = rich_text_to_md(prop_rich(page, "Summary"))
@@ -317,15 +360,18 @@ def fetch_timeline(token, rows):
                 if zh_md is None:
                     miss["bullets"].append(en_md)
                 bullets.append({"en": en_md, "zh": zh_md})
+            iso = prop_formula(page, "Start") or ""
+            if not iso:
+                blank_formula += 1
             nodes.append({
                 "type": "Entry",
                 "name": name,
                 "name_zh": name_zh,
-                "date_label": prop_text(page, "Date label"),
-                "iso": prop_date(page, "Start") or "",
+                "date_label": prop_formula(page, "Date label") or "",
+                "iso": iso,
                 "commits": fmt_num(prop_number(page, "Commits")),
-                "hours": fmt_num(prop_number(page, "Hours")),
-                "days": fmt_num(prop_number(page, "Days")),
+                "hours": fmt_num(prop_formula(page, "Hours")),
+                "days": fmt_num(prop_formula(page, "Days")),
                 "summary": summary,
                 "summary_zh": summary_zh,
                 "bullets": bullets,
@@ -336,6 +382,17 @@ def fetch_timeline(token, rows):
 
         if miss["fields"] or miss["bullets"]:
             missing.append(miss)
+
+    if blank_formula:
+        warn(
+            f"{blank_formula}/{total} rows have an empty Start/Date label — these "
+            "are formula properties fed by the _start/_end/_hours/_days rollups "
+            "over the 'All Projects' and 'Quarto Dev Track' relations. If those "
+            "look populated in Notion but arrive blank here, the integration "
+            "isn't shared with those source databases (the API returns a "
+            "relation it can't read as empty). Connect the integration to them "
+            "(each database → ••• → Connections) and re-run."
+        )
     return nodes, missing
 
 
@@ -456,7 +513,8 @@ def main():
         bail("no database id (NOTION_CHANGELOG_DB or scripts/notion-changelog.json)")
 
     try:
-        rows = query_database(token, db_id)
+        data_source_id = resolve_data_source_id(token, db_id)
+        rows = query_data_source(token, data_source_id)
         nodes, missing = fetch_timeline(token, rows)
     except SyncSkip as e:
         bail(str(e))

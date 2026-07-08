@@ -70,17 +70,17 @@
 }
 
 .cl-heatmap[data-metric="feat"] {
-  --hm-1: #22c55e;
-  --hm-2: #16a34a;
-  --hm-3: #15803d;
-  --hm-4: #14532d;
-}
-
-.cl-heatmap[data-metric="content"] {
   --hm-1: #f59e0b;
   --hm-2: #d97706;
   --hm-3: #b45309;
   --hm-4: #78350f;
+}
+
+.cl-heatmap[data-metric="content"] {
+  --hm-1: #22c55e;
+  --hm-2: #16a34a;
+  --hm-3: #15803d;
+  --hm-4: #14532d;
 }
 
 .cl-heatmap[data-metric="dev"] {
@@ -99,17 +99,17 @@ body.quarto-dark .cl-heatmap {
 }
 
 body.quarto-dark .cl-heatmap[data-metric="feat"] {
-  --hm-1: #14532d;
-  --hm-2: #15803d;
-  --hm-3: #22c55e;
-  --hm-4: #86efac;
-}
-
-body.quarto-dark .cl-heatmap[data-metric="content"] {
   --hm-1: #92400e;
   --hm-2: #d97706;
   --hm-3: #f59e0b;
   --hm-4: #fbbf24;
+}
+
+body.quarto-dark .cl-heatmap[data-metric="content"] {
+  --hm-1: #14532d;
+  --hm-2: #15803d;
+  --hm-3: #22c55e;
+  --hm-4: #86efac;
 }
 
 body.quarto-dark .cl-heatmap[data-metric="dev"] {
@@ -159,12 +159,12 @@ body.quarto-dark .cl-heatmap[data-metric="dev"] {
 }
 
 /* pressed type tabs pick up their tag-group hue (see .cl-tag-*) */
-.cl-hm-btn[data-metric="feat"][aria-pressed="true"]    { border-color: #16a34a; color: #16a34a; }
-.cl-hm-btn[data-metric="content"][aria-pressed="true"] { border-color: #d97706; color: #d97706; }
+.cl-hm-btn[data-metric="feat"][aria-pressed="true"]    { border-color: #d97706; color: #d97706; }
+.cl-hm-btn[data-metric="content"][aria-pressed="true"] { border-color: #16a34a; color: #16a34a; }
 .cl-hm-btn[data-metric="dev"][aria-pressed="true"]     { border-color: #2563eb; color: #2563eb; }
 
-body.quarto-dark .cl-hm-btn[data-metric="feat"][aria-pressed="true"]    { border-color: #4ade80; color: #4ade80; }
-body.quarto-dark .cl-hm-btn[data-metric="content"][aria-pressed="true"] { border-color: #fbbf24; color: #fbbf24; }
+body.quarto-dark .cl-hm-btn[data-metric="feat"][aria-pressed="true"]    { border-color: #fbbf24; color: #fbbf24; }
+body.quarto-dark .cl-hm-btn[data-metric="content"][aria-pressed="true"] { border-color: #4ade80; color: #4ade80; }
 body.quarto-dark .cl-hm-btn[data-metric="dev"][aria-pressed="true"]     { border-color: #60a5fa; color: #60a5fa; }
 
 .cl-hm-btn:focus-visible {
