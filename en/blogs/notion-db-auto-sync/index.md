@@ -12,15 +12,36 @@ draft-mode: unlinked
 
 # Introduction
 
-Recently, I've been working on restructuring the Notion databases I used for Change Log in this website. Initially there was only one database connected to this website, with all cells of manual input. Even though I used AI agents to auto-generate cell content, it still seemed verbose.
+I recently restructured the Notion databases behind this website’s change log. Originally, the site relied on a single database with mostly manual properties. Although AI agents helped generate much of the cell content, maintaining the database was still unnecessarily verbose.
 
-Before implementing the change log sync feature in this website, I've already been using another database to track daily schedules of developing the Quarto website in Notion Calendar. I therefore decided to use Rollup & Formula to automate properties of the change log database.
+Since I already used a separate database to track development tasks in Notion Calendar, I connected the two databases and leveraged [Rollups](https://www.notion.com/help/relations-and-rollups#rollups) and [Formulas](https://www.notion.com/help/formula-syntax) to automatically populate the change log’s properties.
 
-@sec-tips includes top tips I've learned from building auto-sync Notion databases for my website.
+@sec-db introduces the structure of the databases, while @sec-tips shares key lessones I've learned from building this auto-sync workflow.
 
 
-# Database Structure
+# Database Structure {#sec-db}
 
+:::{.macbook-frame style="width:40rem;"}
+![Dev Track Database Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png)
+:::
+
+:::{.macbook-frame style="width:40rem;"}
+![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png)
+:::
+
+[Dev Track Database Overview]{.caption}
+
+:::{.macbook-frame style="width:40rem;"}
+![Change Log Database Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122533725.png)
+:::
+
+:::{.macbook-frame style="width:30rem;"}
+![Dev Track Database Calendar View](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122817585.png)
+:::
+
+:::{.macbook-frame style="width:40rem;"}
+![Dev Track Database in Notion Calendar](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123116845.png)
+:::
 
 # Tips for Building Sync with Formulas {#sec-tips}
 ## Timezone
