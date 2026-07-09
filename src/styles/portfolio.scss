@@ -1296,6 +1296,7 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
 
 /* macOS window frame (wrap an image: ::: {.macbook-frame} … :::) ======== */
 .macbook-frame {
+    --mf-bar-h: 24px;                            /* title-bar height */
     position: relative;
     display: block;
     // width: 100%;
@@ -1322,11 +1323,30 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
 }
 /* drop Quarto's paragraph/figure wrapper spacing so the image fills the frame */
 .macbook-frame :is(p, figure, div.quarto-figure) { margin: 0; }
-// .macbook-frame figcaption { display: none; }
+/* caption sits in the title bar, right after the traffic lights, vertically centered */
+.macbook-frame figcaption,
+.macbook-frame .caption {
+    position: absolute;
+    top: -23px;
+    left: auto;                                /* clear the green button */
+    right: 12px;
+    height: var(--mf-bar-h);
+    display: flex;
+    align-items: center;
+    margin: 0;
+    z-index: 2;
+    text-align: left;
+    font-style: normal;
+    font-size: calc(var(--mf-bar-h) * 0.55);   /* scales with the title bar */
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .macbook-frame img {
     display: block;
     width: 100%;
-    margin: 24px 0 0;                          /* clear the title bar */
+    margin: var(--mf-bar-h) 0 0;               /* clear the title bar */
     border-top: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 0;
 }
