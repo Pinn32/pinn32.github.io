@@ -8,75 +8,14 @@
     ]
   },
   {
-    "listing": "/zh/blogs/index.html",
+    "listing": "/zh/index.html",
     "items": [
-      "/zh/blogs/quarto-img-styles/index.html",
-      "/zh/blogs/recover-shellfolder/index.html"
-    ]
-  },
-  {
-    "listing": "/en/tools/index.html",
-    "items": [
-      "/en/tools/news-hub/index.html",
-      "/en/tools/url-shortener/index.html",
-      "/en/tools/cat-img-hub/index.html"
-    ]
-  },
-  {
-    "listing": "/en/blogs/index.html",
-    "items": [
-      "/en/blogs/quarto-img-styles/index.html",
-      "/en/blogs/recover-shellfolder/index.html"
-    ]
-  },
-  {
-    "listing": "/en/all-posts/index.html",
-    "items": [
-      "/en/blogs/quarto-img-styles/index.html",
-      "/en/projects/ai-discourse/index.html",
-      "/en/tools/cat-img-hub/index.html",
-      "/en/tools/news-hub/index.html",
-      "/en/tools/url-shortener/index.html",
-      "/en/tutorials/r-tips/index.html",
-      "/en/projects/most-streamed-songs/index.html",
-      "/en/projects/student-media-usage/index.html",
-      "/en/projects/global-visa-cost/index.html",
-      "/en/tutorials/sankey-and-network/index.html",
-      "/en/projects/catalan-referendum/index.html",
-      "/en/tutorials/multivariate-plots/index.html",
-      "/en/tutorials/data-processing/index.html",
-      "/en/tutorials/amounts-and-distribution/index.html",
-      "/en/blogs/recover-shellfolder/index.html"
-    ]
-  },
-  {
-    "listing": "/en/index.html",
-    "items": [
-      "/en/projects/ai-discourse/index.html",
-      "/en/projects/student-media-usage/index.html",
-      "/en/projects/catalan-referendum/index.html",
-      "/en/projects/global-visa-cost/index.html",
-      "/en/projects/most-streamed-songs/index.html"
-    ]
-  },
-  {
-    "listing": "/en/projects/index.html",
-    "items": [
-      "/en/projects/ai-discourse/index.html",
-      "/en/projects/student-media-usage/index.html",
-      "/en/projects/catalan-referendum/index.html",
-      "/en/projects/global-visa-cost/index.html",
-      "/en/projects/most-streamed-songs/index.html"
-    ]
-  },
-  {
-    "listing": "/en/tutorials/index.html",
-    "items": [
-      "/en/tutorials/data-processing/index.html",
-      "/en/tutorials/amounts-and-distribution/index.html",
-      "/en/tutorials/multivariate-plots/index.html",
-      "/en/tutorials/sankey-and-network/index.html",
-      "/en/tutorials/r-tips/index.html"
+      "/zh/projects/ai-discourse/index.html",
+      "/zh/projects/student-media-usage/index.html",
+      "/zh/projects/catalan-referendum/index.html",
+      "/zh/projects/global-visa-cost/index.html",
+      "/zh/projects/most-streamed-songs/index.html",
+      "/zh/projects/bayanihan/index.html"
     ]
   },
   {
@@ -93,17 +32,83 @@
       "/zh/tutorials/r-tips/index.html",
       "/zh/projects/most-streamed-songs/index.html",
       "/zh/blogs/quarto-img-styles/index.html",
+      "/zh/projects/bayanihan/index.html",
       "/zh/blogs/recover-shellfolder/index.html"
     ]
   },
   {
-    "listing": "/zh/index.html",
+    "listing": "/en/tutorials/index.html",
     "items": [
-      "/zh/projects/ai-discourse/index.html",
-      "/zh/projects/student-media-usage/index.html",
-      "/zh/projects/catalan-referendum/index.html",
-      "/zh/projects/global-visa-cost/index.html",
-      "/zh/projects/most-streamed-songs/index.html"
+      "/en/tutorials/data-processing/index.html",
+      "/en/tutorials/amounts-and-distribution/index.html",
+      "/en/tutorials/multivariate-plots/index.html",
+      "/en/tutorials/sankey-and-network/index.html",
+      "/en/tutorials/r-tips/index.html"
+    ]
+  },
+  {
+    "listing": "/en/projects/index.html",
+    "items": [
+      "/en/projects/ai-discourse/index.html",
+      "/en/projects/student-media-usage/index.html",
+      "/en/projects/catalan-referendum/index.html",
+      "/en/projects/global-visa-cost/index.html",
+      "/en/projects/most-streamed-songs/index.html",
+      "/en/projects/bayanihan/index.html"
+    ]
+  },
+  {
+    "listing": "/en/all-posts/index.html",
+    "items": [
+      "/en/blogs/quarto-img-styles/index.html",
+      "/en/projects/ai-discourse/index.html",
+      "/en/tools/cat-img-hub/index.html",
+      "/en/tools/news-hub/index.html",
+      "/en/tools/url-shortener/index.html",
+      "/en/tutorials/r-tips/index.html",
+      "/en/projects/most-streamed-songs/index.html",
+      "/en/projects/student-media-usage/index.html",
+      "/en/projects/bayanihan/index.html",
+      "/en/projects/global-visa-cost/index.html",
+      "/en/tutorials/sankey-and-network/index.html",
+      "/en/projects/catalan-referendum/index.html",
+      "/en/tutorials/multivariate-plots/index.html",
+      "/en/tutorials/data-processing/index.html",
+      "/en/tutorials/amounts-and-distribution/index.html",
+      "/en/blogs/recover-shellfolder/index.html"
+    ]
+  },
+  {
+    "listing": "/en/blogs/index.html",
+    "items": [
+      "/en/blogs/quarto-img-styles/index.html",
+      "/en/blogs/recover-shellfolder/index.html"
+    ]
+  },
+  {
+    "listing": "/en/index.html",
+    "items": [
+      "/en/projects/ai-discourse/index.html",
+      "/en/projects/student-media-usage/index.html",
+      "/en/projects/catalan-referendum/index.html",
+      "/en/projects/global-visa-cost/index.html",
+      "/en/projects/most-streamed-songs/index.html",
+      "/en/projects/bayanihan/index.html"
+    ]
+  },
+  {
+    "listing": "/en/tools/index.html",
+    "items": [
+      "/en/tools/news-hub/index.html",
+      "/en/tools/url-shortener/index.html",
+      "/en/tools/cat-img-hub/index.html"
+    ]
+  },
+  {
+    "listing": "/zh/blogs/index.html",
+    "items": [
+      "/zh/blogs/quarto-img-styles/index.html",
+      "/zh/blogs/recover-shellfolder/index.html"
     ]
   },
   {
@@ -113,7 +118,8 @@
       "/zh/projects/student-media-usage/index.html",
       "/zh/projects/catalan-referendum/index.html",
       "/zh/projects/global-visa-cost/index.html",
-      "/zh/projects/most-streamed-songs/index.html"
+      "/zh/projects/most-streamed-songs/index.html",
+      "/zh/projects/bayanihan/index.html"
     ]
   },
   {

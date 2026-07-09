@@ -17,14 +17,14 @@ div.quarto-about-jolla img {
     height: 10rem !important;
 }
 
-/* Dark mode image shade ================================================ */
-.quarto-dark div.quarto-about-jolla img {
+/* Dark mode image shade (disabled) ======================================== */
+/* .quarto-dark div.quarto-about-jolla img {
     filter: brightness(0.82) contrast(0.96);
     transition: filter 0.2s ease;
 }
 .quarto-dark div.quarto-about-jolla img:hover {
     filter: brightness(1) contrast(1);
-}
+} */
 
 
 /* change desktop ======================================================== */

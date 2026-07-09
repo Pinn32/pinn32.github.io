@@ -1,0 +1,136 @@
+# Projects
+
+
+
+
+<script id="script-responsive-tag-bar">
+    // Relocate tag-bar on mobile view (screen max-width:768px)
+    (() => {
+        const BREAKPOINT = 768;
+
+        const LABELS = {
+            en: { more: (n) => `Show more categories (+${n})`, less: 'Show less' },
+            zh: { more: (n) => `更多分类 (+${n})`,              less: '收起' },
+        };
+
+        let sidebar, titleBlock, mainEl, quartoContent;
+        let categoryList, toggleBtn;
+        let expanded = false;
+        let rafId = null;
+
+        const init = () => {
+            sidebar       = document.getElementById('quarto-margin-sidebar');
+            titleBlock    = document.getElementById('title-block-header');
+            mainEl        = document.querySelector('#quarto-content > main.content');
+            quartoContent = document.getElementById('quarto-content');
+            categoryList  = document.querySelector('.quarto-listing-category');
+        };
+
+        const lang = () => {
+            const docLang = (document.documentElement.lang || '').toLowerCase();
+            if (docLang.startsWith('zh')) return 'zh';
+            if (docLang.startsWith('en')) return 'en';
+            return location.pathname.includes('/zh/') ? 'zh' : 'en';
+        };
+
+        const ensureToggle = () => {
+            if (toggleBtn || !categoryList) return;
+            toggleBtn = document.createElement('button');
+            toggleBtn.type = 'button';
+            toggleBtn.className = 'category-show-more';
+            toggleBtn.hidden = true;
+            toggleBtn.addEventListener('click', () => {
+                expanded = !expanded;
+                syncCategories();
+            });
+            categoryList.appendChild(toggleBtn);
+        };
+
+        const syncCategories = () => {
+            if (!categoryList) return;
+            ensureToggle();
+
+            const pills = Array.from(categoryList.querySelectorAll('.category'));
+            // Always start from a fully-visible state so measurement is accurate.
+            pills.forEach((p) => p.classList.remove('is-hidden'));
+
+            // Desktop: show everything, no toggle.
+            if (window.innerWidth > BREAKPOINT || pills.length === 0) {
+                toggleBtn.hidden = true;
+                return;
+            }
+
+            // Find pills that wrapped past the first row.
+            const firstRowTop = pills[0].offsetTop;
+            const overflow = pills.filter((p) => p.offsetTop > firstRowTop);
+
+            if (overflow.length === 0) {
+                toggleBtn.hidden = true;
+                return;
+            }
+
+            const L = LABELS[lang()];
+            toggleBtn.hidden = false;
+            toggleBtn.textContent = expanded ? L.less : L.more(overflow.length);
+            if (!expanded) overflow.forEach((p) => p.classList.add('is-hidden'));
+        };
+
+        const relocate = () => {
+            if (!sidebar || !titleBlock || !mainEl || !quartoContent) return;
+
+            if (window.innerWidth <= BREAKPOINT) {
+                // Place sidebar right after the title block, inside main.
+                if (titleBlock.parentNode === mainEl) {
+                    if (sidebar.previousElementSibling !== titleBlock) {
+                        titleBlock.after(sidebar);
+                    }
+                } else if (sidebar.parentNode !== mainEl || sidebar !== mainEl.firstElementChild) {
+                    mainEl.insertBefore(sidebar, mainEl.firstElementChild);
+                }
+            } else {
+                // Restore sidebar as first child of #quarto-content (before main).
+                if (sidebar.parentNode !== quartoContent) {
+                    quartoContent.insertBefore(sidebar, mainEl);
+                }
+            }
+
+            syncCategories();
+        };
+
+        const onResize = () => {
+            if (rafId !== null) return;
+            rafId = requestAnimationFrame(() => {
+                rafId = null;
+                relocate();
+            });
+        };
+
+        // Run synchronously — script is include-after-body so the DOM is already
+        // parsed. This fires before the first paint, preventing the flash where
+        // the sidebar briefly appears in its default (right-side) position.
+        init();
+        relocate();
+
+        window.addEventListener('resize', onResize);
+    })();
+
+    // Toggle behaviour: clicking an already-active category clears the filter
+    // (reverts to "All") instead of re-applying it. Quarto binds its own
+    // onclick to each `.category` in the bubbling phase, so we intercept in the
+    // capture phase and stop propagation before that handler runs.
+    (() => {
+        document.addEventListener('click', (e) => {
+            const pill = e.target.closest('.quarto-listing-category .category');
+            if (!pill || !pill.classList.contains('active')) return;
+            // The "All" pill (data-category="") is already the cleared state;
+            // let Quarto handle it normally.
+            if (!pill.getAttribute('data-category')) return;
+            if (typeof activateCategory !== 'function') return;
+
+            e.stopPropagation();
+            e.preventDefault();
+            activateCategory('');
+            if (typeof setCategoryHash === 'function') setCategoryHash('');
+        }, true);
+    })();
+</script>
