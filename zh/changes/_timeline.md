@@ -258,7 +258,7 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - style: 禁用关于页面的深色模式图片遮罩；优化 Plotly 在深色模式下的显示（图片遮罩与边距）
 - feat: 将 `title-meta-author` 改为 Flex 布局；将侧边栏 `site-tool` 区块移到底部
 
-### 重构 Notion 数据库，实现自动化联动 {date="Jul 5 - Jul 7" iso="2026-07-05T13:45:00.000-04:00" commits="4" hours="14" days="3"}
+### 重构 Notion 数据库，实现自动化联动 {date="Jul 5 - Jul 7" iso="2026-07-05T13:45:00.000-04:00" commits="7" hours="15.75" days="3"}
 
 重构 Notion 开发&日志数据库，将手动填写的属性替换成公式，搭建自动化工作流。
 
@@ -266,3 +266,11 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - Jul 6 · dev: 用 Rollup & Formula 替换所有手动填写的属性，搭建自动化工作流
 - Jul 6 · fix: 修复 dev db 中 `_start` 的唯一值数量与 log dv 中 `Days` 总和不一致问题
 - Jul 7 · fix: 修复同步数据库的 Python 脚本 (Notion Connection 中增加 Dev 库的权限)
+
+### 完成 Notion 数据库自动同步搭建 {date="Jul 8" iso="2026-07-08T13:30:00.000-04:00" commits="3" hours="7" days="1"}
+
+完成搭建 Notion 更新日志库的自动同步。优化属性公式；修复 UI/API 不一致问题。增加一篇博客记录从中学到的注意事项。
+
+- dev: 优化并精简 Notion Change Log 库属性，避免加载卡顿
+- fix: 修复更新日志数据库同步问题 (Notion UI 和 API 不一致问题)；优化 Python 和 Lua 脚本
+- blg: 开始撰写 Notion 数据库自动同步注意事项

@@ -258,7 +258,7 @@ New project of an UI/UX design for Bayanihan. Redesign About page. Bug fixed & s
 - style: disable about-page dark-img-shade; refine plotly in dark (img-shade & margin)
 - feat: let title-meta-author be flex; mv sidebar site-tool sections to bottom
 
-### Automate Quarto Dev/Log Notion Databases Workflow {date="Jul 5 - Jul 7" iso="2026-07-05T13:45:00.000-04:00" commits="4" hours="14" days="3"}
+### Automate Quarto Dev/Log Notion Databases Workflow {date="Jul 5 - Jul 7" iso="2026-07-05T13:45:00.000-04:00" commits="7" hours="15.75" days="3"}
 
 Restructure Notion dev/log databses; replace manual properties to Notion Formulas; build automation workflow.
 
@@ -266,3 +266,11 @@ Restructure Notion dev/log databses; replace manual properties to Notion Formula
 - Jul 6 · dev: replace manual props with Rollup & Formula (eg. start/hours/days/date-label); built automate workflow
 - Jul 6 · fix: n\_uniques of  `_start` (dev db) ≠ sum of `Days` (log db)
 - Jul 7 · fix: python sync script (add dev db to Notion connection)
+
+### Finish Notion Database Auto-Sync Development {date="Jul 8" iso="2026-07-08T13:30:00.000-04:00" commits="3" hours="7" days="1"}
+
+Finish Notion change log databases auto-sync development. Refine formulas; fix UI/API inconsistency. Add a blog of tips learned.
+
+- dev: refine Notion change log db props, reduce to minimum, reduce runtime
+- fix: cl sync bugs (api timezone inconsistency), refine py & lua scripts
+- blg: ini ntn-db-auto-sync-tips
