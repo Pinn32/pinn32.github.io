@@ -1020,12 +1020,34 @@ figcaption,
     text-align: center;
 }
 
+/* Output (code listing) captions.
+   script-lst-caption-below (site-fixes.html) relocates the lst caption out of the
+   <figure> to sit after the output/code, so it renders in normal flow below — no
+   flex/order reversal. The caption is a direct child of the .listing element. */
+.listing > figcaption.quarto-float-lst {
+    margin: .35rem 0 .5rem;
+    text-align: left;
+}
+figure.quarto-float-lst .cell-output.cell-output-stdout pre,
+figure.quarto-float-lst div.sourceCode {
+    margin: 0 0 .5em;
+}
+/* In the crossref hover preview (tippy, maxWidth 500) the listing output would
+   overflow horizontally — plain output <pre> defaults to white-space:pre, unlike
+   source code which wraps. Wrap it there so it reads like the main content. */
+.tippy-content figure.quarto-float-lst .cell-output pre code {
+    white-space: pre;
+}
+.tippy-content:has(figure.quarto-float-lst) figcaption {
+    text-align: left;
+}
+
 /* Blockquote */
 blockquote.blockquote {
     font-size: 0.9rem;
     color: var(--pf-text-secondary);
     border-left-color: var(--pf-border);
-    padding: 0.5rem 0 0.5rem 1rem;
+    padding: .5rem 0 .5rem 1rem;
 }
 
 /* Description */
@@ -1323,30 +1345,33 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
 }
 /* drop Quarto's paragraph/figure wrapper spacing so the image fills the frame */
 .macbook-frame :is(p, figure, div.quarto-figure) { margin: 0; }
+// .macbook-frame figure { display: flex; flex-direction: column; }
 /* caption sits in the title bar, right after the traffic lights, vertically centered */
-.macbook-frame figcaption,
-.macbook-frame .caption {
+.macbook-frame figcaption {
     position: absolute;
-    top: -23px;
+    top: -23.5px;
     left: auto;                                /* clear the green button */
     right: 12px;
     height: var(--mf-bar-h);
     display: flex;
+    text-align: right;
+    padding-left: calc(54px + 1em);
+
+    // order: -1;
+    // margin: 0 1em 0 auto;
     align-items: center;
-    margin: 0;
     z-index: 2;
-    text-align: left;
     font-style: normal;
     font-size: calc(var(--mf-bar-h) * 0.55);   /* scales with the title bar */
     line-height: 1;
-    white-space: nowrap;
+    // white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .macbook-frame img {
     display: block;
     width: 100%;
-    margin: var(--mf-bar-h) 0 0;               /* clear the title bar */
+margin: var(--mf-bar-h) 0 0;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 0;
 }
@@ -1364,12 +1389,17 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
 }
 /* drop Quarto's paragraph/figure wrapper spacing so the image fills the frame */
 .img-frame :is(p, figure, div.quarto-figure) { margin: 0; }
-.img-frame figcaption { display: none; }
+// .img-frame figcaption { display: none; }
 .img-frame img {
     display: block;
     width: 100%;
     margin: 0;
     border-radius: 0;
+}
+.img-frame figure > figcaption.quarto-float-caption-bottom {
+    margin-bottom: .2em;
+    font-size: .8rem;
+    font-style: normal;
 }
 
 

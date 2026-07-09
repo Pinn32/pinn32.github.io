@@ -6,3 +6,7 @@ comments:
   giscus: 
     repo: Pinn32/pinn32.github.io
     language: en
+
+crossref:
+    lst-title: "Code"
+    lst-prefix: "Code"

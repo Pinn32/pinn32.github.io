@@ -7,6 +7,10 @@ categories: [R, Social Media, Mental Health]
 description: 'Analysis of social media habits and addiction patterns among students, with behavioral and academic insights.'
 image: ../../../src/img/proj/stu-media/cover.png
 
+crossref:
+    lst-title: "Output"
+    lst-prefix: "Output"
+
 order: 2
 
 ## All below for Rmd
@@ -81,17 +85,32 @@ Furthermore, to improve the accessibility of visual storytelling, this project a
 
 ## Importing Dataset
 
-The dataset was downloaded from [Kaggle](https://www.kaggle.com/datasets/adilshamim8/social-media-addiction-vs-relationships) and saved to a local directory. It was then imported into R as `df0` using the built-in `read.csv()` function with a relative file path. The structure of `df0` was shown in [Output 1](#str-df) below.
+The dataset was downloaded from [Kaggle](https://www.kaggle.com/datasets/adilshamim8/social-media-addiction-vs-relationships) and saved to a local directory. It was then imported into R as `df0` using the built-in `read.csv()` function with a relative file path. The structure of `df0` was shown in @lst-str-df below.
 
-:::{#str-df}
 ```{r}
+#| lst-label: lst-str-df
+#| lst-cap: "Structure of the Dataframe"
+
 # import dataset
 df0 <- read.csv("../../../src/data/student-social-media-addiction.csv")
 str(df0) # view dataframe structure
 ```
 
-[*Output 1: Structure of the Dataframe*]{.caption}
-:::
+see @lst-1
+
+```{r}
+#| lst-label: lst-1
+#| lst-cap: "Test"
+print('test')
+```
+
+see @lst-2
+
+```{#lst-2 .r lst-cap="ok"}
+print('ok')
+```
+
+
 
 ## Preprocessing
 

@@ -4,6 +4,10 @@ author: 'Pinn Xu'
 date: 2026-06-29
 draft: true
 draft-mode: unlinked
+
+crossref:
+    lst-title: "Output"
+    lst-prefix: "Output"
 ---
 
 <!-- Start: Visitor Counter =============================================== -->
@@ -21,6 +25,27 @@ fetch("https://api.counterapi.dev/v1/dv-proj/views/up")
 </script>
 </p>
 <!-- End: Visitor Counter =============================================== -->
+
+# Blockquote
+
+> this is a quote
+
+# Test Code Options
+
+@lst-test is listing
+
+```{python}
+# | code-fold: true
+# | lst-cap: lst cap
+# | label: lst-test
+print('hello, world.\nhello again, world.')
+```
+
+这里是正文部分拉拢扥爱思赌坊你来反欧冲大恨罗三爱富  士大夫
+
+```{#lst-mdcode lst-cap="ok啊" .js}
+() => 32
+```
 
 
 # Bio Code Block
@@ -56,7 +81,9 @@ text tsf asfasf  saflsafj sfffisdodfasf sfjsafjasj 你放假欧吹差of地画出
 
 # External Link Icon
 
-![Foo](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.VdDc3iT3PCrJnnsiThNzGgHaF_%3Fpid%3DApi&f=1&ipt=b1ccc40995df182e2c2eff80f713a003f628b499a90b020e9ef6190942ca1937&ipo=images)
+see @fig-1 
+
+![Foo](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.VdDc3iT3PCrJnnsiThNzGgHaF_%3Fpid%3DApi&f=1&ipt=b1ccc40995df182e2c2eff80f713a003f628b499a90b020e9ef6190942ca1937&ipo=images){#fig-1}
 
 ![Lorem Picsum](https://picsum.photos/id/237/200/300)
 

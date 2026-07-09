@@ -6,3 +6,7 @@ comments:
   giscus: 
     repo: Pinn32/pinn32.github.io
     language: zh-CN
+
+crossref:
+    lst-title: "代码"
+    lst-prefix: "代码"
