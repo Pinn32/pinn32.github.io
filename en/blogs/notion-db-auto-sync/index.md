@@ -4,7 +4,10 @@ author: 'Pinn Xu'
 date: 2026-07-08
 description: 'Tips for Notion database Formulas & Rollups when syncing via API.'
 categories: [Notion, Database, Quarto, Web Dev, Tips]
-image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615190606193.png"
+image: ""
+
+draft: true
+draft-mode: unlinked
 ---
 
 # Introduction
