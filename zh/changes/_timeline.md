@@ -2,7 +2,7 @@
 
 ## 阶段 1 · 初始搭建 {range="Mar 31 - Apr 4"}
 
-### 项目启动 {date="Mar 31 - Apr 1" iso="2026-03-31" commits="12" hours="7.75" days="2"}
+### 项目启动 {date="Mar 31 - Apr 1" iso="2026-03-31T16:00:00.000-04:00" commits="12" hours="7.75" days="2"}
 
 搭建了 Quarto 网站项目框架，包含四个数据分析项目的雏形。
 
@@ -13,7 +13,7 @@
 - Apr 1 · style: 新增自定义 `styles.css`
 - Apr 1 · fix: 用 `fix-code-fold` 脚本修复代码折叠工具失效的问题
 
-### 加泰罗尼亚页面完成 {date="Apr 2" iso="2026-04-02" commits="3" hours="4" days="1"}
+### 加泰罗尼亚页面完成 {date="Apr 2" iso="2026-04-02T20:45:00.000-04:00" commits="3" hours="4" days="1"}
 
 打磨了加泰罗尼亚公投项目页面，这是网站第一篇完整文章。
 
@@ -21,7 +21,7 @@
 - dev: 整理 `_quarto.yml` 中的路由
 - proj: 完成 `catalan-referendum/index.qmd` 的重写
 
-### Python 流程与仓库重构 {date="Apr 3" iso="2026-04-03" commits="17" hours="11.75" days="1"}
+### Python 流程与仓库重构 {date="Apr 3" iso="2026-04-03T09:30:00.000-04:00" commits="17" hours="11.75" days="1"}
 
 搭建阶段工作量最大的一天：Python 项目改用 Jupyter 渲染器，notebook 转为 .qmd 文件，静态资源迁移到 /src/。
 
@@ -33,7 +33,7 @@
 - fix: 用 `fix-navbar-active` 脚本修复导航栏高亮错误
 - feat: 初始化教程页面
 
-### 侧边栏与链接修复 {date="Apr 4" iso="2026-04-04" commits="4" hours="3.5" days="1"}
+### 侧边栏与链接修复 {date="Apr 4" iso="2026-04-04T10:30:00.000-04:00" commits="4" hours="3.5" days="1"}
 
 一次小范围清理：修正侧边栏高亮样式、外部文档链接，并调整了首页文案。
 
@@ -44,7 +44,7 @@
 
 ## 阶段 2 · 教程与交叉引用 {range="Apr 5 - Apr 8"}
 
-### 新增教程板块 {date="Apr 5" iso="2026-04-05" commits="5" hours="1.75" days="1"}
+### 新增教程板块 {date="Apr 5" iso="2026-04-05T12:15:00.000-04:00" commits="5" hours="1.75" days="1"}
 
 一次性导入全部教程文件：转换为 .qmd、提取图片，并重构文件夹以支持未来的中英双语版本。
 
@@ -52,7 +52,7 @@
 - ttl: 把教程重构进 en/zh 文件夹
 - dev: 用交叉引用选项（`#| label`、`#| fig-cap`）替换 caption span
 
-### 交叉引用系统 {date="Apr 7 - Apr 8" iso="2026-04-07" commits="4" hours="1.75" days="2"}
+### 交叉引用系统 {date="Apr 7 - Apr 8" iso="2026-04-07T16:45:00.000-04:00" commits="4" hours="1.75" days="2"}
 
 正文引用改用 Quarto 交叉引用，参考文献迁移至 .bib 文件并采用 APA 格式。
 
@@ -62,7 +62,7 @@
 
 ## 阶段 3 · 样式重制与多语言基础 {range="Apr 10 - Apr 11"}
 
-### 样式全面重制与中英切换 {date="Apr 10 - Apr 11" iso="2026-04-10" commits="14" hours="8.25" days="1"}
+### 样式全面重制与中英切换 {date="Apr 10" iso="2026-04-10T13:00:00.000-04:00" commits="14" hours="8.25" days="1"}
 
 整个样式表重写为 portfolio.css，网站新增中文镜像目录及语言切换功能。
 
@@ -73,7 +73,7 @@
 - dev: 把共用数据集和图片移进 `/src/`，供两种语言共用
 - contnt: 把所有英文页面翻译成中文
 
-### 数据处理教程（英文版） {date="Apr 11" iso="2026-04-11" commits="1" hours="1.25" days="1"}
+### 数据处理教程（英文版） {date="Apr 11" iso="2026-04-11T16:00:00.000-04:00" commits="1" hours="1.25" days="1"}
 
 完成了数据处理教程的英文版，这是七周停更前的最后一条记录。
 
@@ -81,7 +81,7 @@
 
 ## 阶段 4 · 重启、翻译与首次发布 {range="May 31 - Jun 5"}
 
-### 项目重启，集中翻译 {date="May 31 - Jun 3" iso="2026-05-31" commits="11" hours="9.25" days="2"}
+### 项目重启，集中翻译 {date="May 31 - Jun 2" iso="2026-05-31T14:45:00.000-04:00" commits="11" hours="9.25" days="2"}
 
 停更七周后重新开工：新增 README、为输出结果手动添加交叉引用，并对大部分项目和教程进行了翻译。
 
@@ -93,7 +93,7 @@
 - Jun 2 · ttl: 打磨中文版 multivariate-plots 的图、文字和交叉引用
 - Jun 2 · dev: 新增回到顶部导航
 
-### 首次发布到 GitHub Pages {date="Jun 3 - Jun 4" iso="2026-06-03" commits="7" hours="8.75" days="1"}
+### 首次发布到 GitHub Pages {date="Jun 3" iso="2026-06-03T14:30:00.000-04:00" commits="7" hours="8.75" days="1"}
 
 网站正式上线。新增用 Lua 编写的阅读时长过滤器，修复语言切换器，并打磨了桑基图教程。
 
@@ -103,7 +103,7 @@
 - contnt: 修文案错字；给 hobbies 加占位内容
 - ttl: 把 multivariate 翻译成英文；打磨中文版 sankey
 
-### AI 推文项目与 R 技巧教程 {date="Jun 4 - Jun 5" iso="2026-06-04" commits="11" hours="13.75" days="2"}
+### AI 推文项目与 R 技巧教程 {date="Jun 4 - Jun 5" iso="2026-06-04T15:00:00.000-04:00" commits="11" hours="13.75" days="2"}
 
 新增两篇内容，并修复了语言切换器、阅读时长显示和首页卡片的问题。
 
@@ -117,7 +117,7 @@
 
 ## 阶段 5 · 博客、样式与移动端 {range="Jun 7 - Jun 21"}
 
-### 列表页打磨与 404 修复 {date="Jun 8 - Jun 9" iso="2026-06-08" commits="8" hours="6" days="2"}
+### 列表页打磨与 404 修复 {date="Jun 7 - Jun 9" iso="2026-06-07T21:15:00.000-04:00" commits="8" hours="6" days="2"}
 
 一轮小修复：404 页面终于能正确识别语言和路由，列表页加上了封面图，favicon 换成了一个火花图标。
 
@@ -127,7 +127,7 @@
 - Jun 9 · feat: 给项目加上环境/版本代码块和章节编号；给列表页加上封面图字段
 - Jun 9 · contnt: 把 ai-tweets 改名为 ai-discourse；打磨并翻译 global-visa 和 r-tips；完善所有分类和描述
 
-### 开设博客板块 {date="Jun 11 - Jun 14" iso="2026-06-11" commits="4" hours="5.25" days="4"}
+### 开设博客板块 {date="Jun 11 - Jun 13" iso="2026-06-11T17:15:00.000-04:00" commits="4" hours="5.25" days="3"}
 
 博客板块以一篇关于系统文件夹归属问题的文章开篇，同时修复了导航栏高亮锚点的老问题。
 
@@ -138,7 +138,7 @@
 - Jun 13 · feat: 给列表页增加封面图
 - Jun 13 · style: 修复搜索框取消按钮的换行问题
 
-### 图片样式定型，图床流程成型 {date="Jun 14 - Jun 16" iso="2026-06-14" commits="12" hours="20.5" days="3"}
+### 图片样式定型，图床流程成型 {date="Jun 14 - Jun 16" iso="2026-06-14T13:00:00.000-04:00" commits="12" hours="20.5" days="3"}
 
 花了三天时间打磨 shellfolder 博客和图片样式，图片尺寸与居中问题的解决方案还单独写成了一篇文章 quarto-img-styles。
 
@@ -152,7 +152,7 @@
 - Jun 15 · feat: 启用图片灯箱
 - Jun 16 · blg: 打磨并翻译 quarto-img-styles；完善中英文版 shellfolder
 
-### shellfolder 博客完成，二次发布 {date="Jun 17 - Jun 20" iso="2026-06-17" commits="7" hours="11.5" days="3"}
+### shellfolder 博客完成，二次发布 {date="Jun 17 - Jun 19" iso="2026-06-17T11:45:00.000-04:00" commits="7" hours="11.5" days="3"}
 
 shellfolder 一文的中英文版本都定稿，网站以更简洁的路由重新发布。
 
@@ -163,7 +163,7 @@ shellfolder 一文的中英文版本都定稿，网站以更简洁的路由重�
 - Jun 19 · feat: 所有页面已支持中/英文切换
 - Jun 19 · dev: 发布到 gh-pages
 
-### 移动端适配 {date="Jun 20 - Jun 21" iso="2026-06-20" commits="4" hours="5.25" days="2"}
+### 移动端适配 {date="Jun 20 - Jun 21" iso="2026-06-20T17:45:00.000-04:00" commits="4" hours="5.25" days="2"}
 
 第一次认真做移动端适配：按钮布局、标签折叠、下拉菜单层级，还加了方便手机测试的 host 设置。
 
@@ -174,7 +174,7 @@ shellfolder 一文的中英文版本都定稿，网站以更简洁的路由重�
 
 ## 阶段 6 · 工具、暗黑模式与新功能 {range="Jun 22 - Jul 2"}
 
-### 全部文章页与「编辑本页」 {date="Jun 22" iso="2026-06-22" commits="3" hours="2.5" days="1"}
+### 全部文章页与「编辑本页」 {date="Jun 22" iso="2026-06-22T19:00:00.000-04:00" commits="3" hours="2.5" days="1"}
 
 新增全部文章列表页，支持按类型筛选，并为每篇文章加上「编辑本页」链接。
 
@@ -182,7 +182,7 @@ shellfolder 一文的中英文版本都定稿，网站以更简洁的路由重�
 - feat: 启用「编辑本页」
 - fix: 修复响应式标签栏的渲染延迟
 
-### 工具板块 {date="Jun 23 - Jun 24" iso="2026-06-23" commits="8" hours="10.25" days="2"}
+### 工具板块 {date="Jun 23 - Jun 24" iso="2026-06-23T14:15:00.000-04:00" commits="8" hours="10.25" days="2"}
 
 新增一个网页工具板块：短链接生成器、猫咪图片收藏站、新闻汇总收藏站等。
 
@@ -193,7 +193,7 @@ shellfolder 一文的中英文版本都定稿，网站以更简洁的路由重�
 - Jun 24 · fix: 修复导航栏、侧边栏和按钮在移动端的字号
 - Jun 24 · dev: 给 ai-tweets 加别名；发布到 gh-pages
 
-### 暗黑模式 {date="Jun 25 - Jun 27" iso="2026-06-25" commits="4" hours="8" days="2"}
+### 暗黑模式 {date="Jun 25 - Jun 26" iso="2026-06-25T14:45:00.000-04:00" commits="4" hours="8" days="2"}
 
 所有样式合并进 portfolio.scss，网站新增了完整的 portfolio-dark 暗黑主题。
 
@@ -202,7 +202,7 @@ shellfolder 一文的中英文版本都定稿，网站以更简洁的路由重�
 - Jun 26 · style: 打磨所有样式；启用 callout 区块
 - Jun 26 · dev: 发布到 gh-pages
 
-### 移动端换行修复与贡献图 {date="Jun 27 - Jun 29" iso="2026-06-27" commits="7" hours="12.25" days="2"}
+### 移动端换行修复与贡献图 {date="Jun 27 - Jun 28" iso="2026-06-27T11:45:00.000-04:00" commits="7" hours="12.25" days="2"}
 
 修复了移动端表格溢出问题，首页新增 GitHub 贡献图，所有脚本也整理进统一的目录结构。
 
@@ -213,7 +213,7 @@ shellfolder 一文的中英文版本都定稿，网站以更简洁的路由重�
 - Jun 28 · style: 启用 code-with-filename
 - Jun 28 · feat: 重设网站 URL（修复 404 渲染错误）
 
-### 评论功能与复现指南 {date="Jun 29 - Jul 1" iso="2026-06-29" commits="6" hours="12.5" days="3"}
+### 评论功能与复现指南 {date="Jun 29 - Jul 1" iso="2026-06-29T10:30:00.000-04:00" commits="6" hours="12.5" days="2"}
 
 上线 Giscus 评论功能，新增一页说明如何复现 R 和 Python 环境，README 也补齐了中英文版本。
 
@@ -223,7 +223,7 @@ shellfolder 一文的中英文版本都定稿，网站以更简洁的路由重�
 - Jun 29 · feat: 重新排版 About 页面布局
 - Jul 1 · feat: 新增中英文 README，补充中英文版复现说明
 
-### 评论跟随语言，外部构建 {date="Jul 2" iso="2026-07-02" commits="6" hours="10" days="1"}
+### 评论跟随语言，外部构建 {date="Jul 2" iso="2026-07-02T11:30:00.000-04:00" commits="6" hours="10" days="1"}
 
 Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高亮，外部链接加上了图标，并上线了更新日志功能。
 
@@ -235,7 +235,7 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 
 ## 阶段 7 · 更新日志、Notion同步MCS与UI设计项目 {range="Jul 3 - now"}
 
-### 更新日志 {date="Jul 3" iso="2026-07-03" commits="5" hours="11.5" days="1"}
+### 更新日志 {date="Jul 3" iso="2026-07-03T10:30:00.000-04:00" commits="5" hours="11.5" days="1"}
 
 新增「更新日志」页面，包含时间轴、Notion CMS 整合与更新热力图；修复渲染与配置问题，并优化整体界面。
 
@@ -245,7 +245,7 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - feat: 中文版更新日志连接 Notion，并通过 Agents 自动翻译；`sync-changelog.py` 增加进度条显示
 - style: 优化并修复更新日志，增加过渡动画与配色；修复首页的 `.intro` 部分
 
-### 新增「关于」页面和 Bayanihan UI 设计项目 {date="Jul 4 - Jul 5" iso="2026-07-04" commits="8" hours="13.25" days="1"}
+### 新增「关于」页面和 Bayanihan UI 设计项目 {date="Jul 4" iso="2026-07-04T08:45:00.000-04:00" commits="8" hours="13.25" days="1"}
 
 新增 Bayanihan UI 设计项目；重新排布「关于」页面。修复 bug，并优化了样式。
 
@@ -258,11 +258,11 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - style: 禁用关于页面的深色模式图片遮罩；优化 Plotly 在深色模式下的显示（图片遮罩与边距）
 - feat: 将 `title-meta-author` 改为 Flex 布局；将侧边栏 `site-tool` 区块移到底部
 
-### 重构 Notion 数据库，实现自动化联动 {date="Jul 5 - Jul 7" iso="2026-07-05" commits="4" hours="13.5" days="3"}
+### 重构 Notion 数据库，实现自动化联动 {date="Jul 5 - Jul 7" iso="2026-07-05T13:45:00.000-04:00" commits="4" hours="14" days="3"}
 
 重构 Notion 开发&日志数据库，将手动填写的属性替换成公式，搭建自动化工作流。
 
-- dev: 重构 Notion All Projects 数据库; 启用 Rollup 连接 Quarto 网站数据库; 让 Calude 执行添加 Relation
-- dev: 用 Rollup & Formula 替换所有手动填写的属性，搭建自动化工作流
-- fix: 修复 dev db 中 `_start` 的唯一值数量与 log dv 中 `Days` 总和不一致问题
-- fix: 修复同步数据库的 Python 脚本 (Notion Connection 中增加 Dev 库的权限)
+- Jul 5 · dev: 重构 Notion All Projects 数据库; 启用 Rollup 连接 Quarto 网站数据库; 让 Calude 执行添加 Relation
+- Jul 6 · dev: 用 Rollup & Formula 替换所有手动填写的属性，搭建自动化工作流
+- Jul 6 · fix: 修复 dev db 中 `_start` 的唯一值数量与 log dv 中 `Days` 总和不一致问题
+- Jul 7 · fix: 修复同步数据库的 Python 脚本 (Notion Connection 中增加 Dev 库的权限)

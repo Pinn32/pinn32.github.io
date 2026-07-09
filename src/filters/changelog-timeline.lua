@@ -424,7 +424,7 @@ function Pandoc(doc)
     local started = false
     local phases = {}           -- { pill = html|nil, entries = { {head, body} } }
     local entry = nil           -- open entry being collected
-    local totals = { commits = 0, hours = 0, days = 0 }
+    local totals = { commits = 0, hours = 0 }
     local daily = {}            -- iso date -> { entries, commits, hours, approx }
 
     local function current_phase()
@@ -500,11 +500,14 @@ function Pandoc(doc)
             local hours   = tonumber(a['hours']) or 0
             totals.commits = totals.commits + commits
             totals.hours   = totals.hours + hours
-            totals.days    = totals.days + (tonumber(a['days']) or 0)
             local unit = (commits == 1) and L.commit_one or L.commit_many
+            -- Notion emits iso as a full datetime ("2026-04-02T20:45:00-04:00");
+            -- the heatmap keys days by plain YYYY-MM-DD, so keep only the date
+            -- part or the day-count fallback (undated bullets) never matches a cell
+            local iso = (a['iso'] or ''):match('^%d%d%d%d%-%d%d%-%d%d') or (a['iso'] or '')
             entry = {
                 head =
-                    '<time class="cl-date" datetime="' .. (a['iso'] or '') .. '">' ..
+                    '<time class="cl-date" datetime="' .. iso .. '">' ..
                     a['date'] .. '</time>' ..
                     '<span class="cl-title">' .. inlines_to_html(blk.content) .. '</span>',
                 meta =
@@ -512,7 +515,7 @@ function Pandoc(doc)
                     ' &middot; ' .. fmt(hours) .. L.meta_hours .. '</span>',
                 body = nil,
                 has_summary = false,
-                iso = a['iso'] or '',
+                iso = iso,
                 commits = commits,
                 hours = hours,
                 -- iso date -> { n = bullets, feat/content/dev = typed counts }
@@ -625,10 +628,16 @@ function Pandoc(doc)
         table.insert(html, '</section>')
     end
 
+    -- work days = distinct days that actually have activity, i.e. the days
+    -- the heatmap paints. Summing each entry's `days` attribute instead would
+    -- double-count days a boundary date shares between two adjacent entries.
+    local work_days = 0
+    for _ in pairs(daily) do work_days = work_days + 1 end
+
     local stats =
         '<p class="cl-stats">' ..
         string.format(L.stats,
-            fmt(totals.days), fmt(totals.commits),
+            fmt(work_days), fmt(totals.commits),
             fmt(math.floor(totals.hours + 0.5))) ..
         '</p>'
 

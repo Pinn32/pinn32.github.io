@@ -597,13 +597,13 @@ body.quarto-dark .cl-hm-cell {
   font-weight: 600;
 }
 
-.cl-tag-feat    { color: #16a34a; }  /* feat */
+.cl-tag-feat    { color: #d97706;; }  /* feat */
 .cl-tag-dev     { color: #2563eb; }  /* dev, fix, style, script */
-.cl-tag-content { color: #d97706; }  /* contnt, proj, blg, tool, hobb, ttl */
+.cl-tag-content { color: #16a34a }  /* contnt, proj, blg, tool, hobb, ttl */
 
-body.quarto-dark .cl-tag-feat    { color: #4ade80; }
+body.quarto-dark .cl-tag-feat    { color: #fbbf24; }
 body.quarto-dark .cl-tag-dev     { color: #60a5fa; }
-body.quarto-dark .cl-tag-content { color: #fbbf24; }
+body.quarto-dark .cl-tag-content { color: #4ade80; }
 
 /* animated open/close where ::details-content is supported */
 .cl-item::details-content {
