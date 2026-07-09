@@ -3,6 +3,7 @@ project:
   render:
     - "*.{qmd,R,py,md}"
     - "!archive/**/*"
+    - "!README.zh.md"
   preview: 
     # host: 0.0.0.0
     port: 4200
@@ -124,6 +125,7 @@ format:
   html:
     # self-contained: false
     lightbox: true
+    image-lazy-loading: true
     smooth-scroll: true
     syntax-highlighting: 
       light: pygments
@@ -162,3 +164,4 @@ editor: source
 filters:
   - src/filters/reading-stats.lua  # for reading time
   - src/filters/changelog-timeline.lua  # change-log timeline (en/changes)
+  - src/filters/lazy-images.lua  # lazy-load + async-decode body images

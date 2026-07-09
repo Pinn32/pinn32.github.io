@@ -206,9 +206,9 @@ E -.-> A
 
 ## Personas
 
-![Persona: Sophia the Reader](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704163917372.png){#fig-persona-sophia}
+![Persona: Sophia the Reader](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/202607091135.png){#fig-persona-sophia}
 
-![Persona: Ramon the Artist](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704164114551.png){#fig-persona-ramon}
+![Persona: Ramon the Artist](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/2026070911351.png){#fig-persona-ramon}
 
 
 ## Prototype
@@ -218,7 +218,7 @@ The final prototype covers five pages: Home, Issues, Blogs/Works, Artists Commun
 <!-- ===================================================================== -->
 
 :::{.macbook-frame style="width:35rem;"}
-![Figma Prototype Structure](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704200150592.png){#fig-figma-prototype-structure}
+![Figma Prototype Structure](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/2026070911352.png){#fig-figma-prototype-structure}
 :::
 
 :::{style="text-align:center;"}
@@ -258,7 +258,7 @@ The final prototype covers five pages: Home, Issues, Blogs/Works, Artists Commun
 <!-- ===================================================================== -->
 
 :::{.macbook-frame style="width:35rem;"}
-![Article Layout](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704195417565.png){#fig-article-layout}
+![Article Layout](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/2026070911353.png){#fig-article-layout}
 :::
 
 :::{style="text-align:center;"}

@@ -13,6 +13,7 @@
     5. script-fix-sidebar-search Replace the dead sidebar search box with a working button
     6. script-fix-tag-redirect   Redirect post-page tag links to their listing page
     7. script-copyright-year     Update the copyright year in the footer
+    8. script-mermaid-early      Render Mermaid diagrams at parse time, not on window.load
 
     Page-specific scripts (responsive-tag-bar, post-type-filter)
     live in their own files and are included separately.
@@ -283,9 +284,62 @@
 <!-- ====================================================================== -->
 <script id="script-copyright-year">
     // Update the copyright year in the footer
-    
+
     document.addEventListener("DOMContentLoaded", function () {
         const el = document.getElementById("copyright-year");
         if (el) el.textContent = new Date().getFullYear();
     });
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-mermaid-early">
+    // Render Mermaid diagrams at parse time instead of on window.load.
+    //
+    // Quarto's mermaid-init.js renders diagrams inside a `window.load` handler
+    // (it sets startOnLoad:false). `load` only fires after every blocking image
+    // has downloaded, so a page full of large images makes the diagram appear
+    // late. This runs inline at end of <body> — by which point the parser-
+    // blocking mermaid library in <head> has already initialized and the
+    // diagram's <pre> is in the DOM — so the diagram renders with minimal
+    // latency, independent of image loading (which `image-lazy-loading` keeps
+    // from competing for bandwidth).
+    //
+    // We replicate ONLY mermaid-init's render+swap step, leaving the DOM in the
+    // exact state Quarto's own load handler expects: its first loop then finds
+    // no unrendered `pre.mermaid-js` (skips a re-render) while its second loop
+    // still runs postProcess() on our SVG for final sizing/alignment. On any
+    // error we leave the <pre> untouched so Quarto's load handler renders it.
+    (async () => {
+        const pending = Array.from(document.querySelectorAll("pre.mermaid-js"));
+        if (!pending.length || !window.mermaid || !mermaid.mermaidAPI) return;
+
+        let i = 0;
+        for (const el of pending) {
+            try {
+                const text = el.textContent.replaceAll("&nbsp;", " ");
+                const { svg: output } = await mermaid.mermaidAPI.render(
+                    `mermaid-early-${++i}`, text, el
+                );
+                el.innerHTML = output;
+                if (el.dataset.label) {
+                    // patch mermaid's emitted style to use the figure's label id
+                    const svg = el.firstChild;
+                    const style = svg.querySelector("style");
+                    style.innerHTML = style.innerHTML.replaceAll(
+                        `#${svg.id}`, `#${el.dataset.label}-mermaid`
+                    );
+                    svg.id = el.dataset.label + "-mermaid";
+                    delete el.dataset.label;
+                }
+                const svg = el.querySelector("svg");
+                const parent = el.parentElement;
+                parent.removeChild(el);
+                parent.appendChild(svg);
+                svg.classList.add("mermaid-js");
+            } catch (e) {
+                // Leave this <pre> in place; Quarto's window.load handler renders it.
+            }
+        }
+    })();
 </script>
