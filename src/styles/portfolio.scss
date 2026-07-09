@@ -1016,6 +1016,9 @@ figcaption,
     color: var(--pf-text-muted);
     font-size: 0.9em;
 }
+:is(p, div):has(>.caption:first-child) {
+    text-align: center;
+}
 
 /* Blockquote */
 blockquote.blockquote {
@@ -1319,7 +1322,7 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
 }
 /* drop Quarto's paragraph/figure wrapper spacing so the image fills the frame */
 .macbook-frame :is(p, figure, div.quarto-figure) { margin: 0; }
-.macbook-frame figcaption { display: none; }
+// .macbook-frame figcaption { display: none; }
 .macbook-frame img {
     display: block;
     width: 100%;

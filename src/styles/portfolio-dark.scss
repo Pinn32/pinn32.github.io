@@ -1051,6 +1051,9 @@ figcaption,
     color: var(--pf-text-muted);
     font-size: 0.9em;
 }
+:is(p, div):has(>.caption:first-child) {
+    text-align: center;
+}
 
 /* Blockquote */
 blockquote.blockquote {
