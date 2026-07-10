@@ -84,17 +84,15 @@ packageVersion("dplyr")      # [1] '1.1.4'
 
 ## 导入数据集
 
-数据集从 [Kaggle](https://www.kaggle.com/datasets/adilshamim8/social-media-addiction-vs-relationships) 下载并保存至本地目录，随后使用内置函数 `read.csv()` 以相对路径导入 R，存储为 `df0`。[输出 1](#str-df) 展示了 `df0` 的结构。
+数据集从 [Kaggle](https://www.kaggle.com/datasets/adilshamim8/social-media-addiction-vs-relationships) 下载并保存至本地目录，随后使用内置函数 `read.csv()` 以相对路径导入 R，存储为 `df0`。@lst-str-df 展示了 `df0` 的结构。
 
-:::{#str-df}
 ```{r}
+#| lst-label: lst-str-df
+#| lst-cap: "数据框结构"
 # 导入数据集
 df0 <- read.csv("../../../src/data/student-social-media-addiction.csv")
 str(df0) # 查看数据框结构
 ```
-
-[*输出 1. 数据框结构*]{.caption}
-:::
 
 ## 数据预处理
 
@@ -126,23 +124,22 @@ names_numvar <- c(
 
 ## 缺失值
 
-使用 `sum(is.na(df))` 对缺失值进行初步检查，数据集中未发现显式缺失值（[输出 2](#num-of-NA)）。
+使用 `sum(is.na(df))` 对缺失值进行初步检查，数据集中未发现显式缺失值（@lst-num-of-NA）。
 
-:::{#num-of-NA}
 ```{r}
+#| lst-label: lst-num-of-NA
+#| lst-cap: "缺失值数量"
 # 检查缺失值数量
 sum(is.na(df))
 ```
 
-[*输出 2. 缺失值数量*]{.caption}
-:::
-
 ## 类别数据
 
-对于类别变量，首先检查各变量的类别数量（见 [输出 3](#cat-unique)）及每个类别的观测计数（见 [输出 4](#cat-counts)）。结果显示，大多数类别变量包含适中数量的类别，而*国家*和*最常用平台*变量的类别数相对较多，因此需要进一步处理。
+对于类别变量，首先检查各变量的类别数量（见 @lst-cat-unique）及每个类别的观测计数（见 @lst-cat-counts）。结果显示，大多数类别变量包含适中数量的类别，而*国家*和*最常用平台*变量的类别数相对较多，因此需要进一步处理。
 
-:::{#cat-unique}
 ```{r}
+#| lst-label: lst-cat-unique
+#| lst-cap: "类别变量中唯一值的数量"
 ## 所有类别变量
 
 # 检查每个类别变量的类别数量
@@ -151,11 +148,9 @@ for (name in names_catvar) {
 }
 ```
 
-[*输出 3. 类别变量中唯一值的数量*]{.caption}
-:::
-
-:::{#cat-counts}
 ```{r}
+#| lst-label: lst-cat-counts
+#| lst-cap: "类别变量各取值的观测数量"
 ## 除国家和平台外的所有类别变量
 
 # 检查每个类别的观测数量
@@ -166,13 +161,11 @@ for (name in setdiff(names_catvar, c("Country", "Most_Used_Platform"))) {
 }
 ```
 
-[*输出 4. 类别变量各取值的观测数量*]{.caption}
-:::
+因此，分别筛选出观测数最多的前五个国家和平台，并将其名称存储在向量 `top5_countries` 和 `top5_platforms` 中，结果见 @lst-top-cats。
 
-因此，分别筛选出观测数最多的前五个国家和平台，并将其名称存储在向量 `top5_countries` 和 `top5_platforms` 中，结果见 [输出 5](#top-cats)。
-
-:::{#top-cats}
 ```{r results='hold'}
+#| lst-label: lst-top-cats
+#| lst-cap: "各国家和平台的观测数量"
 ## 国家与平台
 
 # 检查前五个国家的观测数量
@@ -183,9 +176,6 @@ cat("\n")
 # 检查前五个平台的观测数量
 head(sort(table(df["Most_Used_Platform"]), decreasing = TRUE), 5)
 ```
-
-[*输出 5. 各国家和平台的观测数量*]{.caption}
-:::
 
 ```{r}
 ## 国家与平台
@@ -202,10 +192,11 @@ top5_platforms <- names(
 
 ```
 
-此外，`Affects_Academic_Performance` 变量由字符型转换为逻辑型（"Yes" = `TRUE`，"No" = `FALSE`），见 [输出 6](#bool-var)。
+此外，`Affects_Academic_Performance` 变量由字符型转换为逻辑型（"Yes" = `TRUE`，"No" = `FALSE`），见 @lst-bool-var。
 
-:::{#bool-var}
 ```{r}
+#| lst-label: lst-bool-var
+#| lst-cap: "布尔变量"
 ## 布尔变量
 
 # 将变量由字符型转换为逻辑型
@@ -218,15 +209,13 @@ df$Affects_Academic_Performance <- df$Affects_Academic_Performance == "Yes"
 str(df$Affects_Academic_Performance)
 ```
 
-[*输出 6. 布尔变量*]{.caption}
-:::
-
 ## 数值数据
 
-使用 `summary()` 函数获取数值变量的描述性统计（[输出 7](#num-summary)）。结果表明各变量均在合理范围内，无明显极端或异常值，因此在此阶段无需进一步预处理。
+使用 `summary()` 函数获取数值变量的描述性统计（@lst-num-summary）。结果表明各变量均在合理范围内，无明显极端或异常值，因此在此阶段无需进一步预处理。
 
-:::{#num-summary}
 ```{r}
+#| lst-label: lst-num-summary
+#| lst-cap: "数值变量的描述性统计"
 ## 所有数值变量
 
 # 查看数值变量的描述性统计
@@ -236,15 +225,13 @@ for (name in names_numvar) {
 }
 ```
 
-[*输出 7. 数值变量的描述性统计*]{.caption}
-:::
+此外，由于 `Age` 变量的范围较窄且变异有限，将其分组为三个年龄段。如 @lst-age-range 所示，将 `Age` 视为连续变量在如此狭窄的区间（18-24）内离散程度极低（仅有 7 个唯一值），而将各年龄值作为单独类别则可能导致若干小而不均的子组。因此，分组为三个区间能提供更适合后续分析的结构。
 
-此外，由于 `Age` 变量的范围较窄且变异有限，将其分组为三个年龄段。如 [输出 8](#age-range) 所示，将 `Age` 视为连续变量在如此狭窄的区间（18-24）内离散程度极低（仅有 7 个唯一值），而将各年龄值作为单独类别则可能导致若干小而不均的子组。因此，分组为三个区间能提供更适合后续分析的结构。
+为此，首先使用直方图查看年龄分布并确定合适的分组断点，然后将分组信息存入新变量 `Age_Group`（见 @lst-age-groups）。
 
-为此，首先使用直方图查看年龄分布并确定合适的分组断点，然后将分组信息存入新变量 `Age_Group`（见 [输出 9](#age-groups)）。
-
-:::{#age-range}
 ```{r results='hold'}
+#| lst-label: lst-age-range
+#| lst-cap: "年龄范围及唯一年龄值数量"
 ## 年龄
 
 # 检查取值范围
@@ -254,11 +241,9 @@ range(df$Age)
 length(unique(df$Age))
 ```
 
-[*输出 8. 年龄范围及唯一年龄值数量*]{.caption}
-:::
-
-:::{#age-groups}
 ```{r fig.width=7, fig.height=5, results='hold'}
+#| lst-label: lst-age-groups
+#| lst-cap: "年龄分组"
 ## 年龄
 
 ## 存储直方图数据
@@ -295,9 +280,6 @@ df <- df |>
 # 查看新变量
 table(df["Age_Group"])
 ```
-
-[*输出 9. 年龄分组*]{.caption}
-:::
 
 # 描述性分析
 
@@ -347,7 +329,7 @@ plot_ly(
 
 ### 国家
 
-@fig-country-dist 及其后的 [输出 10](#country-pct) 展示了样本前五个国家的分布情况及各国占总样本的百分比。印度以 7.5% 领先，其次是美国（5.7%）和加拿大（4.8%）。丹麦和法国各占 3.8%，体现了参与者地理来源的多样性，主要集中在南亚和北美地区。
+@fig-country-dist 及其后的 @lst-country-pct 展示了样本前五个国家的分布情况及各国占总样本的百分比。印度以 7.5% 领先，其次是美国（5.7%）和加拿大（4.8%）。丹麦和法国各占 3.8%，体现了参与者地理来源的多样性，主要集中在南亚和北美地区。
 
 ```{r}
 #| label: fig-country-dist
@@ -401,16 +383,14 @@ plot_ly(
   )
 ```
 
-:::{#country-pct}
 ```{r}
+#| lst-label: lst-country-pct
+#| lst-cap: "前五国家占总体的百分比"
 ## 国家
 
 # 查看前五国家观测值占总体的百分比
 sort(table(top5_countries_data$Country_CN), decreasing = TRUE) / nrow(df) * 100
 ```
-
-[*输出 10. 前五国家占总体的百分比*]{.caption}
-:::
 
 ### 年龄分组
 
@@ -801,18 +781,16 @@ plot_ly(
   )
 ```
 
-为验证上述趋势，进行了 Pearson 相关性检验。如 [输出 11](#sleep-cor) 所示，相关系数约为 -0.79（*p* \< .001），表明学生日均社交媒体使用时长与睡眠时长之间存在高度潜在的负相关关系。
+为验证上述趋势，进行了 Pearson 相关性检验。如 @lst-sleep-cor 所示，相关系数约为 -0.79（*p* \< .001），表明学生日均社交媒体使用时长与睡眠时长之间存在高度潜在的负相关关系。
 
-:::{#sleep-cor}
 ```{r results='hold'}
+#| lst-label: lst-sleep-cor
+#| lst-cap: "Pearson 相关性检验结果"
 ## 睡眠时长 ~ 使用时长
 
 # 相关性检验
 cor.test(x = df$Avg_Daily_Usage_Hours, y = df$Sleep_Hours_Per_Night)
 ```
-
-[*输出 11. Pearson 相关性检验结果*]{.caption}
-:::
 
 @fig-usage-sleep-linear 通过对两变量拟合线性模型，进一步呈现了这一负相关关系。
 
@@ -869,18 +847,16 @@ plot_ly(
 
 ## 其他指标
 
-此外，心理健康评分与成瘾评分等其他指标之间的关系同样值得探究（指标名称见 [输出 12](#index-names)）。为此，使用 5×5 的分面散点图矩阵展示所有指标之间的关系趋势（见 @fig-indices-scatter）。
+此外，心理健康评分与成瘾评分等其他指标之间的关系同样值得探究（指标名称见 @lst-index-names）。为此，使用 5×5 的分面散点图矩阵展示所有指标之间的关系趋势（见 @fig-indices-scatter）。
 
-:::{#index-names}
-```{r }
+```{r}
+#| lst-label: lst-index-names
+#| lst-cap: "待比较指标的名称"
 ## 各指标之间的关系
 
 # 从 names_numvar 中移除 Age
 (names_numvar <- setdiff(names_numvar, "Age"))
 ```
-
-[*输出 12. 待比较指标的名称*]{.caption}
-:::
 
 ```{r fig.width=8, fig.height=6, out.width='95%'}
 #| label: fig-indices-scatter
@@ -921,27 +897,26 @@ plot_ly(
   )
 ```
 
-散点图矩阵（@fig-indices-scatter）揭示了行为与心理指标之间复杂的相关网络，核心在于过度社交媒体使用的负面影响。[输出 13](#index-cor) 展示了所有五项指标的相关系数矩阵，提供了对行为趋势的有效洞见。
+散点图矩阵（@fig-indices-scatter）揭示了行为与心理指标之间复杂的相关网络，核心在于过度社交媒体使用的负面影响。@lst-index-cor 展示了所有五项指标的相关系数矩阵，提供了对行为趋势的有效洞见。
 
 结果显示，使用时长与睡眠之间存在显著的负相关——屏幕时间增加持续对应睡眠减少。这一趋势进一步体现在使用时长与成瘾程度的正相关关系上，成瘾程度的上升又带来更多的生活冲突。相反，更好的心理健康结果与较低的成瘾评分、较少的使用时长和更长的睡眠时长相关。总体而言，数据揭示了一个负反馈循环：高度的设备依赖损害了睡眠与社会和谐，共同导致心理健康状况的恶化。
 
-:::{#index-cor}
 ```{r}
+#| lst-label: lst-index-cor
+#| lst-cap: "各指标相关系数矩阵"
 ## 各指标之间的关系
 
 # 查看相关系数矩阵（Pearson 相关系数）
 (cor_matrix <- round(cor(num_data), 2))
 ```
 
-[*输出 13. 各指标相关系数矩阵*]{.caption}
-:::
-
-值得注意的是，成瘾评分与心理健康之间的相关系数（*r* = -.95），以及成瘾评分与社交媒体冲突次数之间的相关系数（*r* = .93）最为显著，两者 \|*r*\| > .9（见 [输出 14](#strong-cor)），表明随着成瘾行为的加深，心理健康状况几乎同步崩溃，人际摩擦也随之上升。
+值得注意的是，成瘾评分与心理健康之间的相关系数（*r* = -.95），以及成瘾评分与社交媒体冲突次数之间的相关系数（*r* = .93）最为显著，两者 \|*r*\| > .9（见 @lst-strong-cor），表明随着成瘾行为的加深，心理健康状况几乎同步崩溃，人际摩擦也随之上升。
 
 综上，成瘾评分是本数据集中预测负面生活结果最有力的指标。
 
-:::{#strong-cor}
 ```{r}
+#| lst-label: lst-strong-cor
+#| lst-cap: "相关性最强的指标对（|r| > .9）"
 ## 各指标之间的关系
 
 # 查找 |r| > 0.9 的变量对位置
@@ -959,9 +934,6 @@ for(i in 1:nrow(loc)) {
     "r =", cor_matrix[row, col], "\n")
 }
 ```
-
-[*输出 14. 相关性最强的指标对（\|r\| > .9）*]{.caption}
-:::
 
 # 中心极限定理的应用
 
@@ -1062,7 +1034,7 @@ make_hist <- function(
 
 ## 使用时长
 
-对于日均使用时长变量，绘制了 2×2 的直方图矩阵（@fig-usage-sample-means-grid），在相同坐标轴范围下展示不同样本量（n = 10、30、50、100）的样本均值分布，以观察分布形态的变化趋势。与此同时，[输出 15](#usage-stats) 展示了关于使用时长的总体与样本统计量。
+对于日均使用时长变量，绘制了 2×2 的直方图矩阵（@fig-usage-sample-means-grid），在相同坐标轴范围下展示不同样本量（n = 10、30、50、100）的样本均值分布，以观察分布形态的变化趋势。与此同时，@lst-usage-stats 展示了关于使用时长的总体与样本统计量。
 
 结果显示，随着样本量增加，样本均值分布显著趋于集中，标准差减小；所有四种样本量的样本均值均值均接近总体均值，成功预测了总体；观测标准误（样本均值的标准差）也近似于由总体标准差推导出的理论标准误。
 
@@ -1104,8 +1076,9 @@ subplot(
   )
 ```
 
-:::{#usage-stats}
 ```{r results='hold'}
+#| lst-label: lst-usage-stats
+#| lst-cap: "使用时长相关统计量对比"
 ## 中心极限定理 - 使用时长
 
 ## 存储样本均值
@@ -1170,9 +1143,6 @@ cat("\n总体均值：", round(pop_mean_usage, 2),
     "\n总体标准差：", round(pop_sd_usage, 2), "\n"
 )
 ```
-
-[*输出 15. 使用时长相关统计量对比*]{.caption}
-:::
 
 此外，@fig-usage-sample-means-normal 展示了其中一种样本均值分布（n = 100，重复 1000 次）及叠加其上的理想正态曲线（n = 100，由 `dnorm()` 函数计算）。结果显示样本均值直方图与正态曲线高度吻合，与中心极限定理一致。
 
@@ -1248,7 +1218,7 @@ plot_ly() |>
 
 ## 睡眠时长
 
-类似地，对睡眠时长变量采用相同方法进行分析。@fig-sleep-sample-means-grid、[输出 15](#usage-stats) 及 [输出 16](#sleep-stats) 所呈现的结果规律与使用时长高度相似，再次验证了中心极限定理的适用性。
+类似地，对睡眠时长变量采用相同方法进行分析。@fig-sleep-sample-means-grid、@lst-usage-stats 及 @lst-sleep-stats 所呈现的结果规律与使用时长高度相似，再次验证了中心极限定理的适用性。
 
 ```{r fig.width = 8, fig.height=5}
 #| label: fig-sleep-sample-means-grid
@@ -1286,8 +1256,9 @@ subplot(
   )
 ```
 
-:::{#sleep-stats}
 ```{r results='hold'}
+#| lst-label: lst-sleep-stats
+#| lst-cap: "睡眠时长相关统计量对比"
 ## 中心极限定理 - 睡眠时长
 
 ## 存储样本均值
@@ -1352,9 +1323,6 @@ cat("\n总体均值：", round(pop_mean_sleep, 2),
     "\n总体标准差：", round(pop_sd_sleep, 2), "\n"
 )
 ```
-
-[*输出 16. 睡眠时长相关统计量对比*]{.caption}
-:::
 
 ```{r}
 #| label: fig-sleep-sample-means-normal
@@ -1424,14 +1392,15 @@ plot_ly() |>
 
 本节以前五平台数据作为总体数据集，使用三种抽样方法各抽取一个样本：有放回的简单随机抽样、不等概率系统抽样和无放回的分层抽样，并对这三种方法的总体预测能力进行比较分析。
 
-[输出 17](#srswr)、[输出 18](#ups) 和 [输出 19](#strata) 展示了不同样本的结果，包括各平台的比例分布以及日均使用时长的均值和标准差。
+@lst-srswr、@lst-ups 和 @lst-strata 展示了不同样本的结果，包括各平台的比例分布以及日均使用时长的均值和标准差。
 
 ## 简单随机抽样
 
 使用 `srswr()` 函数进行有放回的简单随机抽样，样本存储于 `sample1`。
 
-:::{#srswr}
 ```{r results='hold'}
+#| lst-label: lst-srswr
+#| lst-cap: "有放回简单随机抽样结果"
 ## 有放回简单随机抽样
 
 ## 抽样
@@ -1484,15 +1453,13 @@ cat("使用时长样本均值：", mean1, "\n")
 cat("使用时长样本标准差：", round(sd1, 3), "\n")
 ```
 
-[*输出 17. 有放回简单随机抽样结果*]{.caption}
-:::
-
 ## 系统抽样
 
 对于系统抽样，首先使用 `inclusionprobabilities()` 函数根据使用时长计算纳入概率并存储于 `pik`，再使用 `UPsystematic(pik)` 抽取样本，存储于 `sample2`。
 
-:::{#ups}
 ```{r results='hold'}
+#| lst-label: lst-ups
+#| lst-cap: "不等概率系统抽样结果"
 ## 不等概率系统抽样
 
 ## 抽样
@@ -1525,15 +1492,13 @@ cat("使用时长样本均值：", mean2, "\n")
 cat("使用时长样本标准差：", round(sd2, 3), "\n")
 ```
 
-[*输出 18. 不等概率系统抽样结果*]{.caption}
-:::
-
 ## 分层抽样
 
 对于分层抽样，首先使用 `order()` 函数按平台对总体数据进行排序，再使用 `strata()` 函数抽取样本，存储于 `sample3`，各层样本量按平台比例计算。
 
-:::{#strata}
 ```{r results='hold'}
+#| lst-label: lst-strata
+#| lst-cap: "无放回分层抽样结果"
 ## 无放回分层抽样
 
 ## 排序数据
@@ -1584,17 +1549,15 @@ cat("使用时长样本均值：", mean3, "\n")
 cat("使用时长样本标准差：", round(sd3, 3), "\n")
 ```
 
-[*输出 19. 无放回分层抽样结果*]{.caption}
-:::
-
 ## 抽样方法比较
 
 ### 平台比例
 
-[输出 20](#platform-pct) 展示了总体（前五平台数据）和三种样本中各平台的比例。为便于分析，计算了各样本值与对应总体值之差的均值，见 [输出 21](#platform-diff)。此外，@fig-sampling-diff 对 [输出 21](#platform-diff) 的结果进行了可视化。
+@lst-platform-pct 展示了总体（前五平台数据）和三种样本中各平台的比例。为便于分析，计算了各样本值与对应总体值之差的均值，见 @lst-platform-diff。此外，@fig-sampling-diff 对 @lst-platform-diff 的结果进行了可视化。
 
-:::{#platform-pct}
 ```{r results='hold'}
+#| lst-label: lst-platform-pct
+#| lst-cap: "不同平台的总体与样本比例"
 ## 抽样方法比较
 
 ## 平台百分比
@@ -1618,13 +1581,11 @@ cat("样本百分比：\n\n")
 sample_percs
 ```
 
-[*输出 20. 不同平台的总体与样本比例*]{.caption}
-:::
+如 @lst-platform-diff 和 @fig-sampling-diff 所示，无放回分层抽样与总体值的差异最小（0.002），预测平台比例的能力最强。相比之下，有放回简单随机抽样的预测能力最弱（均值差异为 0.029）。分层抽样表现最佳，可能是因为它在抽样前按平台类别划定层次，保留了总体中平台分布的内在结构，从而降低了抽样变异性；而简单随机抽样更为随机，平台比例的预测较不稳定。
 
-如 [输出 21](#platform-diff) 和 @fig-sampling-diff 所示，无放回分层抽样与总体值的差异最小（0.002），预测平台比例的能力最强。相比之下，有放回简单随机抽样的预测能力最弱（均值差异为 0.029）。分层抽样表现最佳，可能是因为它在抽样前按平台类别划定层次，保留了总体中平台分布的内在结构，从而降低了抽样变异性；而简单随机抽样更为随机，平台比例的预测较不稳定。
-
-:::{#platform-diff}
 ```{r results='hold'}
+#| lst-label: lst-platform-diff
+#| lst-cap: "各抽样方法与总体比例之差"
 ## 抽样方法比较
 
 ## 平台百分比
@@ -1649,9 +1610,6 @@ mean_diffs <- sample_percs |>
 cat("与总体百分比的差异：\n")
 sort(round(mean_diffs, 3)); cat("\n")
 ```
-
-[*输出 21. 各抽样方法与总体比例之差*]{.caption}
-:::
 
 ```{r}
 #| label: fig-sampling-diff
@@ -1698,10 +1656,11 @@ plot_ly(
 
 ### 使用时长统计量
 
-除预测类别比例外，还对三种抽样方法预测均值和标准差的能力进行了测试。[输出 22](#usage-sampling-stats) 展示了均值和标准差的结果，@fig-sampling-means-sds 提供了更直观的可视化呈现。
+除预测类别比例外，还对三种抽样方法预测均值和标准差的能力进行了测试。@lst-usage-sampling-stats 展示了均值和标准差的结果，@fig-sampling-means-sds 提供了更直观的可视化呈现。
 
-:::{#usage-sampling-stats}
 ```{r results='hold'}
+#| lst-label: lst-usage-sampling-stats
+#| lst-cap: "社交媒体使用时长的总体与样本统计量"
 ## 抽样方法比较
 
 ## 使用时长的均值和标准差
@@ -1719,12 +1678,9 @@ cat("总体标准差：", round(pop_sd_usage, 3), "\n")
 cat("样本标准差：\n"); round(sample_sds, 3)
 ```
 
-[*输出 22. 社交媒体使用时长的总体与样本统计量*]{.caption}
-:::
-
 在 @fig-sampling-means-sds 中，棒中间的点代表样本均值，黑色误差棒表示距样本均值一个样本标准差的范围，虚线及标注文字标记了总体均值和总体标准差。
 
-综合 [输出 22](#usage-sampling-stats) 和 @fig-sampling-means-sds，就数值变量均值而言，无放回分层抽样预测结果最接近总体，预测能力最强；不等概率系统抽样的预测能力最弱。
+综合 @lst-usage-sampling-stats 和 @fig-sampling-means-sds，就数值变量均值而言，无放回分层抽样预测结果最接近总体，预测能力最强；不等概率系统抽样的预测能力最弱。
 
 然而在标准差方面，有放回简单随机抽样的预测最为准确，而无放回分层抽样的预测精度最低。
 

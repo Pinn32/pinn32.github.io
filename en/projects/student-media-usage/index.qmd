@@ -90,26 +90,10 @@ The dataset was downloaded from [Kaggle](https://www.kaggle.com/datasets/adilsha
 ```{r}
 #| lst-label: lst-str-df
 #| lst-cap: "Structure of the Dataframe"
-
 # import dataset
 df0 <- read.csv("../../../src/data/student-social-media-addiction.csv")
 str(df0) # view dataframe structure
 ```
-
-see @lst-1
-
-```{r}
-#| lst-label: lst-1
-#| lst-cap: "Test"
-print('test')
-```
-
-see @lst-2
-
-```{#lst-2 .r lst-cap="ok"}
-print('ok')
-```
-
 
 
 ## Preprocessing
@@ -142,23 +126,22 @@ names_numvar <- c(
 
 ## Missing Data
 
-An initial inspection for missing values was conducted using `sum(is.na(df))` , and no explicit missing data were identified in the dataset (shown in [Output 2](#num-of-NA)).
+An initial inspection for missing values was conducted using `sum(is.na(df))` , and no explicit missing data were identified in the dataset (shown in @lst-num-of-NA).
 
-:::{#num-of-NA}
 ```{r}
+#| lst-label: lst-num-of-NA
+#| lst-cap: "Number of NA Values"
 # check the number of missing values
 sum(is.na(df))
 ```
 
-[*Output 2. Number of NA Values*]{.caption}
-:::
-
 ## Categorical Data
 
-For categorical variables, their numbers of categories (see [Output 3](#cat-unique)) and counts of observations in each category (see [Output 4](#cat-counts)) were first examined. The results indicated that most categorical variables contained a moderate number of categories, whereas *country* and *most-used platform* variables had relatively larger numbers of categories and therefore required further processing.
+For categorical variables, their numbers of categories (see @lst-cat-unique) and counts of observations in each category (see @lst-cat-counts) were first examined. The results indicated that most categorical variables contained a moderate number of categories, whereas *country* and *most-used platform* variables had relatively larger numbers of categories and therefore required further processing.
 
-:::{#cat-unique}
 ```{r}
+#| lst-label: lst-cat-unique
+#| lst-cap: "Numbers of Unique Values in Categorical Variables"
 ## All Categorical Variables
 
 # check the number of categories of each categorical variable
@@ -167,11 +150,9 @@ for (name in names_catvar) {
 }
 ```
 
-[*Output 3. Numbers of Unique Values in Categorical Variables*]{.caption}
-:::
-
-:::{#cat-counts}
 ```{r}
+#| lst-label: lst-cat-counts
+#| lst-cap: "Numbers of Observations of Each Value in Categorical Variables"
 ## All Categorical Variables Except Country & Platform
 
 # check the count of observations in each category
@@ -182,13 +163,11 @@ for (name in setdiff(names_catvar, c("Country", "Most_Used_Platform"))) {
 }
 ```
 
-[*Output 4. Numbers of Observations of Each Value in Categorical Variables*]{.caption}
-:::
+Top five countries and platforms with the most counts of observations were thereby selected with their names stored ( vectors `top5_countries` and `top5_platforms` ). The results were displayed in @lst-top-cats.
 
-Top five countries and platforms with the most counts of observations were thereby selected with their names stored ( vectors `top5_countries` and `top5_platforms` ). The results were displayed in [Output 5](#top-cats).
-
-:::{#top-cats}
 ```{r results='hold'}
+#| lst-label: lst-top-cats
+#| lst-cap: "Numbers of Observations in Each Country and Platform"
 ## Country & Platform
 
 # check counts of observation of top 5 countries
@@ -199,9 +178,6 @@ cat("\n")
 # check counts of observation of top 5 platforms
 head(sort(table(df["Most_Used_Platform"]), decreasing = TRUE), 5)
 ```
-
-[*Output 5. Numbers of Observations in Each Country and Platform*]{.caption}
-:::
 
 ```{r}
 ## Country & Platform
@@ -218,31 +194,30 @@ top5_platforms <- names(
 
 ```
 
-In addition, the `Affects_Academic_Performance` variable was converted from character to logical ( "Yes" = `TRUE` , "No" = `FALSE` ) as shown in [Output 6](#bool-var).
+In addition, the `Affects_Academic_Performance` variable was converted from character to logical ( "Yes" = `TRUE` , "No" = `FALSE` ) as shown in @lst-bool-var.
 
-:::{#bool-var}
 ```{r}
+#| lst-label: lst-bool-var
+#| lst-cap: "Boolean Variable"
 ## Boolean Variable
 
 # convert variable from character to logical
 df$Affects_Academic_Performance <- df$Affects_Academic_Performance == "Yes"
 
-  # As the variable contains only "Yes" and "No" responses, 
+  # As the variable contains only "Yes" and "No" responses,
   # no further data cleaning was needed.
 
 # check the converted variable
 str(df$Affects_Academic_Performance)
 ```
 
-[*Output 6. Boolean Variable*]{.caption}
-:::
-
 ## Numerical Data
 
-Descriptive statistics for the numerical variables were obtained using the `summary()` function in [Output 7](#num-summary). The results indicate that the variables fall within reasonable ranges, with no apparent extreme or abnormal values. Thus, no further preprocessing was deemed necessary at this stage.
+Descriptive statistics for the numerical variables were obtained using the `summary()` function in @lst-num-summary. The results indicate that the variables fall within reasonable ranges, with no apparent extreme or abnormal values. Thus, no further preprocessing was deemed necessary at this stage.
 
-:::{#num-summary}
 ```{r}
+#| lst-label: lst-num-summary
+#| lst-cap: "Descriptive Summaries of Numerical Variables"
 ## All Numerical Variables
 
 # view descriptive summaries of numerical variables
@@ -252,15 +227,13 @@ for (name in names_numvar) {
 }
 ```
 
-[*Output 7. Descriptive Summaries of Numerical Variables*]{.caption}
-:::
+Moreover, the `Age` variable was categorized into three groups due to its limited range and variability. As shown in @lst-age-range, treating `Age` as continuous offers minimal dispersion within such a narrow interval (18-24) and limited continuity (only 7 unique numbers), while treating the values as single-year categories would possibly lead to several small and uneven subgroups. Categorizing into three groups therefore provides a more suitable structure for subsequent analysis.
 
-Moreover, the `Age` variable was categorized into three groups due to its limited range and variability. As shown in [Output 8](#age-range), treating `Age` as continuous offers minimal dispersion within such a narrow interval (18-24) and limited continuity (only 7 unique numbers), while treating the values as single-year categories would possibly lead to several small and uneven subgroups. Categorizing into three groups therefore provides a more suitable structure for subsequent analysis.
+To achieve this, a histogram was firstly used to view age distribution and obtain suitable breaks for grouping. Then, grouping information was stored into a new variable named `Age_Group` (see @lst-age-groups).
 
-To achieve this, a histogram was firstly used to view age distribution and obtain suitable breaks for grouping. Then, grouping information was stored into a new variable named `Age_Group` (see [Output 9](#age-groups)).
-
-:::{#age-range}
 ```{r results='hold'}
+#| lst-label: lst-age-range
+#| lst-cap: "Range of Age and Numbers of Unique Age"
 ## Age
 
 # check value range
@@ -270,11 +243,9 @@ range(df$Age)
 length(unique(df$Age))
 ```
 
-[*Output 8. Range of Age and Numbers of Unique Age*]{.caption}
-:::
-
-:::{#age-groups}
 ```{r fig.width=7, fig.height=5, results='hold'}
+#| lst-label: lst-age-groups
+#| lst-cap: "Age Groups"
 ## Age
 
 ## Store histogram data
@@ -311,9 +282,6 @@ df <- df |>
 # view new variable
 table(df["Age_Group"])
 ```
-
-[*Output 9. Age Groups*]{.caption}
-:::
 
 # Descriptive Analysis
 
@@ -363,7 +331,7 @@ plot_ly(
 
 ### Country
 
-The bar plot (@fig-country-dist) followed by [Output 10](#country-pct) showing percentages of observations for top 5 countries with respect to the whole sample illustrated the sample's top five countries, with India leading at 7.5%, followed by the USA (5.7%) and Canada (4.8%). Denmark and France each represent 3.8% of the total, highlighting geographical diversity of participants, centered primarily in South Asian and North American regions.
+The bar plot (@fig-country-dist) followed by @lst-country-pct showing percentages of observations for top 5 countries with respect to the whole sample illustrated the sample's top five countries, with India leading at 7.5%, followed by the USA (5.7%) and Canada (4.8%). Denmark and France each represent 3.8% of the total, highlighting geographical diversity of participants, centered primarily in South Asian and North American regions.
 
 ```{r}
 #| label: fig-country-dist
@@ -407,16 +375,14 @@ plot_ly(
   )
 ```
 
-:::{#country-pct}
 ```{r}
+#| lst-label: lst-country-pct
+#| lst-cap: "Percentages of Top 5 Countries Relative to the Population"
 ## Country
 
 # view percentage of observations for top 5 countries
 sort(table(top5_countries_data$Country), decreasing = TRUE) / nrow(df) * 100
 ```
-
-[*Output 10. Percentages of Top 5 Countries Relative to the Population*]{.caption}
-:::
 
 ### Age Group
 
@@ -784,8 +750,8 @@ plot_ly(
   
   # add scatters
   add_markers(
-   y = ~Sleep_Hours_Per_Night, 
-   marker = list(color = "#3B9FE4", opacity = 0.6)
+    y = ~Sleep_Hours_Per_Night, 
+    marker = list(color = "#3B9FE4", opacity = 0.6)
   ) |> 
   
   layout(
@@ -806,18 +772,16 @@ plot_ly(
   )
 ```
 
-To validate the trend, a Pearson's correlation test was conducted. As shown in the results (see [Output 11](#sleep-cor)), the correlation coefficient was around -0.79 (*p* \< .001). It therefore indicated that there was a high potential of students' average daily social media usage hours being negatively correlated with their sleep hours.
+To validate the trend, a Pearson's correlation test was conducted. As shown in the results (see @lst-sleep-cor), the correlation coefficient was around -0.79 (*p* \< .001). It therefore indicated that there was a high potential of students' average daily social media usage hours being negatively correlated with their sleep hours.
 
-:::{#sleep-cor}
 ```{r results='hold'}
+#| lst-label: lst-sleep-cor
+#| lst-cap: "Pearson's Correlation Test Result"
 ## Sleep Hours ~ Usage Hours
 
 # correlation test
 cor.test(x = df$Avg_Daily_Usage_Hours, y = df$Sleep_Hours_Per_Night)
 ```
-
-[*Output 11. Pearson's Correlation Test Result*]{.caption}
-:::
 
 @fig-usage-sleep-linear showed a linear fit of the two variables, which further clarified the negative correlation.
 
@@ -874,18 +838,16 @@ plot_ly(
 
 ## Other Indices
 
-In addition, it was also considered worthwhile investigating the relationship between other indices such as mental health score and addicted score (names of indices were shown in [Output 12](#index-names)). Therefore, a faceted 5×5 paired scatter plot matrix was used to display all of the relationship trends (see @fig-indices-scatter).
+In addition, it was also considered worthwhile investigating the relationship between other indices such as mental health score and addicted score (names of indices were shown in @lst-index-names). Therefore, a faceted 5×5 paired scatter plot matrix was used to display all of the relationship trends (see @fig-indices-scatter).
 
-:::{#index-names}
-```{r }
+```{r}
+#| lst-label: lst-index-names
+#| lst-cap: "Names of Indices to Compare"
 ## Relationship between Indices
 
 # remove Age from names_numvar
 (names_numvar <- setdiff(names_numvar, "Age"))
 ```
-
-[*Output 12. Names of Indices to Compare*]{.caption}
-:::
 
 ```{r fig.width=8, fig.height=6, out.width='95%'}
 #| label: fig-indices-scatter
@@ -926,27 +888,26 @@ plot_ly(
   )
 ```
 
-The scatter plot matrix (@fig-indices-scatter) illustrated a complex web of behavioral and psychological correlations, primarily centered on the detrimental effects of excessive social media usage. Meanwhile, [Output 13](#index-cor) showed a correlation test matrix for all five indices, providing valid insights into behavioral trends.
+The scatter plot matrix (@fig-indices-scatter) illustrated a complex web of behavioral and psychological correlations, primarily centered on the detrimental effects of excessive social media usage. Meanwhile, @lst-index-cor showed a correlation test matrix for all five indices, providing valid insights into behavioral trends.
 
 As shown by the results, a dominant negative correlation existed between usage hours and sleep, where increased screen time consistently aligns with diminished rest. This trend was further demonstrated by a positive correlation between usage and addiction levels, which in turn led to higher frequencies of life conflicts. Conversely, better mental health outcomes were associated with lower addiction scores, reduced usage, and longer sleep duration. Ultimately, the data suggested a negative feedback loop where high device dependency compromised sleep and social harmony, collectively contributing to poorer mental well-being.
 
-:::{#index-cor}
 ```{r}
+#| lst-label: lst-index-cor
+#| lst-cap: "Correlation Matrix of Indices"
 ## Relationship between Indices
 
 # view correlation matrix (pearson correlation coefficient)
 (cor_matrix <- round(cor(num_data), 2))
 ```
 
-[*Output 13. Correlation Matrix of Indices*]{.caption}
-:::
-
-Notably, the correlation between addicted score and mental health (*r* = -.95), and that between addicted score and conflicts number over social media (*r* = .93) appeared to be the most significant with both \| *r* \| \> .9 (see [Output 14](#strong-cor)), indicating that as addictive behaviors intensify, psychological well-being collapses and interpersonal friction rises almost in lockstep.
+Notably, the correlation between addicted score and mental health (*r* = -.95), and that between addicted score and conflicts number over social media (*r* = .93) appeared to be the most significant with both \| *r* \| \> .9 (see @lst-strong-cor), indicating that as addictive behaviors intensify, psychological well-being collapses and interpersonal friction rises almost in lockstep.
 
 In conclusion, addiction scores served as the most potent predictor of negative life outcomes in this dataset.
 
-:::{#strong-cor}
 ```{r}
+#| lst-label: lst-strong-cor
+#| lst-cap: "Pairs of Indices with the Strongest Correlation (|r| > .9)"
 ## Relationship between Indices
 
 # find location of pairs where |r| > 0.9
@@ -964,9 +925,6 @@ for(i in 1:nrow(loc)) {
     "r =", cor_matrix[row, col], "\n")
 }
 ```
-
-[*Output 14. Pairs of Indices with the Strongest Correlation (\|r\|\>.9)*]{.caption}
-:::
 
 # Application of CLT
 
@@ -1068,7 +1026,7 @@ make_hist <- function(
 
 ## Usage Hours
 
-In terms of the average media usage hours variable, a 2×2 histogram matrix (@fig-usage-sample-means-grid) of sample mean distributions with different sample sizes (n = 10, 30, 50, 100) was plotted with axis scales being the same to see the trend of distribution shape. Meanwhile, [Output 15](#usage-stats) showed the population and sample statistics regarding usage hours.
+In terms of the average media usage hours variable, a 2×2 histogram matrix (@fig-usage-sample-means-grid) of sample mean distributions with different sample sizes (n = 10, 30, 50, 100) was plotted with axis scales being the same to see the trend of distribution shape. Meanwhile, @lst-usage-stats showed the population and sample statistics regarding usage hours.
 
 As results shown, with sample size increased, the distribution of sample means became more centralized, with smaller standard deviations. Meanwhile, all four means of sample means were nearly closed to the population mean, successfully predicting it; and the observed standard error (standard deviation of sample means) were approximate to the theoretical standard error derived using the population standard deviation.
 
@@ -1110,8 +1068,9 @@ subplot(
   )
 ```
 
-:::{#usage-stats}
 ```{r results='hold'}
+#| lst-label: lst-usage-stats
+#| lst-cap: "Comparison of Statistics Regarding Media Usage Hours"
 ## CLT - Usage Hours
 
 ## Store sample means
@@ -1172,13 +1131,10 @@ clt_results_usage <- data.frame(
 
 print(clt_results_usage)
 
-cat("\nPopulation Mean:", round(pop_mean_usage, 2), 
+cat("\nPopulation Mean:", round(pop_mean_usage, 2),
     "\nPopulation SD:", round(pop_sd_usage, 2), "\n"
 )
 ```
-
-[*Output 15. Comparison of Statistics Regarding Media Usage Hours*]{.caption}
-:::
 
 In addition, @fig-usage-sample-means-normal displayed one of the sample means distributions (n = 100, repeated 1000 times) with an ideal normal curve (n = 100) over it, which was calculated using the function `dnorm()` . The results demonstrated a highly coincident overlap between the sample means histogram and normal curve, in line with the CLT.
 
@@ -1254,7 +1210,7 @@ plot_ly() |>
 
 ## Sleep Hours
 
-Likewise, similar approaches were applied to another numerical variable sleep hours. The result patterns shown in @fig-sleep-sample-means-grid, [Output 15](#usage-stats), and [Output 16](#sleep-stats) were closely similar to those of media usage hours, again demonstrating the applicability of CLT.
+Likewise, similar approaches were applied to another numerical variable sleep hours. The result patterns shown in @fig-sleep-sample-means-grid, @lst-usage-stats, and @lst-sleep-stats were closely similar to those of media usage hours, again demonstrating the applicability of CLT.
 
 ```{r fig.width = 8, fig.height=5}
 #| label: fig-sleep-sample-means-grid
@@ -1292,8 +1248,9 @@ subplot(
   )
 ```
 
-:::{#sleep-stats}
 ```{r results='hold'}
+#| lst-label: lst-sleep-stats
+#| lst-cap: "Comparison of Statistics Regarding Sleep Hours"
 ## CLT - Sleep Hours
 
 ## Store sample means
@@ -1354,13 +1311,10 @@ clt_results_sleep <- data.frame(
 
 print(clt_results_sleep)
 
-cat("\nPopulation Mean:", round(pop_mean_sleep, 2), 
+cat("\nPopulation Mean:", round(pop_mean_sleep, 2),
     "\nPopulation SD:", round(pop_sd_sleep, 2), "\n"
 )
 ```
-
-[*Output 16. Comparison of Statistics Regarding Sleep Hours*]{.caption}
-:::
 
 ```{r}
 #| label: fig-sleep-sample-means-normal
@@ -1430,14 +1384,15 @@ plot_ly() |>
 
 In this section, the top 5 platform data was used as population dataset, and three samples were drew using different sampling methods, including simple random with replacement, systematic with unequal probabilities, and stratified sampling without replacement. These three sampling methods were thus compared and contrasted to see the differences between their ability to predict population patterns.
 
-[Output 17](#srswr), [Output 18](#ups), and [Output 19](#strata) showed the results of different samples, regarding the proportion of different platforms, and the mean and standard deviation of media usage hours.
+@lst-srswr, @lst-ups, and @lst-strata showed the results of different samples, regarding the proportion of different platforms, and the mean and standard deviation of media usage hours.
 
 ## Simple Random Sampling
 
 The simple random sampling (with replacement) was conducted using the function `srswr()` , and then samples were store in `sample1` .
 
-:::{#srswr}
 ```{r results='hold'}
+#| lst-label: lst-srswr
+#| lst-cap: "Results of Simple Random Sampling with Replacement"
 ## Simple Random Sampling with Replacement
 
 ## Sampling
@@ -1490,15 +1445,13 @@ cat("Sample Mean of Usage Hour:", mean1, "\n")
 cat("Sample SD of Usage Hour:", round(sd1, 3), "\n")
 ```
 
-[*Output 17. Results of Simple Random Sampling with Replacement*]{.caption}
-:::
-
 ## Systematic Sampling
 
 For systematic sampling, the inclusion probabilities by usage hours was firstly calculated using the function `inclusionprobabilities()` and stored in `pik` , then the samples were drew using `UPsystematic(pik)` and stored in `sample2` .
 
-:::{#ups}
 ```{r results='hold'}
+#| lst-label: lst-ups
+#| lst-cap: "Results of Systematic Sampling with Unequal Probabilities"
 ## Systematic Sampling with Unequal Probabilities
 
 ## Sampling
@@ -1531,15 +1484,13 @@ cat("Sample Mean of Usage Hour:", mean2, "\n")
 cat("Sample SD of Usage Hour:", round(sd2, 3), "\n")
 ```
 
-[*Output 18. Results of Systematic Sampling with Unequal Probabilities*]{.caption}
-:::
-
 ## Stratified Sampling
 
 For stratified sampling, the population data were firstly ordered by platform using `order()` function, and the samples were drew using `strata()` function and stored in `sample3` , with stratum sizes calculated by each platform's proportion.
 
-:::{#strata}
 ```{r results='hold'}
+#| lst-label: lst-strata
+#| lst-cap: "Stratified Sampling without Replacement"
 ## Stratified Sampling without Replacement
 
 ## Ordering Data
@@ -1590,17 +1541,15 @@ cat("Sample Mean of Usage Hour:", mean3, "\n")
 cat("Sample SD of Usage Hour:", round(sd3, 3), "\n")
 ```
 
-[*Output 19. Stratified Sampling without Replacement*]{.caption}
-:::
-
 ## Comparison of Sampling Methods
 
 ### Percentages of Platforms
 
-[Output 20](#platform-pct) presented the results of proportions of platforms in the population (top 5 platform data) and three samples. To facilitate the investigation, the means of difference between each sample value with its associated population value were calculated and shown in [Output 21](#platform-diff). Furthermore, @fig-sampling-diff visualized the results in [Output 21](#platform-diff).
+@lst-platform-pct presented the results of proportions of platforms in the population (top 5 platform data) and three samples. To facilitate the investigation, the means of difference between each sample value with its associated population value were calculated and shown in @lst-platform-diff. Furthermore, @fig-sampling-diff visualized the results in @lst-platform-diff.
 
-:::{#platform-pct}
 ```{r results='hold'}
+#| lst-label: lst-platform-pct
+#| lst-cap: "Population and Sample Percentages of Different Platforms"
 ## Comparison of Sampling Methods
 
 ## Percentages of Platforms
@@ -1624,13 +1573,11 @@ cat("Sample Percentages:\n\n")
 sample_percs
 ```
 
-[*Output 20. Population and Sample Percentages of Different Platforms*]{.caption}
-:::
+As shown in @lst-platform-diff and @fig-sampling-diff, the values of stratified sampling without replacement showed the smallest difference from population values (0.002), indicating its strongest predictive power for platform proportion. In contrast, simple random sampling without replacement showed the lowest predictive power for it (mean difference was 0.029). Stratified sampling without replacement performed best may because it preserved the population’s underlying platform distribution within each stratum of platform, reducing sampling variability, whereas simple random sampling was more random and unpredictable across platform proportions.
 
-As shown in [Output 21](#platform-diff) and @fig-sampling-diff, the values of stratified sampling without replacement showed the smallest difference from population values (0.002), indicating its strongest predictive power for platform proportion. In contrast, simple random sampling without replacement showed the lowest predictive power for it (mean difference was 0.029). Stratified sampling without replacement performed best may because it preserved the population’s underlying platform distribution within each stratum of platform, reducing sampling variability, whereas simple random sampling was more random and unpredictable across platform proportions.
-
-:::{#platform-diff}
 ```{r results='hold'}
+#| lst-label: lst-platform-diff
+#| lst-cap: "Differences from Population Percentage by Sampling Method"
 ## Comparison of Sampling Methods
 
 ## Percentages of Platforms
@@ -1655,9 +1602,6 @@ mean_diffs <- sample_percs |>
 cat("Differences from Population Percentages:\n")
 sort(round(mean_diffs, 3)); cat("\n")
 ```
-
-[*Output 21. Differences from Population Percentage by Sampling Method*]{.caption}
-:::
 
 ```{r}
 #| label: fig-sampling-diff
@@ -1698,10 +1642,11 @@ plot_ly(
 
 ### Statistics of Usage Hours
 
-In addition to predicting the proportions of categories, the ability to predict mean and standard deviation across the three sampling methods were also tested. [Output 22](#usage-sampling-stats) showed the results of means and standard deviations, and a clearer visualization was shown in @fig-sampling-means-sds.
+In addition to predicting the proportions of categories, the ability to predict mean and standard deviation across the three sampling methods were also tested. @lst-usage-sampling-stats showed the results of means and standard deviations, and a clearer visualization was shown in @fig-sampling-means-sds.
 
-:::{#usage-sampling-stats}
 ```{r results='hold'}
+#| lst-label: lst-usage-sampling-stats
+#| lst-cap: "Population and Sample Statistics of Media Usage Hours"
 ## Comparison of Sampling Methods
 
 ## Means & SDs of Usage Hours
@@ -1719,12 +1664,9 @@ cat("Population SD:", round(pop_sd_usage, 3), "\n")
 cat("Sample SDs:\n"); round(sample_sds, 3)
 ```
 
-[*Output 22. Population and Sample Statistics of Media Usage Hours*]{.caption}
-:::
-
 In @fig-sampling-means-sds, the dots at the centers of sticks represented the sample means, and the black whiskers represented the range of one sample standard deviation away from sample means, where the population mean and standard deviation were denoted using dashed lines with instruction text labels.
 
-Combining [Output 22](#usage-sampling-stats) and @fig-sampling-means-sds, it could be seen that for mean of numerical variable, stratified sampling without replacement showed the nearest result and the highest predictive power, whereas systematic sampling with unequal probabilities had the lowest predictive power.
+Combining @lst-usage-sampling-stats and @fig-sampling-means-sds, it could be seen that for mean of numerical variable, stratified sampling without replacement showed the nearest result and the highest predictive power, whereas systematic sampling with unequal probabilities had the lowest predictive power.
 
 However, in terms of standard deviation, simple random sampling with replacement had the most accurate prediction whereas stratified sampling without replacement had the least accurate prediction.
 
