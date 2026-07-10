@@ -84,7 +84,7 @@ When writing my Quarto Website, I initially controlled image size using Quarto's
 This approach is clean and intuitive — no need to write inline styles like `style="width:15%"` — and the results looked good.
 
 :::{.macbook-frame style="width:35rem;"}
-![Img Width Controlled by Percentage](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/1.png){#fig-width-pct-preview}
+![Img Width: Percentage](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/1.png){#fig-width-pct-preview}
 :::
 
 ## Issue 1: Hover Preview Breaks
@@ -129,7 +129,7 @@ Inspecting with browser DevTools revealed that when `style="width:7rem"` is set,
 Removing the parent container's width constraint restored image centering.
 
 :::{.macbook-frame style="width:35rem;"}
-![Constraint Removed: Centering Restored](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615190606193.png){#fig-remove-parent-width-limit}
+![Centering Restored](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615190606193.png){#fig-remove-parent-width-limit}
 :::
 
 I also tried several other approaches, such as:

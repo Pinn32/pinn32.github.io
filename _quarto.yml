@@ -134,6 +134,8 @@ format:
     theme:
       light: [minty, ./src/styles/portfolio.scss]
       dark:  [minty, ./src/styles/portfolio-dark.scss]
+    css:
+      - ./src/styles/style.css      # shared rule set common to both themes
     from: markdown+mark    # enable `==mark==` syntax for highlighting text
 
     # external links
