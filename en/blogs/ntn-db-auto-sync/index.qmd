@@ -5,9 +5,6 @@ date: 2026-07-08
 description: 'Tips for Notion database Formulas & Rollups when syncing via API.'
 categories: [Notion, Database, Quarto, Web Dev, Tips]
 image: ""
-crossref:
-    fig-title: "Fig"
-    fig-prefix: "Fig"
 
 draft: true
 draft-mode: unlinked
@@ -24,27 +21,48 @@ Since I already used a separate database to track development tasks in Notion Ca
 
 # Database Structure {#sec-db}
 
+I'm using two project-specific database for the development track and change log of this Quarto website, as well as one general database tracking all projects.
+
+![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711151225667.svg){.light-content}
+
+![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711152748043.svg){.dark-content}
+
+## Tasks Database
+
+The Dev Track database contains store single daily tasks as an entry. It has a Relation property connecting to the Change Log database, as well as basic properties such as timeline and hours.
+
 :::{.macbook-frame style="width:40rem;"}
-![Dev DB Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png){#fig-devdb}
+![Dev DB Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png)
+:::
+
+It's worth noting that I don't manually add each row through Notion's UI, instead, I use Notion Calendar to record tasks in a clear calendar view, I can take notes while doing tasks.
+
+:::{.macbook-frame style="width:40rem;"}
+![Dev DB in Notion Calendar](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711153915114.webp)
 :::
 
 <!-- :::{.macbook-frame style="width:40rem;"}
-![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png)
+![Dev DB in Notion Calendar](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123116845.png)
 ::: -->
 
-<!-- [Dev Track Database Overview]{.caption} -->
+<!-- :::{.img-frame style="width:25rem;"}
+![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711142523496.png)
+::: -->
+
+
+## Progress Database
 
 :::{.macbook-frame style="width:40rem;"}
-![Log DB Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122533725.png){#fig-logdb}
+![Log DB Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122533725.png)
 :::
 
-:::{.macbook-frame style="width:30rem;"}
-![Dev DB Calendar View](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122817585.png){#fig-devdb-cal}
+
+## Projects Database
+
+:::{.img-frame style="width:30rem;"}
+![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711154744039.png)
 :::
 
-:::{.macbook-frame style="width:40rem;"}
-![Dev DB in Notion Calendar](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123116845.png){#fig-devdb-nc}
-:::
 
 # Tips for Building Sync with Formulas {#sec-tips}
 ## Timezone

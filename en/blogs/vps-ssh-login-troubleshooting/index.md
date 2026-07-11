@@ -1,5 +1,5 @@
 ---
-title: "VPS SSH Login Troubleshooting Log"
+title: "VPS SSH Login Troubleshooting"
 author: 'Pinn Xu'
 date: 2026-07-11
 description: 'Restored SSH access after fail2ban blocked VPS login attempts caused by outdated username configuration.'
