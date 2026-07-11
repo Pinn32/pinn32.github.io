@@ -5,6 +5,9 @@ date: 2026-07-08
 description: 'Tips for Notion database Formulas & Rollups when syncing via API.'
 categories: [Notion, Database, Quarto, Web Dev, Tips]
 image: ""
+crossref:
+    fig-title: "Fig"
+    fig-prefix: "Fig"
 
 draft: true
 draft-mode: unlinked
@@ -22,25 +25,25 @@ Since I already used a separate database to track development tasks in Notion Ca
 # Database Structure {#sec-db}
 
 :::{.macbook-frame style="width:40rem;"}
-![Dev Track Database Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png)
+![Dev DB Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png){#fig-devdb}
 :::
 
-:::{.macbook-frame style="width:40rem;"}
+<!-- :::{.macbook-frame style="width:40rem;"}
 ![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png)
-:::
+::: -->
 
-[Dev Track Database Overview]{.caption}
+<!-- [Dev Track Database Overview]{.caption} -->
 
 :::{.macbook-frame style="width:40rem;"}
-![Change Log Database Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122533725.png)
+![Log DB Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122533725.png){#fig-logdb}
 :::
 
 :::{.macbook-frame style="width:30rem;"}
-![Dev Track Database Calendar View](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122817585.png)
+![Dev DB Calendar View](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122817585.png){#fig-devdb-cal}
 :::
 
 :::{.macbook-frame style="width:40rem;"}
-![Dev Track Database in Notion Calendar](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123116845.png)
+![Dev DB in Notion Calendar](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123116845.png){#fig-devdb-nc}
 :::
 
 # Tips for Building Sync with Formulas {#sec-tips}
