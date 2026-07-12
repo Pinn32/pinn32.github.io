@@ -2,6 +2,7 @@
 title: "Recovering Misplaced Windows Shell Folders"
 author: 'Pinn Xu'
 date: 2024-04-22
+order: -20240422   # sidebar sort key: negative date => newest first
 description: "Recovering Windows shell folders such as Documents, Videos, and Pictures after they were accidentally moved to the root of a drive."
 # categories: [Windows, desktop.ini, Shell Folders, Computer Tips, Knowhow]
 categories: [Windows, Shell Folders, Knowhow]

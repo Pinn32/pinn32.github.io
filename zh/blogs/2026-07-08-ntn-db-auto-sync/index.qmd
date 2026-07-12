@@ -2,6 +2,7 @@
 title: 'Notion 数据库自动同步技巧'
 author: 'Pinn Xu'
 date: 2026-07-08
+order: -20260708   # sidebar sort key: negative date => newest first
 description: '通过 API 同步 Notion 数据库时，Formula 与 Rollup 属性的使用技巧。'
 categories: [Notion, Database, Quarto, Web Dev, 技巧]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711153915114.webp"

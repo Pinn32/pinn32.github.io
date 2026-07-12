@@ -2,6 +2,7 @@
 title: 'Quarto Image Centering Styles'
 author: 'Pinn Xu'
 date: 2026-06-15
+order: -20260615   # sidebar sort key: negative date => newest first
 description: 'Exploring image centering styles in a Quarto Website and fixing hover preview issues.'
 # categories: [Quarto, CSS, Web Dev, Computer Tips, Knowhow]
 categories: [Quarto, CSS, Web Dev, Knowhow]

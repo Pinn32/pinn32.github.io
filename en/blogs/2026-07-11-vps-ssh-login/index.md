@@ -2,6 +2,7 @@
 title: "VPS SSH Login Troubleshooting"
 author: 'Pinn Xu'
 date: 2026-07-11
+order: -20260711   # sidebar sort key: negative date => newest first
 description: 'Restored SSH access after fail2ban blocked VPS login attempts caused by outdated username configuration.'
 categories: [VPS, SSH, Linux, Tips]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711132059645.png"

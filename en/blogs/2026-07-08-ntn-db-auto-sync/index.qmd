@@ -2,6 +2,7 @@
 title: 'Notion Database Auto-Sync Tips'
 author: 'Pinn Xu'
 date: 2026-07-08
+order: -20260708   # sidebar sort key: negative date => newest first
 description: 'Tips for Notion database Formulas & Rollups when syncing via API.'
 categories: [Notion, Database, Quarto, Web Dev, Tips]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711153915114.webp"

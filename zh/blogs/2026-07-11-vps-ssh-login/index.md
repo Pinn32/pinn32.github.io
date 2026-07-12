@@ -2,6 +2,7 @@
 title: "VPS SSH 连接失败排查"
 author: 'Pinn Xu'
 date: 2026-07-11
+order: -20260711   # sidebar sort key: negative date => newest first
 description: '因使用旧用户名配置导致多次登录失败，触发 fail2ban IP 封禁，最终恢复 VPS SSH 访问。'
 categories: [VPS, SSH, Linux, 技巧]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711132059645.png"
