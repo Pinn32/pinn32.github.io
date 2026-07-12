@@ -269,6 +269,16 @@ $table-color:            $pf-text-secondary !default;
     filter: none;
 }
 
+/* Copy code (code-tools) style fix */
+div.tooltip-inner { 
+    color: var(--pf-text-secondary);
+    background-color: var(--pf-surface); 
+}
+.modal-header .btn-close {
+    filter: invert(0.9) hue-rotate(252deg) saturate(1);
+}
+
+
 @media screen and (max-width: 991.98px) {
     /* sidebar overlay background */
     #quarto-sidebar-glass.show { background-color: #000000b3; }
