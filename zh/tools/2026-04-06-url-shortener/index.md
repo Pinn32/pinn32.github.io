@@ -6,6 +6,8 @@ description: '快速缩短网址，支持自定义链接后缀 (slug)。'
 categories: [Web App, Next.js, MongoDB]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623194155759.png"
 order: 2
+aliases:
+    - ../url-shortener/
 ---
 
 # 短链接生成器 (URL Shortener)

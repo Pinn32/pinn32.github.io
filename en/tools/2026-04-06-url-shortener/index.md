@@ -6,6 +6,8 @@ description: 'Compact long URLs into shareable short links with customized slugs
 categories: [Web App, Next.js, MongoDB]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623194155759.png"
 order: 2
+aliases:
+    - ../url-shortener/
 ---
 
 # URL Shortener

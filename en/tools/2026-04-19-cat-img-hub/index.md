@@ -6,6 +6,8 @@ description: 'Browse random cat images and save your favorites after signing in.
 categories: [Web App, Next.js, MongoDB, OAuth]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260624000221390.png"
 order: 3
+aliases:
+    - ../cat-img-hub/
 ---
 
 # Cat Image Hub

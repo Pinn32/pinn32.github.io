@@ -6,6 +6,8 @@ description: '浏览随机猫咪图片，登录后收藏自己喜欢的猫咪图
 categories: [Web App, Next.js, MongoDB, OAuth]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260624000221390.png"
 order: 3
+aliases:
+    - ../cat-img-hub/
 ---
 
 # 猫咪图片收藏站 (Cat Image Hub)

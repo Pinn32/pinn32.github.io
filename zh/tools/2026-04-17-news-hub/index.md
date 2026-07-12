@@ -6,6 +6,8 @@ description: '最新资讯流与新闻聚合 Web 应用。'
 categories: [Web App, Next.js, MongoDB, Supabase, OAuth]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260624190433396.png"
 order: 1
+aliases:
+    - ../news-hub/
 ---
 
 
