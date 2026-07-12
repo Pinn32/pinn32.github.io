@@ -12,16 +12,16 @@ draft-mode: unlinked
 
 # Introduction
 
-I recently restructured the Notion databases behind this website’s change log. Originally, the site relied on a single database with mostly manual properties. Although AI agents helped generate much of the cell content, maintaining the database was still unnecessarily verbose.
+I recently restructured the Notion databases behind this website's change log. The site originally relied on a single database with mostly manual properties. Although AI agents generated much of the cell content, maintaining the database by hand remained tedious.
 
-Since I already used a separate database to track development tasks in Notion Calendar, I connected the two databases and leveraged [Rollups](https://www.notion.com/help/relations-and-rollups#rollups) and [Formulas](https://www.notion.com/help/formula-syntax) to automatically populate the change log’s properties.
+Since I already tracked development tasks in a separate database through Notion Calendar, I linked the two databases and used [Rollups](https://www.notion.com/help/relations-and-rollups#rollups) and [Formulas](https://www.notion.com/help/formula-syntax) to populate the change log's properties automatically.
 
-@sec-db introduces my database structure and workflow, while @sec-tips shares key lessones I've learned from building this auto-sync workflow.
+@sec-db covers the database structure and workflow, and @sec-tips shares key lessons I learned while building the auto-sync.
 
 
 # Database Structure {#sec-db}
 
-I'm using two project-specific database for the development track and change log of this Quarto website, as well as one general database tracking all projects. After the databases got input, the Qaurto website will fetch the latest information through python script, and render the Change Log page through lua filter. The workflow is shown below:
+This Quarto website uses two project-specific databases — one for the development track, one for the change log — plus a general database that tracks all projects. Once the databases are populated, a Python script fetches the latest data and a Lua filter renders the Change Log page. The workflow is shown below:
 
 <!-- flowchart -->
 ![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711151225667.svg){.light-content}
@@ -30,13 +30,13 @@ I'm using two project-specific database for the development track and change log
 
 ## Tasks Database
 
-The Dev Track database contains store single daily tasks as an entry. It has a Relation property connecting to the Change Log database, as well as basic properties such as timeline and hours.
+The Dev Track database stores each daily task as one entry. It holds a Relation property linking to the Change Log database, along with basic properties such as timeline and hours.
 
 :::{.macbook-frame style="width:40rem;"}
 ![Dev DB Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png)
 :::
 
-It's worth noting that I don't manually add each row through Notion's UI, instead, I use Notion Calendar to record tasks in a clear calendar view, I can take notes while doing tasks.
+Interestingly, rather than adding each row through Notion's UI, I record tasks in Notion Calendar, which gives a clear calendar view and lets me take notes while doing tasks.
 
 :::{.macbook-frame style="width:40rem;"}
 ![Dev DB in Notion Calendar](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711153915114.webp)
@@ -44,19 +44,19 @@ It's worth noting that I don't manually add each row through Notion's UI, instea
 
 ## Progress Database
 
-The Change Log database records phased progress of the development of my website. Each entry in this database are related to several tasks in Dev Track database, and aggregates them into Rollup properties such as Start (actual start date: days with start time before 5AM are counted into the previous day) and Hours (the total time span of all tasks during certain period).
+The Change Log database records the website's progress by phase. Each entry relates to several tasks in the Dev Track database and aggregates them into Rollup properties such as `Start` (the actual start date, where a start time before 5 AM counts toward the previous day) and `Hours` (the total time span of all tasks in the period).
 
 :::{.macbook-frame style="width:40rem;"}
 ![Log DB Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122533725.png)
 :::
 
-In addition, there are also Formula properties automatically calculate and return formatted results. For instance, the `Date label` property evaluates whether a progress period (i.e., an entry) covers one day or more, and for the latest phase, it returns `<date> - now`.
+Formula properties compute and return formatted results. For example, the `Date label` property evaluates whether an entry's period spans one day or several, and for the latest phase it returns `<date> - now`.
 
 :::{.img-frame style="width:35rem;"}
 ![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711202127920.png)
 :::
 
-There are also hidden properties that are used for back-end calculation, such as `_days` is used for `Days`, and `_end` and `_phase` are used for `Date label` properties. The `.._BU` here means "backup", meaning these are backups of original manual edited properties.
+Hidden properties support these calculations: `_days` feeds `Days`, and `_end` and `_phase` feed `Date label`. The `_BU` suffix marks a backup of the original manually edited property.
 
 :::{.img-frame style="width:30rem;"}
 ![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711190005529.png)
@@ -65,7 +65,7 @@ There are also hidden properties that are used for back-end calculation, such as
 
 ## Projects Database
 
-In the All Projects database, I gather all projects and view general rollup statistics. Meanwhile, each page in All Projects database is also a dashboard to manage all panels of sub-databases and chart views.
+The All Projects database collects every project and displays overall rollup statistics. Each page in it also serves as a dashboard for managing the sub-database panels and chart views.
 
 
 :::{.img-frame style="width:40rem;"}
@@ -75,29 +75,29 @@ In the All Projects database, I gather all projects and view general rollup stat
 
 # Tips for Building Sync with Formulas {#sec-tips}
 ## Timezone
-After replacing all manual-input properties with Formulas & Rollups, I observed an inconsistency in Formula properties of dates between Notion UI and API. For instance:
+After replacing the manual properties with Formulas and Rollups, I found that date Formula properties returned different values in the Notion UI and the API. For example:
 
 ```js
 prop("Timeline").dateStart().formatDate("YYYY-MM-DD").parseDate()
 ```
 
-This is a Formula stripping the Timeline's start date, to drop its time and return a pure date. It works well in Notion UI, no matter which timezone your workplace is set to, whereas the API might returns a different date.
+This Formula strips the time from the Timeline's start date and returns a pure date. It works in the Notion UI regardless of your workspace timezone, but the API can return a different date.
 
-The cause is that `formatDate()` will parse the date input as UTC+0 and output the result in UTC+0. If your timezone is set to UTC-4, the date will be off by 4 hours.
+The cause is that `formatDate()` parses and outputs in UTC+0. If your timezone is UTC-4, the result is off by 4 hours.
 
-To solve it, always add a timezone argument when calling `formatDate()` function if your timezone isn't UTC+0.
+The fix is to pass a timezone argument to `formatDate()` whenever your timezone isn't UTC+0.
 
 ```js
 prop("Timeline").dateStart().formatDate("YYYY-MM-DD", UTC-4).parseDate()
 ```
 
-If your location uses Daylight Saving Time, you may want to use [IANA timezone names](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), such as `America/New_York` instead of `UTC-4`.
+If your location observes Daylight Saving Time, use an [IANA timezone name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) such as `America/New_York` instead of `UTC-4`.
 
 
 ## Data Type
-When editing a Formula property, it's okay to not set a fallback when your source property is empty. If you want to set a fallback, use the same type as current property.
+A Formula property doesn't require a fallback for when the source property is empty. If you do set one, match the property's own type.
 
-Moreover, avoid setting `empty()` as fallback, as it will cause an error when you want to set a Chart View. For example: 
+Avoid `empty()` as a fallback: it breaks Chart Views. For example:
 
 ```js
 ifs(
@@ -115,11 +115,11 @@ ifs(
 )
 ```
 
-This is a Formula showing the actual date of tasks recorded in the Timeline property, where tasks started before 5am should be counted into the previous day.
+This Formula reports the actual date of a task from the `Timeline` property, counting tasks started before 5 AM toward the previous day.
 
-It works in normal database views (e.g. table, list, calendar), but if you want to set a Chart view and use this property as X-axis, it won't be available.
+It works in standard views (table, list, calendar, etc.), but the property is unavailable as a Chart View X-axis.
 
-To fix it, avoid using `empty()` as fallback, instead, either leave it without fallback — the property will be both empty when the source property is empty, and available in Chart View; or use a date like `1900-01-01` or `today()` as fallback.
+The fix is to drop the `empty()` fallback. Either leave the fallback out entirely — the property stays empty when the source is empty, yet remains available in Chart Views — or use a date such as `1900-01-01` or `today()`.
 
 ```js
 ifs(
@@ -137,10 +137,10 @@ ifs(
 )
 ```
 
-Likewise, if your property's data type is string, use `""` as fallback, and `0` for number, `false` for boolean, `[]` for list, etc.
+Apply the same rule to other types: `""` for string, `0` for number, `false` for boolean, `[]` for list.
 
 
 ## Reduce Runtime
-If your database contains too many Rollup properties, it re-request all content from the source database every time, which may cause high latency when you manage the database. Try to reduce the number of Rollup properties. Instead of retrieving related data from several Rollups, try to use one Rollup with Formulas.
+Each Rollup property fetches all content from the source database again, so a database with many Rollups can become slow to manage. Keep the number of Rollups down: instead of pulling related data through several Rollups, combine one Rollup with Formulas.
 
 
