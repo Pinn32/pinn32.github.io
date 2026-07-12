@@ -88,6 +88,7 @@ website:
           contents: "en/tools/*/index.*md"
         - section: "Blogs"
           contents: "en/blogs/*/index.*md"
+        - text: "---"
         - text: "Reproduce This Project"
           href: "en/readme/index.md"
         - text: "Change Log"

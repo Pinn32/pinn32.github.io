@@ -5,6 +5,9 @@ date: 2026-07-11
 description: 'Restored SSH access after fail2ban blocked VPS login attempts caused by outdated username configuration.'
 categories: [VPS, SSH, Linux, Tips]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711132059645.png"
+
+aliases:
+    - ../vps-ssh-login-troubleshooting/
 ---
 
 # Backgroud

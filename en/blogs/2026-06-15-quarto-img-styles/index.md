@@ -9,6 +9,8 @@ image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615190
 
 crossref: 
     fig-title: "Fig"
+aliases:
+  - ../quarto-img-styles/
 ---
 
 <style>

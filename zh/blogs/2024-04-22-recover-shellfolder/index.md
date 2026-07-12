@@ -9,6 +9,9 @@ image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615210
 toc-expand: true
 toc-expand-level: 2
 number-depth: 2
+
+aliases:
+   - ../recover-shellfolder/
 ---
 
 <style>
