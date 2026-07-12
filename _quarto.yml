@@ -88,7 +88,7 @@ website:
           contents: "en/tools/*/index.*md"
         - section: "Blogs"
           contents: "en/blogs/*/index.*md"
-        - text: "---"
+        # - text: "---"  # separator
         - text: "Reproduce This Project"
           href: "en/readme/index.md"
         - text: "Change Log"

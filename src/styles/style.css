@@ -596,6 +596,7 @@ a.sidebar-item-text.sidebar-link.active > .menu-text {
 }
 
 /* Desktop: Sidebar layout (site-tools on bottom) */
+/* site-tools: reproduce this project, change log, about */
 @media (min-width: 992px) {
     /* Height controls margin of bottom sections */
     div.sidebar-menu-container {
@@ -606,10 +607,11 @@ a.sidebar-item-text.sidebar-link.active > .menu-text {
         flex-direction: column;
         height: 95%;
     }
-    /* div.sidebar-menu-container > ul > li.sidebar-item:nth-last-child(3) {
+    /* last 3 items to the bottom */
+    div.sidebar-menu-container > ul > li.sidebar-item:nth-last-child(3) {
         margin-top: auto;
         padding-top: .6rem;
-    } */
+    }
 }
 
 
