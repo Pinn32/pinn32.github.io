@@ -6,6 +6,8 @@ categories: ["Python", "数据处理", "Pandas", "DataFrame"]
 description: "Pandas 数据处理与清洗流程：缺失值、重复值、数据重塑、表连接、分组聚合、透视表等。"
 code-fold: false
 order: 1
+aliases:
+    - ../data-processing/
 ---
 
 ```{python}

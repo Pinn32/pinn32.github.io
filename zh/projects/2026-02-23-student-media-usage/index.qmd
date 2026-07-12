@@ -7,8 +7,10 @@ description: '分析学生的社交媒体使用习惯与成瘾模式，探究行
 image: ../../../src/img/proj/stu-media/cover.png
 
 crossref:
-    lst-title: "输出"
-    lst-prefix: "输出"
+  lst-title: "输出"
+  lst-prefix: "输出"
+aliases:
+  - ../student-media-usage/
 
 order: 2
 

@@ -7,6 +7,8 @@ description: 'Data processing/cleaning workflows in Pandas: missing values, dupl
 code-fold: false
 
 order: 1
+aliases:
+    - ../data-processing/
 ---
 
 ```{python}

@@ -10,6 +10,8 @@ image: ../../../src/img/proj/stu-media/cover.png
 crossref:
     lst-title: "Output"
     lst-prefix: "Output"
+aliases:
+  - ../student-media-usage/
 
 order: 2
 

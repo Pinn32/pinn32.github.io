@@ -8,6 +8,8 @@ description: 'Exploratory analysis of the most-streamed tracks on Spotify in 202
 image: ../../../src/img/proj/songs/cover.png
 
 order: 5
+aliases:
+  - ../most-streamed-songs/
 
 ## All below for Rmd
 # output:

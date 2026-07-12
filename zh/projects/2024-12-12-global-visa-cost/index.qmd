@@ -9,6 +9,8 @@ csl: ../../../src/apa.csl
 number-depth: 2
 
 order: 4
+aliases:
+    - ../global-visa-cost/
 
 # css: 'jupyter-page.css'
 # jupyter: dv-env

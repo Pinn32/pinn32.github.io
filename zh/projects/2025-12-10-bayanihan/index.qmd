@@ -6,6 +6,8 @@ description: "在 Figma 中重新设计 Bayanihan 网站，聚焦导航体验、
 categories: [UI/UX, Figma, 设计]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704194910663.gif"
 toc-expand: 2
+aliases:
+    - ../bayanihan/
 # order: 7
 ---
 

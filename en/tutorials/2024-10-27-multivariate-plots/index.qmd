@@ -10,6 +10,8 @@ number-sections: true
 image: ../../../src/img/ttl/multi/cover.png
 
 order: 3
+aliases:
+    - ../multivariate-plots/
 ---
 
 ```{python}

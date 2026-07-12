@@ -6,6 +6,8 @@ date: '2024-12-05'
 categories: ["Python", "Plotly", "Sankey Diagram", "Network Diagram"]
 description: "Use Plotly, Pyvis & NetworkX to create sankey & network diagrams."
 order: 4
+aliases:
+    - ../sankey-and-network/
 ---
 
 ```{python}

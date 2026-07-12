@@ -7,6 +7,8 @@ categories: ["Python", "Seaborn", "Distribution"]
 description: "Use Seaborn to create visualizations for amounts & distributions: barplots, point plots, histograms, box plots, etc."
 code-fold: false
 order: 2
+aliases:
+    - ../amounts-and-distribution/
 ---
 
 ```{python}

@@ -6,6 +6,8 @@ categories: ['R', 'dplyr', 'stringr', '正则表达式', 'CSS颜色', '文本分
 description: '常用 R 技巧与代码片段：dplyr 数据处理、stringr 文本操作、CSS 颜色名称、代码速查表等。'
 eval: FALSE
 order: 5
+aliases:
+    - ../r-tips/
 ---
 
 # 常用要点 {.unnumbered}

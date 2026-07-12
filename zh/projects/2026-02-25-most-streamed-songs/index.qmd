@@ -7,6 +7,8 @@ description: '对 2023 年 Spotify 播放量前列的歌曲进行探索性分析
 image: ../../../src/img/proj/songs/cover.png
 
 order: 5
+aliases:
+  - ../most-streamed-songs/
 
 ## All below for Rmd
 # output:

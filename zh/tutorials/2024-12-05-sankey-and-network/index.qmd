@@ -5,6 +5,8 @@ date: '2024-12-05'
 categories: ["Python", "Plotly", "可视化", "桑基图", "网络图"]
 description: '使用 Plotly、Pyvis 与 NetworkX 绘制桑基图与网络图。'
 order: 4
+aliases:
+    - ../sankey-and-network/
 ---
 
 ```{python}

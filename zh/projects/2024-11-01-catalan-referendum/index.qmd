@@ -9,6 +9,8 @@ csl: ../../../src/apa.csl
 image: ../../../src/img/proj/catalan/cover.png
 
 order: 3
+aliases:
+    - ../catalan-referendum/
 
 # code-tools: true
 # jupyter: dv-env  # 使用 jupyter 渲染

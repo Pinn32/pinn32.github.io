@@ -6,6 +6,8 @@ description: "Redesigning Bayanihan's website in Figma focusing on navigation, a
 categories: [UI/UX, Figma, design]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704194910663.gif"
 toc-expand: 2
+aliases:
+    - ../bayanihan/
 # order: 7
 ---
 

@@ -10,6 +10,7 @@ csl: ../../../src/apa.csl
 number-sections: true
 aliases: 
   - ../ai-tweets/
+  - ../ai-discourse/
 
 order: 1
 ---
