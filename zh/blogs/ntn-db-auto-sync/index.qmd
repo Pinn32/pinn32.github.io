@@ -4,10 +4,7 @@ author: 'Pinn Xu'
 date: 2026-07-08
 description: '通过 API 同步 Notion 数据库时，Formula 与 Rollup 属性的使用技巧。'
 categories: [Notion, Database, Quarto, Web Dev, 技巧]
-image: ""
-
-draft: true
-draft-mode: unlinked
+image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711153915114.webp"
 ---
 
 # 引言
@@ -24,9 +21,10 @@ draft-mode: unlinked
 本 Quarto 站点使用两个项目专属数据库——一个用于开发进度（Dev Track），一个用于变更日志（Change Log）——外加一个统管所有项目的通用数据库。数据库填充完成后，Python 脚本会拉取最新数据，再由 Lua 过滤器渲染出 Change Log 页面。工作流如下：
 
 <!-- flowchart -->
-![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711194727865.svg){.light-content}
-![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711194836531.svg){.dark-content}
+![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712013355165.svg){.light-content}
+![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712013519774.svg){.dark-content}
 <!-- flowchart -->
+
 
 ## 任务数据库
 
