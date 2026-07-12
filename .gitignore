@@ -14,7 +14,7 @@ _book/
 
 # Python
 __pycache__/
-*.ipynb
+# *.ipynb
 .ipynb_checkpoints/
 *.pyc
 **/*.quarto_ipynb
