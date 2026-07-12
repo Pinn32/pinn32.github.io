@@ -21,11 +21,11 @@ Since I already used a separate database to track development tasks in Notion Ca
 
 # Database Structure {#sec-db}
 
-I'm using two project-specific database for the development track and change log of this Quarto website, as well as one general database tracking all projects. After the databases got input, the Qaurto website will fetch the latest information through python script, and render the Change Log page through lua filter. The workflow is shown below:
+I'm using two project-specific database for the development track and change log of this Quarto website, as well as one general database tracking all projects.
 
 <!-- flowchart -->
-![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711151225667.svg){.light-content}
-![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711152748043.svg){.dark-content}
+![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711194727865.svg){.light-content}
+![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711194836531.svg){.dark-content}
 <!-- flowchart -->
 
 ## Tasks Database
@@ -42,6 +42,7 @@ It's worth noting that I don't manually add each row through Notion's UI, instea
 ![Dev DB in Notion Calendar](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711153915114.webp)
 :::
 
+
 ## Progress Database
 
 The Change Log database records phased progress of the development of my website. Each entry in this database are related to several tasks in Dev Track database, and aggregates them into Rollup properties such as Start (actual start date: days with start time before 5AM are counted into the previous day) and Hours (the total time span of all tasks during certain period).
@@ -50,14 +51,6 @@ The Change Log database records phased progress of the development of my website
 ![Log DB Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122533725.png)
 :::
 
-In addition, there are also Formula properties automatically calculate and return formatted results. For instance, the `Date label` property evaluates whether a progress period (i.e., an entry) covers one day or more, and for the latest phase, it returns `<date> - now`.
-
-:::{.img-frame style="width:35rem;"}
-![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711202127920.png)
-:::
-
-There are also hidden properties that are used for back-end calculation, such as `_days` is used for `Days`, and `_end` and `_phase` are used for `Date label` properties. The `.._BU` here means "backup", meaning these are backups of original manual edited properties.
-
 :::{.img-frame style="width:30rem;"}
 ![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711190005529.png)
 :::
@@ -65,12 +58,11 @@ There are also hidden properties that are used for back-end calculation, such as
 
 ## Projects Database
 
-In the All Projects database, I gather all projects and view general rollup statistics. Meanwhile, each page in All Projects database is also a dashboard to manage all panels of sub-databases and chart views.
-
-
 :::{.img-frame style="width:40rem;"}
-![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711184901066.png)
+![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711184828490.png)
 :::
+
+
 
 
 # Tips for Building Sync with Formulas {#sec-tips}
