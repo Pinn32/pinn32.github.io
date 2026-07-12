@@ -31,6 +31,8 @@
       "/zh/tutorials/sankey-and-network/index.html",
       "/zh/tutorials/r-tips/index.html",
       "/zh/projects/most-streamed-songs/index.html",
+      "/zh/blogs/vps-ssh-login-troubleshooting/index.html",
+      "/zh/blogs/ntn-db-auto-sync/index.html",
       "/zh/blogs/quarto-img-styles/index.html",
       "/zh/projects/bayanihan/index.html",
       "/zh/blogs/recover-shellfolder/index.html"
@@ -58,8 +60,19 @@
     ]
   },
   {
+    "listing": "/en/blogs/index.html",
+    "items": [
+      "/en/blogs/vps-ssh-login-troubleshooting/index.html",
+      "/en/blogs/ntn-db-auto-sync/index.html",
+      "/en/blogs/quarto-img-styles/index.html",
+      "/en/blogs/recover-shellfolder/index.html"
+    ]
+  },
+  {
     "listing": "/en/all-posts/index.html",
     "items": [
+      "/en/blogs/vps-ssh-login-troubleshooting/index.html",
+      "/en/blogs/ntn-db-auto-sync/index.html",
       "/en/blogs/quarto-img-styles/index.html",
       "/en/projects/ai-discourse/index.html",
       "/en/tools/cat-img-hub/index.html",
@@ -75,13 +88,6 @@
       "/en/tutorials/multivariate-plots/index.html",
       "/en/tutorials/data-processing/index.html",
       "/en/tutorials/amounts-and-distribution/index.html",
-      "/en/blogs/recover-shellfolder/index.html"
-    ]
-  },
-  {
-    "listing": "/en/blogs/index.html",
-    "items": [
-      "/en/blogs/quarto-img-styles/index.html",
       "/en/blogs/recover-shellfolder/index.html"
     ]
   },
@@ -107,6 +113,8 @@
   {
     "listing": "/zh/blogs/index.html",
     "items": [
+      "/zh/blogs/vps-ssh-login-troubleshooting/index.html",
+      "/zh/blogs/ntn-db-auto-sync/index.html",
       "/zh/blogs/quarto-img-styles/index.html",
       "/zh/blogs/recover-shellfolder/index.html"
     ]

@@ -83,9 +83,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-176b38be48070efe3d434d0a95bef3fe.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-2210753360370f8de62b14e6b9c97b69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-fc5b5ae47c20612bf16cc82db2cf23cb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-2210753360370f8de62b14e6b9c97b69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-c322c6d71f2db3d8706f25d53e26ae43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-5d9429c3bf9c857d19aa2a3e4f17e22b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-c322c6d71f2db3d8706f25d53e26ae43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -119,6 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <style>html{ scroll-behavior: smooth; }</style>
 
 
+<link rel="stylesheet" href="../../../src/styles/style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -516,6 +517,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../en/blogs/ntn-db-auto-sync/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notion Database Auto-Sync Tips</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../en/blogs/quarto-img-styles/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto Image Centering Styles</span></a>
   </div>
@@ -524,6 +531,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../../en/blogs/recover-shellfolder/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Recovering Misplaced Windows Shell Folders</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../en/blogs/vps-ssh-login-troubleshooting/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VPS SSH Login Troubleshooting</span></a>
   </div>
 </li>
       </ul>
@@ -625,7 +638,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     9 min read</span><span> · </span><span>1631 EN words</span><span> · </span><span>29 中文字</span></div>
+     9 min read</span><span> · </span><span>1636 EN words</span><span> · </span><span>29 中文字</span></div>
 <style>
 figcaption {
    text-align: center;
@@ -688,7 +701,7 @@ figcaption {
 <div id="fig-sysfolders" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:12rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sysfolders-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618163644834.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: System Folders"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618163644834.png" class="img-fluid figure-img" style="width:12rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618163644834.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: System Folders"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618163644834.png" class="img-fluid figure-img" style="width:12rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sysfolders-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: System Folders
@@ -699,7 +712,7 @@ Figure&nbsp;1: System Folders
 <div id="fig-relocate-folder" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:24rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-relocate-folder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618164612644.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Changing the Folder Location"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618164612644.png" class="img-fluid figure-img" style="width:24rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618164612644.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Changing the Folder Location"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618164612644.png" class="img-fluid figure-img" style="width:24rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-relocate-folder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Changing the Folder Location
@@ -712,7 +725,7 @@ Figure&nbsp;2: Changing the Folder Location
 <div id="fig-sol-modify-reg" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sol-modify-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619150258176.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: The Fix: Editing the Registry"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619150258176.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619150258176.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: The Fix: Editing the Registry"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619150258176.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sol-modify-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: The Fix: Editing the Registry
@@ -730,7 +743,7 @@ Figure&nbsp;3: The Fix: Editing the Registry
 <div id="fig-open-reg" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-open-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618165301964.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Opening the Registry Editor"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618165301964.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618165301964.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Opening the Registry Editor"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618165301964.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-open-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: Opening the Registry Editor
@@ -747,7 +760,7 @@ Go to:<br>
 <div id="fig-modify-reg" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:40rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-modify-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: Editing the Registry"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig7.png" class="img-fluid figure-img" style="width:40rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: Editing the Registry"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig7.png" class="img-fluid figure-img" style="width:40rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-modify-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5: Editing the Registry
@@ -761,7 +774,7 @@ After restarting your computer, press <code>Win + R</code> and type <code>shell:
 <div id="fig-test-reg" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-test-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig11.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;6: Verifying the Registry Change"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig11.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig11.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;6: Verifying the Registry Change"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig11.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-test-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6: Verifying the Registry Change
@@ -771,7 +784,7 @@ Figure&nbsp;6: Verifying the Registry Change
 <div id="fig-jump-saved-games" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-jump-saved-games-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig12.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;7: Jumping to Saved Games"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig12.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig12.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;7: Jumping to Saved Games"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig12.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jump-saved-games-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7: Jumping to Saved Games
@@ -785,7 +798,7 @@ Figure&nbsp;7: Jumping to Saved Games
 <div id="fig-win-icon-loc" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-win-icon-loc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig14.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;8: Article: Where Windows Stores Icons"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig14.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig14.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;8: Article: Where Windows Stores Icons"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig14.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-win-icon-loc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8: Article: Where Windows Stores Icons
@@ -800,7 +813,7 @@ Figure&nbsp;8: Article: Where Windows Stores Icons
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618175423568.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Properties > Customize > Change Icon"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618175423568.png" class="img-fluid figure-img" style="width:90.0%"></a></p>
+<p><a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618175423568.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Properties > Customize > Change Icon"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618175423568.png" class="img-fluid figure-img" style="width:90.0%" loading="lazy" decoding="async"></a></p>
 <figcaption>Properties &gt; Customize &gt; Change Icon</figcaption>
 </figure>
 </div>
@@ -808,7 +821,7 @@ Figure&nbsp;8: Article: Where Windows Stores Icons
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig15-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Current Icon Location"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig15-2.png" class="img-fluid figure-img" style="width:90.0%"></a></p>
+<p><a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig15-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Current Icon Location"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig15-2.png" class="img-fluid figure-img" style="width:90.0%" loading="lazy" decoding="async"></a></p>
 <figcaption>Current Icon Location</figcaption>
 </figure>
 </div>
@@ -824,7 +837,7 @@ Figure&nbsp;9: Current icon file: SHELL32.dll
 <div id="fig-icon-dll" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:20rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-icon-dll-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig-icon-dll.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure&nbsp;10: Other System Files Containing Icons"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig-icon-dll.png" class="img-fluid figure-img" style="width:20rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig-icon-dll.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure&nbsp;10: Other System Files Containing Icons"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig-icon-dll.png" class="img-fluid figure-img" style="width:20rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-icon-dll-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;10: Other System Files Containing Icons
@@ -834,7 +847,7 @@ Figure&nbsp;10: Other System Files Containing Icons
 <div id="fig-imageres" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-imageres-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig17.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure&nbsp;11: Icon found in imageres.dll"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig17.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig17.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure&nbsp;11: Icon found in imageres.dll"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig17.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-imageres-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;11: Icon found in imageres.dll
@@ -845,7 +858,7 @@ Figure&nbsp;11: Icon found in imageres.dll
 <div id="fig-icon-recovered" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:10rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-icon-recovered-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig18.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure&nbsp;12: Icon Restored"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig18.png" class="img-fluid figure-img" style="width:10rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig18.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure&nbsp;12: Icon Restored"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig18.png" class="img-fluid figure-img" style="width:10rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-icon-recovered-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;12: Icon Restored
@@ -860,7 +873,7 @@ Figure&nbsp;12: Icon Restored
 <div id="fig-search-results" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:30rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-search-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619151015705.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure&nbsp;13: Search Results"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619151015705.png" class="img-fluid figure-img" style="width:30rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619151015705.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure&nbsp;13: Search Results"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619151015705.png" class="img-fluid figure-img" style="width:30rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-search-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;13: Search Results
@@ -878,7 +891,7 @@ Figure&nbsp;13: Search Results
 <div id="fig-show-hidden" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:45rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-show-hidden-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618160908267.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure&nbsp;14: Show Hidden Items"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618160908267.png" class="img-fluid figure-img" style="width:45rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618160908267.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure&nbsp;14: Show Hidden Items"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618160908267.png" class="img-fluid figure-img" style="width:45rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-show-hidden-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;14: Show Hidden Items
@@ -888,7 +901,7 @@ Figure&nbsp;14: Show Hidden Items
 <div id="fig-show-hidden-sysfiles" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-show-hidden-sysfiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618161338780.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure&nbsp;15: Unhide Protected Operating System Files"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618161338780.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618161338780.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure&nbsp;15: Unhide Protected Operating System Files"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618161338780.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-show-hidden-sysfiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;15: Unhide Protected Operating System Files
@@ -899,7 +912,7 @@ Figure&nbsp;15: Unhide Protected Operating System Files
 <div id="fig-desktop-ini" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-desktop-ini-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig23.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Figure&nbsp;16: The desktop.ini File"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig23.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig23.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Figure&nbsp;16: The desktop.ini File"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig23.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desktop-ini-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;16: The desktop.ini File
@@ -911,7 +924,7 @@ We can see the <code>IconResource</code> entry is pointing to <code>imageres.dll
 <div id="fig-desktop-ini-content" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:22rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-desktop-ini-content-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618162811351.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figure&nbsp;17: Content of desktop.ini"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618162811351.png" class="img-fluid figure-img" style="width:22rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618162811351.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figure&nbsp;17: Content of desktop.ini"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618162811351.png" class="img-fluid figure-img" style="width:22rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desktop-ini-content-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;17: Content of desktop.ini
@@ -923,7 +936,7 @@ Figure&nbsp;17: Content of desktop.ini
 <div id="fig-modify-display-name" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:22rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-modify-display-name-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig25.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Figure&nbsp;18: Editing the Display Name"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig25.png" class="img-fluid figure-img" style="width:22rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig25.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Figure&nbsp;18: Editing the Display Name"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig25.png" class="img-fluid figure-img" style="width:22rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-modify-display-name-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;18: Editing the Display Name
@@ -934,7 +947,7 @@ Figure&nbsp;18: Editing the Display Name
 <div id="fig-display-name-encode-error" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:10rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-display-name-encode-error-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig26.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figure&nbsp;19: Display Name Turned into Mojibake"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig26.png" class="img-fluid figure-img" style="width:10rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig26.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figure&nbsp;19: Display Name Turned into Mojibake"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig26.png" class="img-fluid figure-img" style="width:10rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-display-name-encode-error-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;19: Display Name Turned into Mojibake
@@ -947,7 +960,7 @@ Figure&nbsp;19: Display Name Turned into Mojibake
 <div id="fig-default-encoding" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-default-encoding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617121023832.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Figure&nbsp;20: Notepad’s Default Encoding Method"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617121023832.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617121023832.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Figure&nbsp;20: Notepad’s Default Encoding Method"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617121023832.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-default-encoding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;20: Notepad’s Default Encoding Method
@@ -958,7 +971,7 @@ Figure&nbsp;20: Notepad’s Default Encoding Method
 <div id="fig-save-as" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:30rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-save-as-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618194335092.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Figure&nbsp;21: Save As"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618194335092.png" class="img-fluid figure-img" style="width:30rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618194335092.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Figure&nbsp;21: Save As"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618194335092.png" class="img-fluid figure-img" style="width:30rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-save-as-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;21: Save As
@@ -969,7 +982,7 @@ Figure&nbsp;21: Save As
 <div id="fig-modify-encoding" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-modify-encoding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618194954213.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Figure&nbsp;22: Changing the Encoding Method"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618194954213.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618194954213.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Figure&nbsp;22: Changing the Encoding Method"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618194954213.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-modify-encoding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;22: Changing the Encoding Method
@@ -980,7 +993,7 @@ Figure&nbsp;22: Changing the Encoding Method
 <div id="fig-rebirth-0" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:12rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rebirth-0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618195203026.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Figure&nbsp;23: Saved Games Restored"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618195203026.png" class="img-fluid figure-img" style="width:12rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618195203026.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Figure&nbsp;23: Saved Games Restored"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260618195203026.png" class="img-fluid figure-img" style="width:12rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rebirth-0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;23: Saved Games Restored
@@ -995,7 +1008,7 @@ Figure&nbsp;23: Saved Games Restored
 <div id="fig-name-info-source" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:22rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-name-info-source-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig27.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="Figure&nbsp;24: Where the Videos Display Name Comes From"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig27.png" class="img-fluid figure-img" style="width:22rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig27.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="Figure&nbsp;24: Where the Videos Display Name Comes From"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig27.png" class="img-fluid figure-img" style="width:22rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-name-info-source-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;24: Where the Videos Display Name Comes From
@@ -1008,7 +1021,7 @@ Figure&nbsp;24: Where the Videos Display Name Comes From
 <div id="fig-ask-visual-studio" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ask-visual-studio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619001643834.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="Figure&nbsp;25: Asking How to Inspect shell32.dll"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619001643834.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619001643834.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="Figure&nbsp;25: Asking How to Inspect shell32.dll"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619001643834.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ask-visual-studio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;25: Asking How to Inspect shell32.dll
@@ -1019,7 +1032,7 @@ Figure&nbsp;25: Asking How to Inspect shell32.dll
 <div id="fig-vscode-and-visual-studio" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:15rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vscode-and-visual-studio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215305385.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="Figure&nbsp;26: VSCode and Visual Studio"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215305385.png" class="img-fluid figure-img" style="width:15rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215305385.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="Figure&nbsp;26: VSCode and Visual Studio"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215305385.png" class="img-fluid figure-img" style="width:15rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vscode-and-visual-studio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;26: VSCode and Visual Studio
@@ -1030,7 +1043,7 @@ Figure&nbsp;26: VSCode and Visual Studio
 <div id="fig-ai-suggest" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:40rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ai-suggest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619221622134.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28" title="Figure&nbsp;27: AI’s Instructions"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619221622134.png" class="img-fluid figure-img" style="width:40rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619221622134.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28" title="Figure&nbsp;27: AI’s Instructions"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619221622134.png" class="img-fluid figure-img" style="width:40rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-suggest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;27: AI’s Instructions
@@ -1040,7 +1053,7 @@ Figure&nbsp;27: AI’s Instructions
 <div id="fig-vs-interface" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:45rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vs-interface-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215843231.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29" title="Figure&nbsp;28: Interface of Visual Studio"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215843231.png" class="img-fluid figure-img" style="width:45rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215843231.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29" title="Figure&nbsp;28: Interface of Visual Studio"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215843231.png" class="img-fluid figure-img" style="width:45rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vs-interface-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;28: Interface of Visual Studio
@@ -1054,7 +1067,7 @@ Figure&nbsp;28: Interface of Visual Studio
 <div id="fig-after-change" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-after-change-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619222135645.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30" title="Figure&nbsp;29: After the Change"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619222135645.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619222135645.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30" title="Figure&nbsp;29: After the Change"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619222135645.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-after-change-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;29: After the Change
@@ -1068,7 +1081,7 @@ Figure&nbsp;29: After the Change
 <div id="fig-rebirth" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:12rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rebirth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619224046895.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31" title="Figure&nbsp;30: Saved Games Restored"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619224046895.png" class="img-fluid figure-img" style="width:12rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619224046895.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31" title="Figure&nbsp;30: Saved Games Restored"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619224046895.png" class="img-fluid figure-img" style="width:12rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rebirth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;30: Saved Games Restored
@@ -1079,7 +1092,7 @@ Figure&nbsp;30: Saved Games Restored
 <div id="fig-default-icon" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-default-icon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619224305642.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32" title="Figure&nbsp;31: Default Icon Restored"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619224305642.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619224305642.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32" title="Figure&nbsp;31: Default Icon Restored"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619224305642.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-default-icon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;31: Default Icon Restored
@@ -1090,7 +1103,7 @@ Figure&nbsp;31: Default Icon Restored
 <div id="fig-move-system-folder" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-move-system-folder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619224636448.png" class="lightbox" data-gallery="quarto-lightbox-gallery-33" title="Figure&nbsp;32: Moving a Shell Folder: Change Only the Drive Letter"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619224636448.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619224636448.png" class="lightbox" data-gallery="quarto-lightbox-gallery-33" title="Figure&nbsp;32: Moving a Shell Folder: Change Only the Drive Letter"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260619224636448.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-move-system-folder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;32: Moving a Shell Folder: Change Only the Drive Letter
@@ -1235,6 +1248,9 @@ Table&nbsp;1: Resource Indices for Shell Folders
     5. script-fix-sidebar-search Replace the dead sidebar search box with a working button
     6. script-fix-tag-redirect   Redirect post-page tag links to their listing page
     7. script-copyright-year     Update the copyright year in the footer
+    8. script-mermaid-early      Render Mermaid diagrams at parse time, not on window.load
+    9. script-lst-wrap-output    Pull knitr's output cell into the listing <figure> (like Jupyter)
+   10. script-lst-caption-below  Move code-listing (lst) captions below the output
 
     Page-specific scripts (responsive-tag-bar, post-type-filter)
     live in their own files and are included separately.
@@ -1505,11 +1521,127 @@ Table&nbsp;1: Resource Indices for Shell Folders
 <!-- ====================================================================== -->
 <script id="script-copyright-year">
     // Update the copyright year in the footer
-    
+
     document.addEventListener("DOMContentLoaded", function () {
         const el = document.getElementById("copyright-year");
         if (el) el.textContent = new Date().getFullYear();
     });
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-mermaid-early">
+    // Render Mermaid diagrams at parse time instead of on window.load.
+    //
+    // Quarto's mermaid-init.js renders diagrams inside a `window.load` handler
+    // (it sets startOnLoad:false). `load` only fires after every blocking image
+    // has downloaded, so a page full of large images makes the diagram appear
+    // late. This runs inline at end of <body> — by which point the parser-
+    // blocking mermaid library in <head> has already initialized and the
+    // diagram's <pre> is in the DOM — so the diagram renders with minimal
+    // latency, independent of image loading (which `image-lazy-loading` keeps
+    // from competing for bandwidth).
+    //
+    // We replicate ONLY mermaid-init's render+swap step, leaving the DOM in the
+    // exact state Quarto's own load handler expects: its first loop then finds
+    // no unrendered `pre.mermaid-js` (skips a re-render) while its second loop
+    // still runs postProcess() on our SVG for final sizing/alignment. On any
+    // error we leave the <pre> untouched so Quarto's load handler renders it.
+    (async () => {
+        const pending = Array.from(document.querySelectorAll("pre.mermaid-js"));
+        if (!pending.length || !window.mermaid || !mermaid.mermaidAPI) return;
+
+        let i = 0;
+        for (const el of pending) {
+            try {
+                const text = el.textContent.replaceAll("&nbsp;", " ");
+                const { svg: output } = await mermaid.mermaidAPI.render(
+                    `mermaid-early-${++i}`, text, el
+                );
+                el.innerHTML = output;
+                if (el.dataset.label) {
+                    // patch mermaid's emitted style to use the figure's label id
+                    const svg = el.firstChild;
+                    const style = svg.querySelector("style");
+                    style.innerHTML = style.innerHTML.replaceAll(
+                        `#${svg.id}`, `#${el.dataset.label}-mermaid`
+                    );
+                    svg.id = el.dataset.label + "-mermaid";
+                    delete el.dataset.label;
+                }
+                const svg = el.querySelector("svg");
+                const parent = el.parentElement;
+                parent.removeChild(el);
+                parent.appendChild(svg);
+                svg.classList.add("mermaid-js");
+            } catch (e) {
+                // Leave this <pre> in place; Quarto's window.load handler renders it.
+            }
+        }
+    })();
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-lst-wrap-output">
+    // Make knitr code-listings wrap BOTH the input (code) and output cell inside the
+    // <figure>, matching the Jupyter engine's structure.
+    //
+    // Quarto's two engines lay out executable listings differently:
+    //   • Jupyter — the output (.cell-output) already lives INSIDE the <figure>, so the
+    //               listing element (`<div id="lst-…">`) contains code + output.
+    //   • knitr   — the <figure> holds only the code; the output is a SIBLING of the
+    //               listing <div>, both wrapped in an outer .cell. So `<div id="lst-…">`
+    //               contains code ONLY.
+    // Quarto's in-text crossref hover (see the `a.quarto-xref` tippy handler) previews a
+    // reference by cloning `getElementById(id).innerHTML` — the listing <div>. Under knitr
+    // that div excludes the output, so hovering `@lst-…` showed only the code. Pulling the
+    // output into the figure's content wrapper fixes the preview AND unifies the DOM with
+    // Jupyter, so the caption step below can treat both engines identically.
+    //
+    // Runs inline at end of <body> (before paint) and before script-lst-caption-below.
+    (() => {
+        document.querySelectorAll('figure.quarto-float-lst').forEach(figure => {
+            const listing = figure.closest('.listing');
+            if (!listing) return;
+            // knitr's outer wrapper: a .cell holding the listing div + its output siblings.
+            // (Jupyter's listing div is itself .cell, but its parent is not, so it's skipped.)
+            const cell = listing.parentElement;
+            if (!cell || !cell.classList.contains('cell')) return;
+            const outputs = [...cell.children].filter(
+                el => el !== listing && el.classList.contains('cell-output'));
+            if (!outputs.length) return;
+            const content = figure.querySelector(':scope > [aria-describedby]') || figure;
+            outputs.forEach(out => content.appendChild(out));
+        });
+    })();
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-lst-caption-below">
+    // Move code-listing (lst-cap) captions below the output, uniformly for both engines.
+    //
+    // Quarto emits the listing <figcaption> at the TOP of the <figure>. After
+    // script-lst-wrap-output has run, every executable listing has its output inside the
+    // <figure>, so appending the caption as the LAST child of the listing <div>
+    // (`figure.closest('.listing')`) lands it after the output (executable) or after the
+    // code (textual) in every case — a single CSS rule then styles all three identically,
+    // with no flex/order:999 reversal. Keeping the caption inside the listing <div> (the
+    // element the crossref hover clones) also means the hover preview includes the caption.
+    //
+    // Runs inline at end of <body>: the listing DOM is already parsed and the move
+    // happens before paint, so the caption never flashes at the top first.
+    (() => {
+        document.querySelectorAll('figure.quarto-float-lst > figcaption.quarto-float-caption').forEach(cap => {
+            const figure = cap.parentElement;
+            const container = figure.closest('.listing');
+            if (!container) return;
+            container.appendChild(cap);
+            cap.classList.remove('quarto-float-caption-top');
+            cap.classList.add('quarto-float-caption-bottom');
+        });
+    })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

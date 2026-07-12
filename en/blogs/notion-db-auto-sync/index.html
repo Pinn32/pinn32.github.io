@@ -83,9 +83,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-176b38be48070efe3d434d0a95bef3fe.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-2210753360370f8de62b14e6b9c97b69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-fc5b5ae47c20612bf16cc82db2cf23cb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-2210753360370f8de62b14e6b9c97b69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-c322c6d71f2db3d8706f25d53e26ae43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-5d9429c3bf9c857d19aa2a3e4f17e22b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-c322c6d71f2db3d8706f25d53e26ae43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -117,6 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:status" content="draft">
 
 
+<link rel="stylesheet" href="../../../src/styles/style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -524,6 +528,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Recovering Misplaced Windows Shell Folders</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../en/blogs/vps-ssh-login-troubleshooting/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VPS SSH Login Troubleshooting Log</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -555,7 +565,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#database-structure" id="toc-database-structure" class="nav-link" data-scroll-target="#database-structure"><span class="header-section-number">2</span> Database Structure</a></li>
+  <li><a href="#sec-db" id="toc-sec-db" class="nav-link" data-scroll-target="#sec-db"><span class="header-section-number">2</span> Database Structure</a></li>
   <li><a href="#sec-tips" id="toc-sec-tips" class="nav-link" data-scroll-target="#sec-tips"><span class="header-section-number">3</span> Tips for Building Sync with Formulas</a>
   <ul class="collapse">
   <li><a href="#timezone" id="toc-timezone" class="nav-link" data-scroll-target="#timezone"><span class="header-section-number">3.1</span> Timezone</a></li>
@@ -616,15 +626,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     4 min read</span><span> · </span><span>719 EN words</span><span> · </span><span>0 中文字</span></div>
+     4 min read</span><span> · </span><span>721 EN words</span><span> · </span><span>0 中文字</span></div>
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
-<p>Recently, I’ve been working on restructuring the Notion databases I used for Change Log in this website. Initially there was only one database connected to this website, with all cells of manual input. Even though I used AI agents to auto-generate cell content, it still seemed verbose.</p>
-<p>Before implementing the change log sync feature in this website, I’ve already been using another database to track daily schedules of developing the Quarto website in Notion Calendar. I therefore decided to use Rollup &amp; Formula to automate properties of the change log database.</p>
-<p><a href="#sec-tips" class="quarto-xref">Section&nbsp;3</a> includes top tips I’ve learned from building auto-sync Notion databases for my website.</p>
+<p>I recently restructured the Notion databases behind this website’s change log. Originally, the site relied on a single database with mostly manual properties. Although AI agents helped generate much of the cell content, maintaining the database was still unnecessarily verbose.</p>
+<p>Since I already used a separate database to track development tasks in Notion Calendar, I connected the two databases and leveraged <a href="https://www.notion.com/help/relations-and-rollups#rollups">Rollups</a> and <a href="https://www.notion.com/help/formula-syntax">Formulas</a> to automatically populate the change log’s properties.</p>
+<p><a href="#sec-db" class="quarto-xref">Section&nbsp;2</a> introduces the structure of the databases, while <a href="#sec-tips" class="quarto-xref">Section&nbsp;3</a> shares key lessones I’ve learned from building this auto-sync workflow.</p>
 </section>
-<section id="database-structure" class="level1" data-number="2">
+<section id="sec-db" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Database Structure</h1>
+<div class="macbook-frame" style="width:40rem;">
+<div id="fig-devdb" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-devdb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Fig&nbsp;1: Dev DB Overview"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png" class="img-fluid figure-img" loading="lazy" decoding="async"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-devdb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Fig&nbsp;1: Dev DB Overview
+</figcaption>
+</figure>
+</div>
+</div>
+<!-- :::{.macbook-frame style="width:40rem;"}
+![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png)
+::: -->
+<!-- [Dev Track Database Overview]{.caption} -->
+<div class="macbook-frame" style="width:40rem;">
+<div id="fig-logdb" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-logdb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122533725.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Fig&nbsp;2: Log DB Overview"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122533725.png" class="img-fluid figure-img" loading="lazy" decoding="async"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-logdb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Fig&nbsp;2: Log DB Overview
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="macbook-frame" style="width:30rem;">
+<div id="fig-devdb-cal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-devdb-cal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122817585.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Fig&nbsp;3: Dev DB Calendar View"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122817585.png" class="img-fluid figure-img" loading="lazy" decoding="async"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-devdb-cal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Fig&nbsp;3: Dev DB Calendar View
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="macbook-frame" style="width:40rem;">
+<div id="fig-devdb-nc" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-devdb-nc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123116845.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Fig&nbsp;4: Dev DB in Notion Calendar"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123116845.png" class="img-fluid figure-img" loading="lazy" decoding="async"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-devdb-nc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Fig&nbsp;4: Dev DB in Notion Calendar
+</figcaption>
+</figure>
+</div>
+</div>
 </section>
 <section id="sec-tips" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Tips for Building Sync with Formulas</h1>
@@ -699,6 +761,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     5. script-fix-sidebar-search Replace the dead sidebar search box with a working button
     6. script-fix-tag-redirect   Redirect post-page tag links to their listing page
     7. script-copyright-year     Update the copyright year in the footer
+    8. script-mermaid-early      Render Mermaid diagrams at parse time, not on window.load
+    9. script-lst-wrap-output    Pull knitr's output cell into the listing <figure> (like Jupyter)
+   10. script-lst-caption-below  Move code-listing (lst) captions below the output
 
     Page-specific scripts (responsive-tag-bar, post-type-filter)
     live in their own files and are included separately.
@@ -969,11 +1034,127 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- ====================================================================== -->
 <script id="script-copyright-year">
     // Update the copyright year in the footer
-    
+
     document.addEventListener("DOMContentLoaded", function () {
         const el = document.getElementById("copyright-year");
         if (el) el.textContent = new Date().getFullYear();
     });
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-mermaid-early">
+    // Render Mermaid diagrams at parse time instead of on window.load.
+    //
+    // Quarto's mermaid-init.js renders diagrams inside a `window.load` handler
+    // (it sets startOnLoad:false). `load` only fires after every blocking image
+    // has downloaded, so a page full of large images makes the diagram appear
+    // late. This runs inline at end of <body> — by which point the parser-
+    // blocking mermaid library in <head> has already initialized and the
+    // diagram's <pre> is in the DOM — so the diagram renders with minimal
+    // latency, independent of image loading (which `image-lazy-loading` keeps
+    // from competing for bandwidth).
+    //
+    // We replicate ONLY mermaid-init's render+swap step, leaving the DOM in the
+    // exact state Quarto's own load handler expects: its first loop then finds
+    // no unrendered `pre.mermaid-js` (skips a re-render) while its second loop
+    // still runs postProcess() on our SVG for final sizing/alignment. On any
+    // error we leave the <pre> untouched so Quarto's load handler renders it.
+    (async () => {
+        const pending = Array.from(document.querySelectorAll("pre.mermaid-js"));
+        if (!pending.length || !window.mermaid || !mermaid.mermaidAPI) return;
+
+        let i = 0;
+        for (const el of pending) {
+            try {
+                const text = el.textContent.replaceAll("&nbsp;", " ");
+                const { svg: output } = await mermaid.mermaidAPI.render(
+                    `mermaid-early-${++i}`, text, el
+                );
+                el.innerHTML = output;
+                if (el.dataset.label) {
+                    // patch mermaid's emitted style to use the figure's label id
+                    const svg = el.firstChild;
+                    const style = svg.querySelector("style");
+                    style.innerHTML = style.innerHTML.replaceAll(
+                        `#${svg.id}`, `#${el.dataset.label}-mermaid`
+                    );
+                    svg.id = el.dataset.label + "-mermaid";
+                    delete el.dataset.label;
+                }
+                const svg = el.querySelector("svg");
+                const parent = el.parentElement;
+                parent.removeChild(el);
+                parent.appendChild(svg);
+                svg.classList.add("mermaid-js");
+            } catch (e) {
+                // Leave this <pre> in place; Quarto's window.load handler renders it.
+            }
+        }
+    })();
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-lst-wrap-output">
+    // Make knitr code-listings wrap BOTH the input (code) and output cell inside the
+    // <figure>, matching the Jupyter engine's structure.
+    //
+    // Quarto's two engines lay out executable listings differently:
+    //   • Jupyter — the output (.cell-output) already lives INSIDE the <figure>, so the
+    //               listing element (`<div id="lst-…">`) contains code + output.
+    //   • knitr   — the <figure> holds only the code; the output is a SIBLING of the
+    //               listing <div>, both wrapped in an outer .cell. So `<div id="lst-…">`
+    //               contains code ONLY.
+    // Quarto's in-text crossref hover (see the `a.quarto-xref` tippy handler) previews a
+    // reference by cloning `getElementById(id).innerHTML` — the listing <div>. Under knitr
+    // that div excludes the output, so hovering `@lst-…` showed only the code. Pulling the
+    // output into the figure's content wrapper fixes the preview AND unifies the DOM with
+    // Jupyter, so the caption step below can treat both engines identically.
+    //
+    // Runs inline at end of <body> (before paint) and before script-lst-caption-below.
+    (() => {
+        document.querySelectorAll('figure.quarto-float-lst').forEach(figure => {
+            const listing = figure.closest('.listing');
+            if (!listing) return;
+            // knitr's outer wrapper: a .cell holding the listing div + its output siblings.
+            // (Jupyter's listing div is itself .cell, but its parent is not, so it's skipped.)
+            const cell = listing.parentElement;
+            if (!cell || !cell.classList.contains('cell')) return;
+            const outputs = [...cell.children].filter(
+                el => el !== listing && el.classList.contains('cell-output'));
+            if (!outputs.length) return;
+            const content = figure.querySelector(':scope > [aria-describedby]') || figure;
+            outputs.forEach(out => content.appendChild(out));
+        });
+    })();
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-lst-caption-below">
+    // Move code-listing (lst-cap) captions below the output, uniformly for both engines.
+    //
+    // Quarto emits the listing <figcaption> at the TOP of the <figure>. After
+    // script-lst-wrap-output has run, every executable listing has its output inside the
+    // <figure>, so appending the caption as the LAST child of the listing <div>
+    // (`figure.closest('.listing')`) lands it after the output (executable) or after the
+    // code (textual) in every case — a single CSS rule then styles all three identically,
+    // with no flex/order:999 reversal. Keeping the caption inside the listing <div> (the
+    // element the crossref hover clones) also means the hover preview includes the caption.
+    //
+    // Runs inline at end of <body>: the listing DOM is already parsed and the move
+    // happens before paint, so the caption never flashes at the top first.
+    (() => {
+        document.querySelectorAll('figure.quarto-float-lst > figcaption.quarto-float-caption').forEach(cap => {
+            const figure = cap.parentElement;
+            const container = figure.closest('.listing');
+            if (!container) return;
+            container.appendChild(cap);
+            cap.classList.remove('quarto-float-caption-top');
+            cap.classList.add('quarto-float-caption-bottom');
+        });
+    })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1485,93 +1666,117 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> 'Tips for Notion database Formulas &amp; Rollups when syncing via API.'</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Notion, Database, Quarto, Web Dev, Tips]</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> ""</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="an">draft:</span><span class="co"> true</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="an">draft-mode:</span><span class="co"> unlinked</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>Recently, I've been working on restructuring the Notion databases I used for Change Log in this website. Initially there was only one database connected to this website, with all cells of manual input. Even though I used AI agents to auto-generate cell content, it still seemed verbose.</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>Before implementing the change log sync feature in this website, I've already been using another database to track daily schedules of developing the Quarto website in Notion Calendar. I therefore decided to use Rollup &amp; Formula to automate properties of the change log database.</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>@sec-tips includes top tips I've learned from building auto-sync Notion databases for my website.</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="an">crossref:</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-title: "Fig"</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-prefix: "Fig"</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="an">draft:</span><span class="co"> true</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="an">draft-mode:</span><span class="co"> unlinked</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>I recently restructured the Notion databases behind this website’s change log. Originally, the site relied on a single database with mostly manual properties. Although AI agents helped generate much of the cell content, maintaining the database was still unnecessarily verbose.</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>Since I already used a separate database to track development tasks in Notion Calendar, I connected the two databases and leveraged <span class="co">[</span><span class="ot">Rollups</span><span class="co">](https://www.notion.com/help/relations-and-rollups#rollups)</span> and <span class="co">[</span><span class="ot">Formulas</span><span class="co">](https://www.notion.com/help/formula-syntax)</span> to automatically populate the change log’s properties.</span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="fu"># Database Structure</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>@sec-db introduces the structure of the databases, while @sec-tips shares key lessones I've learned from building this auto-sync workflow.</span>
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tips for Building Sync with Formulas {#sec-tips}</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Timezone</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>After replacing all manual-input properties with Formulas &amp; Rollups, I observed an inconsistency in Formula properties of dates between Notion UI and API. For instance:</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="in">```js</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>This is a Formula stripping the Timeline's start date, to drop its time and return a pure date. It works well in Notion UI, no matter which timezone your workplace is set to, whereas the API might returns a different date.</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># Database Structure {#sec-db}</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>:::{.macbook-frame style="width:40rem;"}</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="al">![Dev DB Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png)</span>{#fig-devdb}</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- :::{.macbook-frame style="width:40rem;"}</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png)</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co">::: --&gt;</span></span>
 <span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>The cause is that <span class="in">`formatDate()`</span> will parse the date input as UTC+0 and output the result in UTC+0. If your timezone is set to UTC-4, the date will be off by 4 hours.</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- [Dev Track Database Overview]{.caption} --&gt;</span></span>
 <span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>To solve it, always add a timezone argument when calling <span class="in">`formatDate()`</span> function if your timezone isn't UTC+0.</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="in">```js</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>If your location uses Daylight Saving Time, you may want to use <span class="co">[</span><span class="ot">IANA timezone names</span><span class="co">](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)</span>, such as <span class="in">`America/New_York`</span> instead of <span class="in">`UTC-4`</span>.</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>:::{.macbook-frame style="width:40rem;"}</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="al">![Log DB Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122533725.png)</span>{#fig-logdb}</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>:::{.macbook-frame style="width:30rem;"}</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="al">![Dev DB Calendar View](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122817585.png)</span>{#fig-devdb-cal}</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Type</span></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>When editing a Formula property, it's okay to not set a fallback when your source property is empty. If you want to set a fallback, use the same type as current property.</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>:::{.macbook-frame style="width:40rem;"}</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="al">![Dev DB in Notion Calendar](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123116845.png)</span>{#fig-devdb-nc}</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>Moreover, avoid setting <span class="in">`empty()`</span> as fallback, as it will cause an error when you want to set a Chart View. For example: </span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="in">```js</span></span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="fu">ifs</span>(</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* set empty() as fallback if $Timeline is empty */</span></span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>) <span class="op">==</span> <span class="fu">empty</span>()<span class="op">,</span></span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">empty</span>()<span class="op">,</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tips for Building Sync with Formulas {#sec-tips}</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## Timezone</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>After replacing all manual-input properties with Formulas &amp; Rollups, I observed an inconsistency in Formula properties of dates between Notion UI and API. For instance:</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="in">```js</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* if start time is before 5am, subtract 1 day */</span></span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">hours</span>() <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">,</span></span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">dateSubtract</span>()</span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()<span class="op">,</span></span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* else: set start time */</span></span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>This is a Formula stripping the Timeline's start date, to drop its time and return a pure date. It works well in Notion UI, no matter which timezone your workplace is set to, whereas the API might returns a different date.</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>The cause is that <span class="in">`formatDate()`</span> will parse the date input as UTC+0 and output the result in UTC+0. If your timezone is set to UTC-4, the date will be off by 4 hours.</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>To solve it, always add a timezone argument when calling <span class="in">`formatDate()`</span> function if your timezone isn't UTC+0.</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="in">```js</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span>
 <span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>This is a Formula showing the actual date of tasks recorded in the Timeline property, where tasks started before 5am should be counted into the previous day.</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>If your location uses Daylight Saving Time, you may want to use <span class="co">[</span><span class="ot">IANA timezone names</span><span class="co">](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)</span>, such as <span class="in">`America/New_York`</span> instead of <span class="in">`UTC-4`</span>.</span>
 <span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>It works in normal database views (e.g. table, list, calendar), but if you want to set a Chart view and use this property as X-axis, it won't be available.</span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>To fix it, avoid using <span class="in">`empty()`</span> as fallback, instead, either leave it without fallback — the property will be both empty when the source property is empty, and available in Chart View; or use a date like <span class="in">`1900-01-01`</span> or <span class="in">`today()`</span> as fallback.</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Type</span></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>When editing a Formula property, it's okay to not set a fallback when your source property is empty. If you want to set a fallback, use the same type as current property.</span>
 <span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="in">```js</span></span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="fu">ifs</span>(</span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* date fallback if $Timeline is empty */</span></span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>) <span class="op">==</span> <span class="fu">empty</span>()<span class="op">,</span></span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>    <span class="fu">parseDate</span>(<span class="st">"1900-01-01"</span>)<span class="op">,</span></span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* if start time is before 5am, subtract 1 day */</span></span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">hours</span>() <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">,</span></span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">dateSubtract</span>()</span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()<span class="op">,</span></span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* else: set start time */</span></span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>Likewise, if your property's data type is string, use <span class="in">`""`</span> as fallback, and <span class="in">`0`</span> for number, <span class="in">`false`</span> for boolean, <span class="in">`[]`</span> for list, etc.</span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>Moreover, avoid setting <span class="in">`empty()`</span> as fallback, as it will cause an error when you want to set a Chart View. For example: </span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="in">```js</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a><span class="fu">ifs</span>(</span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* set empty() as fallback if $Timeline is empty */</span></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>) <span class="op">==</span> <span class="fu">empty</span>()<span class="op">,</span></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>    <span class="fu">empty</span>()<span class="op">,</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* if start time is before 5am, subtract 1 day */</span></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">hours</span>() <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">dateSubtract</span>()</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()<span class="op">,</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* else: set start time */</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reduce Runtime</span></span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>If your database contains too many Rollup properties, it re-request all content from the source database every time, which may cause high latency when you manage the database. Try to reduce the number of Rollup properties. Instead of retrieving related data from several Rollups, try to use one Rollup with Formulas.</span>
-<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>This is a Formula showing the actual date of tasks recorded in the Timeline property, where tasks started before 5am should be counted into the previous day.</span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>It works in normal database views (e.g. table, list, calendar), but if you want to set a Chart view and use this property as X-axis, it won't be available.</span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>To fix it, avoid using <span class="in">`empty()`</span> as fallback, instead, either leave it without fallback — the property will be both empty when the source property is empty, and available in Chart View; or use a date like <span class="in">`1900-01-01`</span> or <span class="in">`today()`</span> as fallback.</span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="in">```js</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="fu">ifs</span>(</span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* date fallback if $Timeline is empty */</span></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>) <span class="op">==</span> <span class="fu">empty</span>()<span class="op">,</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>    <span class="fu">parseDate</span>(<span class="st">"1900-01-01"</span>)<span class="op">,</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* if start time is before 5am, subtract 1 day */</span></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">hours</span>() <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">dateSubtract</span>()</span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()<span class="op">,</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* else: set start time */</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>Likewise, if your property's data type is string, use <span class="in">`""`</span> as fallback, and <span class="in">`0`</span> for number, <span class="in">`false`</span> for boolean, <span class="in">`[]`</span> for list, etc.</span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reduce Runtime</span></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>If your database contains too many Rollup properties, it re-request all content from the source database every time, which may cause high latency when you manage the database. Try to reduce the number of Rollup properties. Instead of retrieving related data from several Rollups, try to use one Rollup with Formulas.</span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1587,6 +1792,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

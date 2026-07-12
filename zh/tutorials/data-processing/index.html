@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-176b38be48070efe3d434d0a95bef3fe.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-2210753360370f8de62b14e6b9c97b69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-fc5b5ae47c20612bf16cc82db2cf23cb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-2210753360370f8de62b14e6b9c97b69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-c322c6d71f2db3d8706f25d53e26ae43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-5d9429c3bf9c857d19aa2a3e4f17e22b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-c322c6d71f2db3d8706f25d53e26ae43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -121,6 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
+<link rel="stylesheet" href="../../../src/styles/style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -518,6 +519,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../zh/blogs/ntn-db-auto-sync/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notion 数据库 API 自动同步技巧</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../zh/blogs/quarto-img-styles/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto 图片居中样式</span></a>
   </div>
@@ -526,6 +533,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../../zh/blogs/recover-shellfolder/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">误移系统文件夹恢复</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../zh/blogs/vps-ssh-login-troubleshooting/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VPS SSH 连接失败排查</span></a>
   </div>
 </li>
       </ul>
@@ -635,8 +648,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     10 min read</span><span> · </span><span>863 EN words</span><span> · </span><span>1477 中文字</span></div>
-<div id="bd7f4dee" class="cell" data-execution_count="1">
+     10 min read</span><span> · </span><span>868 EN words</span><span> · </span><span>1496 中文字</span></div>
+<div id="2561e6be" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>环境与版本</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>python<span class="op">==</span><span class="fl">3.12</span></span>
@@ -651,7 +664,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li>文件路径中的分隔符建议使用正斜杠 <code>/</code>（Windows 中也可以使用转义反斜杠 <code>\\</code>）。</li>
 </ul>
-<div id="639fdb40" class="cell" data-execution_count="2">
+<div id="1479b845" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 导入数据</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">"../../../src/data/beer-and-curry.csv"</span></span>
@@ -725,7 +738,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="删除缺失值" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="删除缺失值"><span class="header-section-number">1.1</span> 删除缺失值</h2>
 <p>当分析所需的列中存在缺失值时，可以使用 <code>dropna()</code> 删除对应行。</p>
-<div id="0e8fdf22" class="cell" data-execution_count="3">
+<div id="d4ad7903" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 删除 'text' 或 'retweet_count' 缺失（值为 NA 或 NaN）的行</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_clean <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">"text"</span>, <span class="st">"retweet_count"</span>])</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -742,13 +755,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p><strong>注意：</strong> 数据预处理时，通常不需要直接删除所有包含缺失值的行。更稳妥的做法是只针对分析所需的关键列删除缺失值，以尽量保持数据准确性。</p>
 </blockquote>
-<div id="0361bbf6" class="cell" data-execution_count="4">
+<div id="cd68d88d" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.shape <span class="co"># 查看原始形状（行数和列数）</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>(430, 14)</code></pre>
 </div>
 </div>
-<div id="a9821810" class="cell" data-execution_count="5">
+<div id="0271554b" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_clean.shape <span class="co"># 删除缺失值后的形状</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>(429, 14)</code></pre>
@@ -758,7 +771,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="填充缺失值" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="填充缺失值"><span class="header-section-number">1.2</span> 填充缺失值</h2>
 <p>当缺失值应该被替换而不是删除时，可以使用 <code>fillna()</code>。</p>
-<div id="6cbc5533" class="cell" data-execution_count="6">
+<div id="45c442e6" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 用占位字符串填充 'mentions' 中的缺失值</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"mentions"</span>] <span class="op">=</span> df[<span class="st">"mentions"</span>].fillna(<span class="st">"No Mentioned User"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -781,7 +794,7 @@ Name: mentions, dtype: object</code></pre>
 <section id="替换特定值" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="替换特定值"><span class="header-section-number">1.3</span> 替换特定值</h2>
 <p>使用 <code>replace()</code> 可以将占位值转换为更适合后续分析的表示方式。</p>
-<div id="ef322880" class="cell" data-execution_count="7">
+<div id="e50ce221" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 将占位字符串替换为 0</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"mentions"</span>] <span class="op">=</span> df[<span class="st">"mentions"</span>].replace(<span class="st">"No Mentioned User"</span>, <span class="dv">0</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -807,7 +820,7 @@ Name: mentions, dtype: object</code></pre>
 <section id="重命名列" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="重命名列"><span class="header-section-number">2.1</span> 重命名列</h2>
 <p>使用 <code>rename()</code> 可以让列名更简短、更清晰。</p>
-<div id="b27ea237" class="cell" data-execution_count="8">
+<div id="e3d50b22" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 将 'text' 重命名为 'content'，将 'created_at' 重命名为 'date'</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.rename(columns<span class="op">=</span>{<span class="st">"text"</span>: <span class="st">"content"</span>, <span class="st">"created_at"</span>: <span class="st">"date"</span>})</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -890,7 +903,7 @@ Name: mentions, dtype: object</code></pre>
 <section id="创建新列" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="创建新列"><span class="header-section-number">2.2</span> 创建新列</h2>
 <p>在创建衍生指标前，先删除粉丝数缺失的行。</p>
-<div id="bb90aeaa" class="cell" data-execution_count="9">
+<div id="a9eed063" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 指定特定列，用于删除含缺失值的行</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">"user.followers_count"</span>])</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -968,7 +981,7 @@ Name: mentions, dtype: object</code></pre>
 <section id="对现有列进行基础运算" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="对现有列进行基础运算"><span class="header-section-number">2.2.1</span> 对现有列进行基础运算</h3>
 <p>可以对现有列进行向量化计算，并将结果保存为新列。</p>
-<div id="72c4c9bc" class="cell" data-execution_count="10">
+<div id="45715158" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 通过将 'user.followers_count' 除以 1000 创建新列 'followers_k'</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"followers_k"</span>] <span class="op">=</span> df[<span class="st">"user.followers_count"</span>] <span class="op">/</span> <span class="dv">1000</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1016,12 +1029,12 @@ Name: mentions, dtype: object</code></pre>
 <section id="应用自定义函数" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="应用自定义函数"><span class="header-section-number">2.2.2</span> 应用自定义函数</h3>
 <p>当转换逻辑用命名函数表达更清晰时，可以先定义可复用函数。</p>
-<div id="ae8ff9f2" class="cell" data-execution_count="11">
+<div id="7865d05c" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 定义函数，用于计算百分比形式的互动率（Engagement Rate: ER）</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calc_er(engagement_count, follower_count):</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (engagement_count <span class="op">/</span> follower_count) <span class="op">*</span> <span class="dv">100</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="2f6c2e9f" class="cell" data-execution_count="12">
+<div id="b3286489" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 应用计算出的互动率，并赋值给新列 'er_rt_fo'</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"er_rt_fo"</span>] <span class="op">=</span> calc_er(</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"retweet_count"</span>],</span>
@@ -1068,7 +1081,7 @@ Name: mentions, dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div id="7bac21cd" class="cell" data-execution_count="13">
+<div id="d8bf62cc" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 可视化互动率与另外两个指标之间的关系</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> df[[<span class="st">"er_rt_fo"</span>, <span class="st">"retweet_count"</span>, <span class="st">"user.followers_count"</span>]].plot(</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    subplots<span class="op">=</span><span class="va">True</span>,</span>
@@ -1077,7 +1090,7 @@ Name: mentions, dtype: object</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-14-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="index_files/figure-html/cell-14-output-1.png" width="592" height="459" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-14-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="index_files/figure-html/cell-14-output-1.png" loading="lazy" decoding="async" width="592" height="459" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1098,7 +1111,7 @@ Name: mentions, dtype: object</code></pre>
 <section id="查找重复值" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> 查找重复值</h1>
 <p>使用 <code>duplicated()</code> 删除完全重复的行。</p>
-<div id="d1c76ffa" class="cell" data-execution_count="14">
+<div id="25738336" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 删除完全重复的行（保留第一次出现的记录）</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ~ 是取反运算符</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[<span class="op">~</span>df.duplicated()]</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1114,7 +1127,7 @@ Name: mentions, dtype: object</code></pre>
 <li>使用 <code>keep=False</code> 可以标记所有重复项。</li>
 </ul>
 <p>通过指定列子集，可以找出同一个用户在同一天发布多条内容的记录。</p>
-<div id="eb18a57b" class="cell" data-execution_count="15">
+<div id="16dd29e6" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 根据 'user' 和 'date' 列查找重复行（保留所有重复记录）</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df[df.duplicated(subset<span class="op">=</span>[<span class="st">"user"</span>, <span class="st">"date"</span>], keep<span class="op">=</span><span class="va">False</span>)].head(<span class="dv">2</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
@@ -1192,7 +1205,7 @@ Name: mentions, dtype: object</code></pre>
 <section id="重新排序和重塑数据" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> 重新排序和重塑数据</h1>
 <p>使用 <code>sort_values()</code> 按多个列对行排序。</p>
-<div id="c404ce6b" class="cell" data-execution_count="16">
+<div id="fdb19d57" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 先按 'retweet_count'，再按 'user.followers_count' 降序排序</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>df.sort_values(</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    by<span class="op">=</span>[<span class="st">"retweet_count"</span>, <span class="st">"user.followers_count"</span>],</span>
@@ -1276,7 +1289,7 @@ Name: mentions, dtype: object</code></pre>
 <li>使用 <code>df.transpose()</code> 可以交换行和列。</li>
 </ul>
 <p>当需要切换行和列以便检查数据时，可以转置 DataFrame。</p>
-<div id="babcf5b5" class="cell" data-execution_count="17">
+<div id="8bf87cde" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df.transpose().head(<span class="dv">3</span>) <span class="co"># 查看行列互换后的 DataFrame</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <div>
@@ -1393,7 +1406,7 @@ Name: mentions, dtype: object</code></pre>
 <section id="连接数据" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> 连接数据</h1>
 <p>读取第二个数据集，并使用 <code>concat()</code> 合并。</p>
-<div id="1ffd01f5" class="cell" data-execution_count="18">
+<div id="5ea2ef95" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>path2 <span class="op">=</span> <span class="st">"../../../src/data/keto-and-vegan.csv"</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_csv(path2, encoding<span class="op">=</span><span class="st">"latin-1"</span>) <span class="co"># 加载 df</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>df2.head(<span class="dv">2</span>) <span class="co"># 查看前 2 行</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1463,7 +1476,7 @@ Name: mentions, dtype: object</code></pre>
 </div>
 </div>
 <p>将列结构匹配的数据表纵向追加：</p>
-<div id="570c5faf" class="cell" data-execution_count="19">
+<div id="102a3fb8" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 纵向拼接 df 和 df2（堆叠行）</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>pd.concat([df, df2]).iloc[<span class="dv">428</span>:<span class="dv">432</span>,] <span class="co"># 查看第 428 到 431 行</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
@@ -1594,7 +1607,7 @@ Name: mentions, dtype: object</code></pre>
 <li>使用 <code>.reset_index(drop=True)</code> 可以重置索引，使合并后的行索引连续。</li>
 </ul>
 <p>拼接后，如果希望得到连续的行索引，可以重置索引。</p>
-<div id="f23eb835" class="cell" data-execution_count="20">
+<div id="248f2a54" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 拼接 df 和 df2，然后重置索引</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>pd.concat([df, df2]).reset_index(drop<span class="op">=</span><span class="va">True</span>).iloc[<span class="dv">428</span>:<span class="dv">432</span>,]</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
@@ -1720,7 +1733,7 @@ Name: mentions, dtype: object</code></pre>
 <section id="分组和聚合" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> 分组和聚合</h1>
 <p>使用 <code>groupby()</code> 搭配 <code>agg()</code> 可以按组计算汇总统计值。下面的例子会计算每个用户的总转发量和平均粉丝数。</p>
-<div id="c85572f6" class="cell" data-execution_count="21">
+<div id="27239ca8" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 按 'user' 分组，然后对 'retweet_count' 求和，</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 对 'user.followers_count' 求平均值</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>df_agg <span class="op">=</span> df.groupby(<span class="st">"user"</span>).agg(</span>
@@ -1775,14 +1788,14 @@ Name: mentions, dtype: object</code></pre>
 <li>可以使用 <code>df[~df.duplicated(subset='column')].shape</code> 或 <code>df['column'].nunique()</code> 检查分组数量。</li>
 </ul>
 <p>可以将分组结果与唯一用户数量进行比较：</p>
-<div id="1f10f2ef" class="cell" data-execution_count="22">
+<div id="9e12ab8e" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 通过基于 'user' 列删除重复值来统计唯一用户</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df[<span class="op">~</span>df.duplicated(subset<span class="op">=</span><span class="st">"user"</span>)].shape</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>(390, 16)</code></pre>
 </div>
 </div>
-<div id="78928a9e" class="cell" data-execution_count="23">
+<div id="062f0ce7" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 或者直接用 nunique() 统计唯一用户数量</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"user"</span>].nunique()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
@@ -1796,7 +1809,7 @@ Name: mentions, dtype: object</code></pre>
 <h2 data-number="7.1" class="anchored" data-anchor-id="melt-数据"><span class="header-section-number">7.1</span> Melt 数据</h2>
 <p><strong>Melt: wide → long</strong></p>
 <p>使用 <code>melt()</code> 可以将宽表转换为长表，便于分析和绘图。</p>
-<div id="64f853e0" class="cell" data-execution_count="24">
+<div id="94a289ed" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个包含宠物类型和数量的宽格式示例 DataFrame</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df_wide <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>[</span>
@@ -1847,7 +1860,7 @@ Name: mentions, dtype: object</code></pre>
 </div>
 </div>
 <p>不传入参数时，<code>melt()</code> 会将所有列折叠为 variable-value 形式。</p>
-<div id="f09700b7" class="cell" data-execution_count="25">
+<div id="b84cb458" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df_wide.melt() <span class="co"># 将所有列转换为变量-值对（转换为长表）</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <div>
@@ -1914,7 +1927,7 @@ Name: mentions, dtype: object</code></pre>
 </div>
 </div>
 <p>可以指定标识符列和值列，得到结构更清晰的长表。</p>
-<div id="fb672670" class="cell" data-execution_count="26">
+<div id="5344dba0" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>melted_df <span class="op">=</span> pd.melt(</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    df_wide,</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    id_vars<span class="op">=</span>[<span class="st">"pet"</span>], <span class="co"># 保留 'pet' 作为标识符列</span></span>
@@ -1928,7 +1941,7 @@ Name: mentions, dtype: object</code></pre>
 <h2 data-number="7.2" class="anchored" data-anchor-id="pivot-数据"><span class="header-section-number">7.2</span> Pivot 数据</h2>
 <p><strong>Pivot: long → wide</strong></p>
 <p>将长表重新转换回宽表：</p>
-<div id="6a4841da" class="cell" data-execution_count="27">
+<div id="d2e9af18" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>df_pivot <span class="op">=</span> melted_df.pivot(</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="st">"pet"</span>, <span class="co"># 标识符列变为索引</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="st">"sex"</span>, <span class="co"># 变量列中的类别变为新列</span></span>
@@ -1978,7 +1991,7 @@ Name: mentions, dtype: object</code></pre>
 </div>
 <p>当 index/column 组合存在重复值时，应使用 <code>pivot_table()</code> 而不是 <code>pivot()</code>，并指定类似 <code>aggfunc='mean'</code> 的聚合函数来汇总重复项。</p>
 <p>例如，如果存在重复的宠物记录：</p>
-<div id="8f46a22c" class="cell" data-execution_count="28">
+<div id="1f7aa852" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个包含重复宠物记录的示例 DataFrame</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>df_long <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>[</span>
@@ -2049,7 +2062,7 @@ Name: mentions, dtype: object</code></pre>
 </div>
 </div>
 <p>要将这个长表转换回宽表，可以使用 <code>pivot_table()</code> 处理重复项：</p>
-<div id="fd65ef48" class="cell" data-execution_count="29">
+<div id="4f0702f2" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建透视表，对重复记录的数量取平均值</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>(df_long</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>.pivot_table(</span>
@@ -2118,6 +2131,9 @@ Name: mentions, dtype: object</code></pre>
     5. script-fix-sidebar-search Replace the dead sidebar search box with a working button
     6. script-fix-tag-redirect   Redirect post-page tag links to their listing page
     7. script-copyright-year     Update the copyright year in the footer
+    8. script-mermaid-early      Render Mermaid diagrams at parse time, not on window.load
+    9. script-lst-wrap-output    Pull knitr's output cell into the listing <figure> (like Jupyter)
+   10. script-lst-caption-below  Move code-listing (lst) captions below the output
 
     Page-specific scripts (responsive-tag-bar, post-type-filter)
     live in their own files and are included separately.
@@ -2388,11 +2404,127 @@ Name: mentions, dtype: object</code></pre>
 <!-- ====================================================================== -->
 <script id="script-copyright-year">
     // Update the copyright year in the footer
-    
+
     document.addEventListener("DOMContentLoaded", function () {
         const el = document.getElementById("copyright-year");
         if (el) el.textContent = new Date().getFullYear();
     });
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-mermaid-early">
+    // Render Mermaid diagrams at parse time instead of on window.load.
+    //
+    // Quarto's mermaid-init.js renders diagrams inside a `window.load` handler
+    // (it sets startOnLoad:false). `load` only fires after every blocking image
+    // has downloaded, so a page full of large images makes the diagram appear
+    // late. This runs inline at end of <body> — by which point the parser-
+    // blocking mermaid library in <head> has already initialized and the
+    // diagram's <pre> is in the DOM — so the diagram renders with minimal
+    // latency, independent of image loading (which `image-lazy-loading` keeps
+    // from competing for bandwidth).
+    //
+    // We replicate ONLY mermaid-init's render+swap step, leaving the DOM in the
+    // exact state Quarto's own load handler expects: its first loop then finds
+    // no unrendered `pre.mermaid-js` (skips a re-render) while its second loop
+    // still runs postProcess() on our SVG for final sizing/alignment. On any
+    // error we leave the <pre> untouched so Quarto's load handler renders it.
+    (async () => {
+        const pending = Array.from(document.querySelectorAll("pre.mermaid-js"));
+        if (!pending.length || !window.mermaid || !mermaid.mermaidAPI) return;
+
+        let i = 0;
+        for (const el of pending) {
+            try {
+                const text = el.textContent.replaceAll("&nbsp;", " ");
+                const { svg: output } = await mermaid.mermaidAPI.render(
+                    `mermaid-early-${++i}`, text, el
+                );
+                el.innerHTML = output;
+                if (el.dataset.label) {
+                    // patch mermaid's emitted style to use the figure's label id
+                    const svg = el.firstChild;
+                    const style = svg.querySelector("style");
+                    style.innerHTML = style.innerHTML.replaceAll(
+                        `#${svg.id}`, `#${el.dataset.label}-mermaid`
+                    );
+                    svg.id = el.dataset.label + "-mermaid";
+                    delete el.dataset.label;
+                }
+                const svg = el.querySelector("svg");
+                const parent = el.parentElement;
+                parent.removeChild(el);
+                parent.appendChild(svg);
+                svg.classList.add("mermaid-js");
+            } catch (e) {
+                // Leave this <pre> in place; Quarto's window.load handler renders it.
+            }
+        }
+    })();
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-lst-wrap-output">
+    // Make knitr code-listings wrap BOTH the input (code) and output cell inside the
+    // <figure>, matching the Jupyter engine's structure.
+    //
+    // Quarto's two engines lay out executable listings differently:
+    //   • Jupyter — the output (.cell-output) already lives INSIDE the <figure>, so the
+    //               listing element (`<div id="lst-…">`) contains code + output.
+    //   • knitr   — the <figure> holds only the code; the output is a SIBLING of the
+    //               listing <div>, both wrapped in an outer .cell. So `<div id="lst-…">`
+    //               contains code ONLY.
+    // Quarto's in-text crossref hover (see the `a.quarto-xref` tippy handler) previews a
+    // reference by cloning `getElementById(id).innerHTML` — the listing <div>. Under knitr
+    // that div excludes the output, so hovering `@lst-…` showed only the code. Pulling the
+    // output into the figure's content wrapper fixes the preview AND unifies the DOM with
+    // Jupyter, so the caption step below can treat both engines identically.
+    //
+    // Runs inline at end of <body> (before paint) and before script-lst-caption-below.
+    (() => {
+        document.querySelectorAll('figure.quarto-float-lst').forEach(figure => {
+            const listing = figure.closest('.listing');
+            if (!listing) return;
+            // knitr's outer wrapper: a .cell holding the listing div + its output siblings.
+            // (Jupyter's listing div is itself .cell, but its parent is not, so it's skipped.)
+            const cell = listing.parentElement;
+            if (!cell || !cell.classList.contains('cell')) return;
+            const outputs = [...cell.children].filter(
+                el => el !== listing && el.classList.contains('cell-output'));
+            if (!outputs.length) return;
+            const content = figure.querySelector(':scope > [aria-describedby]') || figure;
+            outputs.forEach(out => content.appendChild(out));
+        });
+    })();
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-lst-caption-below">
+    // Move code-listing (lst-cap) captions below the output, uniformly for both engines.
+    //
+    // Quarto emits the listing <figcaption> at the TOP of the <figure>. After
+    // script-lst-wrap-output has run, every executable listing has its output inside the
+    // <figure>, so appending the caption as the LAST child of the listing <div>
+    // (`figure.closest('.listing')`) lands it after the output (executable) or after the
+    // code (textual) in every case — a single CSS rule then styles all three identically,
+    // with no flex/order:999 reversal. Keeping the caption inside the listing <div> (the
+    // element the crossref hover clones) also means the hover preview includes the caption.
+    //
+    // Runs inline at end of <body>: the listing DOM is already parsed and the move
+    // happens before paint, so the caption never flashes at the top first.
+    (() => {
+        document.querySelectorAll('figure.quarto-float-lst > figcaption.quarto-float-caption').forEach(cap => {
+            const figure = cap.parentElement;
+            const container = figure.closest('.listing');
+            if (!container) return;
+            container.appendChild(cap);
+            cap.classList.remove('quarto-float-caption-top');
+            cap.classList.add('quarto-float-caption-bottom');
+        });
+    })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

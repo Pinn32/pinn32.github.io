@@ -102,9 +102,9 @@ div.csl-indent {
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-176b38be48070efe3d434d0a95bef3fe.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-2210753360370f8de62b14e6b9c97b69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-fc5b5ae47c20612bf16cc82db2cf23cb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-2210753360370f8de62b14e6b9c97b69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-c322c6d71f2db3d8706f25d53e26ae43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-5d9429c3bf9c857d19aa2a3e4f17e22b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-c322c6d71f2db3d8706f25d53e26ae43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -167,6 +167,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../../../src/styles/style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -564,6 +565,12 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../zh/blogs/ntn-db-auto-sync/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notion 数据库 API 自动同步技巧</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../zh/blogs/quarto-img-styles/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto 图片居中样式</span></a>
   </div>
@@ -572,6 +579,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../../zh/blogs/recover-shellfolder/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">误移系统文件夹恢复</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../zh/blogs/vps-ssh-login-troubleshooting/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VPS SSH 连接失败排查</span></a>
   </div>
 </li>
       </ul>
@@ -710,7 +723,7 @@ window.Quarto = {
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     34 min read</span><span> · </span><span>1005 EN words</span><span> · </span><span>8586 中文字</span></div>
+     34 min read</span><span> · </span><span>1009 EN words</span><span> · </span><span>8605 中文字</span></div>
 <div class="cell">
 <details class="code-fold">
 <summary>环境与版本</summary>
@@ -1257,7 +1270,7 @@ Time difference of 1634 days</code></pre>
 <div id="fig-daily-dist" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-daily-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-daily-dist-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="图&nbsp;1: AI相关推文日分布（2017—2021年）"><img src="index_files/figure-html/fig-daily-dist-1.png" class="img-fluid figure-img" width="768"></a>
+<a href="index_files/figure-html/fig-daily-dist-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="图&nbsp;1: AI相关推文日分布（2017—2021年）"><img src="index_files/figure-html/fig-daily-dist-1.png" class="img-fluid figure-img" loading="lazy" decoding="async" width="768"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-daily-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;1: AI相关推文日分布（2017—2021年）
@@ -1606,7 +1619,7 @@ DTM: 2961 篇文档 x 1799 个词项</code></pre>
 <div id="fig-lda-words" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-lda-words-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-lda-words-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="图&nbsp;2: 各LDA主题前10高频词（K = 5）  注. 条形代表各主题内的词汇概率（beta值）。主题按其主导语义簇命名。"><img src="index_files/figure-html/fig-lda-words-1.png" class="img-fluid figure-img" width="768"></a>
+<a href="index_files/figure-html/fig-lda-words-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="图&nbsp;2: 各LDA主题前10高频词（K = 5）  注. 条形代表各主题内的词汇概率（beta值）。主题按其主导语义簇命名。"><img src="index_files/figure-html/fig-lda-words-1.png" class="img-fluid figure-img" loading="lazy" decoding="async" width="768"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lda-words-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;2: 各LDA主题前10高频词（K = 5）<br> <em>注.</em> 条形代表各主题内的词汇概率（beta值）。主题按其主导语义簇命名。
@@ -1745,7 +1758,7 @@ DTM: 2961 篇文档 x 1799 个词项</code></pre>
 <div id="fig-topic-over-time" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-topic-over-time-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-topic-over-time-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="图&nbsp;3: 主题流行度随时间变化（2017—2021年）  注. 折线代表各年所有推文的平均 gamma 值（主题成员概率）。五个主题在整个研究期间均接近0.20，表明主题结构稳定。"><img src="index_files/figure-html/fig-topic-over-time-1.png" class="img-fluid figure-img" width="768"></a>
+<a href="index_files/figure-html/fig-topic-over-time-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="图&nbsp;3: 主题流行度随时间变化（2017—2021年）  注. 折线代表各年所有推文的平均 gamma 值（主题成员概率）。五个主题在整个研究期间均接近0.20，表明主题结构稳定。"><img src="index_files/figure-html/fig-topic-over-time-1.png" class="img-fluid figure-img" loading="lazy" decoding="async" width="768"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-topic-over-time-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;3: 主题流行度随时间变化（2017—2021年）<br> <em>注.</em> 折线代表各年所有推文的平均 gamma 值（主题成员概率）。五个主题在整个研究期间均接近0.20，表明主题结构稳定。
@@ -1950,7 +1963,7 @@ DTM: 2961 篇文档 x 1799 个词项</code></pre>
 <div id="fig-top-hashtags" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-top-hashtags-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-top-hashtags-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="图&nbsp;4: AI相关推文中前15个话题标签  注. 条形代表2017—2021年样本中的总体频次。广义AI标签（#artificialintelligence、#ai）占主导，其后为应用技术子领域词汇。"><img src="index_files/figure-html/fig-top-hashtags-1.png" class="img-fluid figure-img" width="768"></a>
+<a href="index_files/figure-html/fig-top-hashtags-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="图&nbsp;4: AI相关推文中前15个话题标签  注. 条形代表2017—2021年样本中的总体频次。广义AI标签（#artificialintelligence、#ai）占主导，其后为应用技术子领域词汇。"><img src="index_files/figure-html/fig-top-hashtags-1.png" class="img-fluid figure-img" loading="lazy" decoding="async" width="768"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-top-hashtags-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;4: AI相关推文中前15个话题标签<br> <em>注.</em> 条形代表2017—2021年样本中的总体频次。广义AI标签（#artificialintelligence、#ai）占主导，其后为应用技术子领域词汇。
@@ -2168,7 +2181,7 @@ DTM: 2961 篇文档 x 1799 个词项</code></pre>
 <div id="fig-hashtag-trends" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hashtag-trends-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-hashtag-trends-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="图&nbsp;5: 各年前8话题标签份额趋势  注. 折线代表每年八个最常用话题标签中各标签的份额。广义AI标签持续占主导，技术子领域词汇逐渐增加。"><img src="index_files/figure-html/fig-hashtag-trends-1.png" class="img-fluid figure-img" width="768"></a>
+<a href="index_files/figure-html/fig-hashtag-trends-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="图&nbsp;5: 各年前8话题标签份额趋势  注. 折线代表每年八个最常用话题标签中各标签的份额。广义AI标签持续占主导，技术子领域词汇逐渐增加。"><img src="index_files/figure-html/fig-hashtag-trends-1.png" class="img-fluid figure-img" loading="lazy" decoding="async" width="768"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hashtag-trends-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;5: 各年前8话题标签份额趋势<br> <em>注.</em> 折线代表每年八个最常用话题标签中各标签的份额。广义AI标签持续占主导，技术子领域词汇逐渐增加。
@@ -2480,7 +2493,7 @@ DTM: 2961 篇文档 x 1799 个词项</code></pre>
 <div id="fig-lexicon-coverage" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-lexicon-coverage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-lexicon-coverage-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="图&nbsp;6: 情感词典覆盖率比较  注. 条形代表3,000条推文中各词典获得情感评分的比例。NRC覆盖范围最广；AFINN覆盖比例较小，但提供连续强度评分。"><img src="index_files/figure-html/fig-lexicon-coverage-1.png" class="img-fluid figure-img" width="768"></a>
+<a href="index_files/figure-html/fig-lexicon-coverage-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="图&nbsp;6: 情感词典覆盖率比较  注. 条形代表3,000条推文中各词典获得情感评分的比例。NRC覆盖范围最广；AFINN覆盖比例较小，但提供连续强度评分。"><img src="index_files/figure-html/fig-lexicon-coverage-1.png" class="img-fluid figure-img" loading="lazy" decoding="async" width="768"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lexicon-coverage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;6: 情感词典覆盖率比较<br> <em>注.</em> 条形代表3,000条推文中各词典获得情感评分的比例。NRC覆盖范围最广；AFINN覆盖比例较小，但提供连续强度评分。
@@ -2698,7 +2711,7 @@ Bing  与 NRC 的相关性:  r = 0.529 </code></pre>
 <div id="fig-sentiment-by-year" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sentiment-by-year-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-sentiment-by-year-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="图&nbsp;7: 各年平均AFINN情感得分（2017—2021年）  注. 点和折线表示各年均值；色带代表95%置信区间。水平虚线标记零分（中性）。情感得分从2017年至2021年持续上升。"><img src="index_files/figure-html/fig-sentiment-by-year-1.png" class="img-fluid figure-img" width="768"></a>
+<a href="index_files/figure-html/fig-sentiment-by-year-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="图&nbsp;7: 各年平均AFINN情感得分（2017—2021年）  注. 点和折线表示各年均值；色带代表95%置信区间。水平虚线标记零分（中性）。情感得分从2017年至2021年持续上升。"><img src="index_files/figure-html/fig-sentiment-by-year-1.png" class="img-fluid figure-img" loading="lazy" decoding="async" width="768"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sentiment-by-year-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;7: 各年平均AFINN情感得分（2017—2021年）<br> <em>注.</em> 点和折线表示各年均值；色带代表95%置信区间。水平虚线标记零分（中性）。情感得分从2017年至2021年持续上升。
@@ -2774,7 +2787,7 @@ Bing  与 NRC 的相关性:  r = 0.529 </code></pre>
 <div id="fig-topic-sentiment" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-topic-sentiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-topic-sentiment-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="图&nbsp;8: 各主题加权平均AFINN情感得分  注. 条形代表以 gamma（主题成员概率）为权重的各主题平均情感得分。虚线标记中性情感。各主题之间的差异极小且统计上不显著。"><img src="index_files/figure-html/fig-topic-sentiment-1.png" class="img-fluid figure-img" width="768"></a>
+<a href="index_files/figure-html/fig-topic-sentiment-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="图&nbsp;8: 各主题加权平均AFINN情感得分  注. 条形代表以 gamma（主题成员概率）为权重的各主题平均情感得分。虚线标记中性情感。各主题之间的差异极小且统计上不显著。"><img src="index_files/figure-html/fig-topic-sentiment-1.png" class="img-fluid figure-img" loading="lazy" decoding="async" width="768"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-topic-sentiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;8: 各主题加权平均AFINN情感得分<br> <em>注.</em> 条形代表以 gamma（主题成员概率）为权重的各主题平均情感得分。虚线标记中性情感。各主题之间的差异极小且统计上不显著。
@@ -3145,7 +3158,7 @@ F-statistic: 0.1503 on 4 and 6350 DF,  p-value: 0.9629</code></pre>
 <div id="fig-tag-irr" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tag-irr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-tag-irr-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="图&nbsp;9: 基于标签特征的推文互动预测（IRR图）  注. 点代表发生率比（IRR），水平线代表95%置信区间。IRR = 1处的垂直虚线表示无效应。IRR > 1表示与互动呈正相关。"><img src="index_files/figure-html/fig-tag-irr-1.png" class="img-fluid figure-img" width="768"></a>
+<a href="index_files/figure-html/fig-tag-irr-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="图&nbsp;9: 基于标签特征的推文互动预测（IRR图）  注. 点代表发生率比（IRR），水平线代表95%置信区间。IRR = 1处的垂直虚线表示无效应。IRR > 1表示与互动呈正相关。"><img src="index_files/figure-html/fig-tag-irr-1.png" class="img-fluid figure-img" loading="lazy" decoding="async" width="768"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tag-irr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;9: 基于标签特征的推文互动预测（IRR图）<br> <em>注.</em> 点代表发生率比（IRR），水平线代表95%置信区间。IRR = 1处的垂直虚线表示无效应。IRR &gt; 1表示与互动呈正相关。
@@ -3529,7 +3542,7 @@ Number of Fisher Scoring iterations: 1
 <div id="fig-topic-irr" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-topic-irr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-topic-irr-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="图&nbsp;10: 情感与主题对推文互动的预测（IRR图）  注. 点代表发生率比（IRR），水平线代表95%置信区间。IRR = 1处的垂直虚线表示无效应。为清晰起见，年份固定效应已从图中排除。"><img src="index_files/figure-html/fig-topic-irr-1.png" class="img-fluid figure-img" width="768"></a>
+<a href="index_files/figure-html/fig-topic-irr-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="图&nbsp;10: 情感与主题对推文互动的预测（IRR图）  注. 点代表发生率比（IRR），水平线代表95%置信区间。IRR = 1处的垂直虚线表示无效应。为清晰起见，年份固定效应已从图中排除。"><img src="index_files/figure-html/fig-topic-irr-1.png" class="img-fluid figure-img" loading="lazy" decoding="async" width="768"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-topic-irr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;10: 情感与主题对推文互动的预测（IRR图）<br> <em>注.</em> 点代表发生率比（IRR），水平线代表95%置信区间。IRR = 1处的垂直虚线表示无效应。为清晰起见，年份固定效应已从图中排除。
@@ -3686,6 +3699,9 @@ Stone, P., Brooks, R., Brynjolfsson, E., Calo, R., Etzioni, O., Hager, G., Hirsc
     5. script-fix-sidebar-search Replace the dead sidebar search box with a working button
     6. script-fix-tag-redirect   Redirect post-page tag links to their listing page
     7. script-copyright-year     Update the copyright year in the footer
+    8. script-mermaid-early      Render Mermaid diagrams at parse time, not on window.load
+    9. script-lst-wrap-output    Pull knitr's output cell into the listing <figure> (like Jupyter)
+   10. script-lst-caption-below  Move code-listing (lst) captions below the output
 
     Page-specific scripts (responsive-tag-bar, post-type-filter)
     live in their own files and are included separately.
@@ -3956,11 +3972,127 @@ Stone, P., Brooks, R., Brynjolfsson, E., Calo, R., Etzioni, O., Hager, G., Hirsc
 <!-- ====================================================================== -->
 <script id="script-copyright-year">
     // Update the copyright year in the footer
-    
+
     document.addEventListener("DOMContentLoaded", function () {
         const el = document.getElementById("copyright-year");
         if (el) el.textContent = new Date().getFullYear();
     });
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-mermaid-early">
+    // Render Mermaid diagrams at parse time instead of on window.load.
+    //
+    // Quarto's mermaid-init.js renders diagrams inside a `window.load` handler
+    // (it sets startOnLoad:false). `load` only fires after every blocking image
+    // has downloaded, so a page full of large images makes the diagram appear
+    // late. This runs inline at end of <body> — by which point the parser-
+    // blocking mermaid library in <head> has already initialized and the
+    // diagram's <pre> is in the DOM — so the diagram renders with minimal
+    // latency, independent of image loading (which `image-lazy-loading` keeps
+    // from competing for bandwidth).
+    //
+    // We replicate ONLY mermaid-init's render+swap step, leaving the DOM in the
+    // exact state Quarto's own load handler expects: its first loop then finds
+    // no unrendered `pre.mermaid-js` (skips a re-render) while its second loop
+    // still runs postProcess() on our SVG for final sizing/alignment. On any
+    // error we leave the <pre> untouched so Quarto's load handler renders it.
+    (async () => {
+        const pending = Array.from(document.querySelectorAll("pre.mermaid-js"));
+        if (!pending.length || !window.mermaid || !mermaid.mermaidAPI) return;
+
+        let i = 0;
+        for (const el of pending) {
+            try {
+                const text = el.textContent.replaceAll("&nbsp;", " ");
+                const { svg: output } = await mermaid.mermaidAPI.render(
+                    `mermaid-early-${++i}`, text, el
+                );
+                el.innerHTML = output;
+                if (el.dataset.label) {
+                    // patch mermaid's emitted style to use the figure's label id
+                    const svg = el.firstChild;
+                    const style = svg.querySelector("style");
+                    style.innerHTML = style.innerHTML.replaceAll(
+                        `#${svg.id}`, `#${el.dataset.label}-mermaid`
+                    );
+                    svg.id = el.dataset.label + "-mermaid";
+                    delete el.dataset.label;
+                }
+                const svg = el.querySelector("svg");
+                const parent = el.parentElement;
+                parent.removeChild(el);
+                parent.appendChild(svg);
+                svg.classList.add("mermaid-js");
+            } catch (e) {
+                // Leave this <pre> in place; Quarto's window.load handler renders it.
+            }
+        }
+    })();
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-lst-wrap-output">
+    // Make knitr code-listings wrap BOTH the input (code) and output cell inside the
+    // <figure>, matching the Jupyter engine's structure.
+    //
+    // Quarto's two engines lay out executable listings differently:
+    //   • Jupyter — the output (.cell-output) already lives INSIDE the <figure>, so the
+    //               listing element (`<div id="lst-…">`) contains code + output.
+    //   • knitr   — the <figure> holds only the code; the output is a SIBLING of the
+    //               listing <div>, both wrapped in an outer .cell. So `<div id="lst-…">`
+    //               contains code ONLY.
+    // Quarto's in-text crossref hover (see the `a.quarto-xref` tippy handler) previews a
+    // reference by cloning `getElementById(id).innerHTML` — the listing <div>. Under knitr
+    // that div excludes the output, so hovering `@lst-…` showed only the code. Pulling the
+    // output into the figure's content wrapper fixes the preview AND unifies the DOM with
+    // Jupyter, so the caption step below can treat both engines identically.
+    //
+    // Runs inline at end of <body> (before paint) and before script-lst-caption-below.
+    (() => {
+        document.querySelectorAll('figure.quarto-float-lst').forEach(figure => {
+            const listing = figure.closest('.listing');
+            if (!listing) return;
+            // knitr's outer wrapper: a .cell holding the listing div + its output siblings.
+            // (Jupyter's listing div is itself .cell, but its parent is not, so it's skipped.)
+            const cell = listing.parentElement;
+            if (!cell || !cell.classList.contains('cell')) return;
+            const outputs = [...cell.children].filter(
+                el => el !== listing && el.classList.contains('cell-output'));
+            if (!outputs.length) return;
+            const content = figure.querySelector(':scope > [aria-describedby]') || figure;
+            outputs.forEach(out => content.appendChild(out));
+        });
+    })();
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-lst-caption-below">
+    // Move code-listing (lst-cap) captions below the output, uniformly for both engines.
+    //
+    // Quarto emits the listing <figcaption> at the TOP of the <figure>. After
+    // script-lst-wrap-output has run, every executable listing has its output inside the
+    // <figure>, so appending the caption as the LAST child of the listing <div>
+    // (`figure.closest('.listing')`) lands it after the output (executable) or after the
+    // code (textual) in every case — a single CSS rule then styles all three identically,
+    // with no flex/order:999 reversal. Keeping the caption inside the listing <div> (the
+    // element the crossref hover clones) also means the hover preview includes the caption.
+    //
+    // Runs inline at end of <body>: the listing DOM is already parsed and the move
+    // happens before paint, so the caption never flashes at the top first.
+    (() => {
+        document.querySelectorAll('figure.quarto-float-lst > figcaption.quarto-float-caption').forEach(cap => {
+            const figure = cap.parentElement;
+            const container = figure.closest('.listing');
+            if (!container) return;
+            container.appendChild(cap);
+            cap.classList.remove('quarto-float-caption-top');
+            cap.classList.add('quarto-float-caption-bottom');
+        });
+    })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

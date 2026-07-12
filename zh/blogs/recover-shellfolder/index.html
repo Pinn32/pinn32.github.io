@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-176b38be48070efe3d434d0a95bef3fe.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-2210753360370f8de62b14e6b9c97b69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-fc5b5ae47c20612bf16cc82db2cf23cb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-2210753360370f8de62b14e6b9c97b69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-c322c6d71f2db3d8706f25d53e26ae43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-5d9429c3bf9c857d19aa2a3e4f17e22b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-c322c6d71f2db3d8706f25d53e26ae43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -118,6 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <style>html{ scroll-behavior: smooth; }</style>
 
 
+<link rel="stylesheet" href="../../../src/styles/style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -515,6 +516,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../zh/blogs/ntn-db-auto-sync/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notion 数据库 API 自动同步技巧</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../zh/blogs/quarto-img-styles/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto 图片居中样式</span></a>
   </div>
@@ -523,6 +530,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../../zh/blogs/recover-shellfolder/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">误移系统文件夹恢复</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../zh/blogs/vps-ssh-login-troubleshooting/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VPS SSH 连接失败排查</span></a>
   </div>
 </li>
       </ul>
@@ -624,7 +637,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     9 min read</span><span> · </span><span>227 EN words</span><span> · </span><span>2118 中文字</span></div>
+     9 min read</span><span> · </span><span>234 EN words</span><span> · </span><span>2139 中文字</span></div>
 <style>
 figcaption {
    text-align: center;
@@ -688,7 +701,7 @@ figcaption {
 <div id="fig-sysfolders" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:8rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sysfolders-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="图&nbsp;1: 系统文件夹"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig1.png" class="img-fluid figure-img" style="width:8rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="图&nbsp;1: 系统文件夹"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig1.png" class="img-fluid figure-img" style="width:8rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sysfolders-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;1: 系统文件夹
@@ -699,7 +712,7 @@ figcaption {
 <div id="fig-relocate-folder" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:24rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-relocate-folder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="图&nbsp;2: 更改文件夹位置"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig2.png" class="img-fluid figure-img" style="width:24rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="图&nbsp;2: 更改文件夹位置"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig2.png" class="img-fluid figure-img" style="width:24rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-relocate-folder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;2: 更改文件夹位置
@@ -710,7 +723,7 @@ figcaption {
 <div id="fig-search-sol" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-search-sol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="图&nbsp;3: 搜寻解决办法"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig3.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="图&nbsp;3: 搜寻解决办法"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig3.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-search-sol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;3: 搜寻解决办法
@@ -721,7 +734,7 @@ figcaption {
 <div id="fig-search-other-sysfolders" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-search-other-sysfolders-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="图&nbsp;4: 搜寻类似系统文件夹"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig4.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="图&nbsp;4: 搜寻类似系统文件夹"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig4.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-search-other-sysfolders-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;4: 搜寻类似系统文件夹
@@ -732,7 +745,7 @@ figcaption {
 <div id="fig-sol-modify-reg" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sol-modify-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="图&nbsp;5: 解决办法: 修改注册表"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig5.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="图&nbsp;5: 解决办法: 修改注册表"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig5.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sol-modify-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;5: 解决办法: 修改注册表
@@ -750,7 +763,7 @@ figcaption {
 <div id="fig-open-reg" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-open-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="图&nbsp;6: 打开注册表"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig6.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="图&nbsp;6: 打开注册表"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig6.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-open-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;6: 打开注册表
@@ -768,7 +781,7 @@ figcaption {
 <div id="fig-modify-reg" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:40rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-modify-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="图&nbsp;7: 修改注册表"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig7.png" class="img-fluid figure-img" style="width:40rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="图&nbsp;7: 修改注册表"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig7.png" class="img-fluid figure-img" style="width:40rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-modify-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;7: 修改注册表
@@ -782,7 +795,7 @@ figcaption {
 <div id="fig-test-reg" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-test-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig11.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="图&nbsp;8: 验证注册表修改成功"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig11.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig11.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="图&nbsp;8: 验证注册表修改成功"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig11.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-test-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;8: 验证注册表修改成功
@@ -792,7 +805,7 @@ figcaption {
 <div id="fig-jump-saved-games" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-jump-saved-games-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig12.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="图&nbsp;9: 成功跳转 Saved Games"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig12.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig12.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="图&nbsp;9: 成功跳转 Saved Games"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig12.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jump-saved-games-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;9: 成功跳转 Saved Games
@@ -806,7 +819,7 @@ figcaption {
 <div id="fig-search-fodler-icon" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:40rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-search-fodler-icon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig13.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="图&nbsp;10: 直接搜索图标"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig13.png" class="img-fluid figure-img" style="width:40rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig13.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="图&nbsp;10: 直接搜索图标"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig13.png" class="img-fluid figure-img" style="width:40rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-search-fodler-icon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;10: 直接搜索图标
@@ -817,7 +830,7 @@ figcaption {
 <div id="fig-win-icon-loc" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-win-icon-loc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig14.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="图&nbsp;11: 文章: Win图标存储位置"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig14.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig14.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="图&nbsp;11: 文章: Win图标存储位置"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig14.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-win-icon-loc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;11: 文章: Win图标存储位置
@@ -832,7 +845,7 @@ figcaption {
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="属性 > 自定义 > 更改图标"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig15-1.png" class="img-fluid figure-img" style="width:85.0%"></a></p>
+<p><a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="属性 > 自定义 > 更改图标"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig15-1.png" class="img-fluid figure-img" style="width:85.0%" loading="lazy" decoding="async"></a></p>
 <figcaption>属性 &gt; 自定义 &gt; 更改图标</figcaption>
 </figure>
 </div>
@@ -840,7 +853,7 @@ figcaption {
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig15-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="当前图标位置"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig15-2.png" class="img-fluid figure-img" style="width:85.0%"></a></p>
+<p><a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig15-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="当前图标位置"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig15-2.png" class="img-fluid figure-img" style="width:85.0%" loading="lazy" decoding="async"></a></p>
 <figcaption>当前图标位置</figcaption>
 </figure>
 </div>
@@ -856,7 +869,7 @@ figcaption {
 <div id="fig-icon-dll" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:20rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-icon-dll-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig-icon-dll.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="图&nbsp;13: 其他包含图标的系统文件"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig-icon-dll.png" class="img-fluid figure-img" style="width:20rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig-icon-dll.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="图&nbsp;13: 其他包含图标的系统文件"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig-icon-dll.png" class="img-fluid figure-img" style="width:20rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-icon-dll-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;13: 其他包含图标的系统文件
@@ -866,7 +879,7 @@ figcaption {
 <div id="fig-imageres" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-imageres-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig17.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="图&nbsp;14: 找到图标 - imageres.dll"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig17.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig17.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="图&nbsp;14: 找到图标 - imageres.dll"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig17.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-imageres-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;14: 找到图标 - imageres.dll
@@ -877,7 +890,7 @@ figcaption {
 <div id="fig-icon-recovered" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:10rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-icon-recovered-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig18.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="图&nbsp;15: 成功恢复图标"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig18.png" class="img-fluid figure-img" style="width:10rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig18.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="图&nbsp;15: 成功恢复图标"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig18.png" class="img-fluid figure-img" style="width:10rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-icon-recovered-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;15: 成功恢复图标
@@ -895,7 +908,7 @@ figcaption {
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig19-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="搜索结果"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig19-1.png" class="img-fluid figure-img" style="width:60.0%"></a></p>
+<p><a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig19-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="搜索结果"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig19-1.png" class="img-fluid figure-img" style="width:60.0%" loading="lazy" decoding="async"></a></p>
 <figcaption>搜索结果</figcaption>
 </figure>
 </div>
@@ -905,7 +918,7 @@ figcaption {
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig19-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="搜索结果: 具体内容"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig19-2.png" class="img-fluid figure-img" style="width:60.0%"></a></p>
+<p><a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig19-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="搜索结果: 具体内容"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig19-2.png" class="img-fluid figure-img" style="width:60.0%" loading="lazy" decoding="async"></a></p>
 <figcaption>搜索结果: 具体内容</figcaption>
 </figure>
 </div>
@@ -926,7 +939,7 @@ figcaption {
 <div id="fig-show-hidden" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:45rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-show-hidden-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig20.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="图&nbsp;17: 显示隐藏的项目"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig20.png" class="img-fluid figure-img" style="width:45rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig20.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="图&nbsp;17: 显示隐藏的项目"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig20.png" class="img-fluid figure-img" style="width:45rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-show-hidden-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;17: 显示隐藏的项目
@@ -936,7 +949,7 @@ figcaption {
 <div id="fig-show-hidden-sysfiles" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-show-hidden-sysfiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig21.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="图&nbsp;18: 取消隐藏受保护的操作系统文件"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig21.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig21.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="图&nbsp;18: 取消隐藏受保护的操作系统文件"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig21.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-show-hidden-sysfiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;18: 取消隐藏受保护的操作系统文件
@@ -946,7 +959,7 @@ figcaption {
 <div id="fig-confirm" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-confirm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig22.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="图&nbsp;19: 确定显示"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig22.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig22.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="图&nbsp;19: 确定显示"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig22.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-confirm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;19: 确定显示
@@ -957,7 +970,7 @@ figcaption {
 <div id="fig-desktop-ini" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-desktop-ini-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig23.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="图&nbsp;20: desktop.ini 文件"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig23.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig23.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="图&nbsp;20: desktop.ini 文件"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig23.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desktop-ini-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;20: desktop.ini 文件
@@ -968,7 +981,7 @@ figcaption {
 <div id="fig-desktop-ini-content" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:22rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-desktop-ini-content-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig24.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="图&nbsp;21: desktop.ini 文件具体内容"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig24.png" class="img-fluid figure-img" style="width:22rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig24.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="图&nbsp;21: desktop.ini 文件具体内容"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig24.png" class="img-fluid figure-img" style="width:22rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desktop-ini-content-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;21: desktop.ini 文件具体内容
@@ -981,7 +994,7 @@ figcaption {
 <div id="fig-modify-display-name" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:22rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-modify-display-name-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig25.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="图&nbsp;22: 修改文件显示名"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig25.png" class="img-fluid figure-img" style="width:22rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig25.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="图&nbsp;22: 修改文件显示名"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig25.png" class="img-fluid figure-img" style="width:22rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-modify-display-name-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;22: 修改文件显示名
@@ -991,7 +1004,7 @@ figcaption {
 <div id="fig-display-name-encode-error" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:10rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-display-name-encode-error-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig26.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="图&nbsp;23: 显示名变成乱码"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig26.png" class="img-fluid figure-img" style="width:10rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig26.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="图&nbsp;23: 显示名变成乱码"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig26.png" class="img-fluid figure-img" style="width:10rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-display-name-encode-error-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;23: 显示名变成乱码
@@ -1004,7 +1017,7 @@ figcaption {
 <div id="fig-default-encoding" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-default-encoding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617121023832.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="图&nbsp;24: 记事本默认编码"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617121023832.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617121023832.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="图&nbsp;24: 记事本默认编码"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617121023832.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-default-encoding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;24: 记事本默认编码
@@ -1015,7 +1028,7 @@ figcaption {
 <div id="fig-save-as" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:30rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-save-as-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617134348580.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="图&nbsp;25: 另存为"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617134348580.png" class="img-fluid figure-img" style="width:30rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617134348580.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="图&nbsp;25: 另存为"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617134348580.png" class="img-fluid figure-img" style="width:30rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-save-as-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;25: 另存为
@@ -1026,7 +1039,7 @@ figcaption {
 <div id="fig-modify-encoding" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-modify-encoding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617134443109.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28" title="图&nbsp;26: 修改编码"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617134443109.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617134443109.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28" title="图&nbsp;26: 修改编码"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260617134443109.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-modify-encoding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;26: 修改编码
@@ -1037,7 +1050,7 @@ figcaption {
 <div id="fig-rebirth-0" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:12rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rebirth-0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615235720052.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29" title="图&nbsp;27: 保存的游戏 复活"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615235720052.png" class="img-fluid figure-img" style="width:12rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615235720052.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29" title="图&nbsp;27: 保存的游戏 复活"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615235720052.png" class="img-fluid figure-img" style="width:12rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rebirth-0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;27: <code>保存的游戏</code> 复活
@@ -1052,7 +1065,7 @@ figcaption {
 <div id="fig-name-info-source" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:22rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-name-info-source-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig27.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30" title="图&nbsp;28: “视频”显示名信息来源"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig27.png" class="img-fluid figure-img" style="width:22rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig27.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30" title="图&nbsp;28: “视频”显示名信息来源"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig27.png" class="img-fluid figure-img" style="width:22rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-name-info-source-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;28: “视频”显示名信息来源
@@ -1063,7 +1076,7 @@ figcaption {
 <div id="fig-search-name-resource" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-search-name-resource-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig28.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31" title="图&nbsp;29: 搜索 shell.32 名称资源"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig28.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig28.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31" title="图&nbsp;29: 搜索 shell.32 名称资源"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig28.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-search-name-resource-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;29: 搜索 <code>shell.32</code> 名称资源
@@ -1074,7 +1087,7 @@ figcaption {
 <div id="fig-search-result-icon-resource" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-search-result-icon-resource-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig29.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32" title="图&nbsp;30: 搜索结果: 对图标资源的讨论"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig29.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig29.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32" title="图&nbsp;30: 搜索结果: 对图标资源的讨论"><img src="https://raw.githubusercontent.com/Pinn32/img/refs/heads/main/blogs/fix-misplaced-sysfolders/fig29.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-search-result-icon-resource-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;30: 搜索结果: 对图标资源的讨论
@@ -1085,7 +1098,7 @@ figcaption {
 <div id="fig-ask-ai" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ask-ai-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615212707012.png" class="lightbox" data-gallery="quarto-lightbox-gallery-33" title="图&nbsp;31: 求助AI"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615212707012.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615212707012.png" class="lightbox" data-gallery="quarto-lightbox-gallery-33" title="图&nbsp;31: 求助AI"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615212707012.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ask-ai-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;31: 求助AI
@@ -1096,7 +1109,7 @@ figcaption {
 <div id="fig-fake-answer" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fake-answer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615212844148.png" class="lightbox" data-gallery="quarto-lightbox-gallery-34" title="图&nbsp;32: 虚构答案"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615212844148.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615212844148.png" class="lightbox" data-gallery="quarto-lightbox-gallery-34" title="图&nbsp;32: 虚构答案"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615212844148.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fake-answer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;32: 虚构答案
@@ -1110,7 +1123,7 @@ figcaption {
 <div id="fig-ask-visual-studio" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:35rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ask-visual-studio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615213053253.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35" title="图&nbsp;33: 询问如何查看 shell32.dll 内容"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615213053253.png" class="img-fluid figure-img" style="width:35rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615213053253.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35" title="图&nbsp;33: 询问如何查看 shell32.dll 内容"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615213053253.png" class="img-fluid figure-img" style="width:35rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ask-visual-studio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;33: 询问如何查看 <code>shell32.dll</code> 内容
@@ -1121,7 +1134,7 @@ figcaption {
 <div id="fig-vscode-and-visual-studio" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:15rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vscode-and-visual-studio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215305385.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36" title="图&nbsp;34: VSCode 和 Visual Studio"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215305385.png" class="img-fluid figure-img" style="width:15rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215305385.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36" title="图&nbsp;34: VSCode 和 Visual Studio"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215305385.png" class="img-fluid figure-img" style="width:15rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vscode-and-visual-studio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;34: VSCode 和 Visual Studio
@@ -1132,7 +1145,7 @@ figcaption {
 <div id="fig-ai-suggest" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:40rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ai-suggest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215723081.png" class="lightbox" data-gallery="quarto-lightbox-gallery-37" title="图&nbsp;35: AI 指示"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215723081.png" class="img-fluid figure-img" style="width:40rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215723081.png" class="lightbox" data-gallery="quarto-lightbox-gallery-37" title="图&nbsp;35: AI 指示"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215723081.png" class="img-fluid figure-img" style="width:40rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-suggest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;35: AI 指示
@@ -1142,7 +1155,7 @@ figcaption {
 <div id="fig-vs-interface" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:45rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vs-interface-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215843231.png" class="lightbox" data-gallery="quarto-lightbox-gallery-38" title="图&nbsp;36: Visual Studio 界面"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215843231.png" class="img-fluid figure-img" style="width:45rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215843231.png" class="lightbox" data-gallery="quarto-lightbox-gallery-38" title="图&nbsp;36: Visual Studio 界面"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615215843231.png" class="img-fluid figure-img" style="width:45rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vs-interface-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;36: Visual Studio 界面
@@ -1156,7 +1169,7 @@ figcaption {
 <div id="fig-after-change" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-after-change-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615220143319.png" class="lightbox" data-gallery="quarto-lightbox-gallery-39" title="图&nbsp;37: 对照别人电脑更改后"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615220143319.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615220143319.png" class="lightbox" data-gallery="quarto-lightbox-gallery-39" title="图&nbsp;37: 对照别人电脑更改后"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615220143319.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-after-change-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;37: 对照别人电脑更改后
@@ -1168,7 +1181,7 @@ figcaption {
 <div id="fig-rebirth" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:12rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rebirth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615235720052.png" class="lightbox" data-gallery="quarto-lightbox-gallery-40" title="图&nbsp;38: 保存的游戏 复活"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615235720052.png" class="img-fluid figure-img" style="width:12rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615235720052.png" class="lightbox" data-gallery="quarto-lightbox-gallery-40" title="图&nbsp;38: 保存的游戏 复活"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615235720052.png" class="img-fluid figure-img" style="width:12rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rebirth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;38: <code>保存的游戏</code> 复活
@@ -1179,7 +1192,7 @@ figcaption {
 <div id="fig-default-icon" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-default-icon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260616000059488.png" class="lightbox" data-gallery="quarto-lightbox-gallery-41" title="图&nbsp;39: 默认图标恢复"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260616000059488.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260616000059488.png" class="lightbox" data-gallery="quarto-lightbox-gallery-41" title="图&nbsp;39: 默认图标恢复"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260616000059488.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-default-icon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;39: 默认图标恢复
@@ -1190,7 +1203,7 @@ figcaption {
 <div id="fig-move-system-folder" class="quarto-float quarto-figure quarto-figure-center anchored" style="width:25rem;">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-move-system-folder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260616000208909.png" class="lightbox" data-gallery="quarto-lightbox-gallery-42" title="图&nbsp;40: 移动系统文件：只修改盘符"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260616000208909.png" class="img-fluid figure-img" style="width:25rem;"></a>
+<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260616000208909.png" class="lightbox" data-gallery="quarto-lightbox-gallery-42" title="图&nbsp;40: 移动系统文件：只修改盘符"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260616000208909.png" class="img-fluid figure-img" style="width:25rem;" loading="lazy" decoding="async"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-move-system-folder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 图&nbsp;40: 移动系统文件：只修改盘符
@@ -1334,6 +1347,9 @@ figcaption {
     5. script-fix-sidebar-search Replace the dead sidebar search box with a working button
     6. script-fix-tag-redirect   Redirect post-page tag links to their listing page
     7. script-copyright-year     Update the copyright year in the footer
+    8. script-mermaid-early      Render Mermaid diagrams at parse time, not on window.load
+    9. script-lst-wrap-output    Pull knitr's output cell into the listing <figure> (like Jupyter)
+   10. script-lst-caption-below  Move code-listing (lst) captions below the output
 
     Page-specific scripts (responsive-tag-bar, post-type-filter)
     live in their own files and are included separately.
@@ -1604,11 +1620,127 @@ figcaption {
 <!-- ====================================================================== -->
 <script id="script-copyright-year">
     // Update the copyright year in the footer
-    
+
     document.addEventListener("DOMContentLoaded", function () {
         const el = document.getElementById("copyright-year");
         if (el) el.textContent = new Date().getFullYear();
     });
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-mermaid-early">
+    // Render Mermaid diagrams at parse time instead of on window.load.
+    //
+    // Quarto's mermaid-init.js renders diagrams inside a `window.load` handler
+    // (it sets startOnLoad:false). `load` only fires after every blocking image
+    // has downloaded, so a page full of large images makes the diagram appear
+    // late. This runs inline at end of <body> — by which point the parser-
+    // blocking mermaid library in <head> has already initialized and the
+    // diagram's <pre> is in the DOM — so the diagram renders with minimal
+    // latency, independent of image loading (which `image-lazy-loading` keeps
+    // from competing for bandwidth).
+    //
+    // We replicate ONLY mermaid-init's render+swap step, leaving the DOM in the
+    // exact state Quarto's own load handler expects: its first loop then finds
+    // no unrendered `pre.mermaid-js` (skips a re-render) while its second loop
+    // still runs postProcess() on our SVG for final sizing/alignment. On any
+    // error we leave the <pre> untouched so Quarto's load handler renders it.
+    (async () => {
+        const pending = Array.from(document.querySelectorAll("pre.mermaid-js"));
+        if (!pending.length || !window.mermaid || !mermaid.mermaidAPI) return;
+
+        let i = 0;
+        for (const el of pending) {
+            try {
+                const text = el.textContent.replaceAll("&nbsp;", " ");
+                const { svg: output } = await mermaid.mermaidAPI.render(
+                    `mermaid-early-${++i}`, text, el
+                );
+                el.innerHTML = output;
+                if (el.dataset.label) {
+                    // patch mermaid's emitted style to use the figure's label id
+                    const svg = el.firstChild;
+                    const style = svg.querySelector("style");
+                    style.innerHTML = style.innerHTML.replaceAll(
+                        `#${svg.id}`, `#${el.dataset.label}-mermaid`
+                    );
+                    svg.id = el.dataset.label + "-mermaid";
+                    delete el.dataset.label;
+                }
+                const svg = el.querySelector("svg");
+                const parent = el.parentElement;
+                parent.removeChild(el);
+                parent.appendChild(svg);
+                svg.classList.add("mermaid-js");
+            } catch (e) {
+                // Leave this <pre> in place; Quarto's window.load handler renders it.
+            }
+        }
+    })();
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-lst-wrap-output">
+    // Make knitr code-listings wrap BOTH the input (code) and output cell inside the
+    // <figure>, matching the Jupyter engine's structure.
+    //
+    // Quarto's two engines lay out executable listings differently:
+    //   • Jupyter — the output (.cell-output) already lives INSIDE the <figure>, so the
+    //               listing element (`<div id="lst-…">`) contains code + output.
+    //   • knitr   — the <figure> holds only the code; the output is a SIBLING of the
+    //               listing <div>, both wrapped in an outer .cell. So `<div id="lst-…">`
+    //               contains code ONLY.
+    // Quarto's in-text crossref hover (see the `a.quarto-xref` tippy handler) previews a
+    // reference by cloning `getElementById(id).innerHTML` — the listing <div>. Under knitr
+    // that div excludes the output, so hovering `@lst-…` showed only the code. Pulling the
+    // output into the figure's content wrapper fixes the preview AND unifies the DOM with
+    // Jupyter, so the caption step below can treat both engines identically.
+    //
+    // Runs inline at end of <body> (before paint) and before script-lst-caption-below.
+    (() => {
+        document.querySelectorAll('figure.quarto-float-lst').forEach(figure => {
+            const listing = figure.closest('.listing');
+            if (!listing) return;
+            // knitr's outer wrapper: a .cell holding the listing div + its output siblings.
+            // (Jupyter's listing div is itself .cell, but its parent is not, so it's skipped.)
+            const cell = listing.parentElement;
+            if (!cell || !cell.classList.contains('cell')) return;
+            const outputs = [...cell.children].filter(
+                el => el !== listing && el.classList.contains('cell-output'));
+            if (!outputs.length) return;
+            const content = figure.querySelector(':scope > [aria-describedby]') || figure;
+            outputs.forEach(out => content.appendChild(out));
+        });
+    })();
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-lst-caption-below">
+    // Move code-listing (lst-cap) captions below the output, uniformly for both engines.
+    //
+    // Quarto emits the listing <figcaption> at the TOP of the <figure>. After
+    // script-lst-wrap-output has run, every executable listing has its output inside the
+    // <figure>, so appending the caption as the LAST child of the listing <div>
+    // (`figure.closest('.listing')`) lands it after the output (executable) or after the
+    // code (textual) in every case — a single CSS rule then styles all three identically,
+    // with no flex/order:999 reversal. Keeping the caption inside the listing <div> (the
+    // element the crossref hover clones) also means the hover preview includes the caption.
+    //
+    // Runs inline at end of <body>: the listing DOM is already parsed and the move
+    // happens before paint, so the caption never flashes at the top first.
+    (() => {
+        document.querySelectorAll('figure.quarto-float-lst > figcaption.quarto-float-caption').forEach(cap => {
+            const figure = cap.parentElement;
+            const container = figure.closest('.listing');
+            if (!container) return;
+            container.appendChild(cap);
+            cap.classList.remove('quarto-float-caption-top');
+            cap.classList.add('quarto-float-caption-bottom');
+        });
+    })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

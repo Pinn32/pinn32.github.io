@@ -7,12 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Pinn Xu">
-<meta name="author" content="Yuchen Bao">
-<meta name="author" content="Tianpeng Xu">
-<meta name="dcterms.date" content="2026-04-17">
-<meta name="description" content="Latest news feed and aggregation web app.">
+<meta name="dcterms.date" content="2026-07-08">
+<meta name="description" content="Tips for Notion database Formulas &amp; Rollups when syncing via API.">
 
-<title>News Hub – pinn.xu</title>
+<title>Notion Database Auto-Sync Tips – pinn.xu</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -371,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../en/tools/index.html">Tools</a></li><li class="breadcrumb-item"><a href="../../../en/tools/news-hub/index.html">News Hub</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../en/blogs/index.html">Blogs</a></li><li class="breadcrumb-item"><a href="../../../en/blogs/ntn-db-auto-sync/index.html">Notion Database Auto-Sync Tips</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -483,14 +481,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../../../en/tools/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tools</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../en/tools/news-hub/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../en/tools/news-hub/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">News Hub</span></a>
   </div>
 </li>
@@ -512,14 +510,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../../../en/blogs/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Blogs</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../en/blogs/ntn-db-auto-sync/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../en/blogs/ntn-db-auto-sync/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Notion Database Auto-Sync Tips</span></a>
   </div>
 </li>
@@ -571,34 +569,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#news-hub" id="toc-news-hub" class="nav-link active" data-scroll-target="#news-hub">News Hub</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#sec-db" id="toc-sec-db" class="nav-link" data-scroll-target="#sec-db"><span class="header-section-number">2</span> Database Structure</a>
   <ul class="collapse">
-  <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features">Key Features</a></li>
-  <li><a href="#tech-stack" id="toc-tech-stack" class="nav-link" data-scroll-target="#tech-stack">Tech Stack</a></li>
-  <li><a href="#architecture-highlights" id="toc-architecture-highlights" class="nav-link" data-scroll-target="#architecture-highlights">Architecture Highlights</a></li>
+  <li><a href="#tasks-database" id="toc-tasks-database" class="nav-link" data-scroll-target="#tasks-database"><span class="header-section-number">2.1</span> Tasks Database</a></li>
+  <li><a href="#progress-database" id="toc-progress-database" class="nav-link" data-scroll-target="#progress-database"><span class="header-section-number">2.2</span> Progress Database</a></li>
+  <li><a href="#projects-database" id="toc-projects-database" class="nav-link" data-scroll-target="#projects-database"><span class="header-section-number">2.3</span> Projects Database</a></li>
+  </ul></li>
+  <li><a href="#sec-tips" id="toc-sec-tips" class="nav-link" data-scroll-target="#sec-tips"><span class="header-section-number">3</span> Tips for Building Sync with Formulas</a>
+  <ul class="collapse">
+  <li><a href="#timezone" id="toc-timezone" class="nav-link" data-scroll-target="#timezone"><span class="header-section-number">3.1</span> Timezone</a></li>
+  <li><a href="#data-type" id="toc-data-type" class="nav-link" data-scroll-target="#data-type"><span class="header-section-number">3.2</span> Data Type</a></li>
+  <li><a href="#reduce-runtime" id="toc-reduce-runtime" class="nav-link" data-scroll-target="#reduce-runtime"><span class="header-section-number">3.3</span> Reduce Runtime</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Pinn32/pinn32.github.io/edit/main/en/tools/news-hub/index.md" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/blob/main/en/tools/news-hub/index.md" target="_blank" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Pinn32/pinn32.github.io/edit/main/en/blogs/ntn-db-auto-sync/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/blob/main/en/blogs/ntn-db-auto-sync/index.qmd" target="_blank" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../en/tools/index.html">Tools</a></li><li class="breadcrumb-item"><a href="../../../en/tools/news-hub/index.html">News Hub</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../en/blogs/index.html">Blogs</a></li><li class="breadcrumb-item"><a href="../../../en/blogs/ntn-db-auto-sync/index.html">Notion Database Auto-Sync Tips</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">News Hub</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Notion Database Auto-Sync Tips</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
   <div class="quarto-categories">
-    <div class="quarto-category">Web App</div>
-    <div class="quarto-category">Next.js</div>
-    <div class="quarto-category">MongoDB</div>
-    <div class="quarto-category">Supabase</div>
-    <div class="quarto-category">OAuth</div>
+    <div class="quarto-category">Notion</div>
+    <div class="quarto-category">Database</div>
+    <div class="quarto-category">Quarto</div>
+    <div class="quarto-category">Web Dev</div>
+    <div class="quarto-category">Tips</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Latest news feed and aggregation web app.
+    Tips for Notion database Formulas &amp; Rollups when syncing via API.
   </div>
 </div>
 
@@ -606,18 +611,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
              <p>Pinn Xu </p>
-             <p>Yuchen Bao </p>
-             <p>Tianpeng Xu </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 17, 2026</p>
+      <p class="date">July 8, 2026</p>
     </div>
   </div>
   
@@ -633,79 +636,117 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     3 min read</span><span> · </span><span>444 EN words</span><span> · </span><span>0 中文字</span></div>
-<section id="news-hub" class="level1">
-<h1>News Hub</h1>
-<p>NewsHub is a full-stack news aggregation web application that allows users to browse, search, filter, and interact with news articles. The application fetches real-time content from <strong>NewsAPI.org</strong>, supports user authentication through <strong>Supabase Auth</strong>, and stores user interactions such as bookmarks and likes with <strong>MongoDB</strong>.</p>
-<div style="text-align:center;">
-<p><a href="https://news-hub-demo.vercel.app/" class="btn btn-outline-primary" target="_blank">Click Here to Try</a></p>
-</div>
+     5 min read</span><span> · </span><span>907 EN words</span><span> · </span><span>0 中文字</span></div>
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>I recently restructured the Notion databases behind this website’s change log. The site originally relied on a single database with mostly manual properties. Although AI agents generated much of the cell content, maintaining the database by hand remained tedious.</p>
+<p>Since I already tracked development tasks in a separate database through Notion Calendar, I linked the two databases and used <a href="https://www.notion.com/help/relations-and-rollups#rollups">Rollups</a> and <a href="https://www.notion.com/help/formula-syntax">Formulas</a> to populate the change log’s properties automatically.</p>
+<p><a href="#sec-db" class="quarto-xref">Section&nbsp;2</a> covers the database structure and workflow, and <a href="#sec-tips" class="quarto-xref">Section&nbsp;3</a> shares key lessons I learned while building the auto-sync.</p>
+</section>
+<section id="sec-db" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Database Structure</h1>
+<p>This Quarto website uses two project-specific databases — one for the development track, one for the change log — plus a general database that tracks all projects. Once the databases are populated, a Python script fetches the latest data and a Lua filter renders the Change Log page. The workflow is shown below:</p>
+<!-- flowchart -->
+<p><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712014431241.svg" class="light-content img-fluid" loading="lazy" decoding="async"> <img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712014457180.svg" class="dark-content img-fluid" loading="lazy" decoding="async"> <!-- flowchart --></p>
+<section id="tasks-database" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="tasks-database"><span class="header-section-number">2.1</span> Tasks Database</h2>
+<p>The Dev Track database stores each daily task as one entry. It holds a Relation property linking to the Change Log database, along with basic properties such as timeline and hours.</p>
 <div class="macbook-frame" style="width:40rem;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260624185727241.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Home Page"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260624185727241.png" class="img-fluid figure-img" loading="lazy" decoding="async" alt="News Hub home page"></a></p>
-<figcaption>Home Page</figcaption>
+<p><a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Dev DB Overview"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png" class="img-fluid figure-img" loading="lazy" decoding="async" alt="Dev DB Overview"></a></p>
+<figcaption>Dev DB Overview</figcaption>
 </figure>
 </div>
 </div>
-<p>Built with <strong>Next.js 16</strong>, <strong>React 19</strong>, and <strong>TypeScript</strong>, the project implements the App Router architecture with server-side rendering, API routes, authentication flows, and responsive UI styling using <strong>styled-components</strong>.</p>
-<section id="key-features" class="level2">
-<h2 class="anchored" data-anchor-id="key-features">Key Features</h2>
-<ul>
-<li><strong>News browsing</strong> — Display latest news with category filtering and keyword search.</li>
-<li><strong>Article details</strong> — View article information including title, category, author, summary, images, and source links.</li>
-<li><strong>User authentication</strong> — Support email/password login, signup, password reset, and Google OAuth via Supabase.</li>
-<li><strong>Bookmarks</strong> — Save and manage favorite articles with persistent storage.</li>
-<li><strong>Likes</strong> — Like articles with MongoDB-based persistence.</li>
-<li><strong>Sharing</strong> — Share articles using Web Share API with clipboard fallback.</li>
-</ul>
+<p>Interestingly, rather than adding each row through Notion’s UI, I record tasks in Notion Calendar, which gives a clear calendar view and lets me take notes while doing tasks.</p>
+<div class="macbook-frame" style="width:40rem;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711153915114.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Dev DB in Notion Calendar"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711153915114.webp" class="img-fluid figure-img" loading="lazy" decoding="async" alt="Dev DB in Notion Calendar"></a></p>
+<figcaption>Dev DB in Notion Calendar</figcaption>
+</figure>
+</div>
+</div>
 </section>
-<section id="tech-stack" class="level2">
-<h2 class="anchored" data-anchor-id="tech-stack">Tech Stack</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Layer</th>
-<th>Technology</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Framework</td>
-<td>Next.js 16 (App Router)</td>
-</tr>
-<tr class="even">
-<td>Language</td>
-<td>TypeScript</td>
-</tr>
-<tr class="odd">
-<td>UI</td>
-<td>React 19 + styled-components</td>
-</tr>
-<tr class="even">
-<td>Authentication</td>
-<td>Supabase Auth</td>
-</tr>
-<tr class="odd">
-<td>Database</td>
-<td>MongoDB + Mongoose</td>
-</tr>
-<tr class="even">
-<td>External API</td>
-<td>NewsAPI.org</td>
-</tr>
-</tbody>
-</table>
+<section id="progress-database" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="progress-database"><span class="header-section-number">2.2</span> Progress Database</h2>
+<p>The Change Log database records the website’s progress by phase. Each entry relates to several tasks in the Dev Track database and aggregates them into Rollup properties such as <code>Start</code> (the actual start date, where a start time before 5 AM counts toward the previous day) and <code>Hours</code> (the total time span of all tasks in the period).</p>
+<div class="macbook-frame" style="width:40rem;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122533725.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Log DB Overview"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122533725.png" class="img-fluid figure-img" loading="lazy" decoding="async" alt="Log DB Overview"></a></p>
+<figcaption>Log DB Overview</figcaption>
+</figure>
+</div>
+</div>
+<p>Formula properties compute and return formatted results. For example, the <code>Date label</code> property evaluates whether an entry’s period spans one day or several, and for the latest phase it returns <code>&lt;start&gt; - now</code>.</p>
+<div class="img-frame" style="width:35rem;">
+<p><a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711202127920.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711202127920.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+</div>
+<p>Hidden properties support these calculations: <code>_days</code> feeds <code>Days</code>, and <code>_end</code> and <code>_phase</code> feed <code>Date label</code>. The <code>_BU</code> suffix marks a backup of the original manually edited property.</p>
+<div class="img-frame" style="width:30rem;">
+<p><a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711190005529.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711190005529.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+</div>
 </section>
-<section id="architecture-highlights" class="level2">
-<h2 class="anchored" data-anchor-id="architecture-highlights">Architecture Highlights</h2>
-<ul>
-<li>Uses <strong>Next.js Server Components</strong> and API routes for efficient data fetching.</li>
-<li>Implements <strong>Supabase SSR authentication</strong> with session management.</li>
-<li>Uses <strong>MongoDB + Mongoose</strong> for persistent user interactions.</li>
-<li>Includes API-level caching for news requests to reduce external API calls.</li>
-</ul>
-<p><a href="https://github.com/Pinn32/news-hub" target="_blank">&gt;&gt; View source on GitHub</a></p>
+<section id="projects-database" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="projects-database"><span class="header-section-number">2.3</span> Projects Database</h2>
+<p>The All Projects database collects every project and displays overall rollup statistics. Each page in it also serves as a dashboard for managing the sub-database panels and chart views.</p>
+<div class="img-frame" style="width:40rem;">
+<p><a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711184901066.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711184901066.png" class="img-fluid" loading="lazy" decoding="async"></a></p>
+</div>
+</section>
+</section>
+<section id="sec-tips" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Tips for Building Sync with Formulas</h1>
+<section id="timezone" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="timezone"><span class="header-section-number">3.1</span> Timezone</h2>
+<p>After replacing the manual properties with Formulas and Rollups, I found that date Formula properties returned different values in the Notion UI and the API. For example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This Formula strips the time from the Timeline’s start date and returns a pure date. It works in the Notion UI regardless of your workspace timezone, but the API can return a different date.</p>
+<p>The cause is that <code>formatDate()</code> parses and outputs in UTC+0. If your timezone is UTC-4, the result is off by 4 hours.</p>
+<p>The fix is to pass a timezone argument to <code>formatDate()</code> whenever your timezone isn’t UTC+0.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If your location observes Daylight Saving Time, use an <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">IANA timezone name</a> such as <code>America/New_York</code> instead of <code>UTC-4</code>.</p>
+</section>
+<section id="data-type" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="data-type"><span class="header-section-number">3.2</span> Data Type</h2>
+<p>A Formula property doesn’t require a fallback for when the source property is empty. If you do set one, match the property’s own type.</p>
+<p>Avoid <code>empty()</code> as a fallback: it breaks Chart Views. For example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ifs</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* set empty() as fallback if $Timeline is empty */</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>) <span class="op">==</span> <span class="fu">empty</span>()<span class="op">,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">empty</span>()<span class="op">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* if start time is before 5am, subtract 1 day */</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">hours</span>() <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">dateSubtract</span>()</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()<span class="op">,</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* else: set start time */</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This Formula reports the actual date of a task from the <code>Timeline</code> property, counting tasks started before 5 AM toward the previous day.</p>
+<p>It works in standard views (table, list, calendar, etc.), but the property is unavailable as a Chart View X-axis.</p>
+<p>The fix is to drop the <code>empty()</code> fallback. Either leave the fallback out entirely — the property stays empty when the source is empty, yet remains available in Chart Views — or use a date such as <code>1900-01-01</code> or <code>today()</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ifs</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* date fallback if $Timeline is empty */</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>) <span class="op">==</span> <span class="fu">empty</span>()<span class="op">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">parseDate</span>(<span class="st">"1900-01-01"</span>)<span class="op">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* if start time is before 5am, subtract 1 day */</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">hours</span>() <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">dateSubtract</span>()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()<span class="op">,</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* else: set start time */</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Apply the same rule to other types: <code>""</code> for string, <code>0</code> for number, <code>false</code> for boolean, <code>[]</code> for list.</p>
+</section>
+<section id="reduce-runtime" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="reduce-runtime"><span class="header-section-number">3.3</span> Reduce Runtime</h2>
+<p>Each Rollup property fetches all content from the source database again, so a database with many Rollups can become slow to manage. Keep the number of Rollups down: instead of pulling related data through several Rollups, combine one Rollup with Formulas.</p>
 
 
 <!-- -->
@@ -1627,61 +1668,148 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
   loadGiscus();
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> 'News Hub'</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> ['Pinn Xu', 'Yuchen Bao', 'Tianpeng Xu']</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2026-04-17</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> 'Latest news feed and aggregation web app.'</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Web App, Next.js, MongoDB, Supabase, OAuth]</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260624190433396.png"</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">order:</span><span class="co"> 1</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu"># News Hub</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>NewsHub is a full-stack news aggregation web application that allows users to browse, search, filter, and interact with news articles. The application fetches real-time content from **NewsAPI.org**, supports user authentication through **Supabase Auth**, and stores user interactions such as bookmarks and likes with **MongoDB**.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>:::{style="text-align:center;"}</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Click Here to Try</span><span class="co">](https://news-hub-demo.vercel.app/)</span>{.btn .btn-outline-primary target="_blank"}</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>::: {.macbook-frame style="width:40rem;"}</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="al">![Home Page](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260624185727241.png)</span>{fig-alt="News Hub home page"}</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>Built with **Next.js 16**, **React 19**, and **TypeScript**, the project implements the App Router architecture with server-side rendering, API routes, authentication flows, and responsive UI styling using **styled-components**.</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Features</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**News browsing** — Display latest news with category filtering and keyword search.</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Article details** — View article information including title, category, author, summary, images, and source links.</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**User authentication** — Support email/password login, signup, password reset, and Google OAuth via Supabase.</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Bookmarks** — Save and manage favorite articles with persistent storage.</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Likes** — Like articles with MongoDB-based persistence.</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Sharing** — Share articles using Web Share API with clipboard fallback.</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tech Stack</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Layer <span class="pp">|</span> Technology <span class="pp">|</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="pp">| ---</span> <span class="pp">| ---</span> <span class="pp">|</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Framework <span class="pp">|</span> Next.js 16 (App Router) <span class="pp">|</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Language <span class="pp">|</span> TypeScript <span class="pp">|</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> UI <span class="pp">|</span> React 19 + styled-components <span class="pp">|</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Authentication <span class="pp">|</span> Supabase Auth <span class="pp">|</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Database <span class="pp">|</span> MongoDB + Mongoose <span class="pp">|</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> External API <span class="pp">|</span> NewsAPI.org <span class="pp">|</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="fu">## Architecture Highlights</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Uses **Next.js Server Components** and API routes for efficient data fetching.</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implements **Supabase SSR authentication** with session management.</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Uses **MongoDB + Mongoose** for persistent user interactions.</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Includes API-level caching for news requests to reduce external API calls.</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">&gt;&gt; View source on GitHub</span><span class="co">](https://github.com/Pinn32/news-hub)</span>{target="_blank"}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> 'Notion Database Auto-Sync Tips'</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> 'Pinn Xu'</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2026-07-08</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> 'Tips for Notion database Formulas &amp; Rollups when syncing via API.'</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Notion, Database, Quarto, Web Dev, Tips]</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711153915114.webp"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>I recently restructured the Notion databases behind this website's change log. The site originally relied on a single database with mostly manual properties. Although AI agents generated much of the cell content, maintaining the database by hand remained tedious.</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>Since I already tracked development tasks in a separate database through Notion Calendar, I linked the two databases and used <span class="co">[</span><span class="ot">Rollups</span><span class="co">](https://www.notion.com/help/relations-and-rollups#rollups)</span> and <span class="co">[</span><span class="ot">Formulas</span><span class="co">](https://www.notion.com/help/formula-syntax)</span> to populate the change log's properties automatically.</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>@sec-db covers the database structure and workflow, and @sec-tips shares key lessons I learned while building the auto-sync.</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="fu"># Database Structure {#sec-db}</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>This Quarto website uses two project-specific databases — one for the development track, one for the change log — plus a general database that tracks all projects. Once the databases are populated, a Python script fetches the latest data and a Lua filter renders the Change Log page. The workflow is shown below:</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- flowchart --&gt;</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712014431241.svg)</span>{.light-content}</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712014457180.svg)</span>{.dark-content}</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- flowchart --&gt;</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tasks Database</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>The Dev Track database stores each daily task as one entry. It holds a Relation property linking to the Change Log database, along with basic properties such as timeline and hours.</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>:::{.macbook-frame style="width:40rem;"}</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="al">![Dev DB Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png)</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>Interestingly, rather than adding each row through Notion's UI, I record tasks in Notion Calendar, which gives a clear calendar view and lets me take notes while doing tasks.</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>:::{.macbook-frame style="width:40rem;"}</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="al">![Dev DB in Notion Calendar](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711153915114.webp)</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Progress Database</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>The Change Log database records the website's progress by phase. Each entry relates to several tasks in the Dev Track database and aggregates them into Rollup properties such as <span class="in">`Start`</span> (the actual start date, where a start time before 5 AM counts toward the previous day) and <span class="in">`Hours`</span> (the total time span of all tasks in the period).</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>:::{.macbook-frame style="width:40rem;"}</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="al">![Log DB Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122533725.png)</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>Formula properties compute and return formatted results. For example, the <span class="in">`Date label`</span> property evaluates whether an entry's period spans one day or several, and for the latest phase it returns <span class="in">`&lt;start&gt; - now`</span>.</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>:::{.img-frame style="width:35rem;"}</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711202127920.png)</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>Hidden properties support these calculations: <span class="in">`_days`</span> feeds <span class="in">`Days`</span>, and <span class="in">`_end`</span> and <span class="in">`_phase`</span> feed <span class="in">`Date label`</span>. The <span class="in">`_BU`</span> suffix marks a backup of the original manually edited property.</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>:::{.img-frame style="width:30rem;"}</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711190005529.png)</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Projects Database</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>The All Projects database collects every project and displays overall rollup statistics. Each page in it also serves as a dashboard for managing the sub-database panels and chart views.</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>:::{.img-frame style="width:40rem;"}</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711184901066.png)</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tips for Building Sync with Formulas {#sec-tips}</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="fu">## Timezone</span></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>After replacing the manual properties with Formulas and Rollups, I found that date Formula properties returned different values in the Notion UI and the API. For example:</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="in">```js</span></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a><span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>This Formula strips the time from the Timeline's start date and returns a pure date. It works in the Notion UI regardless of your workspace timezone, but the API can return a different date.</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>The cause is that <span class="in">`formatDate()`</span> parses and outputs in UTC+0. If your timezone is UTC-4, the result is off by 4 hours.</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>The fix is to pass a timezone argument to <span class="in">`formatDate()`</span> whenever your timezone isn't UTC+0.</span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="in">```js</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>If your location observes Daylight Saving Time, use an <span class="co">[</span><span class="ot">IANA timezone name</span><span class="co">](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)</span> such as <span class="in">`America/New_York`</span> instead of <span class="in">`UTC-4`</span>.</span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Type</span></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>A Formula property doesn't require a fallback for when the source property is empty. If you do set one, match the property's own type.</span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>Avoid <span class="in">`empty()`</span> as a fallback: it breaks Chart Views. For example:</span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="in">```js</span></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a><span class="fu">ifs</span>(</span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* set empty() as fallback if $Timeline is empty */</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>) <span class="op">==</span> <span class="fu">empty</span>()<span class="op">,</span></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>    <span class="fu">empty</span>()<span class="op">,</span></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* if start time is before 5am, subtract 1 day */</span></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">hours</span>() <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">dateSubtract</span>()</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()<span class="op">,</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* else: set start time */</span></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>This Formula reports the actual date of a task from the <span class="in">`Timeline`</span> property, counting tasks started before 5 AM toward the previous day.</span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>It works in standard views (table, list, calendar, etc.), but the property is unavailable as a Chart View X-axis.</span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>The fix is to drop the <span class="in">`empty()`</span> fallback. Either leave the fallback out entirely — the property stays empty when the source is empty, yet remains available in Chart Views — or use a date such as <span class="in">`1900-01-01`</span> or <span class="in">`today()`</span>.</span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a><span class="in">```js</span></span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a><span class="fu">ifs</span>(</span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* date fallback if $Timeline is empty */</span></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>) <span class="op">==</span> <span class="fu">empty</span>()<span class="op">,</span></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>    <span class="fu">parseDate</span>(<span class="st">"1900-01-01"</span>)<span class="op">,</span></span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* if start time is before 5am, subtract 1 day */</span></span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">hours</span>() <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">dateSubtract</span>()</span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()<span class="op">,</span></span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* else: set start time */</span></span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prop</span>(<span class="st">"Timeline"</span>)<span class="op">.</span><span class="fu">dateStart</span>()<span class="op">.</span><span class="fu">formatDate</span>(<span class="st">"YYYY-MM-DD"</span><span class="op">,</span> UTC<span class="op">-</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">parseDate</span>()</span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a>Apply the same rule to other types: <span class="in">`""`</span> for string, <span class="in">`0`</span> for number, <span class="in">`false`</span> for boolean, <span class="in">`[]`</span> for list.</span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reduce Runtime</span></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>Each Rollup property fetches all content from the source database again, so a database with many Rollups can become slow to manage. Keep the number of Rollups down: instead of pulling related data through several Rollups, combine one Rollup with Formulas.</span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1691,7 +1819,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Pinn32/pinn32.github.io/edit/main/en/tools/news-hub/index.md" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/blob/main/en/tools/news-hub/index.md" target="_blank" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Pinn32/pinn32.github.io/edit/main/en/blogs/ntn-db-auto-sync/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/blob/main/en/blogs/ntn-db-auto-sync/index.qmd" target="_blank" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

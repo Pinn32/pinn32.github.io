@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-176b38be48070efe3d434d0a95bef3fe.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-2210753360370f8de62b14e6b9c97b69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-fc5b5ae47c20612bf16cc82db2cf23cb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-2210753360370f8de62b14e6b9c97b69.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-c322c6d71f2db3d8706f25d53e26ae43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-5d9429c3bf9c857d19aa2a3e4f17e22b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-c322c6d71f2db3d8706f25d53e26ae43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -121,6 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
+<link rel="stylesheet" href="../../../src/styles/style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -518,6 +519,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../zh/blogs/ntn-db-auto-sync/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notion 数据库 API 自动同步技巧</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../zh/blogs/quarto-img-styles/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto 图片居中样式</span></a>
   </div>
@@ -526,6 +533,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../../zh/blogs/recover-shellfolder/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">误移系统文件夹恢复</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../zh/blogs/vps-ssh-login-troubleshooting/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VPS SSH 连接失败排查</span></a>
   </div>
 </li>
       </ul>
@@ -640,8 +653,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     10 min read</span><span> · </span><span>430 EN words</span><span> · </span><span>2183 中文字</span></div>
-<div id="5e1f75b5" class="cell" data-execution_count="1">
+     10 min read</span><span> · </span><span>435 EN words</span><span> · </span><span>2202 中文字</span></div>
+<div id="1ac75542" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>环境和版本</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>python<span class="op">==</span><span class="fl">3.12</span></span>
@@ -655,21 +668,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p><strong>注:</strong> 使用本地环境 (如 Jupyter, VS Code 等) 需先安装 Seaborn；若使用 Google Colab, 已预置, 无需手动安装。</p>
 </blockquote>
-<div id="365aa256" class="cell" data-execution_count="2">
+<div id="5f610a35" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pip install seaborn</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="8b8fadf8" class="cell" data-execution_count="3">
+<div id="204c0047" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>matplotlib.pyplot</code> 通常缩写为 <code>plt</code>，以便快速调用绘图接口。不推荐使用完整路径：</p>
-<div id="c57b870f" class="cell" data-execution_count="4">
+<div id="2d8949d4" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>matplotlib.pyplot.plot(略)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>matplotlib.pyplot.show()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>推荐写法：</p>
-<div id="481b3e27" class="cell" data-execution_count="5">
+<div id="2ff5bc11" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt  <span class="co"># 以 'plt' 为别名导入，便于后续调用</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.plot(略)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
@@ -679,7 +692,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>plt</code>：<code>matplotlib.pyplot</code> 的别名，用于快速创建和管理图表，是日常绘图的主要接口。</li>
 </ul>
 <p><strong>参考：<a href="https://matplotlib.org/stable/api/pyplot_summary.html">matplotlib.pyplot 教程</a></strong></p>
-<div id="9f5a2314" class="cell" data-execution_count="6">
+<div id="2ad0b0ad" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'penguins'</span>)  <span class="co"># 加载企鹅示例数据集</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df.info()  <span class="co"># 查看列名、数据类型及非空值数量</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -703,7 +716,7 @@ memory usage: 18.9+ KB</code></pre>
 <p>长度、质量等浮点列为连续数值。有 true zero（0 代表”无”）的为 ratio data（如长度、质量）；无 true zero 的为 interval data（如温度）。</p>
 <p><strong>object 数据</strong></p>
 <p>种类名称（species）、岛名（island）等为 nominal data；性别（sex）为 ordinal data。</p>
-<div id="dc36b93d" class="cell" data-execution_count="7">
+<div id="2aa83714" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.head()  <span class="co"># 查看前五行</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -779,7 +792,7 @@ memory usage: 18.9+ KB</code></pre>
 </div>
 </div>
 </div>
-<div id="917c14d2" class="cell" data-execution_count="8">
+<div id="cba68bb9" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.tail()  <span class="co"># 查看后五行</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
@@ -855,7 +868,7 @@ memory usage: 18.9+ KB</code></pre>
 </div>
 </div>
 </div>
-<div id="fb42b3fc" class="cell" data-execution_count="9">
+<div id="45245009" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.sample(<span class="dv">5</span>)  <span class="co"># 随机抽取五行</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -876,54 +889,54 @@ memory usage: 18.9+ KB</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">56</th>
+<th data-quarto-table-cell-role="th">123</th>
 <td>Adelie</td>
-<td>Biscoe</td>
-<td>39.0</td>
-<td>17.5</td>
-<td>186.0</td>
-<td>3550.0</td>
-<td>Female</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">244</th>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>42.9</td>
-<td>13.1</td>
-<td>215.0</td>
-<td>5000.0</td>
-<td>Female</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">176</th>
-<td>Chinstrap</td>
-<td>Dream</td>
-<td>46.7</td>
-<td>17.9</td>
-<td>195.0</td>
-<td>3300.0</td>
-<td>Female</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">61</th>
-<td>Adelie</td>
-<td>Biscoe</td>
-<td>41.3</td>
-<td>21.1</td>
-<td>195.0</td>
-<td>4400.0</td>
+<td>Torgersen</td>
+<td>41.4</td>
+<td>18.5</td>
+<td>202.0</td>
+<td>3875.0</td>
 <td>Male</td>
 </tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">267</th>
+<tr class="even">
+<th data-quarto-table-cell-role="th">343</th>
 <td>Gentoo</td>
 <td>Biscoe</td>
-<td>50.5</td>
-<td>15.9</td>
-<td>225.0</td>
+<td>49.9</td>
+<td>16.1</td>
+<td>213.0</td>
 <td>5400.0</td>
 <td>Male</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">162</th>
+<td>Chinstrap</td>
+<td>Dream</td>
+<td>46.6</td>
+<td>17.8</td>
+<td>193.0</td>
+<td>3800.0</td>
+<td>Female</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">57</th>
+<td>Adelie</td>
+<td>Biscoe</td>
+<td>40.6</td>
+<td>18.8</td>
+<td>193.0</td>
+<td>3800.0</td>
+<td>Male</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">202</th>
+<td>Chinstrap</td>
+<td>Dream</td>
+<td>48.1</td>
+<td>16.4</td>
+<td>199.0</td>
+<td>3325.0</td>
+<td>Female</td>
 </tr>
 </tbody>
 </table>
@@ -934,11 +947,11 @@ memory usage: 18.9+ KB</code></pre>
 <p><strong>注意：函数 (function) vs.&nbsp;方法 (method)</strong></p>
 <p><code>df.info()</code>、<code>df.head()</code>、<code>df.tail()</code>、<code>df.sample()</code> 均为 DataFrame 对象的<strong>方法</strong>，必须基于具体对象调用，不可独立使用。</p>
 <p><code>pd.read_csv()</code> 为 Pandas 预定义的<strong>函数</strong>，可直接调用：</p>
-<div id="4de353bb" class="cell" data-execution_count="10">
+<div id="866548e0" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'文件路径'</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>df.sample()</code> 则为对 df 对象操作的方法：</p>
-<div id="c36c999a" class="cell" data-execution_count="11">
+<div id="b5116d8b" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df.sample(<span class="dv">4</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
@@ -959,44 +972,44 @@ memory usage: 18.9+ KB</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">249</th>
-<td>Gentoo</td>
+<th data-quarto-table-cell-role="th">58</th>
+<td>Adelie</td>
 <td>Biscoe</td>
-<td>50.0</td>
-<td>15.3</td>
-<td>220.0</td>
-<td>5550.0</td>
-<td>Male</td>
+<td>36.5</td>
+<td>16.6</td>
+<td>181.0</td>
+<td>2850.0</td>
+<td>Female</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">175</th>
-<td>Chinstrap</td>
-<td>Dream</td>
-<td>50.6</td>
-<td>19.4</td>
-<td>193.0</td>
-<td>3800.0</td>
-<td>Male</td>
+<th data-quarto-table-cell-role="th">78</th>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>36.2</td>
+<td>16.1</td>
+<td>187.0</td>
+<td>3550.0</td>
+<td>Female</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">273</th>
-<td>Gentoo</td>
-<td>Biscoe</td>
-<td>50.1</td>
-<td>15.0</td>
-<td>225.0</td>
-<td>5000.0</td>
-<td>Male</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">202</th>
+<th data-quarto-table-cell-role="th">170</th>
 <td>Chinstrap</td>
 <td>Dream</td>
-<td>48.1</td>
-<td>16.4</td>
-<td>199.0</td>
-<td>3325.0</td>
+<td>46.4</td>
+<td>18.6</td>
+<td>190.0</td>
+<td>3450.0</td>
 <td>Female</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">8</th>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>34.1</td>
+<td>18.1</td>
+<td>193.0</td>
+<td>3475.0</td>
+<td>NaN</td>
 </tr>
 </tbody>
 </table>
@@ -1011,38 +1024,38 @@ memory usage: 18.9+ KB</code></pre>
 <h2 data-number="2.1" class="anchored" data-anchor-id="用-seaborn-绘制基础柱状图"><span class="header-section-number">2.1</span> 用 Seaborn 绘制基础柱状图</h2>
 <section id="基础柱状图" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="基础柱状图"><span class="header-section-number">2.1.1</span> 基础柱状图</h3>
-<div id="b12c6f1b" class="cell" data-execution_count="12">
+<div id="8ca434d0" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 基础柱状图：x 轴为类别，y 轴默认取均值；黑色误差线为 95% 置信区间</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'island'</span>, y<span class="op">=</span><span class="st">'body_mass_g'</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-13-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="index_files/figure-html/cell-13-output-1.png" width="602" height="429" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-13-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="index_files/figure-html/cell-13-output-1.png" loading="lazy" decoding="async" width="602" height="429" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="974b8d0e" class="cell" data-execution_count="13">
+<div id="3d72e5d2" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estimator='sum'：将柱高改为求和（默认为均值）</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'island'</span>, y<span class="op">=</span><span class="st">'body_mass_g'</span>, estimator<span class="op">=</span><span class="st">'sum'</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-14-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="index_files/figure-html/cell-14-output-1.png" width="619" height="429" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-14-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="index_files/figure-html/cell-14-output-1.png" loading="lazy" decoding="async" width="619" height="429" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p><strong>参考：<a href="https://seaborn.pydata.org/generated/seaborn.barplot.html"><code>sns.barplot()</code> 函数的用法</a></strong>（<code>estimator</code> 参数）</p>
-<div id="0dc65ca7" class="cell" data-execution_count="14">
+<div id="1377a817" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sns.__version__  <span class="co"># 查看当前 Seaborn 版本（0.13 起默认单色，避免无意义的颜色区分）</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>'0.13.2'</code></pre>
 </div>
 </div>
-<div id="0f6d0074" class="cell" data-execution_count="15">
+<div id="ab49da07" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 验证：Biscoe 岛体质量均值即为柱状图对应的柱高</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df.loc[df[<span class="st">'island'</span>] <span class="op">==</span> <span class="st">'Biscoe'</span>, <span class="st">'body_mass_g'</span>].mean()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
@@ -1052,14 +1065,14 @@ memory usage: 18.9+ KB</code></pre>
 </section>
 <section id="计数图-count-plot" class="level3" data-number="2.1.2">
 <h3 data-number="2.1.2" class="anchored" data-anchor-id="计数图-count-plot"><span class="header-section-number">2.1.2</span> 计数图 (Count Plot)</h3>
-<div id="c49d31cd" class="cell" data-execution_count="16">
+<div id="259301f2" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 计数图：自动统计每个类别的出现次数</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'species'</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-17-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="index_files/figure-html/cell-17-output-1.png" width="593" height="429" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-17-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="index_files/figure-html/cell-17-output-1.png" loading="lazy" decoding="async" width="593" height="429" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1070,14 +1083,14 @@ memory usage: 18.9+ KB</code></pre>
 <section id="柱分组-去除误差线" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="柱分组-去除误差线"><span class="header-section-number">2.2</span> 柱分组 &amp; 去除误差线</h2>
 <p>使用 <code>hue</code> 参数按类别分组，设置 <code>errorbar=None</code> 去除误差线。</p>
-<div id="5edb0b4a" class="cell" data-execution_count="17">
+<div id="d0683110" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hue 按性别分组显示，errorbar=None 去除误差线</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'island'</span>, y<span class="op">=</span><span class="st">'body_mass_g'</span>, errorbar<span class="op">=</span><span class="va">None</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-18-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="index_files/figure-html/cell-18-output-1.png" width="602" height="429" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-18-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="index_files/figure-html/cell-18-output-1.png" loading="lazy" decoding="async" width="602" height="429" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1087,7 +1100,7 @@ memory usage: 18.9+ KB</code></pre>
 <section id="旋转刻度标签" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="旋转刻度标签"><span class="header-section-number">2.3</span> 旋转刻度标签</h2>
 <p>x 轴标签过长时，可用 <code>plt.xticks()</code> 旋转标签：</p>
-<div id="7ef6d11a" class="cell" data-execution_count="18">
+<div id="9730ceb8" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'island'</span>, y<span class="op">=</span><span class="st">'body_mass_g'</span>, errorbar<span class="op">=</span><span class="va">None</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 标签旋转 45°，ha='right' 使标签右端与刻度线对齐</span></span>
@@ -1096,33 +1109,33 @@ memory usage: 18.9+ KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-19-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/cell-19-output-1.png" width="602" height="472" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-19-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/cell-19-output-1.png" loading="lazy" decoding="async" width="602" height="472" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p><strong>参考：<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xticks.html"><code>plt.xticks()</code> 函数用法</a></strong>（<code>kwargs</code> 栏目）</p>
 <p><a href="https://clauswilke.com/dataviz/visualizing-amounts.html#bar-plots">Wilke (2019, chap.&nbsp;6.1)</a> 建议：标签密集时，改为横向排版比旋转标签更易读：</p>
-<div id="4ff95dca" class="cell" data-execution_count="19">
+<div id="af22ccf8" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 交换 xy 轴：标签密集时横向排版更易读</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'island'</span>, x<span class="op">=</span><span class="st">'body_mass_g'</span>, errorbar<span class="op">=</span><span class="va">None</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-20-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="index_files/figure-html/cell-20-output-1.png" width="633" height="429" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-20-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="index_files/figure-html/cell-20-output-1.png" loading="lazy" decoding="async" width="633" height="429" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>同样适用于 Count Plot：</p>
-<div id="7f65d976" class="cell" data-execution_count="20">
+<div id="b15f6d7c" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'species'</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-21-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="index_files/figure-html/cell-21-output-1.png" width="632" height="429" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-21-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="index_files/figure-html/cell-21-output-1.png" loading="lazy" decoding="async" width="632" height="429" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1130,12 +1143,12 @@ memory usage: 18.9+ KB</code></pre>
 </section>
 <section id="设置总主题风格" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="设置总主题风格"><span class="header-section-number">2.4</span> 设置总主题风格</h2>
-<div id="9f5a20a9" class="cell" data-execution_count="21">
+<div id="32af7f4a" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 设置全局绘图主题（作用于后续所有 Seaborn 图表，可用 sns.reset_orig() 还原）</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sns.set_theme(font_scale<span class="op">=</span><span class="fl">1.2</span>, style<span class="op">=</span><span class="st">'darkgrid'</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>sns.set_theme()</code> 设置全局绘图主题，作用于之后所有 Seaborn 图表。调用 <code>sns.reset_orig()</code> 可恢复默认主题。</p>
-<div id="020e2d04" class="cell" data-execution_count="22">
+<div id="75ccf294" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 定义一个图表对象 ax</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.barplot(</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'body_mass_g'</span>, y<span class="op">=</span><span class="st">'island'</span>,</span>
@@ -1148,7 +1161,7 @@ memory usage: 18.9+ KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-23-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="index_files/figure-html/cell-23-output-1.png" width="653" height="462" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-23-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="index_files/figure-html/cell-23-output-1.png" loading="lazy" decoding="async" width="653" height="462" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1167,7 +1180,7 @@ memory usage: 18.9+ KB</code></pre>
 <section id="调整图例" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="调整图例"><span class="header-section-number">2.5</span> 调整图例</h2>
 <p>无论 <code>errorbar=None</code> 还是 <code>errorbar=('ci',0)</code>，图例均可能遮挡图表，需用 <code>sns.move_legend()</code> 手动调整位置。</p>
-<div id="3d0cdc8f" class="cell" data-execution_count="23">
+<div id="8db313f1" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># errorbar=None：图例自动置于右侧</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.barplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'island'</span>, x<span class="op">=</span><span class="st">'body_mass_g'</span>, errorbar<span class="op">=</span><span class="va">None</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(title<span class="op">=</span><span class="st">'Penguin'</span>, xlabel<span class="op">=</span><span class="st">'Body Mass (g)'</span>, ylabel<span class="op">=</span><span class="st">'Island'</span>)</span>
@@ -1175,12 +1188,12 @@ memory usage: 18.9+ KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-24-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="index_files/figure-html/cell-24-output-1.png" width="653" height="462" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-24-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="index_files/figure-html/cell-24-output-1.png" loading="lazy" decoding="async" width="653" height="462" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="fd477310" class="cell" data-execution_count="24">
+<div id="48cc3411" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># errorbar=('ci', 0)：图例自动避让误差线区域</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.barplot(</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'island'</span>, x<span class="op">=</span><span class="st">'body_mass_g'</span>, </span>
@@ -1191,12 +1204,12 @@ memory usage: 18.9+ KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-25-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="index_files/figure-html/cell-25-output-1.png" width="653" height="462" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-25-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="index_files/figure-html/cell-25-output-1.png" loading="lazy" decoding="async" width="653" height="462" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="07090171" class="cell" data-execution_count="25">
+<div id="c3809dc6" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.barplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'island'</span>, x<span class="op">=</span><span class="st">'body_mass_g'</span>, errorbar<span class="op">=</span><span class="va">None</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(title<span class="op">=</span><span class="st">'Penguin'</span>, xlabel<span class="op">=</span><span class="st">'Body Mass (g)'</span>, ylabel<span class="op">=</span><span class="st">'Island'</span>)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1206,12 +1219,12 @@ memory usage: 18.9+ KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-26-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="index_files/figure-html/cell-26-output-1.png" width="653" height="549" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-26-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="index_files/figure-html/cell-26-output-1.png" loading="lazy" decoding="async" width="653" height="549" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="fb15cb6b" class="cell" data-execution_count="26">
+<div id="72d767a4" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.barplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'island'</span>, x<span class="op">=</span><span class="st">'body_mass_g'</span>, errorbar<span class="op">=</span><span class="va">None</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(title<span class="op">=</span><span class="st">'Penguin'</span>, xlabel<span class="op">=</span><span class="st">'Body Mass (g)'</span>, ylabel<span class="op">=</span><span class="st">'Island'</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>sns.move_legend(ax, loc<span class="op">=</span><span class="st">'lower right'</span>)  <span class="co"># 仅设置 loc：图例移至图表右下角</span></span>
@@ -1219,12 +1232,12 @@ memory usage: 18.9+ KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-27-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="index_files/figure-html/cell-27-output-1.png" width="653" height="462" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-27-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="index_files/figure-html/cell-27-output-1.png" loading="lazy" decoding="async" width="653" height="462" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="6483d1b5" class="cell" data-execution_count="27">
+<div id="bb43815d" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.barplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'island'</span>, x<span class="op">=</span><span class="st">'body_mass_g'</span>, errorbar<span class="op">=</span><span class="va">None</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(title<span class="op">=</span><span class="st">'Penguin'</span>, xlabel<span class="op">=</span><span class="st">'Body Mass (g)'</span>, ylabel<span class="op">=</span><span class="st">'Island'</span>)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1234,7 +1247,7 @@ memory usage: 18.9+ KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-28-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="index_files/figure-html/cell-28-output-1.png" width="784" height="462" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-28-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="index_files/figure-html/cell-28-output-1.png" loading="lazy" decoding="async" width="784" height="462" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1255,7 +1268,7 @@ memory usage: 18.9+ KB</code></pre>
 <li><strong>混合色</strong>：<code>'blend:&lt;color1&gt;,&lt;color2&gt;'</code></li>
 <li><strong>颜色代码列表</strong>：十六进制（<code>['#FF5733', '#33FF57']</code>）、RGB 元组、Matplotlib 颜色名称</li>
 </ol>
-<div id="8c4015c3" class="cell" data-execution_count="28">
+<div id="fe45f62b" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 默认调色板</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.barplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'island'</span>, x<span class="op">=</span><span class="st">'body_mass_g'</span>, errorbar<span class="op">=</span><span class="va">None</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(title<span class="op">=</span><span class="st">'Penguin'</span>, xlabel<span class="op">=</span><span class="st">'Body Mass (g)'</span>, ylabel<span class="op">=</span><span class="st">'Island'</span>)</span>
@@ -1264,12 +1277,12 @@ memory usage: 18.9+ KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-29-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="index_files/figure-html/cell-29-output-1.png" width="784" height="462" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-29-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="index_files/figure-html/cell-29-output-1.png" loading="lazy" decoding="async" width="784" height="462" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="46d2d60a" class="cell" data-execution_count="29">
+<div id="aa410459" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># palette='flare'：使用 Seaborn 预设调色板</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.barplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'island'</span>, x<span class="op">=</span><span class="st">'body_mass_g'</span>, errorbar<span class="op">=</span><span class="va">None</span>, hue<span class="op">=</span><span class="st">'sex'</span>, palette<span class="op">=</span><span class="st">'flare'</span>)</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(title<span class="op">=</span><span class="st">'Penguin'</span>, xlabel<span class="op">=</span><span class="st">'Body Mass (g)'</span>, ylabel<span class="op">=</span><span class="st">'Island'</span>)</span>
@@ -1278,12 +1291,12 @@ memory usage: 18.9+ KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-30-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="index_files/figure-html/cell-30-output-1.png" width="784" height="462" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-30-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="index_files/figure-html/cell-30-output-1.png" loading="lazy" decoding="async" width="784" height="462" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="c87118c1" class="cell" data-execution_count="30">
+<div id="c4823d60" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># palette 传入 Matplotlib 颜色名称列表</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.barplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'island'</span>, x<span class="op">=</span><span class="st">'body_mass_g'</span>, errorbar<span class="op">=</span><span class="va">None</span>, hue<span class="op">=</span><span class="st">'sex'</span>, palette<span class="op">=</span>[<span class="st">'blue'</span>, <span class="st">'orange'</span>])</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(title<span class="op">=</span><span class="st">'Penguin'</span>, xlabel<span class="op">=</span><span class="st">'Body Mass (g)'</span>, ylabel<span class="op">=</span><span class="st">'Island'</span>)</span>
@@ -1292,12 +1305,12 @@ memory usage: 18.9+ KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-31-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="index_files/figure-html/cell-31-output-1.png" width="784" height="462" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-31-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="index_files/figure-html/cell-31-output-1.png" loading="lazy" decoding="async" width="784" height="462" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="95c09103" class="cell" data-execution_count="31">
+<div id="5afbf24a" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># palette 传入十六进制颜色代码列表</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.barplot(</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'island'</span>, x<span class="op">=</span><span class="st">'body_mass_g'</span>, </span>
@@ -1309,7 +1322,7 @@ memory usage: 18.9+ KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-32-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="index_files/figure-html/cell-32-output-1.png" width="784" height="462" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-32-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="index_files/figure-html/cell-32-output-1.png" loading="lazy" decoding="async" width="784" height="462" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1325,7 +1338,7 @@ memory usage: 18.9+ KB</code></pre>
 <h2 class="unnumbered anchored" data-anchor-id="拓展统计每个岛屿的企鹅数量">拓展：统计每个岛屿的企鹅数量</h2>
 <p>以下两种方式等效，可用于后续按总量排序柱状图。</p>
 <p><strong>法1：<code>df.groupby().size()</code></strong></p>
-<div id="5a982156" class="cell" data-execution_count="32">
+<div id="af818e42" class="cell" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 按 island 分组后统计每组行数</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'island'</span>).size()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
@@ -1337,7 +1350,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p><strong>法2：<code>df.value_counts()</code></strong></p>
-<div id="2d24eabb" class="cell" data-execution_count="33">
+<div id="6a923a20" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 统计 island 列中各值的出现次数</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>df.value_counts(<span class="st">'island'</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
@@ -1356,14 +1369,14 @@ Name: count, dtype: int64</code></pre>
 <h2 data-number="3.1" class="anchored" data-anchor-id="点线图"><span class="header-section-number">3.1</span> 点线图</h2>
 <p>柱状图的纵轴必须从 0 开始，以保证视觉比例与数据比例一致（<a href="https://clauswilke.com/dataviz/proportional-ink.html">Wilke (2019, chap.17)</a> 的 <strong><em>Principle of Proportional Ink</em></strong>）。点线图无此限制，纵轴从数据范围起始，且 data-ink ratio 更高（干扰信息更少）。</p>
 <p>当 x 轴为 nominal data（如岛屿名称）时，各点之间无需连线。</p>
-<div id="b481a4bc" class="cell" data-execution_count="34">
+<div id="a1b1b981" class="cell" data-execution_count="34">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># linestyle='none'：x 轴为离散类别时不连线；点上下的线段为误差线</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>sns.pointplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'island'</span>, y<span class="op">=</span><span class="st">'body_mass_g'</span>, hue<span class="op">=</span><span class="st">'sex'</span>, linestyle<span class="op">=</span><span class="st">'none'</span>)</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-35-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="index_files/figure-html/cell-35-output-1.png" width="614" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-35-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="index_files/figure-html/cell-35-output-1.png" loading="lazy" decoding="async" width="614" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1373,30 +1386,30 @@ Name: count, dtype: int64</code></pre>
 <section id="直方图" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="直方图"><span class="header-section-number">3.2</span> 直方图</h2>
 <p>柱状图的 x 轴为<strong>离散类别</strong>（nominal/ordinal data）；直方图的 x 轴为<strong>连续数值区间</strong>（ratio data）。</p>
-<div id="a03ca126" class="cell" data-execution_count="35">
+<div id="b42a7ac6" class="cell" data-execution_count="35">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>)</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-36-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="index_files/figure-html/cell-36-output-1.png" width="595" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-36-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="index_files/figure-html/cell-36-output-1.png" loading="lazy" decoding="async" width="595" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="fa67bf50" class="cell" data-execution_count="36">
+<div id="b0e8aadc" class="cell" data-execution_count="36">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hue 分组：各岛企鹅分别绘图后叠加显示</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, hue<span class="op">=</span><span class="st">'island'</span>)</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-37-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="index_files/figure-html/cell-37-output-1.png" width="595" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-37-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="index_files/figure-html/cell-37-output-1.png" loading="lazy" decoding="async" width="595" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="6933c657" class="cell" data-execution_count="37">
+<div id="d3ca6390" class="cell" data-execution_count="37">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 统一 y 轴范围，对比有无 hue 分组的差异</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>)</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
@@ -1407,19 +1420,19 @@ Name: count, dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-38-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="index_files/figure-html/cell-38-output-1.png" width="595" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-38-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="index_files/figure-html/cell-38-output-1.png" loading="lazy" decoding="async" width="595" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-38-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="index_files/figure-html/cell-38-output-2.png" width="595" height="447" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-38-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="index_files/figure-html/cell-38-output-2.png" loading="lazy" decoding="async" width="595" height="447" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="e1f9b526" class="cell" data-execution_count="38">
+<div id="e9bfd441" class="cell" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>,</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'island'</span>,</span>
@@ -1430,7 +1443,7 @@ Name: count, dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-39-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="index_files/figure-html/cell-39-output-1.png" width="609" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-39-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="index_files/figure-html/cell-39-output-1.png" loading="lazy" decoding="async" width="609" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1445,7 +1458,7 @@ Name: count, dtype: int64</code></pre>
 <li><code>'percent'</code>：bin 高度 = (频数 / 总数) × 100，所有 bin 高度之和为 100。</li>
 <li><code>'density'</code>：bin 高度 = 频率 / 组距，所有 bin <strong>面积</strong>之和为 1（频率分布直方图）。当 bin 宽度趋近于 0 时，即得到平滑密度曲线。</li>
 </ul>
-<div id="dbee6306" class="cell" data-execution_count="39">
+<div id="11023a64" class="cell" data-execution_count="39">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># stat='count'：柱高 = bin 内数据点数量</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.histplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, stat<span class="op">=</span><span class="st">'count'</span>)</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1464,12 +1477,12 @@ Name: count, dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-40-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img src="index_files/figure-html/cell-40-output-1.png" width="595" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-40-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img src="index_files/figure-html/cell-40-output-1.png" loading="lazy" decoding="async" width="595" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="4c9fbca3" class="cell" data-execution_count="40">
+<div id="7b81173c" class="cell" data-execution_count="40">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># stat='frequency'：柱高 = 频数 / bin 宽度</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.histplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, stat<span class="op">=</span><span class="st">'frequency'</span>)</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> ax.patches:</span>
@@ -1483,12 +1496,12 @@ Name: count, dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-41-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img src="index_files/figure-html/cell-41-output-1.png" width="595" height="445" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-41-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img src="index_files/figure-html/cell-41-output-1.png" loading="lazy" decoding="async" width="595" height="445" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="7b5061c0" class="cell" data-execution_count="41">
+<div id="6127cf5f" class="cell" data-execution_count="41">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># stat='probability'：柱高 = 频数 / 总数，所有柱高之和为 1</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.histplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, stat<span class="op">=</span><span class="st">'probability'</span>)</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> ax.patches:</span>
@@ -1502,12 +1515,12 @@ Name: count, dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-42-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img src="index_files/figure-html/cell-42-output-1.png" width="609" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-42-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img src="index_files/figure-html/cell-42-output-1.png" loading="lazy" decoding="async" width="609" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="a64672c5" class="cell" data-execution_count="42">
+<div id="4436fe81" class="cell" data-execution_count="42">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># stat='percent'：柱高 = (频数 / 总数) × 100，所有柱高之和为 100</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.histplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, stat<span class="op">=</span><span class="st">'percent'</span>)</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> ax.patches:</span>
@@ -1521,12 +1534,12 @@ Name: count, dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-43-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img src="index_files/figure-html/cell-43-output-1.png" width="595" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-43-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img src="index_files/figure-html/cell-43-output-1.png" loading="lazy" decoding="async" width="595" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="9c4d94d6" class="cell" data-execution_count="43">
+<div id="92aeebcd" class="cell" data-execution_count="43">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># stat='density'：柱高 = 频率 / 组距，所有 bin 面积之和为 1</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.histplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, stat<span class="op">=</span><span class="st">'density'</span>)</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> ax.patches:</span>
@@ -1540,7 +1553,7 @@ Name: count, dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-44-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img src="index_files/figure-html/cell-44-output-1.png" width="619" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-44-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img src="index_files/figure-html/cell-44-output-1.png" loading="lazy" decoding="async" width="619" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1553,7 +1566,7 @@ Name: count, dtype: int64</code></pre>
 <li><code>common_norm=True</code>：基于<strong>整个数据集</strong>归一化，不同组间的 bin 高度可直接比较。</li>
 <li><code>common_norm=False</code>：各<strong>子组独立</strong>归一化，bin 高度仅在组内有意义。</li>
 </ul>
-<div id="c7a1ae2c" class="cell" data-execution_count="44">
+<div id="fd8f1eed" class="cell" data-execution_count="44">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, hue<span class="op">=</span><span class="st">'island'</span>, </span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    stat<span class="op">=</span><span class="st">'density'</span>, common_norm<span class="op">=</span><span class="va">True</span>, <span class="co"># 整体归一化：所有组的 bin 面积总和为 1</span></span>
@@ -1562,12 +1575,12 @@ Name: count, dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-45-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29"><img src="index_files/figure-html/cell-45-output-1.png" width="629" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-45-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29"><img src="index_files/figure-html/cell-45-output-1.png" loading="lazy" decoding="async" width="629" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="7db27852" class="cell" data-execution_count="45">
+<div id="d995e6d6" class="cell" data-execution_count="45">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, hue<span class="op">=</span><span class="st">'island'</span>,</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    stat<span class="op">=</span><span class="st">'density'</span>, common_norm<span class="op">=</span><span class="va">False</span>, <span class="co"># 各组独立归一化: 每组 bin 面积之和分别为 1</span></span>
@@ -1576,13 +1589,13 @@ Name: count, dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-46-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30"><img src="index_files/figure-html/cell-46-output-1.png" width="609" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-46-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30"><img src="index_files/figure-html/cell-46-output-1.png" loading="lazy" decoding="async" width="609" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>分组重叠不清晰时，可用 <code>data=df[df['列']==值]</code> 筛选数据，为各组分别绘图：</p>
-<div id="45e2877e" class="cell" data-execution_count="46">
+<div id="92169810" class="cell" data-execution_count="46">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 分岛绘图，避免分组叠加，逐一观察各岛分布</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.histplot(</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df[df[<span class="st">'island'</span>] <span class="op">==</span> <span class="st">'Torgersen'</span>], </span>
@@ -1607,21 +1620,21 @@ Name: count, dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-47-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31"><img src="index_files/figure-html/cell-47-output-1.png" width="609" height="462" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-47-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31"><img src="index_files/figure-html/cell-47-output-1.png" loading="lazy" decoding="async" width="609" height="462" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-47-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32"><img src="index_files/figure-html/cell-47-output-2.png" width="619" height="462" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-47-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32"><img src="index_files/figure-html/cell-47-output-2.png" loading="lazy" decoding="async" width="619" height="462" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-47-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-33"><img src="index_files/figure-html/cell-47-output-3.png" width="609" height="462" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-47-output-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-33"><img src="index_files/figure-html/cell-47-output-3.png" loading="lazy" decoding="async" width="609" height="462" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1640,30 +1653,30 @@ Name: count, dtype: int64</code></pre>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../../../src/img/ttl/amt-dist/normal-dist.png" class="lightbox" data-gallery="quarto-lightbox-gallery-34" title="正态分布图 &amp; IQR"><img src="../../../src/img/ttl/amt-dist/normal-dist.png" class="img-fluid figure-img" alt="正态分布图 &amp; IQR"></a></p>
+<p><a href="../../../src/img/ttl/amt-dist/normal-dist.png" class="lightbox" data-gallery="quarto-lightbox-gallery-34" title="正态分布图 &amp; IQR"><img src="../../../src/img/ttl/amt-dist/normal-dist.png" class="img-fluid figure-img" loading="lazy" decoding="async" alt="正态分布图 &amp; IQR"></a></p>
 <figcaption>正态分布图 &amp; IQR</figcaption>
 </figure>
 </div>
 <p><strong>箱线图 vs.&nbsp;直方图</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../../../src/img/ttl/amt-dist/boxplot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35" title="箱线图"><img src="../../../src/img/ttl/amt-dist/boxplot.png" class="img-fluid figure-img" alt="箱线图"></a></p>
+<p><a href="../../../src/img/ttl/amt-dist/boxplot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35" title="箱线图"><img src="../../../src/img/ttl/amt-dist/boxplot.png" class="img-fluid figure-img" loading="lazy" decoding="async" alt="箱线图"></a></p>
 <figcaption>箱线图</figcaption>
 </figure>
 </div>
 <p>箱线图适合快速识别分布概况与异常值；直方图适合查看具体区间内的频率分布。</p>
-<div id="d1a88b50" class="cell" data-execution_count="47">
+<div id="222c4876" class="cell" data-execution_count="47">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, y<span class="op">=</span><span class="st">'island'</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-48-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36"><img src="index_files/figure-html/cell-48-output-1.png" width="653" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-48-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36"><img src="index_files/figure-html/cell-48-output-1.png" loading="lazy" decoding="async" width="653" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="f34a8d84" class="cell" data-execution_count="48">
+<div id="a42d4548" class="cell" data-execution_count="48">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, y<span class="op">=</span><span class="st">'island'</span>, hue<span class="op">=</span><span class="st">'sex'</span>,</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>    fliersize<span class="op">=</span><span class="dv">8</span>,  <span class="co"># fliersize: 异常点大小（默认 5）</span></span>
@@ -1672,12 +1685,12 @@ Name: count, dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-49-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-37"><img src="index_files/figure-html/cell-49-output-1.png" width="653" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-49-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-37"><img src="index_files/figure-html/cell-49-output-1.png" loading="lazy" decoding="async" width="653" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="ff1c646d" class="cell" data-execution_count="49">
+<div id="3f30c2c0" class="cell" data-execution_count="49">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, y<span class="op">=</span><span class="st">'island'</span>, hue<span class="op">=</span><span class="st">'sex'</span>, fliersize<span class="op">=</span><span class="dv">8</span>,</span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>    whis<span class="op">=</span><span class="dv">2</span>,  <span class="co"># whisker:须延伸至 Q1/Q3 ± 2×IQR（默认 1.5），更大值减少异常点</span></span>
@@ -1686,7 +1699,7 @@ Name: count, dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-50-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-38"><img src="index_files/figure-html/cell-50-output-1.png" width="653" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-50-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-38"><img src="index_files/figure-html/cell-50-output-1.png" loading="lazy" decoding="async" width="653" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1696,18 +1709,18 @@ Name: count, dtype: int64</code></pre>
 <section id="小提琴图" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="小提琴图"><span class="header-section-number">3.4</span> 小提琴图</h2>
 <p>小提琴图结合了箱线图（中位数、分位数）与密度曲线（平滑分布）的特点。数据量较少时，平滑曲线可能失真，建议改用直方图或箱线图。</p>
-<div id="bb832c15" class="cell" data-execution_count="50">
+<div id="8626b441" class="cell" data-execution_count="50">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>sns.violinplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'island'</span>, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-51-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-39"><img src="index_files/figure-html/cell-51-output-1.png" width="653" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-51-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-39"><img src="index_files/figure-html/cell-51-output-1.png" loading="lazy" decoding="async" width="653" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="0df75acd" class="cell" data-execution_count="51">
+<div id="7aa7698c" class="cell" data-execution_count="51">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># split=True: 将同类别的两组合并为同一小提琴，便于对比分布形态</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>sns.violinplot(</span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'island'</span>, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, hue<span class="op">=</span><span class="st">'sex'</span>, </span>
@@ -1717,7 +1730,7 @@ Name: count, dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-52-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-40"><img src="index_files/figure-html/cell-52-output-1.png" width="653" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-52-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-40"><img src="index_files/figure-html/cell-52-output-1.png" loading="lazy" decoding="async" width="653" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1784,24 +1797,24 @@ Name: count, dtype: int64</code></pre>
 </tr>
 </tbody>
 </table>
-<div id="42467251" class="cell" data-execution_count="52">
+<div id="ba95e571" class="cell" data-execution_count="52">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>sns.stripplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, y<span class="op">=</span><span class="st">'island'</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-53-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-41"><img src="index_files/figure-html/cell-53-output-1.png" width="653" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-53-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-41"><img src="index_files/figure-html/cell-53-output-1.png" loading="lazy" decoding="async" width="653" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="ceed91d7" class="cell" data-execution_count="53">
+<div id="56248abd" class="cell" data-execution_count="53">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'flipper_length_mm'</span>, y<span class="op">=</span><span class="st">'island'</span>, hue<span class="op">=</span><span class="st">'sex'</span>)</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-54-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-42"><img src="index_files/figure-html/cell-54-output-1.png" width="653" height="440" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-54-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-42"><img src="index_files/figure-html/cell-54-output-1.png" loading="lazy" decoding="async" width="653" height="440" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1869,6 +1882,9 @@ Name: count, dtype: int64</code></pre>
     5. script-fix-sidebar-search Replace the dead sidebar search box with a working button
     6. script-fix-tag-redirect   Redirect post-page tag links to their listing page
     7. script-copyright-year     Update the copyright year in the footer
+    8. script-mermaid-early      Render Mermaid diagrams at parse time, not on window.load
+    9. script-lst-wrap-output    Pull knitr's output cell into the listing <figure> (like Jupyter)
+   10. script-lst-caption-below  Move code-listing (lst) captions below the output
 
     Page-specific scripts (responsive-tag-bar, post-type-filter)
     live in their own files and are included separately.
@@ -2139,11 +2155,127 @@ Name: count, dtype: int64</code></pre>
 <!-- ====================================================================== -->
 <script id="script-copyright-year">
     // Update the copyright year in the footer
-    
+
     document.addEventListener("DOMContentLoaded", function () {
         const el = document.getElementById("copyright-year");
         if (el) el.textContent = new Date().getFullYear();
     });
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-mermaid-early">
+    // Render Mermaid diagrams at parse time instead of on window.load.
+    //
+    // Quarto's mermaid-init.js renders diagrams inside a `window.load` handler
+    // (it sets startOnLoad:false). `load` only fires after every blocking image
+    // has downloaded, so a page full of large images makes the diagram appear
+    // late. This runs inline at end of <body> — by which point the parser-
+    // blocking mermaid library in <head> has already initialized and the
+    // diagram's <pre> is in the DOM — so the diagram renders with minimal
+    // latency, independent of image loading (which `image-lazy-loading` keeps
+    // from competing for bandwidth).
+    //
+    // We replicate ONLY mermaid-init's render+swap step, leaving the DOM in the
+    // exact state Quarto's own load handler expects: its first loop then finds
+    // no unrendered `pre.mermaid-js` (skips a re-render) while its second loop
+    // still runs postProcess() on our SVG for final sizing/alignment. On any
+    // error we leave the <pre> untouched so Quarto's load handler renders it.
+    (async () => {
+        const pending = Array.from(document.querySelectorAll("pre.mermaid-js"));
+        if (!pending.length || !window.mermaid || !mermaid.mermaidAPI) return;
+
+        let i = 0;
+        for (const el of pending) {
+            try {
+                const text = el.textContent.replaceAll("&nbsp;", " ");
+                const { svg: output } = await mermaid.mermaidAPI.render(
+                    `mermaid-early-${++i}`, text, el
+                );
+                el.innerHTML = output;
+                if (el.dataset.label) {
+                    // patch mermaid's emitted style to use the figure's label id
+                    const svg = el.firstChild;
+                    const style = svg.querySelector("style");
+                    style.innerHTML = style.innerHTML.replaceAll(
+                        `#${svg.id}`, `#${el.dataset.label}-mermaid`
+                    );
+                    svg.id = el.dataset.label + "-mermaid";
+                    delete el.dataset.label;
+                }
+                const svg = el.querySelector("svg");
+                const parent = el.parentElement;
+                parent.removeChild(el);
+                parent.appendChild(svg);
+                svg.classList.add("mermaid-js");
+            } catch (e) {
+                // Leave this <pre> in place; Quarto's window.load handler renders it.
+            }
+        }
+    })();
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-lst-wrap-output">
+    // Make knitr code-listings wrap BOTH the input (code) and output cell inside the
+    // <figure>, matching the Jupyter engine's structure.
+    //
+    // Quarto's two engines lay out executable listings differently:
+    //   • Jupyter — the output (.cell-output) already lives INSIDE the <figure>, so the
+    //               listing element (`<div id="lst-…">`) contains code + output.
+    //   • knitr   — the <figure> holds only the code; the output is a SIBLING of the
+    //               listing <div>, both wrapped in an outer .cell. So `<div id="lst-…">`
+    //               contains code ONLY.
+    // Quarto's in-text crossref hover (see the `a.quarto-xref` tippy handler) previews a
+    // reference by cloning `getElementById(id).innerHTML` — the listing <div>. Under knitr
+    // that div excludes the output, so hovering `@lst-…` showed only the code. Pulling the
+    // output into the figure's content wrapper fixes the preview AND unifies the DOM with
+    // Jupyter, so the caption step below can treat both engines identically.
+    //
+    // Runs inline at end of <body> (before paint) and before script-lst-caption-below.
+    (() => {
+        document.querySelectorAll('figure.quarto-float-lst').forEach(figure => {
+            const listing = figure.closest('.listing');
+            if (!listing) return;
+            // knitr's outer wrapper: a .cell holding the listing div + its output siblings.
+            // (Jupyter's listing div is itself .cell, but its parent is not, so it's skipped.)
+            const cell = listing.parentElement;
+            if (!cell || !cell.classList.contains('cell')) return;
+            const outputs = [...cell.children].filter(
+                el => el !== listing && el.classList.contains('cell-output'));
+            if (!outputs.length) return;
+            const content = figure.querySelector(':scope > [aria-describedby]') || figure;
+            outputs.forEach(out => content.appendChild(out));
+        });
+    })();
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-lst-caption-below">
+    // Move code-listing (lst-cap) captions below the output, uniformly for both engines.
+    //
+    // Quarto emits the listing <figcaption> at the TOP of the <figure>. After
+    // script-lst-wrap-output has run, every executable listing has its output inside the
+    // <figure>, so appending the caption as the LAST child of the listing <div>
+    // (`figure.closest('.listing')`) lands it after the output (executable) or after the
+    // code (textual) in every case — a single CSS rule then styles all three identically,
+    // with no flex/order:999 reversal. Keeping the caption inside the listing <div> (the
+    // element the crossref hover clones) also means the hover preview includes the caption.
+    //
+    // Runs inline at end of <body>: the listing DOM is already parsed and the move
+    // happens before paint, so the caption never flashes at the top first.
+    (() => {
+        document.querySelectorAll('figure.quarto-float-lst > figcaption.quarto-float-caption').forEach(cap => {
+            const figure = cap.parentElement;
+            const container = figure.closest('.listing');
+            if (!container) return;
+            container.appendChild(cap);
+            cap.classList.remove('quarto-float-caption-top');
+            cap.classList.add('quarto-float-caption-bottom');
+        });
+    })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
