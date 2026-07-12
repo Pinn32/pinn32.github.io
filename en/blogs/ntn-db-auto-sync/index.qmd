@@ -47,7 +47,7 @@ The Change Log database records the website's progress by phase. Each entry rela
 ![Log DB Overview](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122533725.png)
 :::
 
-Formula properties compute and return formatted results. For example, the `Date label` property evaluates whether an entry's period spans one day or several, and for the latest phase it returns `<date> - now`.
+Formula properties compute and return formatted results. For example, the `Date label` property evaluates whether an entry's period spans one day or several, and for the latest phase it returns `<start> - now`.
 
 :::{.img-frame style="width:35rem;"}
 ![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711202127920.png)

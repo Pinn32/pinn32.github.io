@@ -233,7 +233,7 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - dev: 新增 GitHub Actions 保持 Supabase 和 MongoDB 活跃；完善 `.gitignore`；把 About 加进导航
 - contnt: (外部站点) 搭建 Bayanihan demo；优化短链接生成器页脚
 
-## 阶段 7 · 更新日志、Notion同步MCS与UI设计项目 {range="Jul 3 - now"}
+## 阶段 7 · 自动化更新日志、UI项目与博客 {range="Jul 3 - now"}
 
 ### 更新日志 {date="Jul 3" iso="2026-07-03T10:30:00.000-04:00" commits="5" hours="11.5" days="1"}
 
@@ -274,3 +274,22 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - dev: 优化并精简 Notion Change Log 库属性，避免加载卡顿
 - fix: 修复更新日志数据库同步问题 (Notion UI 和 API 不一致问题)；优化 Python 和 Lua 脚本
 - blg: 开始撰写 Notion 数据库自动同步注意事项
+
+### 图片延迟加载 & 代码交叉引用 {date="Jul 9" iso="2026-07-09T11:00:00.000-04:00" commits="6" hours="8" days="1"}
+
+优化图片加载与交叉引用功能，完善图片与 SCSS 样式，并新增 Notion 数据库自动同步博客
+
+- fix: 图片延迟加载，优先加载 Mermaid
+- blg: Notion 数据库自动同步（ntn-db-auto-sync）
+- feat: 启用 macbook-frame 和 img-frame，并将 figcaption 显示在顶部栏
+- feat: 启用代码列表 (lst) 交叉引用
+- fix: 修复可执行代码单元中的交叉引用失效问题，并自定义样式 (lst-cap 移至底部居中)
+- style: 重构 SCSS：提取公共样式，仅保留变量
+
+### Notion 库自动同步技巧 & VPS 连接失败排查博客 {date="Jul 10 - Jul 11" iso="2026-07-10T12:15:00.000-04:00" commits="3" hours="6.5" days="2"}
+
+新增两篇博客: VPS 登录失败排查、Notion 库自动同步技巧，并修复 SVG 自动切换主题问题
+
+- blg: VPS SSH 登录失败排查
+- blg: Notion 数据库自动同步（中英文）
+- fix: 修复 SVG（draw.io 流程图）根据系统设置切换主题

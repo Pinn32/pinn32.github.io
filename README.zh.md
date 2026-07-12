@@ -134,7 +134,7 @@ output:
 在 RStudio 中点击 `Knit`，或在 R 控制台运行 `rmarkdown::render("index.Rmd")` 构建 HTML。
 
 
-## 从 Notion 数据库获取变更日志
+## 从 Notion 数据库获取更新日志
 
 将 `scripts/notion-changelog.json` 中的 `"database_id"` 替换为你自己的数据库 ID，然后运行：
 

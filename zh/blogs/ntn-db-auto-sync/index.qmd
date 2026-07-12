@@ -9,16 +9,16 @@ image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711153
 
 # 引言
 
-我最近重构了本站变更日志（Change Log）背后的 Notion 数据库。此前站点依赖单个数据库，其中大多是手动维护的属性。尽管单元格内容大多由 AI agent 生成，手动维护这个数据库依然繁琐。
+我最近重构了本站更新日志（Change Log）背后的 Notion 数据库。此前站点依赖单个数据库，其中大多是手动维护的属性。尽管单元格内容大多由 AI agent 生成，手动维护这个数据库依然繁琐。
 
-由于我本就通过 Notion Calendar 在另一个数据库中记录开发任务，于是我将两个数据库关联起来，借助 [Rollup](https://www.notion.com/help/relations-and-rollups#rollups) 与 [Formula](https://www.notion.com/help/formula-syntax) 自动填充变更日志的属性。
+由于我本就通过 Notion Calendar 在另一个数据库中记录开发任务，于是我将两个数据库关联起来，借助 [Rollup](https://www.notion.com/help/relations-and-rollups#rollups) 与 [Formula](https://www.notion.com/help/formula-syntax) 自动填充更新日志的属性。
 
 @sec-db 介绍数据库结构与工作流，@sec-tips 分享我在搭建自动同步过程中总结的关键经验。
 
 
 # 数据库结构 {#sec-db}
 
-本 Quarto 站点使用两个项目专属数据库——一个用于开发进度（Dev Track），一个用于变更日志（Change Log）——外加一个统管所有项目的通用数据库。数据库填充完成后，Python 脚本会拉取最新数据，再由 Lua 过滤器渲染出 Change Log 页面。工作流如下：
+本 Quarto 站点使用两个项目专属数据库——一个用于开发进度 (Dev Track)，一个用于更新日志 (Change Log) ，外加一个统管所有项目的通用数据库。数据库填充完成后，Python 脚本会拉取最新数据，再由 Lua 过滤器渲染出 Change Log 页面。工作流如下：
 
 <!-- flowchart -->
 ![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712013355165.svg){.light-content}
@@ -28,13 +28,13 @@ image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711153
 
 ## 任务数据库
 
-Dev Track 数据库将每项日常任务存为一条记录。它有一个 Relation 属性关联到 Change Log 数据库，此外还包含时间线、时长等基础属性。
+Dev Track 数据库将每项日常任务存为一条记录。其中一个 Relation 属性关联到 Change Log 数据库，此外还包含时间线、时长等基础属性。
 
 :::{.macbook-frame style="width:40rem;"}
 ![Dev 数据库总览](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709123408098.png)
 :::
 
-我并不通过 Notion 界面逐行添加记录，而是用 Notion Calendar 记录任务：它提供清晰的日历视图，也方便我在做任务时随手记笔记。
+值得一提的是，我并非通过 Notion 界面逐行添加记录，而是用 Notion Calendar 记录任务。它提供清晰的日历视图，也便于我在做事时随手记笔记。
 
 :::{.macbook-frame style="width:40rem;"}
 ![Notion Calendar 中的 Dev 数据库](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711153915114.webp)
@@ -42,19 +42,19 @@ Dev Track 数据库将每项日常任务存为一条记录。它有一个 Relati
 
 ## 进度数据库
 
-Change Log 数据库按阶段记录站点的开发进度。每条记录关联 Dev Track 数据库中的若干任务，并将它们汇总为 Rollup 属性，例如 `Start`（实际开始日期：开始时间早于凌晨 5 点的任务计入前一天）和 `Hours`（该阶段内所有任务的总时间跨度）。
+Change Log 数据库按阶段记录站点的开发进度。每条记录关联了 Dev Track 数据库中的若干任务，并将它们汇总为 Rollup 属性。例如 `Start` (实际开始日期：开始时间早于凌晨 5 点的任务计入前一天) 和 `Hours`（该阶段内所有任务的总时间跨度）。
 
 :::{.macbook-frame style="width:40rem;"}
 ![Log 数据库总览](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260709122533725.png)
 :::
 
-Formula 属性负责计算并返回格式化结果。例如 `Date label` 属性会判断某条记录的时间跨度是一天还是多天，对最新阶段则返回 `<date> - now`。
+Formula 属性负责计算并返回格式化的结果。例如 `Date label` 属性会判断某条记录的时间跨度是一天还是多天，同时对于最新阶段返回 `<start> - now`。
 
 :::{.img-frame style="width:35rem;"}
 ![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711202127920.png)
 :::
 
-还有一些隐藏属性支撑这些计算：`_days` 供 `Days` 使用，`_end` 与 `_phase` 供 `Date label` 使用。`_BU` 后缀表示“备份”（backup），即原先手动编辑属性的备份。
+此外还有一些隐藏属性支撑这些计算：`_days` 供 `Days` 使用，`_end` 与 `_phase` 供 `Date label` 使用。`_BU` 后缀则表示“备份” (backup)，即原先手动编辑属性的备份。
 
 :::{.img-frame style="width:30rem;"}
 ![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711190005529.png)
@@ -63,7 +63,7 @@ Formula 属性负责计算并返回格式化结果。例如 `Date label` 属性�
 
 ## 项目数据库
 
-All Projects 数据库汇集所有项目并展示整体的 Rollup 统计。其中每个页面同时也是一个仪表盘，用于管理各子数据库面板与图表视图。
+All Projects 数据库汇集所有项目并展示整体 Rollup 统计。其中每一行同时也是一个汇总页面，用于管理各子数据库，并展示图表等信息。
 
 
 :::{.img-frame style="width:40rem;"}
@@ -139,4 +139,4 @@ ifs(
 
 
 ## 降低运行开销
-每个 Rollup 属性都会重新从源数据库拉取全部内容，因此 Rollup 过多的数据库在维护时可能变得很慢。应尽量减少 Rollup 数量：与其用多个 Rollup 分别取关联数据，不如用一个 Rollup 配合 Formula 来实现。
+每个 Rollup 属性都会重新从源数据库拉取全部内容，因此 Rollup 过多的数据库在维护时可能变得很慢。应尽量减少 Rollup 数量。与其用多个 Rollup 分别取关联数据，不如用一个 Rollup 配合 Formula 来实现。
