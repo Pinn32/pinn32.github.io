@@ -606,10 +606,10 @@ a.sidebar-item-text.sidebar-link.active > .menu-text {
         flex-direction: column;
         height: 95%;
     }
-    div.sidebar-menu-container > ul > li.sidebar-item:nth-last-child(3) {
+    /* div.sidebar-menu-container > ul > li.sidebar-item:nth-last-child(3) {
         margin-top: auto;
         padding-top: .6rem;
-    }
+    } */
 }
 
 

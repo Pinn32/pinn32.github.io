@@ -4,5 +4,6 @@ jupyter: dv-env
 sidebar: true
 number-sections: true
 back-to-top-navigation: true
+page-navigation: true
 reading-meta-enabled: true
 post-type: tutorial

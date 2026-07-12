@@ -2,7 +2,8 @@ code-tools: true
 code-fold: true
 jupyter: dv-env
 sidebar: true
+back-to-top-navigation: true
+page-navigation: true
 reading-meta-enabled: true
 number-sections: true
-back-to-top-navigation: true
 post-type: project
