@@ -3,9 +3,9 @@ title: "Colab 导出 HTML 后无法显示 Plotly 图表问题"
 author: 'Pinn Xu'
 date: 2025-10-07
 order: -20251007   # sidebar sort key: negative date => newest first
-description: ''
+description: '对于 Plotly 图表，Google Colab 内部渲染和导出 HTML 后浏览器渲染的差异。'
 categories: [Python, Colab, Plotly, 教程]
-image: ""
+image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712154436828.png"
 
 aliases:
     - ../colab-plotly-export/
