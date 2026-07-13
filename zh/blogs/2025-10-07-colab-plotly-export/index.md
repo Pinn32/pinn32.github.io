@@ -29,6 +29,12 @@ aliases:
 因此，建议在 Colab 中编辑 Notebook 时使用默认渲染器（ `fig.show()` ），在导出 HTML 前再将 `renderer` 改为 `"notebook_connected"`。
 
 
+::::{layout-ncol=2 col-gap=2}
+![在 Colab 中](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260713114416435.png)
+
+![导出的 HTML 中](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260713113909131.png)
+:::
+
 [^1]: **IPYNB 文件：**[在Colab中查看示例文件](https://colab.research.google.com/drive/1BbMO74Hw-yHjvXoj5mbD5DEZsw00RKnp?usp=drive_link) 或 <a href="../../../src/data/colab-plotly-export/renderer-test.ipynb" download>下载示例文件</a>
 
 [^2]: **HTML 文件：**[在浏览器中查看演示文件](../../../src/data/colab-plotly-export/renderer-test.html) 或 <a href="../../../src/data/colab-plotly-export/renderer-test.html" download>下载示例文件</a> 
@@ -49,6 +55,10 @@ aliases:
 %%shell
 jupyter nbconvert --to html /content/drive/MyDrive/路径/文件名.ipynb
 ```
+
+:::{.img-frame width="100%"}
+![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260713115707537.png)
+:::
 
 :::{callout-tip}
 `%%shell` 是 Google Colab 的 特殊语法 (cell magic) (Jupyter 用 `%%bash` )，用于执行一个代码单元中的 shell 命令；对于单行 shell 命令，也可以使用 `!`，如 `!pip install pyvis`。
