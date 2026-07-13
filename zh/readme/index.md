@@ -3,7 +3,7 @@ title: '项目复现说明'
 author: 'Pinn Xu'
 date: 2026-06-30
 description: '复现本 Quarto 网站，或复现网站中任意特定 R/Python 项目的说明。'
-categories: [Quarto, Web Dev, Knowhow]
+categories: [Quarto, Web Dev, 教程]
 sidebar: true
 ---
 

@@ -3,7 +3,7 @@ title: 'Reproduce This Project'
 author: 'Pinn Xu'
 date: 2026-06-30
 description: 'Instructions for reproducing this Quarto Website, or any specific R/Python projects in this website.'
-categories: [Quarto, Web Dev, Knowhow]
+categories: [Quarto, Web Dev, Tutorial]
 sidebar: true
 ---
 

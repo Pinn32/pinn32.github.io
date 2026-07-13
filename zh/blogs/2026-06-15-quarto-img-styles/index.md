@@ -5,7 +5,7 @@ date: 2026-06-15
 order: -20260615   # sidebar sort key: negative date => newest first
 description: 'Quarto Website 图片居中样式探索与悬浮预览异常解决。'
 # categories: [Quarto, CSS, 电脑技巧, 解决方案]
-categories: [Quarto, CSS, Web Dev, 教程]
+categories: [Quarto, CSS, Web Dev, 技巧]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615190606193.png"
 
 aliases: 
