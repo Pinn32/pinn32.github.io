@@ -233,7 +233,7 @@ Giscus now follows the page language, active tags toggle off on a second click, 
 - dev: add gh-actions to keep supabase and mongodb alive; refine `.gitignore`; add About to nav
 - contnt: (external sites) build Bayanihan demo; refine URL-shortener footer
 
-## Phase 7 · Automation, Change Log, UI/UX & Blogs {range="Jul 3 - now"}
+## Phase 7 · Automation, Change Log & UI/UX {range="Jul 3 - Jul 9"}
 
 ### Change Log {date="Jul 3" iso="2026-07-03T10:30:00.000-04:00" commits="5" hours="11.5" days="1"}
 
@@ -286,10 +286,23 @@ Improved image loading and cross-reference support, refined figure and SCSS styl
 - fix: crossref not working in executable cells & customize styles (mv lst-cap to buttom center)
 - style: restructure scss: extract common styles, keep only variables
 
-### Notion Database Auto Sync Tips Blog & VPS Login Troubleshooting {date="Jul 10 - Jul 11" iso="2026-07-10T12:15:00.000-04:00" commits="3" hours="6.5" days="2"}
+## Phase 8 · Blogs {range="Jul 10 - now"}
+
+### Notion DB Auto-Sync Tips & VPS Login Fix Blogs {date="Jul 10 - Jul 11" iso="2026-07-10T12:15:00.000-04:00" commits="3" hours="7.25" days="2"}
 
 Added two new blogs: VPS login troubleshooting & Notion DB auto sync tips; fixed SVG to match theme.
 
 - blg: vps-ssh-login-troubleshooting
 - blg: ntn-db-auto-sync en/zh
 - fix: svg (flowchart by draw.io) switch theme by system setting
+
+### Plotly & Network Diagram Display Fix Blogs {date="Jul 12" iso="2026-07-12T10:00:00.000-04:00" commits="6" hours="12.5" days="1"}
+
+Improved navigation, styling, blog organization, and bilingual content while refining Plotly and network diagram solutions.
+
+- feat: page-navigation (at bottom)
+- style: sidebar separator (disabled now); fix dark code-tools
+- dev: add orders by date revert to blgs; add date to all page folder name & add aliases
+- blg: zh/en fix-colab-plotly-export
+- dev: debug & test network diagram, find new solutions (denied, maintain original one)
+- blg: zh/en network diagram display
