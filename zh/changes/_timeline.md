@@ -292,9 +292,9 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 
 新增两篇博客: VPS 登录失败排查、Notion 库自动同步技巧，并修复 SVG 自动切换主题问题
 
-- blg: VPS SSH 登录失败排查
-- blg: Notion 数据库自动同步（中英文）
-- fix: 修复 SVG（draw.io 流程图）根据系统设置切换主题
+- Jul 10 · blg: Notion 数据库自动同步（中英文）
+- Jul 11 · blg: VPS SSH 登录失败排查
+- Jul 11 · fix: 修复 SVG（draw.io 流程图）根据系统设置切换主题
 
 ### Plotly图表与网络图谱渲染问题解决博客 {date="Jul 12" iso="2026-07-12T10:00:00.000-04:00" commits="6" hours="12.5" days="1"}
 

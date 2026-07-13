@@ -292,9 +292,9 @@ Improved image loading and cross-reference support, refined figure and SCSS styl
 
 Added two new blogs: VPS login troubleshooting & Notion DB auto sync tips; fixed SVG to match theme.
 
-- blg: vps-ssh-login-troubleshooting
-- blg: ntn-db-auto-sync en/zh
-- fix: svg (flowchart by draw.io) switch theme by system setting
+- Jul 10 · blg: ntn-db-auto-sync en/zh
+- Jul 11 · blg: vps-ssh-login-troubleshooting
+- Jul 11 · fix: svg (flowchart by draw.io) switch theme by system setting
 
 ### Plotly & Network Diagram Display Fix Blogs {date="Jul 12" iso="2026-07-12T10:00:00.000-04:00" commits="6" hours="12.5" days="1"}
 
