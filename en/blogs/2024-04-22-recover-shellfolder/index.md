@@ -5,7 +5,7 @@ date: 2024-04-22
 order: -20240422   # sidebar sort key: negative date => newest first
 description: "Recovering Windows shell folders such as Documents, Videos, and Pictures after they were accidentally moved to the root of a drive."
 # categories: [Windows, desktop.ini, Shell Folders, Computer Tips, Knowhow]
-categories: [Windows, Shell Folders, Tutorial]
+categories: [Windows, Tutorial]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260615210515071.png"
 # toc-expand: true
 # toc-expand-level: 2
