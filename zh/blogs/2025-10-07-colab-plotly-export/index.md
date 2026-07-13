@@ -51,5 +51,5 @@ jupyter nbconvert --to html /content/drive/MyDrive/路径/文件名.ipynb
 ```
 
 :::{callout-tip}
-`%%shell` 是 Jupyter Notebook 的 特殊语法 (cell magic)，用于执行一个代码单元中的 shell 命令；对于单行 shell 命令，也可以使用 `!`，如 `!pip install pyvis`。
+`%%shell` 是 Google Colab 的 特殊语法 (cell magic) (Jupyter 用 `%%bash` )，用于执行一个代码单元中的 shell 命令；对于单行 shell 命令，也可以使用 `!`，如 `!pip install pyvis`。
 :::

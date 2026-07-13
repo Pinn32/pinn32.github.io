@@ -1,9 +1,9 @@
 ---
-title: "Plotly Charts Not Showing After Exporting HTML from Colab"
+title: "Plotly Charts Display in Google Colab"
 author: 'Pinn Xu'
 date: 2025-10-07
 order: -20251007   # sidebar sort key: negative date => newest first
-description: 'The difference between how Plotly charts render inside Google Colab and how they render in the browser after exporting to HTML.'
+description: 'How Plotly render inside Colab and in the browser after exporting notebook to HTML.'
 categories: [Python, Colab, Plotly, Tutorial]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712154436828.png"
 
@@ -29,9 +29,9 @@ But once exported to HTML and opened in a browser [^2]:
 So when editing a notebook in Colab, use the default renderer (`fig.show()`), and switch the `renderer` to `"notebook_connected"` right before exporting to HTML.
 
 
-[^1]: **IPYNB file:** [View the example file in Colab](https://colab.research.google.com/drive/1BbMO74Hw-yHjvXoj5mbD5DEZsw00RKnp?usp=drive_link) or <a href="../../../src/data/colab-plotly-export/renderer-test.ipynb" download>download the example file</a>
+[^1]: **IPYNB file:** View the [demo file in Colab](https://colab.research.google.com/drive/1BbMO74Hw-yHjvXoj5mbD5DEZsw00RKnp?usp=drive_link) or <a href="../../../src/data/colab-plotly-export/renderer-test.ipynb" download>download it</a>
 
-[^2]: **HTML file:** [View the demo file in the browser](../../../src/data/colab-plotly-export/renderer-test.html) or <a href="../../../src/data/colab-plotly-export/renderer-test.html" download>download the example file</a>
+[^2]: **HTML file:** View the [demo file in the browser](../../../src/data/colab-plotly-export/renderer-test.html) or <a href="../../../src/data/colab-plotly-export/renderer-test.html" download>download it</a>
 
 
 ## Notes
@@ -50,6 +50,6 @@ After editing an `.ipynb` file in Colab, if you want to export it to HTML, be su
 jupyter nbconvert --to html /content/drive/MyDrive/path/filename.ipynb
 ```
 
-:::{callout-tip}
-`%%shell` is special Jupyter Notebook syntax (a cell magic) used to run shell commands within a code cell. For a single-line shell command, you can also use `!`, such as `!pip install pyvis`.
+:::{.callout-tip}
+`%%shell` is a cell magic of Google Colab ( `%%bash` in Jupyter ) used to run shell commands within a code cell. For a single-line shell command, you can also use `!`, such as `!pip install pyvis`.
 :::

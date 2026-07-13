@@ -1,0 +1,122 @@
+---
+title: "Network Diagram Display in Google Colab"
+author: 'Pinn Xu'
+date: 2025-10-07
+order: -20251007   # sidebar sort key: negative date => newest first
+description: 'Display a Pyvis network diagram both in Colab and the exported notebook HTML, without dependencies.'
+categories: [Python, Colab, Pyvis, Tips]
+image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712235818208.webp"
+
+aliases:
+    - ../fix-network-diagram/
+---
+
+# Problem
+A pyvis network diagram should display both inside Google Colab and in the HTML file exported from the notebook, without relying on a separate `net.html` file or other dependencies. None of the usual display methods handles all of these cases at once.
+
+# Solution
+Call `Network()` without parameters, generate the diagram's HTML manually, and wrap it in an iframe through the `srcdoc` attribute. Since the `srcdoc` value is delimited by single quotes, replace all single quotes in the generated HTML with double quotes first.
+
+This method works everywhere the notebook renders: Jupyter, Colab [^1], the exported HTML [^2], and even VS Code.
+
+[^1]: **IPYNB file:** View the [demo file in Colab](https://drive.google.com/file/d/15vy8hmaq_3KK-T9p-TdeNfxfmwPP9V30/view?usp=sharing) or <a href="../../../src/data/fix-network-diagram/network-test.ipynb" download>download it</a>
+
+[^2]: **HTML file:** View the [demo file in the browser](../../../src/data/fix-network-diagram/network-test.html) or <a href="../../../src/data/fix-network-diagram/network-test.html" download>download it</a>
+
+```{python}
+#| eval: false
+# create an empty network diagram
+gp = Network()  # don't specify parameters
+# add network relation to the diagram
+gp.from_nx(gx)
+
+# store whole html code of the network diagram
+html = gp.generate_html()
+# format: only use double quotes
+html_formatted = html.replace("'", '"')
+
+# defining iframe tag
+iframe_start = """
+<iframe
+style='display:block; margin:0px; width:100%; height:600px'
+frameborder='0'
+srcdoc='
+"""
+iframe_end = " '></iframe> "
+
+# wrap formatted html code with iframe tag
+html_wrapped = iframe_start + html_formatted + iframe_end
+
+# display
+display(HTML(html_wrapped))
+```
+
+# Other Methods and Their Drawbacks
+The alternatives require specifying `notebook` and `cdn_resources` when calling `Network()`:
+
+```{python}
+#| eval: false
+gp = Network(
+    notebook=True,
+    cdn_resources="in_line",
+    height="600px",
+    width="100%",
+)
+gp.from_nx(gx)
+```
+
+Each display method then fails somewhere:
+
+1. `display(HTML(gp.generate_html()))` renders the diagram in Colab without creating external network files, but the diagram is missing from the exported HTML.
+2. `gp.show("net.html")` renders the diagram in Jupyter but not in Colab.
+3. All `generate_html()`, `save_graph()`, and `gp.show("net.html")` followed by `display(HTML(...))` renders correctly in Colab, but depends on the separate `net.html` file or `libs/` folder of dependencies.
+
+# Live Demo
+
+```{python}
+#| code-fold: true
+# import libraries
+import networkx as nx
+from pyvis.network import Network
+from IPython.display import HTML, display
+
+# create an empty network relation
+gx = nx.MultiDiGraph()
+
+# add nodes and edges
+gx.add_edge('a','b')
+gx.add_edge('b','d')
+gx.add_edge('c','e')
+gx.add_edge('e','a')
+gx.add_edge('c','d')
+
+# create an empty network diagram
+gp = Network()  # don't specify parameters
+
+# add network relation to the diagram
+gp.from_nx(gx)
+
+# store whole html code of the network diagram
+html = gp.generate_html()
+
+# format: only use double quotes
+html_formatted = html.replace("'",'"')
+
+# defining iframe tag
+iframe_start = """
+<iframe 
+sandbox='allow-scripts allow-forms' 
+style='display:block; margin:0px; width:100%; aspect-ratio:3/2;' 
+frameborder='0' 
+srcdoc='
+"""
+iframe_end = " '></iframe> "
+
+# wrap formatted html code with iframe tag
+html_wrapped = iframe_start + html_formatted + iframe_end
+
+# display
+display(HTML(html_wrapped))
+```
+
+
