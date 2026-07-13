@@ -473,6 +473,39 @@ gp.show('net-modified.html', notebook=False)
 
 ![修改后的网络图](../../../src/img/ttl/sankey/fig8-network-sample-modified.png){#fig-network-sample-modified width="50%"}
 
+
+## 在输出块中显示网络图
+
+在输出块中渲染可交互网络图的方法可以参见[这篇博客](/zh/blogs/2025-10-07-fix-network-diagram/)。下面展示了其中适应性最强的方法：无需外部文件或依赖，即可在任何环境中渲染网络图。
+
+```{python}
+#| code-fold: true
+from IPython.display import HTML, display
+
+# 保存网络图的 html 代码
+html = gp.generate_html()
+
+# 格式化：只使用双引号
+html_formatted = html.replace("'",'"')
+
+# 定义 iframe 标签
+iframe_start = """
+<iframe
+sandbox='allow-scripts allow-forms'
+style='display:block; margin:0px; width:100%; aspect-ratio:3/2;'
+frameborder='0'
+srcdoc='
+"""
+iframe_end = " '></iframe> "
+
+# 用 iframe 标签包裹格式化后的 html 代码
+html_wrapped = iframe_start + html_formatted + iframe_end
+
+# 显示
+display(HTML(html_wrapped))
+```
+
+
 ## 从文件中读取网络关系
 
 除手动创建外，也可从 CSV 文件读取网络关系数据。以下示例使用 beer and curry 推文数据 [(查看源文件)](https://github.com/Pinn32/pinn32.github.io/blob/main/src/data/beer-and-curry.csv): 原贴主艾特了其他用户，构成从原贴主 (源节点) 指向被艾特用户 (目标节点) 的有向边。
@@ -524,3 +557,4 @@ gp1.show('net-from-csv.html', notebook=False)  # 输出 html 文件
 ![社交网络图：细节预览](../../../src/img/ttl/sankey/fig10-network-detail.png){#fig-network-detail}
 
 网络图可用于研究社交网络，发现强/弱连接与高影响力用户，以及分析潜在的信息茧房 (information cocoon) 或 echo chamber 现象。
+

@@ -470,6 +470,39 @@ The modified result is shown in @fig-network-sample-modified:
 
 ![Modified network graph](../../../src/img/ttl/sankey/fig8-network-sample-modified.png){#fig-network-sample-modified width="50%"}
 
+
+## Displaying Network in Output Cells
+
+There are a few approaches to render interactive network diagrams in output cells (see [this blog](/en/blogs/2025-10-07-fix-network-diagram/)). Below shows the approach with the most adaptability that can render networks in any environment without external files or dependencies.
+
+```{python}
+#| code-fold: true
+from IPython.display import HTML, display
+
+# store network's html code
+html = gp.generate_html()
+
+# format: only use double quotes
+html_formatted = html.replace("'",'"')
+
+# defining iframe tag
+iframe_start = """
+<iframe 
+sandbox='allow-scripts allow-forms' 
+style='display:block; margin:0px; width:100%; aspect-ratio:3/2;' 
+frameborder='0' 
+srcdoc='
+"""
+iframe_end = " '></iframe> "
+
+# wrap formatted html code with iframe tag
+html_wrapped = iframe_start + html_formatted + iframe_end
+
+# display
+display(HTML(html_wrapped))
+```
+
+
 ## Reading Network Relationships from a File
 
 In addition to manual creation, network relationship data can also be read from a CSV file. The following example uses ***beer and curry*** tweet data [(view source file)](https://github.com/Pinn32/pinn32.github.io/blob/main/src/data/beer-and-curry.csv): original posters mentioned other users, forming directed edges from the original poster (source node) to the mentioned user (target node).
@@ -521,3 +554,4 @@ The output network graph is complex; rendering may take 1–2 minutes — do not
 ![Social network graph: detail view](../../../src/img/ttl/sankey/fig10-network-detail.png){#fig-network-detail}
 
 Network graphs can be used to study social networks, identify strong/weak connections and high-influence users, and analyze potential information cocoon or echo chamber phenomena.
+
