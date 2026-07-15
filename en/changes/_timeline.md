@@ -174,7 +174,7 @@ First proper mobile work: button layout, tag collapse, dropdown layering, and a 
 
 ## Phase 6 · Tools, Dark Mode & Features {range="Jun 22 - Jul 2"}
 
-### All-Posts Page and Edit-This-Page {date="Jun 22" iso="2026-06-22T19:00:00.000-04:00" commits="3" hours="2.5" days="1"}
+### All-Posts Page & Edit-This-Page Features {date="Jun 22" iso="2026-06-22T19:00:00.000-04:00" commits="3" hours="2.5" days="1"}
 
 An all-posts listing with post-type filters, plus an edit-this-page link on every article.
 
@@ -223,9 +223,9 @@ Giscus comments went live, and a new page documents how to reproduce the R and P
 - Jun 29 · feat: re-init About page layout
 - Jul 1 · feat: add README en/zh; add Reproduce instruction (readme) en/zh
 
-### Language-Aware Comments & External Builds {date="Jul 2" iso="2026-07-02T11:30:00.000-04:00" commits="6" hours="10" days="1"}
+### Comments Component i18n & External Builds {date="Jul 2" iso="2026-07-02T11:30:00.000-04:00" commits="6" hours="10" days="1"}
 
-Giscus now follows the page language, active tags toggle off on a second click, and external links show an icon. Implemented change logs.
+Giscus comments now follows the page language, active tags toggle off on a second click, and external links show an icon. Build external project demos.
 
 - feat: enable giscus en/zh-CN
 - feat: tag bar revert to All after clicking active tag
@@ -258,7 +258,7 @@ New project of an UI/UX design for Bayanihan. Redesign About page. Bug fixed & s
 - style: disable about-page dark-img-shade; refine plotly in dark (img-shade & margin)
 - feat: let title-meta-author be flex; mv sidebar site-tool sections to bottom
 
-### Automate Quarto Dev/Log Notion Databases Workflow {date="Jul 5 - Jul 7" iso="2026-07-05T13:45:00.000-04:00" commits="7" hours="15.75" days="3"}
+### Automate Quarto+Notion DB Workflow {date="Jul 5 - Jul 7" iso="2026-07-05T13:45:00.000-04:00" commits="7" hours="15.75" days="3"}
 
 Restructure Notion dev/log databses; replace manual properties to Notion Formulas; build automation workflow.
 
@@ -267,7 +267,7 @@ Restructure Notion dev/log databses; replace manual properties to Notion Formula
 - Jul 6 · fix: n\_uniques of  `_start` (dev db) ≠ sum of `Days` (log db)
 - Jul 7 · fix: python sync script (add dev db to Notion connection)
 
-### Finish Notion Database Auto-Sync Development {date="Jul 8" iso="2026-07-08T13:30:00.000-04:00" commits="3" hours="7" days="1"}
+### Finish Notion DB Auto-Sync Development {date="Jul 8" iso="2026-07-08T13:30:00.000-04:00" commits="3" hours="7" days="1"}
 
 Finish Notion change log databases auto-sync development. Refine formulas; fix UI/API inconsistency. Add a blog of tips learned.
 
@@ -275,7 +275,7 @@ Finish Notion change log databases auto-sync development. Refine formulas; fix U
 - fix: cl sync bugs (api timezone inconsistency), refine py & lua scripts
 - blg: ini ntn-db-auto-sync-tips
 
-### Img Lazy Load & Code Crossref {date="Jul 9" iso="2026-07-09T11:00:00.000-04:00" commits="6" hours="8" days="1"}
+### Enable Img Lazy Load & Code Crossref {date="Jul 9" iso="2026-07-09T11:00:00.000-04:00" commits="6" hours="8" days="1"}
 
 Improved image loading and cross-reference support, refined figure and SCSS styling, and added the Notion database auto-sync blog
 
@@ -288,7 +288,7 @@ Improved image loading and cross-reference support, refined figure and SCSS styl
 
 ## Phase 8 · Blogs {range="Jul 10 - now"}
 
-### Notion DB Auto-Sync Tips & VPS Login Fix Blogs {date="Jul 10 - Jul 11" iso="2026-07-10T12:15:00.000-04:00" commits="3" hours="7.25" days="2"}
+### Blogs: Notion DB Auto-Sync Tips & VPS Login Fix {date="Jul 10 - Jul 11" iso="2026-07-10T12:15:00.000-04:00" commits="3" hours="7.25" days="2"}
 
 Added two new blogs: VPS login troubleshooting & Notion DB auto sync tips; fixed SVG to match theme.
 
@@ -296,7 +296,7 @@ Added two new blogs: VPS login troubleshooting & Notion DB auto sync tips; fixed
 - Jul 11 · blg: vps-ssh-login-troubleshooting
 - Jul 11 · fix: svg (flowchart by draw.io) switch theme by system setting
 
-### Plotly & Network Diagram Display Fix Blogs {date="Jul 12" iso="2026-07-12T10:00:00.000-04:00" commits="6" hours="12.5" days="1"}
+### Blogs: Plotly & Network Diagram Display Fix {date="Jul 12" iso="2026-07-12T10:00:00.000-04:00" commits="6" hours="12.5" days="1"}
 
 Improved navigation, styling, blog organization, and bilingual content while refining Plotly and network diagram solutions.
 

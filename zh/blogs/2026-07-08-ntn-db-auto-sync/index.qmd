@@ -23,7 +23,7 @@ aliases:
 
 # 数据库结构 {#sec-db}
 
-本 Quarto 站点使用两个项目专属数据库——一个用于开发进度 (Dev Track)，一个用于更新日志 (Change Log) ，外加一个统管所有项目的通用数据库。数据库填充完成后，Python 脚本会拉取最新数据，再由 Lua 过滤器渲染出 Change Log 页面。工作流如下：
+本 Quarto 站点使用两个项目专属数据库——一个用于开发进度 (Dev Track)，一个用于更新日志 (Change Log) ，外加一个统管所有项目的通用数据库。数据库填充完成后，[Python 脚本](/zh/readme/#fetch-change-log-from-notion-database) 会拉取最新数据，再由 Lua 过滤器渲染出 [更新日志](/zh/changes) 页面。工作流如下：
 
 <!-- flowchart -->
 ![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712013355165.svg){.light-content}

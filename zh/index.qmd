@@ -21,6 +21,9 @@ listing:
 
 :::{.intro}
 本站收录了我的数据分析项目、UI/UX设计、网页工具、R/Python教程、博客等。网站通过 [Quarto](https://quarto.org/){target="_blank"} 搭建；网页工具则基于 React、Next.js 和 TypeScript 开发。
+<p style="font-size:0.8rem; padding-top: 0.5rem;">
+(我最爱 [博客](blogs) 和 [更新日志](changes) ;P)
+</p>
 :::
 
 :::{style="line-height:3.6;"}

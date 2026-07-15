@@ -23,7 +23,7 @@ Since I already tracked development tasks in a separate database through Notion 
 
 # Database Structure {#sec-db}
 
-This Quarto website uses two project-specific databases — one for the development track, one for the change log — plus a general database that tracks all projects. Once the databases are populated, a Python script fetches the latest data and a Lua filter renders the Change Log page. The workflow is shown below:
+This Quarto website uses two project-specific databases — one for the development track, one for the change log — plus a general database that tracks all projects. Once the data are populated, a [Python script](/en/readme/#fetch-change-log-from-notion-database) fetches the latest data and a Lua filter renders the [Change Log](/en/changes) page. The workflow is shown below:
 
 <!-- flowchart -->
 ![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712014431241.svg){.light-content}

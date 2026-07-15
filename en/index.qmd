@@ -24,7 +24,10 @@ listing:
 <!-- This site collects my data projects: exploratory analyses, NLP experiments, and interactive visualizations built with **R** and **Python**, published with [Quarto](https://quarto.org/). -->
 
 :::{.intro}
-**Data analysis** projects, **UI/UX** designs, **web** tools, R/Python tutorials, and blogs, published with [Quarto](https://quarto.org/){target="_blank"}. Web tools were developed with React, Next.js, and TypeScript.
+**Data analysis** projects, **UI/UX** designs, **web tools**, R/Python **tutorials**, and **blogs**, published with [Quarto](https://quarto.org/){target="_blank"}. Web tools were developed with React, Next.js, and TypeScript.  
+<p style="font-size:0.8rem; padding-top: 0.5rem;">
+(My favorites are [Blogs](blogs) and [Change Log](changes) ;P)
+</p>
 :::
 
 :::{style="line-height:3.6;"}
