@@ -1,0 +1,17 @@
+---
+title: "在 Google Colab 中显示网络关系图"
+author: 'Pinn Xu'
+date: 2025-10-07
+order: 7   # sidebar sort key: negative date => newest first
+description: '让 Pyvis 网络关系图同时在 Colab 和导出的 HTML 中正常显示，且不依赖外部文件。'
+categories: [Python, Colab, Pyvis]
+image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712235818208.webp"
+
+search: false
+reading-meta-enabled: false
+include-in-header:
+  text: |
+    <meta http-equiv="refresh" content="0; url=../../blogs/2025-10-07-fix-network-diagram/">
+---
+
+正在跳转至 **博客** 中的 [在 Google Colab 中显示网络关系图](../../blogs/2025-10-07-fix-network-diagram/)……

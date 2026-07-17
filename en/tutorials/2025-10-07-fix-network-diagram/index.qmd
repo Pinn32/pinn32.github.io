@@ -1,0 +1,17 @@
+---
+title: "Network Diagram Display in Google Colab"
+author: 'Pinn Xu'
+date: 2025-10-07
+order: 7   # sidebar sort key: negative date => newest first
+description: 'Display a Pyvis network diagram both in Colab and the exported notebook HTML, without dependencies.'
+categories: [Python, Colab, Pyvis]
+image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712235818208.webp"
+
+search: false
+reading-meta-enabled: false
+include-in-header:
+  text: |
+    <meta http-equiv="refresh" content="0; url=../../blogs/2025-10-07-fix-network-diagram/">
+---
+
+Redirecting to [Network Diagram Display in Google Colab](../../blogs/2025-10-07-fix-network-diagram/) in **Blogs**…

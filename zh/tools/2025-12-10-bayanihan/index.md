@@ -13,4 +13,4 @@ include-in-header:
     <meta http-equiv="refresh" content="0; url=../../projects/2025-12-10-bayanihan/">
 ---
 
-正在跳转至 **项目** 中的 [Bayanihan UI/UX 设计](../../projects/2025-12-10-bayanihan/index.qmd)。
+正在跳转至 **项目** 中的 [Bayanihan UI/UX 设计](../../projects/2025-12-10-bayanihan/index.qmd)……

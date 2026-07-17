@@ -19,9 +19,8 @@ aliases:
 Snipaste froze while taking a screenshot. The paste pinned itself over the entire screen and could not be closed, and it blocked every other window.
 
 :::{.macbook-frame style="width:40rem;"}
-![The Frozen Paste Pinned over the Entire Screen](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716194801657.png)
+![The Frozen Paste Pinned over the Entire Screen](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716222648765.png)
 :::
-
 
 # Method 1: Kill the Snipaste Process
 
@@ -33,11 +32,11 @@ This takes advantage of how Snipaste replaces pastes: swap the full-screen paste
 4. Press `Ctrl + Shift + Esc` (or right-click the taskbar) to open Task Manager, switch to the Details tab, find `snipaste.exe`, right-click it, and end the task. Reopen Snipaste afterwards and it works normally.
 
 :::{.img-frame style="width:25rem;"}
-![Bring Up the Search Bar and Copy Some Text](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716194858968.png)
+![Bring Up the Search Bar and Copy Some Text](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716223045315.png)
 :::
 
 :::{.img-frame style="width:35rem;"}
-![End snipaste.exe in Task Manager](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716194935793.png)
+![End snipaste.exe in Task Manager](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716223649756.png)
 :::
 
 
