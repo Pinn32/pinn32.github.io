@@ -4,7 +4,7 @@
     "href": "zh/tutorials/index.html",
     "title": "数据可视化教程",
     "section": "",
-    "text": "排序方式\n      默认\n      \n        标题\n      \n      \n        日期 - 日期升序\n      \n      \n        日期 - 日期降序\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n数据清理\n\n\n\nPython\n\n数据处理\n\nPandas\n\nDataFrame\n\n\n\nPandas 数据处理与清洗流程：缺失值、重复值、数据重塑、表连接、分组聚合、透视表等。\n\n\n\nPinn Xu\n\n\n2024年10月10日\n\n\n\n\n\n\n\n\n\n\n\n数量与分布可视化\n\n\n\nPython\n\nSeaborn\n\n可视化\n\n数据分布\n\n直方图\n\n\n\n使用 Seaborn 绘制数量与分布可视化图表：柱状图、点线图、直方图、箱线图等。\n\n\n\nPinn Xu\n\n\n2024年10月1日\n\n\n\n\n\n\n\n\n\n\n\n\n\n多变量图表\n\n\n\nPython\n\nSeaborn\n\n可视化\n\n多变量\n\n热图\n\n\n\n使用 Seaborn 绘制多变量可视化图表：散点图、折线图、热力图、双变量图、分面网格图等。\n\n\n\nPinn Xu\n\n\n2024年10月27日\n\n\n\n\n\n\n\n\n\n\n\n桑基图与网络图\n\n\n\nPython\n\nPlotly\n\n可视化\n\n桑基图\n\n网络图\n\n\n\n使用 Plotly、Pyvis 与 NetworkX 绘制桑基图与网络图。\n\n\n\nPinn Xu\n\n\n2024年12月5日\n\n\n\n\n\n\n\n\n\n\n\nR 语言技巧\n\n\n\nR\n\ndplyr\n\nstringr\n\n正则表达式\n\nCSS颜色\n\n文本分析\n\n数据可视化\n\n代码片段\n\n\n\n常用 R 技巧与代码片段：dplyr 数据处理、stringr 文本操作、CSS 颜色名称、代码速查表等。\n\n\n\nPinn Xu\n\n\n2026年3月27日\n\n\n\n\n\n\n无匹配项",
+    "text": "排序方式\n      默认\n      \n        标题\n      \n      \n        日期 - 日期升序\n      \n      \n        日期 - 日期降序\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n数据清理\n\n\n\nPython\n\n数据处理\n\nPandas\n\nDataFrame\n\n\n\nPandas 数据处理与清洗流程：缺失值、重复值、数据重塑、表连接、分组聚合、透视表等。\n\n\n\nPinn Xu\n\n\n2024年10月10日\n\n\n\n\n\n\n\n\n\n\n\n数量与分布可视化\n\n\n\nPython\n\nSeaborn\n\n可视化\n\n数据分布\n\n直方图\n\n\n\n使用 Seaborn 绘制数量与分布可视化图表：柱状图、点线图、直方图、箱线图等。\n\n\n\nPinn Xu\n\n\n2024年10月1日\n\n\n\n\n\n\n\n\n\n\n\n\n\n多变量图表\n\n\n\nPython\n\nSeaborn\n\n可视化\n\n多变量\n\n热图\n\n\n\n使用 Seaborn 绘制多变量可视化图表：散点图、折线图、热力图、双变量图、分面网格图等。\n\n\n\nPinn Xu\n\n\n2024年10月27日\n\n\n\n\n\n\n\n\n\n\n\n桑基图与网络图\n\n\n\nPython\n\nPlotly\n\n可视化\n\n桑基图\n\n网络图\n\n\n\n使用 Plotly、Pyvis 与 NetworkX 绘制桑基图与网络图。\n\n\n\nPinn Xu\n\n\n2024年12月5日\n\n\n\n\n\n\n\n\n\n\n\nR 语言技巧\n\n\n\nR\n\ndplyr\n\nstringr\n\n正则表达式\n\nCSS颜色\n\n文本分析\n\n数据可视化\n\n代码片段\n\n\n\n常用 R 技巧与代码片段：dplyr 数据处理、stringr 文本操作、CSS 颜色名称、代码速查表等。\n\n\n\nPinn Xu\n\n\n2026年3月27日\n\n\n\n\n\n\n\n\n\n\n\n\n\nColab 导出 HTML 后无法显示 Plotly 图表问题\n\n\n\nPython\n\nColab\n\nPlotly\n\n\n\n对于 Plotly 图表，Google Colab 内部渲染和导出 HTML 后浏览器渲染的差异。\n\n\n\nPinn Xu\n\n\n2025年10月7日\n\n\n\n\n\n\n\n\n\n\n\n\n\n在 Google Colab 中显示网络关系图\n\n\n\nPython\n\nColab\n\nPyvis\n\n\n\n让 Pyvis 网络关系图同时在 Colab 和导出的 HTML 中正常显示，且不依赖外部文件。\n\n\n\nPinn Xu\n\n\n2025年10月7日\n\n\n\n\n\n\n无匹配项",
     "crumbs": [
       "数据分析教程"
     ]
@@ -14,7 +14,7 @@
     "href": "zh/tutorials/2024-12-05-sankey-and-network/index.html",
     "title": "桑基图与网络图",
     "section": "",
-    "text": "9 min read · 275 EN words · 2095 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nplotly==5.24.1\nmatplotlib==3.9.x\npyvis==0.3.2\nnetworkx==3.3",
+    "text": "9 min read · 280 EN words · 2115 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nplotly==5.24.1\nmatplotlib==3.9.x\npyvis==0.3.2\nnetworkx==3.3",
     "crumbs": [
       "数据分析教程",
       "桑基图与网络图"
@@ -124,7 +124,7 @@
     "href": "zh/tutorials/2024-10-10-data-processing/index.html",
     "title": "数据清理",
     "section": "",
-    "text": "10 min read · 880 EN words · 1548 中文字\n环境与版本\npython==3.12\npandas==2.2.2",
+    "text": "10 min read · 885 EN words · 1568 中文字\n环境与版本\npython==3.12\npandas==2.2.2",
     "crumbs": [
       "数据分析教程",
       "数据清理"
@@ -222,7 +222,7 @@
     "href": "zh/tools/2026-04-19-cat-img-hub/index.html",
     "title": "猫咪图片收藏站",
     "section": "",
-    "text": "4 min read · 238 EN words · 811 中文字",
+    "text": "4 min read · 243 EN words · 831 中文字",
     "crumbs": [
       "Web工具",
       "猫咪图片收藏站"
@@ -277,7 +277,7 @@
     "href": "zh/tools/2026-04-06-url-shortener/index.html",
     "title": "短链接生成器",
     "section": "",
-    "text": "4 min read · 175 EN words · 657 中文字",
+    "text": "4 min read · 180 EN words · 677 中文字",
     "crumbs": [
       "Web工具",
       "短链接生成器"
@@ -350,7 +350,7 @@
     "href": "zh/projects/2026-05-01-ai-discourse/index.html",
     "title": "网络AI话语的演变",
     "section": "",
-    "text": "34 min read · 1021 EN words · 8657 中文字\n环境与版本\nR==4.5.2\nMASS==7.3.65\ntidyverse==2.0.0\ntidytext==0.4.3\ntextdata==0.4.5\ntopicmodels==0.2.17\nscales==1.4.0\nbroom==1.0.12\ntextutils==0.4.3\nknitr==1.51",
+    "text": "35 min read · 1026 EN words · 8677 中文字\n环境与版本\nR==4.5.2\nMASS==7.3.65\ntidyverse==2.0.0\ntidytext==0.4.3\ntextdata==0.4.5\ntopicmodels==0.2.17\nscales==1.4.0\nbroom==1.0.12\ntextutils==0.4.3\nknitr==1.51",
     "crumbs": [
       "可视化项目",
       "网络AI话语的演变"
@@ -548,7 +548,7 @@
     "href": "zh/projects/2026-02-23-student-media-usage/index.html",
     "title": "学生社交媒体使用与幸福感分析",
     "section": "",
-    "text": "18 min read · 355 EN words · 4684 中文字\n环境与版本\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
+    "text": "18 min read · 360 EN words · 4704 中文字\n环境与版本\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
     "crumbs": [
       "可视化项目",
       "学生社交媒体使用与幸福感分析"
@@ -779,7 +779,7 @@
     "href": "zh/projects/2024-12-12-global-visa-cost/index.html",
     "title": "全球签证费用地区分析",
     "section": "",
-    "text": "10 min read · 270 EN words · 2572 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nplotly==5.24.1",
+    "text": "11 min read · 275 EN words · 2592 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nplotly==5.24.1",
     "crumbs": [
       "可视化项目",
       "全球签证费用地区分析"
@@ -869,7 +869,7 @@
     "href": "zh/blogs/2026-07-16-ntn-workflows/index.html",
     "title": "Notion 数据库工作流",
     "section": "",
-    "text": "5 min read · 230 EN words · 923 中文字",
+    "text": "5 min read · 235 EN words · 938 中文字",
     "crumbs": [
       "经验博客",
       "Notion 数据库工作流"
@@ -913,7 +913,7 @@
     "href": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html",
     "title": "Notion 数据库自动同步技巧",
     "section": "",
-    "text": "6 min read · 252 EN words · 1400 中文字",
+    "text": "7 min read · 257 EN words · 1420 中文字",
     "crumbs": [
       "经验博客",
       "Notion 数据库自动同步技巧"
@@ -990,7 +990,7 @@
     "href": "zh/blogs/2025-10-07-fix-network-diagram/index.html",
     "title": "在 Google Colab 中显示网络关系图",
     "section": "",
-    "text": "4 min read · 197 EN words · 656 中文字",
+    "text": "4 min read · 202 EN words · 676 中文字",
     "crumbs": [
       "经验博客",
       "在 Google Colab 中显示网络关系图"
@@ -1012,7 +1012,7 @@
     "href": "zh/blogs/2024-12-22-easy-canvas-connection/index.html",
     "title": "Easy Canvas 无法连接解决方法",
     "section": "",
-    "text": "4 min read · 256 EN words · 811 中文字",
+    "text": "5 min read · 261 EN words · 831 中文字",
     "crumbs": [
       "经验博客",
       "Easy Canvas 无法连接解决方法"
@@ -1045,7 +1045,7 @@
     "href": "zh/blogs/2024-04-22-recover-shellfolder/index.html",
     "title": "误移系统文件夹恢复",
     "section": "",
-    "text": "9 min read · 244 EN words · 2192 中文字",
+    "text": "9 min read · 249 EN words · 2212 中文字",
     "crumbs": [
       "经验博客",
       "误移系统文件夹恢复"
@@ -1121,7 +1121,7 @@
     "href": "en/tutorials/index.html",
     "title": "Tutorials",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nData Processing\n\n\n\nPython\n\nPandas\n\nDataFrame\n\n\n\nData processing/cleaning workflows in Pandas: missing values, duplicates, reshaping, joins…\n\n\n\nPinn Xu\n\n\nOct 10, 2024\n\n\n\n\n\n\n\n\n\n\n\nAmounts and Distribution\n\n\n\nPython\n\nSeaborn\n\nDistribution\n\n\n\nUse Seaborn to create visualizations for amounts & distributions: barplots, point plots…\n\n\n\nPinn Xu\n\n\nOct 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultivariate Plots\n\n\n\nPython\n\nFacetGrid\n\nHeatmap\n\n\n\nUse Seaborn to create multivariate visualizations: scatter plots, line pots, heatmaps, joint…\n\n\n\nPinn Xu\n\n\nOct 27, 2024\n\n\n\n\n\n\n\n\n\n\n\nSankey Diagrams and Network Graphs\n\n\n\nPython\n\nPlotly\n\nSankey Diagram\n\nNetwork Diagram\n\n\n\nUse Plotly, Pyvis & NetworkX to create sankey & network diagrams.\n\n\n\nPinn Xu\n\n\nDec 5, 2024\n\n\n\n\n\n\n\n\n\n\n\nR Tips\n\n\n\nR\n\nTidyR\n\nCSS Color\n\nSnippets\n\n\n\nCommon R tips & code snippets: dplyr data manipulation, stringr text operations, CSS color names…\n\n\n\nPinn Xu\n\n\nMar 27, 2026\n\n\n\n\n\n\nNo matching items",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nData Processing\n\n\n\nPython\n\nPandas\n\nDataFrame\n\n\n\nData processing/cleaning workflows in Pandas: missing values, duplicates, reshaping, joins…\n\n\n\nPinn Xu\n\n\nOct 10, 2024\n\n\n\n\n\n\n\n\n\n\n\nAmounts and Distribution\n\n\n\nPython\n\nSeaborn\n\nDistribution\n\n\n\nUse Seaborn to create visualizations for amounts & distributions: barplots, point plots…\n\n\n\nPinn Xu\n\n\nOct 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultivariate Plots\n\n\n\nPython\n\nFacetGrid\n\nHeatmap\n\n\n\nUse Seaborn to create multivariate visualizations: scatter plots, line pots, heatmaps, joint…\n\n\n\nPinn Xu\n\n\nOct 27, 2024\n\n\n\n\n\n\n\n\n\n\n\nSankey Diagrams and Network Graphs\n\n\n\nPython\n\nPlotly\n\nSankey Diagram\n\nNetwork Diagram\n\n\n\nUse Plotly, Pyvis & NetworkX to create sankey & network diagrams.\n\n\n\nPinn Xu\n\n\nDec 5, 2024\n\n\n\n\n\n\n\n\n\n\n\nR Tips\n\n\n\nR\n\nTidyR\n\nCSS Color\n\nSnippets\n\n\n\nCommon R tips & code snippets: dplyr data manipulation, stringr text operations, CSS color names…\n\n\n\nPinn Xu\n\n\nMar 27, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlotly Charts Display in Google Colab\n\n\n\nPython\n\nColab\n\nPlotly\n\n\n\nHow Plotly render inside Colab and in the browser after exporting notebook to HTML.\n\n\n\nPinn Xu\n\n\nOct 7, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nNetwork Diagram Display in Google Colab\n\n\n\nPython\n\nColab\n\nPyvis\n\n\n\nDisplay a Pyvis network diagram both in Colab and the exported notebook HTML, without dependencies.\n\n\n\nPinn Xu\n\n\nOct 7, 2025\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Projects",
       "Tutorials"
@@ -1132,7 +1132,7 @@
     "href": "en/tutorials/2024-12-05-sankey-and-network/index.html",
     "title": "Sankey Diagrams and Network Graphs",
     "section": "",
-    "text": "8 min read · 1415 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nplotly==5.24.1\nmatplotlib==3.9.x\npyvis==0.3.2\nnetworkx==3.3",
+    "text": "8 min read · 1427 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nplotly==5.24.1\nmatplotlib==3.9.x\npyvis==0.3.2\nnetworkx==3.3",
     "crumbs": [
       "Projects",
       "Tutorials",
@@ -1252,7 +1252,7 @@
     "href": "en/tutorials/2024-10-10-data-processing/index.html",
     "title": "Data Processing",
     "section": "",
-    "text": "9 min read · 1627 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2",
+    "text": "9 min read · 1639 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2",
     "crumbs": [
       "Projects",
       "Tutorials",
@@ -1359,7 +1359,7 @@
     "href": "en/tools/2026-04-19-cat-img-hub/index.html",
     "title": "Cat Image Hub",
     "section": "",
-    "text": "3 min read · 570 EN words · 0 中文字",
+    "text": "3 min read · 582 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Tools",
@@ -1419,7 +1419,7 @@
     "href": "en/tools/2026-04-06-url-shortener/index.html",
     "title": "URL Shortener",
     "section": "",
-    "text": "3 min read · 459 EN words · 0 中文字",
+    "text": "3 min read · 471 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Tools",
@@ -1499,7 +1499,7 @@
     "href": "en/projects/2026-05-01-ai-discourse/index.html",
     "title": "Evolution of Online AI Discourse",
     "section": "",
-    "text": "28 min read · 5595 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nMASS==7.3.65\ntidyverse==2.0.0\ntidytext==0.4.3\ntextdata==0.4.5\ntopicmodels==0.2.17\nscales==1.4.0\nbroom==1.0.12\ntextutils==0.4.3\nknitr==1.51",
+    "text": "29 min read · 5607 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nMASS==7.3.65\ntidyverse==2.0.0\ntidytext==0.4.3\ntextdata==0.4.5\ntopicmodels==0.2.17\nscales==1.4.0\nbroom==1.0.12\ntextutils==0.4.3\nknitr==1.51",
     "crumbs": [
       "Projects",
       "Evolution of Online AI Discourse"
@@ -1697,7 +1697,7 @@
     "href": "en/projects/2026-02-23-student-media-usage/index.html",
     "title": "Student Social Media Usage and Well-being Analysis",
     "section": "",
-    "text": "16 min read · 3188 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
+    "text": "16 min read · 3200 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
     "crumbs": [
       "Projects",
       "Student Social Media Usage and Well-being Analysis"
@@ -1928,7 +1928,7 @@
     "href": "en/projects/2024-12-12-global-visa-cost/index.html",
     "title": "Global Visa Cost Geographical Analysis",
     "section": "",
-    "text": "9 min read · 1800 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nplotly==5.24.1",
+    "text": "10 min read · 1812 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nplotly==5.24.1",
     "crumbs": [
       "Projects",
       "Global Visa Cost Geographical Analysis"
@@ -2019,7 +2019,7 @@
     "href": "en/blogs/2026-07-16-ntn-workflows/index.html",
     "title": "Notion Database Workflows",
     "section": "",
-    "text": "4 min read · 675 EN words · 0 中文字",
+    "text": "4 min read · 687 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Blogs",
@@ -2067,7 +2067,7 @@
     "href": "en/blogs/2026-07-08-ntn-db-auto-sync/index.html",
     "title": "Notion Database Auto-Sync Tips",
     "section": "",
-    "text": "5 min read · 946 EN words · 0 中文字",
+    "text": "5 min read · 958 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Blogs",
@@ -2151,7 +2151,7 @@
     "href": "en/blogs/2025-10-07-fix-network-diagram/index.html",
     "title": "Network Diagram Display in Google Colab",
     "section": "",
-    "text": "3 min read · 484 EN words · 0 中文字",
+    "text": "3 min read · 496 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Blogs",
@@ -2175,7 +2175,7 @@
     "href": "en/blogs/2024-12-22-easy-canvas-connection/index.html",
     "title": "Fixing Easy Canvas Connection Problems",
     "section": "",
-    "text": "4 min read · 673 EN words · 0 中文字",
+    "text": "4 min read · 685 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Blogs",
@@ -2211,7 +2211,7 @@
     "href": "en/blogs/2024-04-22-recover-shellfolder/index.html",
     "title": "Recovering Misplaced Windows Shell Folders",
     "section": "",
-    "text": "9 min read · 1673 EN words · 29 中文字",
+    "text": "9 min read · 1685 EN words · 29 中文字",
     "crumbs": [
       "Projects",
       "Blogs",
@@ -2294,7 +2294,7 @@
     "href": "en/blogs/2024-05-16-snipaste-fix/index.html",
     "title": "Fix Snipaste Stuck on Top of the Screen",
     "section": "",
-    "text": "3 min read · 567 EN words · 0 中文字\n\n1 The Problem\n\nOperating system: Windows 10\nSnipaste version: 2.9.1\n\nSnipaste froze while taking a screenshot. The paste pinned itself over the entire screen and could not be closed, and it blocked every other window.\n\n\n\n\nThe Frozen Paste Pinned over the Entire Screen\n\n\n\n\n\n2 Method 1: Kill the Snipaste Process\nThis takes advantage of how Snipaste replaces pastes: swap the full-screen paste for a small one first, then end the process.\n\nPress Win + S to bring up the taskbar and the search bar.\nType one or two short words in the search box and copy them.\nPress F3 to paste. The new paste (the text you just copied) replaces the old full-screen one. It is still frozen, but small enough to leave the rest of the screen usable.\nPress Ctrl + Shift + Esc (or right-click the taskbar) to open Task Manager, switch to the Details tab, find snipaste.exe, right-click it, and end the task. Reopen Snipaste afterwards and it works normally.\n\n\n\n\n\nBring Up the Search Bar and Copy Some Text\n\n\n\n\n\n\n\nEnd snipaste.exe in Task Manager\n\n\n\n\n\n3 Method 2: Restart the Computer\n\nPress Win + D (or another shortcut such as Win + S) to bring up the taskbar.\nClose all other programs from the taskbar, then restart the computer.\n\n\n\n4 Method 3: Uninstall and Reinstall\n\nPress Win + D (or another shortcut) to bring up the taskbar.\nOpen the Start menu, find Snipaste, right-click to uninstall, then install it again.\n\n\n\n\n\n\n\n Back to top",
+    "text": "3 min read · 579 EN words · 0 中文字\n\n1 The Problem\n\nOperating system: Windows 10\nSnipaste version: 2.9.1\n\nSnipaste froze while taking a screenshot. The paste pinned itself over the entire screen and could not be closed, and it blocked every other window.\n\n\n\n\nThe Frozen Paste Pinned over the Entire Screen\n\n\n\n\n\n2 Method 1: Kill the Snipaste Process\nThis takes advantage of how Snipaste replaces pastes: swap the full-screen paste for a small one first, then end the process.\n\nPress Win + S to bring up the taskbar and the search bar.\nType one or two short words in the search box and copy them.\nPress F3 to paste. The new paste (the text you just copied) replaces the old full-screen one. It is still frozen, but small enough to leave the rest of the screen usable.\nPress Ctrl + Shift + Esc (or right-click the taskbar) to open Task Manager, switch to the Details tab, find snipaste.exe, right-click it, and end the task. Reopen Snipaste afterwards and it works normally.\n\n\n\n\n\nBring Up the Search Bar and Copy Some Text\n\n\n\n\n\n\n\nEnd snipaste.exe in Task Manager\n\n\n\n\n\n3 Method 2: Restart the Computer\n\nPress Win + D (or another shortcut such as Win + S) to bring up the taskbar.\nClose all other programs from the taskbar, then restart the computer.\n\n\n\n4 Method 3: Uninstall and Reinstall\n\nPress Win + D (or another shortcut) to bring up the taskbar.\nOpen the Start menu, find Snipaste, right-click to uninstall, then install it again.\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Projects",
       "Blogs",
@@ -2306,7 +2306,7 @@
     "href": "en/blogs/2025-10-07-colab-plotly-export/index.html",
     "title": "Plotly Charts Display in Google Colab",
     "section": "",
-    "text": "3 min read · 530 EN words · 0 中文字",
+    "text": "3 min read · 542 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Blogs",
@@ -2366,7 +2366,7 @@
     "href": "en/blogs/2026-06-15-quarto-img-styles/index.html",
     "title": "Quarto Image Centering Styles",
     "section": "",
-    "text": "4 min read · 705 EN words · 0 中文字",
+    "text": "4 min read · 717 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Blogs",
@@ -2450,7 +2450,7 @@
     "href": "en/blogs/2026-07-11-vps-ssh-login/index.html",
     "title": "VPS SSH Login Troubleshooting",
     "section": "",
-    "text": "3 min read · 567 EN words · 0 中文字",
+    "text": "3 min read · 579 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Blogs",
@@ -2533,7 +2533,7 @@
     "href": "en/projects/2024-11-01-catalan-referendum/index.html",
     "title": "Twitter Sentiment Analysis of Catalan Referendum",
     "section": "",
-    "text": "8 min read · 1540 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "8 min read · 1552 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "Projects",
       "Twitter Sentiment Analysis of Catalan Referendum"
@@ -2621,7 +2621,7 @@
     "href": "en/projects/2025-12-10-bayanihan/index.html",
     "title": "Bayanihan UI/UX Design",
     "section": "",
-    "text": "3 min read · 538 EN words · 0 中文字",
+    "text": "3 min read · 550 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Bayanihan UI/UX Design"
@@ -2676,7 +2676,7 @@
     "href": "en/projects/2026-02-25-most-streamed-songs/index.html",
     "title": "Spotify Most Streamed Songs",
     "section": "",
-    "text": "9 min read · 1620 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
+    "text": "9 min read · 1632 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
     "crumbs": [
       "Projects",
       "Spotify Most Streamed Songs"
@@ -2807,7 +2807,7 @@
     "href": "en/tools/2026-04-17-news-hub/index.html",
     "title": "News Hub",
     "section": "",
-    "text": "3 min read · 480 EN words · 0 中文字",
+    "text": "3 min read · 492 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Tools",
@@ -2855,7 +2855,7 @@
     "href": "en/tools/2026-06-23-monthly-love/index.html",
     "title": "Monthly Love",
     "section": "",
-    "text": "4 min read · 642 EN words · 2 中文字",
+    "text": "4 min read · 654 EN words · 2 中文字",
     "crumbs": [
       "Projects",
       "Tools",
@@ -2903,7 +2903,7 @@
     "href": "en/tutorials/2024-10-01-amounts-and-distribution/index.html",
     "title": "Amounts and Distribution",
     "section": "",
-    "text": "9 min read · 1674 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "9 min read · 1686 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "Projects",
       "Tutorials",
@@ -3059,7 +3059,7 @@
     "href": "en/tutorials/2024-10-27-multivariate-plots/index.html",
     "title": "Multivariate Plots",
     "section": "",
-    "text": "20 min read · 3889 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "20 min read · 3901 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "Projects",
       "Tutorials",
@@ -3143,7 +3143,7 @@
     "href": "en/tutorials/2026-03-27-r-tips/index.html",
     "title": "R Tips",
     "section": "",
-    "text": "5 min read · 974 EN words · 0 中文字",
+    "text": "5 min read · 991 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Tutorials",
@@ -3450,7 +3450,7 @@
     "href": "zh/blogs/2024-05-16-snipaste-fix/index.html",
     "title": "Snipaste 截图卡死在最前端解决办法",
     "section": "",
-    "text": "4 min read · 176 EN words · 730 中文字\n\n1 问题描述\n\n操作系统：Windows 10\nSnipaste 版本：2.9.1\n\n使用 Snipaste 截图时程序卡死，贴图置顶覆盖整个屏幕，无法关闭，也无法操作其他窗口。\n\n\n\n\n卡死的贴图置顶覆盖整个屏幕\n\n\n\n\n\n2 方法一：结束 Snipaste 进程\n利用 Snipaste 的贴图替换机制，先把全屏贴图换成小尺寸贴图，再结束进程：\n\n按 Win + S 唤出任务栏和搜索栏。\n在搜索栏内输入一两个简短的文字并复制。\n按 F3 触发贴图。新贴图（刚复制的文字）会替换掉覆盖全屏的旧贴图；它仍处于卡死状态，但尺寸小，不再遮挡屏幕。\n按 Ctrl + Shift + Esc（或右击任务栏）打开任务管理器，切换到【详细信息】，找到 snipaste.exe，右击结束任务。之后重新打开 Snipaste 即可正常使用。\n\n\n\n\n\n唤出搜索栏并复制一段文字\n\n\n\n\n\n\n\n在任务管理器中结束 snipaste.exe\n\n\n\n\n\n3 方法二：重启电脑\n\n按 Win + D（或 Win + S 等其他快捷键）唤出任务栏。\n从任务栏关闭其他所有程序，然后重启电脑。\n\n\n\n4 方法三：卸载重装\n\n按 Win + D（或其他快捷键）唤出任务栏。\n打开开始菜单，找到 Snipaste，右击卸载，然后重新安装。\n\n\n\n\n\n\n\n 回到顶部",
+    "text": "4 min read · 181 EN words · 750 中文字\n\n1 问题描述\n\n操作系统：Windows 10\nSnipaste 版本：2.9.1\n\n使用 Snipaste 截图时程序卡死，贴图置顶覆盖整个屏幕，无法关闭，也无法操作其他窗口。\n\n\n\n\n卡死的贴图置顶覆盖整个屏幕\n\n\n\n\n\n2 方法一：结束 Snipaste 进程\n利用 Snipaste 的贴图替换机制，先把全屏贴图换成小尺寸贴图，再结束进程：\n\n按 Win + S 唤出任务栏和搜索栏。\n在搜索栏内输入一两个简短的文字并复制。\n按 F3 触发贴图。新贴图（刚复制的文字）会替换掉覆盖全屏的旧贴图；它仍处于卡死状态，但尺寸小，不再遮挡屏幕。\n按 Ctrl + Shift + Esc（或右击任务栏）打开任务管理器，切换到【详细信息】，找到 snipaste.exe，右击结束任务。之后重新打开 Snipaste 即可正常使用。\n\n\n\n\n\n唤出搜索栏并复制一段文字\n\n\n\n\n\n\n\n在任务管理器中结束 snipaste.exe\n\n\n\n\n\n3 方法二：重启电脑\n\n按 Win + D（或 Win + S 等其他快捷键）唤出任务栏。\n从任务栏关闭其他所有程序，然后重启电脑。\n\n\n\n4 方法三：卸载重装\n\n按 Win + D（或其他快捷键）唤出任务栏。\n打开开始菜单，找到 Snipaste，右击卸载，然后重新安装。\n\n\n\n\n\n\n\n 回到顶部",
     "crumbs": [
       "经验博客",
       "Snipaste 截图卡死在最前端解决办法"
@@ -3461,7 +3461,7 @@
     "href": "zh/blogs/2025-10-07-colab-plotly-export/index.html",
     "title": "Colab 导出 HTML 后无法显示 Plotly 图表问题",
     "section": "",
-    "text": "4 min read · 226 EN words · 665 中文字",
+    "text": "4 min read · 231 EN words · 685 中文字",
     "crumbs": [
       "经验博客",
       "Colab 导出 HTML 后无法显示 Plotly 图表问题"
@@ -3516,7 +3516,7 @@
     "href": "zh/blogs/2026-06-15-quarto-img-styles/index.html",
     "title": "Quarto 图片居中样式",
     "section": "",
-    "text": "5 min read · 195 EN words · 1032 中文字",
+    "text": "5 min read · 200 EN words · 1052 中文字",
     "crumbs": [
       "经验博客",
       "Quarto 图片居中样式"
@@ -3593,7 +3593,7 @@
     "href": "zh/blogs/2026-07-11-vps-ssh-login/index.html",
     "title": "VPS SSH 连接失败排查",
     "section": "",
-    "text": "4 min read · 225 EN words · 814 中文字",
+    "text": "4 min read · 230 EN words · 834 中文字",
     "crumbs": [
       "经验博客",
       "VPS SSH 连接失败排查"
@@ -3669,7 +3669,7 @@
     "href": "zh/projects/2024-11-01-catalan-referendum/index.html",
     "title": "Twitter 加泰罗尼亚公投情感分析",
     "section": "",
-    "text": "9 min read · 348 EN words · 2044 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "9 min read · 353 EN words · 2064 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "可视化项目",
       "Twitter 加泰罗尼亚公投情感分析"
@@ -3757,7 +3757,7 @@
     "href": "zh/projects/2025-12-10-bayanihan/index.html",
     "title": "Bayanihan UI/UX 设计",
     "section": "",
-    "text": "4 min read · 209 EN words · 843 中文字",
+    "text": "4 min read · 214 EN words · 863 中文字",
     "crumbs": [
       "可视化项目",
       "Bayanihan UI/UX 设计"
@@ -3812,7 +3812,7 @@
     "href": "zh/projects/2026-02-25-most-streamed-songs/index.html",
     "title": "Spotify 流量歌曲的音乐特征与受众趋势分析",
     "section": "",
-    "text": "9 min read · 267 EN words · 2296 中文字\n环境与版本\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
+    "text": "10 min read · 272 EN words · 2316 中文字\n环境与版本\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
     "crumbs": [
       "可视化项目",
       "Spotify 流量歌曲的音乐特征与受众趋势分析"
@@ -3943,7 +3943,7 @@
     "href": "zh/tools/2026-04-17-news-hub/index.html",
     "title": "新闻汇总收藏站",
     "section": "",
-    "text": "4 min read · 219 EN words · 680 中文字",
+    "text": "4 min read · 224 EN words · 700 中文字",
     "crumbs": [
       "Web工具",
       "新闻汇总收藏站"
@@ -3987,7 +3987,7 @@
     "href": "zh/tools/2026-06-23-monthly-love/index.html",
     "title": "每月情书",
     "section": "",
-    "text": "4 min read · 210 EN words · 830 中文字",
+    "text": "4 min read · 215 EN words · 850 中文字",
     "crumbs": [
       "Web工具",
       "每月情书"
@@ -4031,7 +4031,7 @@
     "href": "zh/tutorials/2024-10-01-amounts-and-distribution/index.html",
     "title": "数量与分布可视化",
     "section": "",
-    "text": "10 min read · 447 EN words · 2254 中文字\n环境和版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "10 min read · 448 EN words · 2274 中文字\n环境和版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "数据分析教程",
       "数量与分布可视化"
@@ -4174,7 +4174,7 @@
     "href": "zh/tutorials/2024-10-27-multivariate-plots/index.html",
     "title": "多变量图表",
     "section": "",
-    "text": "21 min read · 727 EN words · 5205 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "22 min read · 732 EN words · 5225 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "数据分析教程",
       "多变量图表"
@@ -4251,7 +4251,7 @@
     "href": "zh/tutorials/2026-03-27-r-tips/index.html",
     "title": "R 语言技巧",
     "section": "",
-    "text": "7 min read · 373 EN words · 1329 中文字",
+    "text": "7 min read · 380 EN words · 1358 中文字",
     "crumbs": [
       "数据分析教程",
       "R 语言技巧"

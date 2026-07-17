@@ -476,6 +476,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">R 语言技巧</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../zh/tutorials/2025-10-07-colab-plotly-export/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Colab 导出 HTML 后无法显示 Plotly 图表问题</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../zh/tutorials/2025-10-07-fix-network-diagram/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">在 Google Colab 中显示网络关系图</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -614,7 +626,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#项目进度自动追踪工作流" id="toc-项目进度自动追踪工作流" class="nav-link active" data-scroll-target="#项目进度自动追踪工作流"><span class="header-section-number">1</span> 项目进度自动追踪工作流</a></li>
   <li><a href="#用-notion-数据库做-cms" id="toc-用-notion-数据库做-cms" class="nav-link" data-scroll-target="#用-notion-数据库做-cms"><span class="header-section-number">2</span> 用 Notion 数据库做 CMS</a></li>
-  <li><a href="#课程作业仪表盘" id="toc-课程作业仪表盘" class="nav-link" data-scroll-target="#课程作业仪表盘"><span class="header-section-number">3</span> 课程作业仪表盘</a></li>
+  <li><a href="#课程作业管理" id="toc-课程作业管理" class="nav-link" data-scroll-target="#课程作业管理"><span class="header-section-number">3</span> 课程作业管理</a></li>
   <li><a href="#其他-notion-数据库" id="toc-其他-notion-数据库" class="nav-link" data-scroll-target="#其他-notion-数据库"><span class="header-section-number">4</span> 其他 Notion 数据库</a>
   <ul class="collapse">
   <li><a href="#自动扣费数据库" id="toc-自动扣费数据库" class="nav-link" data-scroll-target="#自动扣费数据库"><span class="header-section-number">4.1</span> 自动扣费数据库</a></li>
@@ -674,7 +686,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     5 min read</span><span> · </span><span>230 EN words</span><span> · </span><span>923 中文字</span></div>
+     5 min read</span><span> · </span><span>235 EN words</span><span> · </span><span>938 中文字</span></div>
 <section id="项目进度自动追踪工作流" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> 项目进度自动追踪工作流</h1>
 <p>这套工作流几乎不需要手动维护就能记录项目进度。三类关联数据库分工协作：任务 → 进度 → 项目。我通过 Notion Calendar 记录任务，数据自动填充至三个数据库；同时，外部应用可以通过 Notion API 读取数据库内容。</p>
@@ -706,15 +718,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="课程作业仪表盘" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> 课程作业仪表盘</h1>
-<p>我用 Notion 仪表盘页面管理每学期的课程。每个仪表盘实时追踪作业进度，结合 Notion Calendar，自动计算成绩，期末还会生成带图表的总结与反思。</p>
+<section id="课程作业管理" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> 课程作业管理</h1>
+<p>我用 Notion 管理每学期的课程，结合 Notion Calendar 记录作业，实时查看作业进度，自动计算成绩，结课后生成图表与统计数据并提供改进意见。</p>
 <p>在线示例：<a href="https://app.notion.com/p/2dea25f9fecd800691d6eccfac51b7cd">2025 Fall Course Dashboard</a>。</p>
 <div class="macbook-frame" style="width:40rem;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716191715075.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="仪表盘预览：统计与图表"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716191715075.png" class="img-fluid figure-img" loading="lazy" decoding="async" alt="仪表盘预览：统计与图表"></a></p>
-<figcaption>仪表盘预览：统计与图表</figcaption>
+<p><a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716191715075.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="课程作业统计与图表"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716191715075.png" class="img-fluid figure-img" loading="lazy" decoding="async" alt="课程作业统计与图表"></a></p>
+<figcaption>课程作业统计与图表</figcaption>
 </figure>
 </div>
 </div>
@@ -1738,14 +1750,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu"># 课程作业仪表盘</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu"># 课程作业管理</span></span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>我用 Notion 仪表盘页面管理每学期的课程。每个仪表盘实时追踪作业进度，结合 Notion Calendar，自动计算成绩，期末还会生成带图表的总结与反思。</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>我用 Notion 管理每学期的课程，结合 Notion Calendar 记录作业，实时查看作业进度，自动计算成绩，结课后生成图表与统计数据并提供改进意见。</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>在线示例：<span class="co">[</span><span class="ot">2025 Fall Course Dashboard</span><span class="co">](https://app.notion.com/p/2dea25f9fecd800691d6eccfac51b7cd)</span>。</span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>:::{.macbook-frame style="width:40rem;"}</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="al">![仪表盘预览：统计与图表](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716191715075.png)</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="al">![课程作业统计与图表](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716191715075.png)</span></span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>

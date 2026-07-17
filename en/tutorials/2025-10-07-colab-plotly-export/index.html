@@ -7,12 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Pinn Xu">
-<meta name="author" content="Yuchen Bao">
-<meta name="author" content="Tianpeng Xu">
-<meta name="dcterms.date" content="2026-04-19">
-<meta name="description" content="Browse random cat images and save your favorites after signing in.">
+<meta name="dcterms.date" content="2025-10-07">
+<meta name="description" content="How Plotly render inside Colab and in the browser after exporting notebook to HTML.">
 
-<title>Cat Image Hub – pinn.xu</title>
+<title>Plotly Charts Display in Google Colab – pinn.xu</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -73,8 +71,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../en/tools/2025-12-10-bayanihan/index.html" rel="next">
-<link href="../../../en/tools/2026-04-06-url-shortener/index.html" rel="prev">
+<link href="../../../en/tutorials/2025-10-07-fix-network-diagram/index.html" rel="next">
+<link href="../../../en/tutorials/2026-03-27-r-tips/index.html" rel="prev">
 <link href="../../../src/img/favicon/spark.ico" rel="icon">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -90,9 +88,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/bootstrap/bootstrap-c322c6d71f2db3d8706f25d53e26ae43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/bootstrap/bootstrap-dark-6b2326131c2d517b2bf549e49135402d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../../site_libs/bootstrap/bootstrap-c322c6d71f2db3d8706f25d53e26ae43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -121,6 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<meta http-equiv="refresh" content="0; url=../../blogs/2025-10-07-colab-plotly-export/">
 
 
 <link rel="stylesheet" href="../../../src/styles/style.css">
@@ -373,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../en/tools/index.html">Tools</a></li><li class="breadcrumb-item"><a href="../../../en/tools/2026-04-19-cat-img-hub/index.html">Cat Image Hub</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../en/tutorials/index.html">Tutorials</a></li><li class="breadcrumb-item"><a href="../../../en/tutorials/2025-10-07-colab-plotly-export/index.html">Plotly Charts Display in Google Colab</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -444,11 +440,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../../../en/tutorials/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tutorials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../en/tutorials/2024-10-10-data-processing/index.html" class="sidebar-item-text sidebar-link">
@@ -481,7 +477,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../en/tutorials/2025-10-07-colab-plotly-export/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../en/tutorials/2025-10-07-colab-plotly-export/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Plotly Charts Display in Google Colab</span></a>
   </div>
 </li>
@@ -497,11 +493,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../../../en/tools/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tools</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../en/tools/2026-06-23-monthly-love/index.html" class="sidebar-item-text sidebar-link">
@@ -522,7 +518,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../en/tools/2026-04-19-cat-img-hub/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../en/tools/2026-04-19-cat-img-hub/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Cat Image Hub</span></a>
   </div>
 </li>
@@ -622,39 +618,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#cat-image-hub" id="toc-cat-image-hub" class="nav-link active" data-scroll-target="#cat-image-hub">Cat Image Hub</a>
-  <ul class="collapse">
-  <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features">Key Features</a></li>
-  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How It Works</a></li>
-  <li><a href="#tech-stack" id="toc-tech-stack" class="nav-link" data-scroll-target="#tech-stack">Tech Stack</a></li>
-  <li><a href="#team" id="toc-team" class="nav-link" data-scroll-target="#team">Team</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Pinn32/pinn32.github.io/edit/main/en/tools/2026-04-19-cat-img-hub/index.md" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/blob/main/en/tools/2026-04-19-cat-img-hub/index.md" target="_blank" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../en/tools/index.html">Tools</a></li><li class="breadcrumb-item"><a href="../../../en/tools/2026-04-19-cat-img-hub/index.html">Cat Image Hub</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../en/tutorials/index.html">Tutorials</a></li><li class="breadcrumb-item"><a href="../../../en/tutorials/2025-10-07-colab-plotly-export/index.html">Plotly Charts Display in Google Colab</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Cat Image Hub</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Plotly Charts Display in Google Colab</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
   <div class="quarto-categories">
-    <div class="quarto-category">Web App</div>
-    <div class="quarto-category">Next.js</div>
-    <div class="quarto-category">MongoDB</div>
-    <div class="quarto-category">OAuth</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">Colab</div>
+    <div class="quarto-category">Plotly</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Browse random cat images and save your favorites after signing in.
+    How Plotly render inside Colab and in the browser after exporting notebook to HTML.
   </div>
 </div>
 
@@ -662,18 +645,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
              <p>Pinn Xu </p>
-             <p>Yuchen Bao </p>
-             <p>Tianpeng Xu </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 19, 2026</p>
+      <p class="date">October 7, 2025</p>
     </div>
   </div>
   
@@ -685,118 +666,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="reading-meta"><span>        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 6v6l4 2"></path>
-        </svg>
-     3 min read</span><span> · </span><span>582 EN words</span><span> · </span><span>0 中文字</span></div>
-<section id="cat-image-hub" class="level1">
-<h1>Cat Image Hub</h1>
-<p>Cat Image Hub is a web app for browsing random cat images, where signed-in users can save their favorites to a personal collection. It was built with <strong>Next.js</strong>, <strong>TypeScript</strong>, and <strong>MongoDB</strong>, drawing images from the Cat API and handling sign-in through Google OAuth.</p>
-<div style="text-align:center;">
-<p><a href="https://cat-img-hub.vercel.app/" class="btn btn-outline-primary" target="_blank">Click Here to Try</a></p>
-</div>
-<div class="macbook-frame" style="width:40rem;">
-<div id="fig-gallery" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-gallery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623235024432.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Home Gallery"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623235024432.png" class="img-fluid figure-img" loading="lazy" decoding="async"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gallery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Home Gallery
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="macbook-frame" style="width:30rem;">
-<div id="fig-login" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-login-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260624000817849.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Login"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260624000817849.png" class="img-fluid figure-img" loading="lazy" decoding="async"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-login-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Login
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="macbook-frame" style="width:40rem;">
-<div id="fig-favorites" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-favorites-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623234247520.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Favorites"><img src="https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623234247520.png" class="img-fluid figure-img" loading="lazy" decoding="async"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-favorites-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Favorites
-</figcaption>
-</figure>
-</div>
-</div>
-<section id="key-features" class="level2">
-<h2 class="anchored" data-anchor-id="key-features">Key Features</h2>
-<ul>
-<li><strong>Random gallery</strong> — the home page loads a grid of random cats with breed, lifespan, and temperament, fetched server-side from the Cat API.</li>
-<li><strong>Search by ID</strong> — look up any cat image by its Cat API image ID.</li>
-<li><strong>Favorites</strong> — signed-in users can like/unlike cats; their picks are saved to MongoDB and shown on a dedicated page.</li>
-<li><strong>Google sign-in</strong> — one-click OAuth login through Auth.js v5; no passwords stored.</li>
-</ul>
-</section>
-<section id="how-it-works" class="level2">
-<h2 class="anchored" data-anchor-id="how-it-works">How It Works</h2>
-<p>Pages are Next.js Server Components that fetch initial data and hand it to small interactive client components, keeping the client-side JavaScript light.</p>
-<ul>
-<li><strong>Cat API layer</strong> — a thin wrapper retrieves random and single-image data, backfilling breed details when the API omits them.</li>
-<li><strong>Favorites service</strong> — a <code>favorites</code> collection in MongoDB (raw driver, no ORM) stores each saved cat keyed to the user’s Google account ID, with deduplicated add/remove operations.</li>
-<li><strong>Authentication</strong> — Auth.js stores the Google account ID in the session token, so every server component and API route can identify the user without an extra database lookup.</li>
-</ul>
-</section>
-<section id="tech-stack" class="level2">
-<h2 class="anchored" data-anchor-id="tech-stack">Tech Stack</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Layer</th>
-<th>Technology</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Framework</td>
-<td>Next.js 16 (App Router)</td>
-</tr>
-<tr class="even">
-<td>Language</td>
-<td>TypeScript 5</td>
-</tr>
-<tr class="odd">
-<td>Auth</td>
-<td>Auth.js v5 + Google OAuth</td>
-</tr>
-<tr class="even">
-<td>Database</td>
-<td>MongoDB 6 (raw driver)</td>
-</tr>
-<tr class="odd">
-<td>Styling</td>
-<td>styled-components 6</td>
-</tr>
-<tr class="even">
-<td>External API</td>
-<td><a href="https://thecatapi.com" target="_blank">The Cat API</a></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="team" class="level2">
-<h2 class="anchored" data-anchor-id="team">Team</h2>
-<p>Built by <strong>Pinn (Aiqi) Xu</strong> (authentication, layout, navigation, styling), <strong>Yuchen Bao</strong> (Cat API integration, home and search pages, cat cards), and <strong>Tianpeng Xu</strong> (MongoDB, favorites service and page, shared types).</p>
-<p><a href="https://github.com/Pinn32/cat-img-hub" target="_blank">&gt;&gt; View source on GitHub</a></p>
+<p>Redirecting to <a href="../../blogs/2025-10-07-colab-plotly-export/">Plotly Charts Display in Google Colab</a> in <strong>Blogs</strong>…</p>
 
 
 <!-- -->
 
-</section>
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <!--
@@ -1714,81 +1588,33 @@ Figure&nbsp;3: Favorites
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../../en/tools/2026-04-06-url-shortener/index.html" class="pagination-link" aria-label="URL Shortener">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">URL Shortener</span>
+      <a href="../../../en/tutorials/2026-03-27-r-tips/index.html" class="pagination-link" aria-label="R Tips">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R Tips</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../en/tools/2025-12-10-bayanihan/index.html" class="pagination-link" aria-label="Bayanihan UI/UX Design">
-        <span class="nav-page-text">Bayanihan UI/UX Design</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../en/tutorials/2025-10-07-fix-network-diagram/index.html" class="pagination-link" aria-label="Network Diagram Display in Google Colab">
+        <span class="nav-page-text">Network Diagram Display in Google Colab</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> 'Cat Image Hub'</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> ['Pinn Xu', 'Yuchen Bao', 'Tianpeng Xu']</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2026-04-19</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> 'Browse random cat images and save your favorites after signing in.'</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Web App, Next.js, MongoDB, OAuth]</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260624000221390.png"</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">order:</span><span class="co"> 3</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">aliases:</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    - ../cat-img-hub/</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># Cat Image Hub</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>Cat Image Hub is a web app for browsing random cat images, where signed-in users can save their favorites to a personal collection. It was built with **Next.js**, **TypeScript**, and **MongoDB**, drawing images from the Cat API and handling sign-in through Google OAuth.</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Plotly Charts Display in Google Colab"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> 'Pinn Xu'</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2025-10-07</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">order:</span><span class="co"> 6   # sidebar sort key: negative date =&gt; newest first</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> 'How Plotly render inside Colab and in the browser after exporting notebook to HTML.'</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Python, Colab, Plotly]</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712154436828.png"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="an">search:</span><span class="co"> false</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="an">reading-meta-enabled:</span><span class="co"> false</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="an">include-in-header:</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">  text: |</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;meta http-equiv="refresh" content="0; url=../../blogs/2025-10-07-colab-plotly-export/"&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>:::{style="text-align:center;"}</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Click Here to Try</span><span class="co">](https://cat-img-hub.vercel.app/)</span>{.btn .btn-outline-primary target="_blank"}</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>::: {.macbook-frame style="width:40rem;"}</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="al">![Home Gallery](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623235024432.png)</span>{#fig-gallery}</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>::: {.macbook-frame style="width:30rem;"}</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="al">![Login](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260624000817849.png)</span>{#fig-login}</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>::: {.macbook-frame style="width:40rem;"}</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="al">![Favorites](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623234247520.png)</span>{#fig-favorites}</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Features</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Random gallery** — the home page loads a grid of random cats with breed, lifespan, and temperament, fetched server-side from the Cat API.</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Search by ID** — look up any cat image by its Cat API image ID.</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Favorites** — signed-in users can like/unlike cats; their picks are saved to MongoDB and shown on a dedicated page.</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Google sign-in** — one-click OAuth login through Auth.js v5; no passwords stored.</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## How It Works</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>Pages are Next.js Server Components that fetch initial data and hand it to small interactive client components, keeping the client-side JavaScript light.</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cat API layer** — a thin wrapper retrieves random and single-image data, backfilling breed details when the API omits them.</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Favorites service** — a <span class="in">`favorites`</span> collection in MongoDB (raw driver, no ORM) stores each saved cat keyed to the user's Google account ID, with deduplicated add/remove operations.</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Authentication** — Auth.js stores the Google account ID in the session token, so every server component and API route can identify the user without an extra database lookup.</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tech Stack</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Layer <span class="pp">|</span> Technology <span class="pp">|</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">| ---</span> <span class="pp">| ---</span> <span class="pp">|</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Framework <span class="pp">|</span> Next.js 16 (App Router) <span class="pp">|</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Language <span class="pp">|</span> TypeScript 5 <span class="pp">|</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Auth <span class="pp">|</span> Auth.js v5 + Google OAuth <span class="pp">|</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Database <span class="pp">|</span> MongoDB 6 (raw driver) <span class="pp">|</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Styling <span class="pp">|</span> styled-components 6 <span class="pp">|</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> External API <span class="pp">|</span> <span class="co">[</span><span class="ot">The Cat API</span><span class="co">](https://thecatapi.com)</span>{target="_blank"} <span class="pp">|</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Team</span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>Built by **Pinn (Aiqi) Xu** (authentication, layout, navigation, styling), **Yuchen Bao** (Cat API integration, home and search pages, cat cards), and **Tianpeng Xu** (MongoDB, favorites service and page, shared types).</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">&gt;&gt; View source on GitHub</span><span class="co">](https://github.com/Pinn32/cat-img-hub)</span>{target="_blank"}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Redirecting to <span class="co">[</span><span class="ot">Plotly Charts Display in Google Colab</span><span class="co">](../../blogs/2025-10-07-colab-plotly-export/)</span> in **Blogs**…</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1798,44 +1624,12 @@ Figure&nbsp;3: Favorites
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Pinn32/pinn32.github.io/edit/main/en/tools/2026-04-19-cat-img-hub/index.md" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/blob/main/en/tools/2026-04-19-cat-img-hub/index.md" target="_blank" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/Pinn32/pinn32.github.io/edit/main/en/tutorials/2025-10-07-colab-plotly-export/index.md" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/blob/main/en/tutorials/2025-10-07-colab-plotly-export/index.md" target="_blank" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 
