@@ -64,6 +64,7 @@
   {
     "listing": "/en/all-posts/index.html",
     "items": [
+      "/en/blogs/2026-07-16-ntn-workflows/index.html",
       "/en/blogs/2026-07-11-vps-ssh-login/index.html",
       "/en/blogs/2026-07-08-ntn-db-auto-sync/index.html",
       "/en/tools/2026-06-23-monthly-love/index.html",
@@ -86,18 +87,21 @@
       "/en/tutorials/2024-10-27-multivariate-plots/index.html",
       "/en/tutorials/2024-10-10-data-processing/index.html",
       "/en/tutorials/2024-10-01-amounts-and-distribution/index.html",
+      "/en/blogs/2024-05-16-snipaste-fix/index.html",
       "/en/blogs/2024-04-22-recover-shellfolder/index.html"
     ]
   },
   {
     "listing": "/en/blogs/index.html",
     "items": [
+      "/en/blogs/2026-07-16-ntn-workflows/index.html",
       "/en/blogs/2026-07-11-vps-ssh-login/index.html",
       "/en/blogs/2026-07-08-ntn-db-auto-sync/index.html",
       "/en/blogs/2026-06-15-quarto-img-styles/index.html",
       "/en/blogs/2025-10-07-fix-network-diagram/index.html",
       "/en/blogs/2025-10-07-colab-plotly-export/index.html",
       "/en/blogs/2024-12-22-easy-canvas-connection/index.html",
+      "/en/blogs/2024-05-16-snipaste-fix/index.html",
       "/en/blogs/2024-04-22-recover-shellfolder/index.html"
     ]
   },
@@ -115,12 +119,14 @@
   {
     "listing": "/zh/all-posts/index.html",
     "items": [
+      "/zh/blogs/2026-07-16-ntn-workflows/index.html",
       "/zh/blogs/2026-07-11-vps-ssh-login/index.html",
       "/zh/blogs/2026-07-08-ntn-db-auto-sync/index.html",
       "/zh/blogs/2026-06-15-quarto-img-styles/index.html",
       "/zh/blogs/2025-10-07-colab-plotly-export/index.html",
       "/zh/blogs/2025-10-07-fix-network-diagram/index.html",
       "/zh/blogs/2024-12-22-easy-canvas-connection/index.html",
+      "/zh/blogs/2024-05-16-snipaste-fix/index.html",
       "/zh/blogs/2024-04-22-recover-shellfolder/index.html",
       "/zh/projects/2026-05-01-ai-discourse/index.html",
       "/zh/tutorials/2024-10-10-data-processing/index.html",
@@ -138,12 +144,14 @@
   {
     "listing": "/zh/blogs/index.html",
     "items": [
+      "/zh/blogs/2026-07-16-ntn-workflows/index.html",
       "/zh/blogs/2026-07-11-vps-ssh-login/index.html",
       "/zh/blogs/2026-07-08-ntn-db-auto-sync/index.html",
       "/zh/blogs/2026-06-15-quarto-img-styles/index.html",
       "/zh/blogs/2025-10-07-colab-plotly-export/index.html",
       "/zh/blogs/2025-10-07-fix-network-diagram/index.html",
       "/zh/blogs/2024-12-22-easy-canvas-connection/index.html",
+      "/zh/blogs/2024-05-16-snipaste-fix/index.html",
       "/zh/blogs/2024-04-22-recover-shellfolder/index.html"
     ]
   },

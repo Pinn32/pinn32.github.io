@@ -14,7 +14,7 @@
     "href": "zh/tutorials/2024-12-05-sankey-and-network/index.html",
     "title": "桑基图与网络图",
     "section": "",
-    "text": "9 min read · 273 EN words · 2077 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nplotly==5.24.1\nmatplotlib==3.9.x\npyvis==0.3.2\nnetworkx==3.3",
+    "text": "9 min read · 275 EN words · 2095 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nplotly==5.24.1\nmatplotlib==3.9.x\npyvis==0.3.2\nnetworkx==3.3",
     "crumbs": [
       "数据分析教程",
       "桑基图与网络图"
@@ -124,7 +124,7 @@
     "href": "zh/tutorials/2024-10-10-data-processing/index.html",
     "title": "数据清理",
     "section": "",
-    "text": "10 min read · 878 EN words · 1530 中文字\n环境与版本\npython==3.12\npandas==2.2.2",
+    "text": "10 min read · 880 EN words · 1548 中文字\n环境与版本\npython==3.12\npandas==2.2.2",
     "crumbs": [
       "数据分析教程",
       "数据清理"
@@ -222,7 +222,7 @@
     "href": "zh/tools/2026-04-19-cat-img-hub/index.html",
     "title": "猫咪图片收藏站",
     "section": "",
-    "text": "4 min read · 236 EN words · 793 中文字",
+    "text": "4 min read · 238 EN words · 811 中文字",
     "crumbs": [
       "Web工具",
       "猫咪图片收藏站"
@@ -277,7 +277,7 @@
     "href": "zh/tools/2026-04-06-url-shortener/index.html",
     "title": "短链接生成器",
     "section": "",
-    "text": "3 min read · 173 EN words · 639 中文字",
+    "text": "4 min read · 175 EN words · 657 中文字",
     "crumbs": [
       "Web工具",
       "短链接生成器"
@@ -350,7 +350,7 @@
     "href": "zh/projects/2026-05-01-ai-discourse/index.html",
     "title": "网络AI话语的演变",
     "section": "",
-    "text": "34 min read · 1019 EN words · 8639 中文字\n环境与版本\nR==4.5.2\nMASS==7.3.65\ntidyverse==2.0.0\ntidytext==0.4.3\ntextdata==0.4.5\ntopicmodels==0.2.17\nscales==1.4.0\nbroom==1.0.12\ntextutils==0.4.3\nknitr==1.51",
+    "text": "34 min read · 1021 EN words · 8657 中文字\n环境与版本\nR==4.5.2\nMASS==7.3.65\ntidyverse==2.0.0\ntidytext==0.4.3\ntextdata==0.4.5\ntopicmodels==0.2.17\nscales==1.4.0\nbroom==1.0.12\ntextutils==0.4.3\nknitr==1.51",
     "crumbs": [
       "可视化项目",
       "网络AI话语的演变"
@@ -548,7 +548,7 @@
     "href": "zh/projects/2026-02-23-student-media-usage/index.html",
     "title": "学生社交媒体使用与幸福感分析",
     "section": "",
-    "text": "18 min read · 353 EN words · 4666 中文字\n环境与版本\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
+    "text": "18 min read · 355 EN words · 4684 中文字\n环境与版本\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
     "crumbs": [
       "可视化项目",
       "学生社交媒体使用与幸福感分析"
@@ -779,7 +779,7 @@
     "href": "zh/projects/2024-12-12-global-visa-cost/index.html",
     "title": "全球签证费用地区分析",
     "section": "",
-    "text": "10 min read · 268 EN words · 2554 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nplotly==5.24.1",
+    "text": "10 min read · 270 EN words · 2572 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nplotly==5.24.1",
     "crumbs": [
       "可视化项目",
       "全球签证费用地区分析"
@@ -865,201 +865,179 @@
     ]
   },
   {
-    "objectID": "zh/blogs/2026-07-11-vps-ssh-login/index.html",
-    "href": "zh/blogs/2026-07-11-vps-ssh-login/index.html",
-    "title": "VPS SSH 连接失败排查",
+    "objectID": "zh/blogs/2026-07-16-ntn-workflows/index.html",
+    "href": "zh/blogs/2026-07-16-ntn-workflows/index.html",
+    "title": "Notion 数据库工作流",
     "section": "",
-    "text": "4 min read · 222 EN words · 794 中文字",
+    "text": "5 min read · 230 EN words · 923 中文字",
     "crumbs": [
       "经验博客",
-      "VPS SSH 连接失败排查"
+      "Notion 数据库工作流"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-07-11-vps-ssh-login/index.html#通过远程控制台访问-vps",
-    "href": "zh/blogs/2026-07-11-vps-ssh-login/index.html#通过远程控制台访问-vps",
-    "title": "VPS SSH 连接失败排查",
-    "section": "2.1 通过远程控制台访问 VPS",
-    "text": "2.1 通过远程控制台访问 VPS\n通过服务商提供的远程控制台（Remote Console）登录 VPS，在本地开始排查。\n\n\n\n\n远程控制台",
+    "objectID": "zh/blogs/2026-07-16-ntn-workflows/index.html#自动扣费数据库",
+    "href": "zh/blogs/2026-07-16-ntn-workflows/index.html#自动扣费数据库",
+    "title": "Notion 数据库工作流",
+    "section": "4.1 自动扣费数据库",
+    "text": "4.1 自动扣费数据库\n管理我的订阅服务。一次性配置后，数据库会自动更新续费日期并按时提醒我。\n\n\n\n\n自动扣费提醒数据库",
     "crumbs": [
       "经验博客",
-      "VPS SSH 连接失败排查"
+      "Notion 数据库工作流"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-07-11-vps-ssh-login/index.html#检查-ssh-服务状态",
-    "href": "zh/blogs/2026-07-11-vps-ssh-login/index.html#检查-ssh-服务状态",
-    "title": "VPS SSH 连接失败排查",
-    "section": "2.2 检查 SSH 服务状态",
-    "text": "2.2 检查 SSH 服务状态\n检查 SSH 状态：\nsystemctl status ssh\n发现 SSH 服务没有运行。\n\n\n\nSSH状态\n\n\n启动 SSH 并设置开机自启：\nsudo systemctl start ssh   # 启动\nsudo systemctl enable ssh  # 开机自启\nsystemctl status ssh       # 检查状态",
+    "objectID": "zh/blogs/2026-07-16-ntn-workflows/index.html#日志数据库",
+    "href": "zh/blogs/2026-07-16-ntn-workflows/index.html#日志数据库",
+    "title": "Notion 数据库工作流",
+    "section": "4.2 日志数据库",
+    "text": "4.2 日志数据库\n记录我每天的进步、经验、反思和生活点滴。\n\n\n\n\nJournal 数据库（标签分组视图）",
     "crumbs": [
       "经验博客",
-      "VPS SSH 连接失败排查"
+      "Notion 数据库工作流"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-07-11-vps-ssh-login/index.html#检查防火墙配置",
-    "href": "zh/blogs/2026-07-11-vps-ssh-login/index.html#检查防火墙配置",
-    "title": "VPS SSH 连接失败排查",
-    "section": "2.3 检查防火墙配置",
-    "text": "2.3 检查防火墙配置\n检查 UFW 状态：\nufw status\n确认 SSH 端口没有被 UFW 拦截，排除了防火墙的问题。",
+    "objectID": "zh/blogs/2026-07-16-ntn-workflows/index.html#学习数据库",
+    "href": "zh/blogs/2026-07-16-ntn-workflows/index.html#学习数据库",
+    "title": "Notion 数据库工作流",
+    "section": "4.3 学习数据库",
+    "text": "4.3 学习数据库\n这个数据库是我所有页面和数据库的主要入口之一，各具体项目在其子页面中逐步落地。\n\n\n\n\nLearning 数据库总览",
     "crumbs": [
       "经验博客",
-      "VPS SSH 连接失败排查"
+      "Notion 数据库工作流"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-07-11-vps-ssh-login/index.html#检查-fail2ban-封禁状态",
-    "href": "zh/blogs/2026-07-11-vps-ssh-login/index.html#检查-fail2ban-封禁状态",
-    "title": "VPS SSH 连接失败排查",
-    "section": "2.4 检查 fail2ban 封禁状态",
-    "text": "2.4 检查 fail2ban 封禁状态\n检查 fail2ban 服务：\nsudo systemctl status fail2ban\n在本地查看自己的 IP：\ncurl https://api.ipify.org\n在远程控制台上，查看自己的 IP 是否被封禁：\n# 检查 SSH jail 状态：\nsudo fail2ban-client status sshd\n# Banned IP list: &lt;my_ip&gt;\n\n\n\n查看自己 IP 是否被封\n\n\n原因：\n\n修改用户名后，用来连接 VPS 的 snippet 仍然使用旧用户名\n多次使用无效的用户名/密码尝试登录\n失败次数超过了 fail2ban 的阈值（5次）\nfail2ban 自动封禁了我的 IP（封禁时长: 1小时）",
-    "crumbs": [
-      "经验博客",
-      "VPS SSH 连接失败排查"
-    ]
-  },
-  {
-    "objectID": "zh/blogs/2026-07-11-vps-ssh-login/index.html#解封我的-ip",
-    "href": "zh/blogs/2026-07-11-vps-ssh-login/index.html#解封我的-ip",
-    "title": "VPS SSH 连接失败排查",
-    "section": "2.5 解封我的 IP",
-    "text": "2.5 解封我的 IP\n查看当前被封禁的 IP：\nsudo fail2ban-client status sshd\n解除该 IP 的封禁：\nsudo fail2ban-client set sshd unbanip &lt;my_ip&gt;\n如有需要，重启 fail2ban：\nsudo systemctl restart fail2ban",
-    "crumbs": [
-      "经验博客",
-      "VPS SSH 连接失败排查"
-    ]
-  },
-  {
-    "objectID": "zh/blogs/2026-06-15-quarto-img-styles/index.html",
-    "href": "zh/blogs/2026-06-15-quarto-img-styles/index.html",
-    "title": "Quarto 图片居中样式",
+    "objectID": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html",
+    "href": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html",
+    "title": "Notion 数据库自动同步技巧",
     "section": "",
-    "text": "5 min read · 193 EN words · 1014 中文字",
+    "text": "6 min read · 252 EN words · 1400 中文字",
     "crumbs": [
       "经验博客",
-      "Quarto 图片居中样式"
+      "Notion 数据库自动同步技巧"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-06-15-quarto-img-styles/index.html#第一步外部-css",
-    "href": "zh/blogs/2026-06-15-quarto-img-styles/index.html#第一步外部-css",
-    "title": "Quarto 图片居中样式",
-    "section": "1.1 第一步：外部 CSS",
-    "text": "1.1 第一步：外部 CSS\n.quarto-float.quarto-figure.quarto-figure-center.anchored {\n    width: 100% !important;\n}\n并在 _quarto.yml 中挂载：\nformat:\n  html:\n    css:\n      - path/to/style.css",
+    "objectID": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#任务数据库",
+    "href": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#任务数据库",
+    "title": "Notion 数据库自动同步技巧",
+    "section": "2.1 任务数据库",
+    "text": "2.1 任务数据库\nDev Track 数据库将每项日常任务存为一条记录。其中一个 Relation 属性关联到 Change Log 数据库，此外还包含时间线、时长等基础属性。\n\n\n\n\nDev 数据库总览\n\n\n\n值得一提的是，我并非通过 Notion 界面逐行添加记录，而是用 Notion Calendar 记录任务。它提供清晰的日历视图，也便于我在做事时随手记笔记。\n\n\n\n\nNotion Calendar 中的 Dev 数据库",
     "crumbs": [
       "经验博客",
-      "Quarto 图片居中样式"
+      "Notion 数据库自动同步技巧"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-06-15-quarto-img-styles/index.html#第二步页面级-internal-css",
-    "href": "zh/blogs/2026-06-15-quarto-img-styles/index.html#第二步页面级-internal-css",
-    "title": "Quarto 图片居中样式",
-    "section": "1.2 第二步：页面级 Internal CSS",
-    "text": "1.2 第二步：页面级 Internal CSS\n在页面最上方 (yaml块的下方) 添加 &lt;style&gt; 标签：\n&lt;style&gt;\n    figcaption {\n        text-align: center;\n    }\n&lt;/style&gt;",
+    "objectID": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#进度数据库",
+    "href": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#进度数据库",
+    "title": "Notion 数据库自动同步技巧",
+    "section": "2.2 进度数据库",
+    "text": "2.2 进度数据库\nChange Log 数据库按阶段记录站点的开发进度。每条记录关联了 Dev Track 数据库中的若干任务，并将它们汇总为 Rollup 属性。例如 Start (实际开始日期：开始时间早于凌晨 5 点的任务计入前一天) 和 Hours（该阶段内所有任务的总时间跨度）。\n\n\n\n\nLog 数据库总览\n\n\n\nFormula 属性负责计算并返回格式化的结果。例如 Date label 属性会判断某条记录的时间跨度是一天还是多天，同时对于最新阶段返回 &lt;start&gt; - now。\n\n\n\n此外还有一些隐藏属性支撑这些计算：_days 供 Days 使用，_end 与 _phase 供 Date label 使用。_BU 后缀则表示“备份” (backup)，即原先手动编辑属性的备份。",
     "crumbs": [
       "经验博客",
-      "Quarto 图片居中样式"
+      "Notion 数据库自动同步技巧"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-06-15-quarto-img-styles/index.html#第三步图片行内样式",
-    "href": "zh/blogs/2026-06-15-quarto-img-styles/index.html#第三步图片行内样式",
-    "title": "Quarto 图片居中样式",
-    "section": "1.3 第三步：图片行内样式",
-    "text": "1.3 第三步：图片行内样式\n![图a](URL){#fig-a style=\"width:20rem;\"}\n![图b](URL){#fig-b style=\"width:15rem;\"}\n\n本文即采用上述方案实现，点击页面右上角 &lt;/&gt; 代码 可查看完整源代码。\n\n\n下面是具体实现过程：",
+    "objectID": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#项目数据库",
+    "href": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#项目数据库",
+    "title": "Notion 数据库自动同步技巧",
+    "section": "2.3 项目数据库",
+    "text": "2.3 项目数据库\nAll Projects 数据库汇集所有项目并展示整体 Rollup 统计。其中每一行同时也是一个汇总页面，用于管理各子数据库，并展示图表等信息。",
     "crumbs": [
       "经验博客",
-      "Quarto 图片居中样式"
+      "Notion 数据库自动同步技巧"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-06-15-quarto-img-styles/index.html#传统方法",
-    "href": "zh/blogs/2026-06-15-quarto-img-styles/index.html#传统方法",
-    "title": "Quarto 图片居中样式",
-    "section": "2.1 传统方法",
-    "text": "2.1 传统方法\n在 Quarto Website 撰写过程中，最初，我通过 Quarto 内置的 width 属性控制图片大小：\n![图片标题](图片URL){#fig-title width=\"15%\"}\n这种方式简洁直观，无需额外编写 style=\"width:15%\" 等行内样式，显示效果也较为理想。\n\n\n\n\n\n\n\n图 1: 通过 width 百分比控制图片效果预览",
+    "objectID": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#时区",
+    "href": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#时区",
+    "title": "Notion 数据库自动同步技巧",
+    "section": "3.1 时区",
+    "text": "3.1 时区\n在用 Formula 与 Rollup 替换掉手动输入的属性后，我发现日期类 Formula 属性在 Notion 界面与 API 中返回的值并不一致。例如：\nprop(\"Timeline\").dateStart().formatDate(\"YYYY-MM-DD\").parseDate()\n这个 Formula 会去掉 Timeline 起始日期中的时间部分，返回纯日期。无论工作区设为哪个时区，它在 Notion 界面中都正常，但 API 可能返回不同的日期。\n原因在于 formatDate() 以 UTC+0 解析和输出。如果你的时区是 UTC-4，结果就会相差 4 小时。\n解决办法是：只要你的时区不是 UTC+0，就在调用 formatDate() 时传入时区参数。\nprop(\"Timeline\").dateStart().formatDate(\"YYYY-MM-DD\", UTC-4).parseDate()\n如果你所在地区实行夏令时，建议使用 IANA 时区名称，例如用 America/New_York 而非 UTC-4。",
     "crumbs": [
       "经验博客",
-      "Quarto 图片居中样式"
+      "Notion 数据库自动同步技巧"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-06-15-quarto-img-styles/index.html#问题1引用悬浮预览异常",
-    "href": "zh/blogs/2026-06-15-quarto-img-styles/index.html#问题1引用悬浮预览异常",
-    "title": "Quarto 图片居中样式",
-    "section": "2.2 问题1：引用悬浮预览异常",
-    "text": "2.2 问题1：引用悬浮预览异常\n在正文中使用交叉引用（如 @fig-title）后，我发现图片悬浮预览会继承 width 百分比设置，导致预览显示异常。\n\n\n\n\n\n\n\n图 2: 问题1 - 悬浮预览异常\n\n\n\n\n为了解决这个问题，我尝试改用 rem 作为图片宽度单位，以兼顾页面缩放和悬浮预览。\n首先尝试：\n![图片标题](图片URL){#fig-title width=\"7rem\"}\n但并未生效，因为 Quarto 的 width 属性不支持 rem 单位（支持 px、百分比等）。\n随后改为：\n![图片标题](图片URL){#fig-title style=\"width:7rem;\"}",
+    "objectID": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#数据类型",
+    "href": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#数据类型",
+    "title": "Notion 数据库自动同步技巧",
+    "section": "3.2 数据类型",
+    "text": "3.2 数据类型\nFormula 属性在源属性为空时并不强制要求设置回退值（fallback）。若要设置，请使用与该属性相同的类型。\n同时应避免用 empty() 作为回退值：它会导致图表视图（Chart View）无法使用。例如：\nifs(\n    /* set empty() as fallback if $Timeline is empty */\n    prop(\"Timeline\") == empty(),\n    empty(),\n\n    /* if start time is before 5am, subtract 1 day */\n    prop(\"Timeline\").dateStart().hours() &lt;= 5,\n    prop(\"Timeline\").dateStart().dateSubtract()\n    .formatDate(\"YYYY-MM-DD\", UTC-4).parseDate(),\n\n    /* else: set start time */\n    prop(\"Timeline\").dateStart().formatDate(\"YYYY-MM-DD\", UTC-4).parseDate()\n)\n这个 Formula 根据 Timeline 属性给出任务的实际日期，并将开始时间早于凌晨 5 点的任务计入前一天。\n它在常规视图（表格、列表、日历等）中正常工作，但该属性无法用作图表视图的 X 轴。\n解决办法是去掉 empty() 回退值。要么完全不设回退值——源属性为空时该属性也为空，同时仍可用于图表视图；要么使用一个日期作为回退，例如 1900-01-01 或 today()。\nifs(\n    /* date fallback if $Timeline is empty */\n    prop(\"Timeline\") == empty(),\n    parseDate(\"1900-01-01\"),\n\n    /* if start time is before 5am, subtract 1 day */\n    prop(\"Timeline\").dateStart().hours() &lt;= 5,\n    prop(\"Timeline\").dateStart().dateSubtract()\n    .formatDate(\"YYYY-MM-DD\", UTC-4).parseDate(),\n\n    /* else: set start time */\n    prop(\"Timeline\").dateStart().formatDate(\"YYYY-MM-DD\", UTC-4).parseDate()\n)\n其他类型同理：字符串用 \"\"，数字用 0，布尔用 false，列表用 []。",
     "crumbs": [
       "经验博客",
-      "Quarto 图片居中样式"
+      "Notion 数据库自动同步技巧"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-06-15-quarto-img-styles/index.html#问题2图片无法居中",
-    "href": "zh/blogs/2026-06-15-quarto-img-styles/index.html#问题2图片无法居中",
-    "title": "Quarto 图片居中样式",
-    "section": "2.3 问题2：图片无法居中",
-    "text": "2.3 问题2：图片无法居中\n新的问题随之出现：图片不再居中，即使设置 {fig-align=\"center\"} 也无效。\n\n\n\n\n\n\n\n图 3: 问题2：图片不再居中显示\n\n\n\n\n使用浏览器 DevTools 排查后发现，设置 style=\"width:7rem\" 时，Quarto 会同步将父容器宽度限制为 7rem。\n\n\n\n\n\n\n\n图 4: 父容器宽度限制\n\n\n\n\n移除父容器宽度限制后，图片即可重新居中。\n\n\n\n\n\n\n\n图 5: 去除父容器宽度限制后：恢复居中\n\n\n\n\n期间我还尝试过多种方案，例如：\n# 尝试1\n:::{#fig-title width=\"100%\"}\n![](图片URL){style=\"width:7rem;\"}\n图片标题\n:::\n\n# 尝试2\n:::{#fig-title style=\"width:100% !important;\"}\n![图片标题](图片URL){style=\"width:7rem;\"}\n:::\n\n# 尝试3\n:::{#fig-title style=\"text-align:center; width:100% !important;\"}\n![](图片URL){style=\"width:7rem;\"}\n图片标题\n:::\n\n# ...\n但都未达到理想效果。\n最终，我决定直接修改 css 样式，在 style.css 里添加了针对父容器的设置：\n.quarto-float.quarto-figure.quarto-figure-center.anchored {\n    width: 100% !important;\n}\n再配合图片设置：\n![图片标题](图片URL){#fig-title style=\"width:7rem;\"}\n成功实现图片居中的同时，引用悬浮预览正常：\n\n\n\n\n\n\n\n图 6: 实现居中\n\n\n\n\n\n\n\n\n\n\n\n图 7: 实现悬浮正常",
+    "objectID": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#降低运行开销",
+    "href": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#降低运行开销",
+    "title": "Notion 数据库自动同步技巧",
+    "section": "3.3 降低运行开销",
+    "text": "3.3 降低运行开销\n每个 Rollup 属性都会重新从源数据库拉取全部内容，因此 Rollup 过多的数据库在维护时可能变得很慢。应尽量减少 Rollup 数量。与其用多个 Rollup 分别取关联数据，不如用一个 Rollup 配合 Formula 来实现。",
     "crumbs": [
       "经验博客",
-      "Quarto 图片居中样式"
+      "Notion 数据库自动同步技巧"
     ]
   },
   {
-    "objectID": "zh/blogs/2025-10-07-colab-plotly-export/index.html",
-    "href": "zh/blogs/2025-10-07-colab-plotly-export/index.html",
-    "title": "Colab 导出 HTML 后无法显示 Plotly 图表问题",
+    "objectID": "zh/blogs/2025-10-07-fix-network-diagram/index.html",
+    "href": "zh/blogs/2025-10-07-fix-network-diagram/index.html",
+    "title": "在 Google Colab 中显示网络关系图",
     "section": "",
-    "text": "4 min read · 224 EN words · 647 中文字",
+    "text": "4 min read · 197 EN words · 656 中文字",
     "crumbs": [
       "经验博客",
-      "Colab 导出 HTML 后无法显示 Plotly 图表问题"
+      "在 Google Colab 中显示网络关系图"
     ]
   },
   {
-    "objectID": "zh/blogs/2025-10-07-colab-plotly-export/index.html#问题",
-    "href": "zh/blogs/2025-10-07-colab-plotly-export/index.html#问题",
-    "title": "Colab 导出 HTML 后无法显示 Plotly 图表问题",
-    "section": "1.1 问题",
-    "text": "1.1 问题\n使用 Google Colab 编辑 ipynb 文件并导出为 HTML 后，Plotly 图表无法显示。",
-    "crumbs": [
-      "经验博客",
-      "Colab 导出 HTML 后无法显示 Plotly 图表问题"
-    ]
-  },
-  {
-    "objectID": "zh/blogs/2025-10-07-colab-plotly-export/index.html#解决",
-    "href": "zh/blogs/2025-10-07-colab-plotly-export/index.html#解决",
-    "title": "Colab 导出 HTML 后无法显示 Plotly 图表问题",
-    "section": "1.2 解决",
-    "text": "1.2 解决\n经过测试，ipynb 文件在 Google Colab 中 1：\n\nfig.show() 可以正常显示图表。\nfig.show(renderer=\"notebook_connected\") 无法显示图表。\n\n但导出为 HTML 并用浏览器打开后 2：\n\nfig.show() 生成的图表无法显示。\n只有 fig.show(renderer=\"notebook_connected\") 生成的图表可以正常显示。\n\n因此，建议在 Colab 中编辑 Notebook 时使用默认渲染器（ fig.show() ），在导出 HTML 前再将 renderer 改为 \"notebook_connected\"。\n\n\n\n\n\n\n在 Colab 中\n\n\n\n\n\n\n\n导出的 HTML 中",
-    "crumbs": [
-      "经验博客",
-      "Colab 导出 HTML 后无法显示 Plotly 图表问题"
-    ]
-  },
-  {
-    "objectID": "zh/blogs/2025-10-07-colab-plotly-export/index.html#注意事项",
-    "href": "zh/blogs/2025-10-07-colab-plotly-export/index.html#注意事项",
-    "title": "Colab 导出 HTML 后无法显示 Plotly 图表问题",
-    "section": "1.3 注意事项",
-    "text": "1.3 注意事项\n使用 Colab 编辑 ipynb 文件后，如果要导出为 HTML，务必先按 Ctrl+S（保存到 Google Drive），确保导出的是最新保存的版本。如果没有先保存就执行导出命令，导出的 HTML 可能不是最新版本，甚至会出现内容缺失等问题。\n推荐流程：\n\n完成整个 ipynb 的编辑。\n选择 Runtime → Restart and run all（或重新启动运行时并运行全部）。\n按 Ctrl+S 保存 Notebook。\n运行下面的代码导出 HTML。\n导出完成后，如 Notebook 有新的修改，再按一次 Ctrl+S 保存。\n\n%%shell\njupyter nbconvert --to html /content/drive/MyDrive/路径/文件名.ipynb\n\n\n\n\n%%shell 是 Google Colab 的 特殊语法 (cell magic) (Jupyter 用 %%bash )，用于执行一个代码单元中的 shell 命令；对于单行 shell 命令，也可以使用 !，如 !pip install pyvis。",
-    "crumbs": [
-      "经验博客",
-      "Colab 导出 HTML 后无法显示 Plotly 图表问题"
-    ]
-  },
-  {
-    "objectID": "zh/blogs/2025-10-07-colab-plotly-export/index.html#footnotes",
-    "href": "zh/blogs/2025-10-07-colab-plotly-export/index.html#footnotes",
-    "title": "Colab 导出 HTML 后无法显示 Plotly 图表问题",
+    "objectID": "zh/blogs/2025-10-07-fix-network-diagram/index.html#footnotes",
+    "href": "zh/blogs/2025-10-07-fix-network-diagram/index.html#footnotes",
+    "title": "在 Google Colab 中显示网络关系图",
     "section": "脚注",
-    "text": "脚注\n\n\nIPYNB 文件：在Colab中查看示例文件 或 下载示例文件↩︎\nHTML 文件：在浏览器中查看演示文件 或 下载示例文件↩︎",
+    "text": "脚注\n\n\nIPYNB 文件：在 Colab 中查看演示文件 或 下载文件↩︎\nHTML 文件：在浏览器中查看演示文件 或 下载文件↩︎",
     "crumbs": [
       "经验博客",
-      "Colab 导出 HTML 后无法显示 Plotly 图表问题"
+      "在 Google Colab 中显示网络关系图"
+    ]
+  },
+  {
+    "objectID": "zh/blogs/2024-12-22-easy-canvas-connection/index.html",
+    "href": "zh/blogs/2024-12-22-easy-canvas-connection/index.html",
+    "title": "Easy Canvas 无法连接解决方法",
+    "section": "",
+    "text": "4 min read · 256 EN words · 811 中文字",
+    "crumbs": [
+      "经验博客",
+      "Easy Canvas 无法连接解决方法"
+    ]
+  },
+  {
+    "objectID": "zh/blogs/2024-12-22-easy-canvas-connection/index.html#检查-amds-和-bonjour-服务",
+    "href": "zh/blogs/2024-12-22-easy-canvas-connection/index.html#检查-amds-和-bonjour-服务",
+    "title": "Easy Canvas 无法连接解决方法",
+    "section": "1.1 检查 AMDS 和 Bonjour 服务",
+    "text": "1.1 检查 AMDS 和 Bonjour 服务\n\n按 Win + R 打开 “运行” 窗口；输入“ services.msc ”，点击 “确定” 打开 “服务” 窗口。\n\n\n\n\n打开 service.msc\n\n\n\n检查是否存在 Apple Mobile Device Service（AMDS）、Bonjour 以及 EL Display Hub Service Application 服务，并确认它们均处于 “正在运行” 状态、启动类型为 “自动”。\n\n\n\n\n\n\n\n检查 Bonjour 服务\n\n\n\n\n\n\n\n检查 AMDS 服务\n\n\n\n\n\n\n\n\n检查 EL Display Hub 服务\n\n\n\n如果这些服务存在但未运行，右击服务并打开 “属性”。\n\n\n\n\n打开属性\n\n\n\n将 “启动类型” 改成 “自动”，点击 “确定”。\n\n\n\n\n修改启动类型\n\n\n\n重新右击服务，点击 “重新启动”。（AMDS 服务同理）\n\n\n\n\n重启服务",
+    "crumbs": [
+      "经验博客",
+      "Easy Canvas 无法连接解决方法"
+    ]
+  },
+  {
+    "objectID": "zh/blogs/2024-12-22-easy-canvas-connection/index.html#若无-amds-和-bonjour-服务重新安装-itunes",
+    "href": "zh/blogs/2024-12-22-easy-canvas-connection/index.html#若无-amds-和-bonjour-服务重新安装-itunes",
+    "title": "Easy Canvas 无法连接解决方法",
+    "section": "1.2 若无 AMDS 和 Bonjour 服务：重新安装 iTunes",
+    "text": "1.2 若无 AMDS 和 Bonjour 服务：重新安装 iTunes\n\n按 Win + S 打开搜索栏，搜索 “iTunes”，查看电脑里是否已经安装了 iTunes。\n\n\n\n\n检查iTunes\n\n\n\n如果已安装 iTunes 但没有 AMDS 或 Bonjour 服务，就需要卸载后重新安装。打开控制面板，选择 “卸载程序”。\n\n\n\n\n卸载程序\n\n\n\n右击卸载 Bonjour 和 iTunes\n\n\n\n\n\n\n\n卸载 Bonjour\n\n\n\n\n\n\n\n卸载 iTunes\n\n\n\n\n\n\n如果在卸载列表中找不到 iTunes，按 Win 打开开始菜单，找到 iTunes 后右击卸载。\n\n\n\n\n在菜单中卸载 iTunes\n\n\n\n重新安装 iTunes。注意不要从 Microsoft Store 安装，而应打开官网，向下找到 “需要其他版本？”，选择 “Windows”，下载 iTunes64Setup.exe 后手动安装。\n\n\n\n\n需要其他版本\n\n\n\n\n\n下载 Win iTunes\n\n\n\n安装完成后重新打开服务窗口，检查 AMDS 和 Bonjour 服务。",
+    "crumbs": [
+      "经验博客",
+      "Easy Canvas 无法连接解决方法"
     ]
   },
   {
@@ -1067,7 +1045,7 @@
     "href": "zh/blogs/2024-04-22-recover-shellfolder/index.html",
     "title": "误移系统文件夹恢复",
     "section": "",
-    "text": "9 min read · 243 EN words · 2170 中文字",
+    "text": "9 min read · 244 EN words · 2192 中文字",
     "crumbs": [
       "经验博客",
       "误移系统文件夹恢复"
@@ -1154,7 +1132,7 @@
     "href": "en/tutorials/2024-12-05-sankey-and-network/index.html",
     "title": "Sankey Diagrams and Network Graphs",
     "section": "",
-    "text": "8 min read · 1404 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nplotly==5.24.1\nmatplotlib==3.9.x\npyvis==0.3.2\nnetworkx==3.3",
+    "text": "8 min read · 1415 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nplotly==5.24.1\nmatplotlib==3.9.x\npyvis==0.3.2\nnetworkx==3.3",
     "crumbs": [
       "Projects",
       "Tutorials",
@@ -1274,7 +1252,7 @@
     "href": "en/tutorials/2024-10-10-data-processing/index.html",
     "title": "Data Processing",
     "section": "",
-    "text": "9 min read · 1616 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2",
+    "text": "9 min read · 1627 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2",
     "crumbs": [
       "Projects",
       "Tutorials",
@@ -1381,7 +1359,7 @@
     "href": "en/tools/2026-04-19-cat-img-hub/index.html",
     "title": "Cat Image Hub",
     "section": "",
-    "text": "3 min read · 559 EN words · 0 中文字",
+    "text": "3 min read · 570 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Tools",
@@ -1441,7 +1419,7 @@
     "href": "en/tools/2026-04-06-url-shortener/index.html",
     "title": "URL Shortener",
     "section": "",
-    "text": "3 min read · 448 EN words · 0 中文字",
+    "text": "3 min read · 459 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Tools",
@@ -1521,7 +1499,7 @@
     "href": "en/projects/2026-05-01-ai-discourse/index.html",
     "title": "Evolution of Online AI Discourse",
     "section": "",
-    "text": "28 min read · 5584 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nMASS==7.3.65\ntidyverse==2.0.0\ntidytext==0.4.3\ntextdata==0.4.5\ntopicmodels==0.2.17\nscales==1.4.0\nbroom==1.0.12\ntextutils==0.4.3\nknitr==1.51",
+    "text": "28 min read · 5595 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nMASS==7.3.65\ntidyverse==2.0.0\ntidytext==0.4.3\ntextdata==0.4.5\ntopicmodels==0.2.17\nscales==1.4.0\nbroom==1.0.12\ntextutils==0.4.3\nknitr==1.51",
     "crumbs": [
       "Projects",
       "Evolution of Online AI Discourse"
@@ -1719,7 +1697,7 @@
     "href": "en/projects/2026-02-23-student-media-usage/index.html",
     "title": "Student Social Media Usage and Well-being Analysis",
     "section": "",
-    "text": "16 min read · 3177 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
+    "text": "16 min read · 3188 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
     "crumbs": [
       "Projects",
       "Student Social Media Usage and Well-being Analysis"
@@ -1950,7 +1928,7 @@
     "href": "en/projects/2024-12-12-global-visa-cost/index.html",
     "title": "Global Visa Cost Geographical Analysis",
     "section": "",
-    "text": "9 min read · 1789 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nplotly==5.24.1",
+    "text": "9 min read · 1800 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nplotly==5.24.1",
     "crumbs": [
       "Projects",
       "Global Visa Cost Geographical Analysis"
@@ -2037,362 +2015,51 @@
     ]
   },
   {
-    "objectID": "en/blogs/2026-07-11-vps-ssh-login/index.html",
-    "href": "en/blogs/2026-07-11-vps-ssh-login/index.html",
-    "title": "VPS SSH Login Troubleshooting",
+    "objectID": "en/blogs/2026-07-16-ntn-workflows/index.html",
+    "href": "en/blogs/2026-07-16-ntn-workflows/index.html",
+    "title": "Notion Database Workflows",
     "section": "",
-    "text": "3 min read · 554 EN words · 0 中文字",
+    "text": "4 min read · 675 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Blogs",
-      "VPS SSH Login Troubleshooting"
+      "Notion Database Workflows"
     ]
   },
   {
-    "objectID": "en/blogs/2026-07-11-vps-ssh-login/index.html#access-vps-via-remote-console",
-    "href": "en/blogs/2026-07-11-vps-ssh-login/index.html#access-vps-via-remote-console",
-    "title": "VPS SSH Login Troubleshooting",
-    "section": "2.1 Access VPS via Remote Console",
-    "text": "2.1 Access VPS via Remote Console\nLogged into the VPS through the provider’s Remote Console and started troubleshooting locally.\n\n\n\n\nRemote Console",
+    "objectID": "en/blogs/2026-07-16-ntn-workflows/index.html#auto-pay-database",
+    "href": "en/blogs/2026-07-16-ntn-workflows/index.html#auto-pay-database",
+    "title": "Notion Database Workflows",
+    "section": "4.1 Auto-Pay Database",
+    "text": "4.1 Auto-Pay Database\nThis database manages my recurring subscriptions. After a one-time setup, automations track renewals and send timely reminders.\n\n\n\n\nAuto-Pay Tracking Database with Automations",
     "crumbs": [
       "Projects",
       "Blogs",
-      "VPS SSH Login Troubleshooting"
+      "Notion Database Workflows"
     ]
   },
   {
-    "objectID": "en/blogs/2026-07-11-vps-ssh-login/index.html#check-ssh-service-status",
-    "href": "en/blogs/2026-07-11-vps-ssh-login/index.html#check-ssh-service-status",
-    "title": "VPS SSH Login Troubleshooting",
-    "section": "2.2 Check SSH Service Status",
-    "text": "2.2 Check SSH Service Status\nCheck SSH status:\nsystemctl status ssh\nFound that the SSH service was not running.\n\n\n\nSSH status\n\n\nStart SSH and enable it on boot:\nsudo systemctl start ssh   # start\nsudo systemctl enable ssh  # enable on boot\nsystemctl status ssh       # check status",
+    "objectID": "en/blogs/2026-07-16-ntn-workflows/index.html#journal-database",
+    "href": "en/blogs/2026-07-16-ntn-workflows/index.html#journal-database",
+    "title": "Notion Database Workflows",
+    "section": "4.2 Journal Database",
+    "text": "4.2 Journal Database\nThis database captures my daily progress, key lessons learned, self-reflections, and personal experiences.\n\n\n\n\nJournal Database (Tag Groups View)",
     "crumbs": [
       "Projects",
       "Blogs",
-      "VPS SSH Login Troubleshooting"
+      "Notion Database Workflows"
     ]
   },
   {
-    "objectID": "en/blogs/2026-07-11-vps-ssh-login/index.html#check-firewall-configuration",
-    "href": "en/blogs/2026-07-11-vps-ssh-login/index.html#check-firewall-configuration",
-    "title": "VPS SSH Login Troubleshooting",
-    "section": "2.3 Check Firewall Configuration",
-    "text": "2.3 Check Firewall Configuration\nCheck UFW status:\nufw status\nConfirmed that the SSH port was not blocked by UFW and ruled out firewall issues.",
+    "objectID": "en/blogs/2026-07-16-ntn-workflows/index.html#learning-database",
+    "href": "en/blogs/2026-07-16-ntn-workflows/index.html#learning-database",
+    "title": "Notion Database Workflows",
+    "section": "4.3 Learning Database",
+    "text": "4.3 Learning Database\nThis database is one of the main portals to all my pages and databases. I expand and put ideas into practice in its sub-pages.\n\n\n\n\nLearning Database Overview",
     "crumbs": [
       "Projects",
       "Blogs",
-      "VPS SSH Login Troubleshooting"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2026-07-11-vps-ssh-login/index.html#check-fail2ban-ban-status",
-    "href": "en/blogs/2026-07-11-vps-ssh-login/index.html#check-fail2ban-ban-status",
-    "title": "VPS SSH Login Troubleshooting",
-    "section": "2.4 Check fail2ban Ban Status",
-    "text": "2.4 Check fail2ban Ban Status\nCheck fail2ban service:\nsudo systemctl status fail2ban\nSee my own IP locally:\ncurl https://api.ipify.org\nOn the remote console, see whether my IP was banned:\n# Check SSH jail status:\nsudo fail2ban-client status sshd\n# Banned IP list: &lt;my_ip&gt;\n\n\n\nCheck Banned IP List\n\n\nCause:\n\nThe SSH connection snippet still used the old username after the username change\nMultiple login attempts were made with an invalid username/password\nFailed attempts exceeded the fail2ban threshold (5 attempts)\nfail2ban automatically banned my IP (ban duration: 1 hour)",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "VPS SSH Login Troubleshooting"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2026-07-11-vps-ssh-login/index.html#unban-my-ip",
-    "href": "en/blogs/2026-07-11-vps-ssh-login/index.html#unban-my-ip",
-    "title": "VPS SSH Login Troubleshooting",
-    "section": "2.5 Unban My IP",
-    "text": "2.5 Unban My IP\nCheck current banned IPs:\nsudo fail2ban-client status sshd\nRemove the IP ban:\nsudo fail2ban-client set sshd unbanip &lt;my_ip&gt;\nRestart fail2ban if needed:\nsudo systemctl restart fail2ban",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "VPS SSH Login Troubleshooting"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2026-06-15-quarto-img-styles/index.html",
-    "href": "en/blogs/2026-06-15-quarto-img-styles/index.html",
-    "title": "Quarto Image Centering Styles",
-    "section": "",
-    "text": "4 min read · 694 EN words · 0 中文字",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Quarto Image Centering Styles"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2026-06-15-quarto-img-styles/index.html#step-1-external-css",
-    "href": "en/blogs/2026-06-15-quarto-img-styles/index.html#step-1-external-css",
-    "title": "Quarto Image Centering Styles",
-    "section": "1.1 Step 1: External CSS",
-    "text": "1.1 Step 1: External CSS\n.quarto-float.quarto-figure.quarto-figure-center.anchored {\n    width: 100% !important;\n}\nRegister it in _quarto.yml:\nformat:\n  html:\n    css:\n      - path/to/style.css",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Quarto Image Centering Styles"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2026-06-15-quarto-img-styles/index.html#step-2-page-level-internal-css",
-    "href": "en/blogs/2026-06-15-quarto-img-styles/index.html#step-2-page-level-internal-css",
-    "title": "Quarto Image Centering Styles",
-    "section": "1.2 Step 2: Page-level Internal CSS",
-    "text": "1.2 Step 2: Page-level Internal CSS\nAdd a &lt;style&gt; tag at the top of the page (below the YAML block):\n&lt;style&gt;\n    figcaption {\n        text-align: center;\n    }\n&lt;/style&gt;",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Quarto Image Centering Styles"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2026-06-15-quarto-img-styles/index.html#step-3-image-inline-styles",
-    "href": "en/blogs/2026-06-15-quarto-img-styles/index.html#step-3-image-inline-styles",
-    "title": "Quarto Image Centering Styles",
-    "section": "1.3 Step 3: Image Inline Styles",
-    "text": "1.3 Step 3: Image Inline Styles\n![Caption a](URL){#fig-a style=\"width:20rem;\"}\n![Caption b](URL){#fig-b style=\"width:15rem;\"}\n\nThis post is implemented using the approach above. Click &lt;/&gt; Code in the top-right corner of the page to view the full source.\n\n\nHere is the full walkthrough:",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Quarto Image Centering Styles"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2026-06-15-quarto-img-styles/index.html#the-traditional-approach",
-    "href": "en/blogs/2026-06-15-quarto-img-styles/index.html#the-traditional-approach",
-    "title": "Quarto Image Centering Styles",
-    "section": "2.1 The Traditional Approach",
-    "text": "2.1 The Traditional Approach\nWhen writing my Quarto Website, I initially controlled image size using Quarto’s built-in width attribute:\n![Caption](image URL){#fig-title width=\"15%\"}\nThis approach is clean and intuitive — no need to write inline styles like style=\"width:15%\" — and the results looked good.\n\n\n\n\n\n\n\nFig 1: Img Width: Percentage",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Quarto Image Centering Styles"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2026-06-15-quarto-img-styles/index.html#issue-1-hover-preview-breaks",
-    "href": "en/blogs/2026-06-15-quarto-img-styles/index.html#issue-1-hover-preview-breaks",
-    "title": "Quarto Image Centering Styles",
-    "section": "2.2 Issue 1: Hover Preview Breaks",
-    "text": "2.2 Issue 1: Hover Preview Breaks\nAfter using cross-references (e.g. @fig-title) in the body text, I noticed the hover preview inherited the width percentage, causing it to display incorrectly.\n\n\n\n\n\n\n\nFig 2: Issue 1: Hover Preview Broken\n\n\n\n\nTo fix this, I tried switching to rem as the width unit, which behaves consistently regardless of page scaling and hover context.\nI first tried:\n![Caption](image URL){#fig-title width=\"7rem\"}\nThis had no effect — Quarto’s width attribute does not support rem (it accepts px, percentages, etc.).\nI then switched to:\n![Caption](image URL){#fig-title style=\"width:7rem;\"}",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Quarto Image Centering Styles"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2026-06-15-quarto-img-styles/index.html#issue-2-image-no-longer-centers",
-    "href": "en/blogs/2026-06-15-quarto-img-styles/index.html#issue-2-image-no-longer-centers",
-    "title": "Quarto Image Centering Styles",
-    "section": "2.3 Issue 2: Image No Longer Centers",
-    "text": "2.3 Issue 2: Image No Longer Centers\nA new problem appeared: the image was no longer centered, and setting {fig-align=\"center\"} had no effect.\n\n\n\n\n\n\n\nFig 3: Issue 2: Image No Longer Centered\n\n\n\n\nInspecting with browser DevTools revealed that when style=\"width:7rem\" is set, Quarto also constrains the parent container’s width to 7rem.\n\n\n\n\n\n\n\nFig 4: Parent Container Width Constraint\n\n\n\n\nRemoving the parent container’s width constraint restored image centering.\n\n\n\n\n\n\n\nFig 5: Centering Restored\n\n\n\n\nI also tried several other approaches, such as:\n# Attempt 1\n:::{#fig-title width=\"100%\"}\n![](image URL){style=\"width:7rem;\"}\nCaption\n:::\n\n# Attempt 2\n:::{#fig-title style=\"width:100% !important;\"}\n![Caption](image URL){style=\"width:7rem;\"}\n:::\n\n# Attempt 3\n:::{#fig-title style=\"text-align:center; width:100% !important;\"}\n![](image URL){style=\"width:7rem;\"}\nCaption\n:::\n\n# ...\nNone of them achieved the desired result.\nIn the end, I decided to target the parent container directly via CSS, adding this rule to style.css:\n.quarto-float.quarto-figure.quarto-figure-center.anchored {\n    width: 100% !important;\n}\nCombined with the image syntax:\n![Caption](image URL){#fig-title style=\"width:7rem;\"}\nThis successfully centered the image while keeping the hover preview intact:\n\n\n\n\n\n\n\nFig 6: Centering Achieved\n\n\n\n\n\n\n\n\n\n\n\nFig 7: Hover Preview Working",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Quarto Image Centering Styles"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2025-10-07-colab-plotly-export/index.html",
-    "href": "en/blogs/2025-10-07-colab-plotly-export/index.html",
-    "title": "Plotly Charts Display in Google Colab",
-    "section": "",
-    "text": "3 min read · 519 EN words · 0 中文字",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Plotly Charts Display in Google Colab"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2025-10-07-colab-plotly-export/index.html#problem",
-    "href": "en/blogs/2025-10-07-colab-plotly-export/index.html#problem",
-    "title": "Plotly Charts Display in Google Colab",
-    "section": "1.1 Problem",
-    "text": "1.1 Problem\nAfter editing an ipynb file in Google Colab and exporting it to HTML, the Plotly charts fail to display.",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Plotly Charts Display in Google Colab"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2025-10-07-colab-plotly-export/index.html#solution",
-    "href": "en/blogs/2025-10-07-colab-plotly-export/index.html#solution",
-    "title": "Plotly Charts Display in Google Colab",
-    "section": "1.2 Solution",
-    "text": "1.2 Solution\nAfter testing, in Google Colab the ipynb file 1 behaves as follows:\n\nfig.show() displays the chart correctly.\nfig.show(renderer=\"notebook_connected\") fails to display the chart.\n\nBut once exported to HTML 2 and opened in a browser:\n\nCharts generated by fig.show() fail to display.\nOnly charts generated by fig.show(renderer=\"notebook_connected\") display correctly.\n\nSo when editing a notebook in Colab, use the default renderer (fig.show()), and switch the renderer to \"notebook_connected\" right before exporting to HTML.\n\n\n\n\n\n\nIn Colab\n\n\n\n\n\n\n\nExported HTML",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Plotly Charts Display in Google Colab"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2025-10-07-colab-plotly-export/index.html#notes",
-    "href": "en/blogs/2025-10-07-colab-plotly-export/index.html#notes",
-    "title": "Plotly Charts Display in Google Colab",
-    "section": "1.3 Notes",
-    "text": "1.3 Notes\nAfter editing an ipynb file in Colab, if you want to export it to HTML, be sure to press Ctrl+S first (saving to Google Drive) so that you export the most recently saved version. If you run the export command without saving first, the exported HTML may not be the latest version, and it may even have missing content or other issues.\nRecommended workflow:\n\nFinish editing the entire ipynb file.\nChoose Runtime → Restart and run all.\nPress Ctrl+S to save the notebook.\nRun the code below in another notebook to export the HTML.\n\n%%shell\njupyter nbconvert --to html /content/drive/MyDrive/path/filename.ipynb\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n%%shell is a cell magic of Google Colab ( %%bash in Jupyter ) used to run shell commands within a code cell. For a single-line shell command, you can also use !, such as !pip install pyvis.",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Plotly Charts Display in Google Colab"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2025-10-07-colab-plotly-export/index.html#footnotes",
-    "href": "en/blogs/2025-10-07-colab-plotly-export/index.html#footnotes",
-    "title": "Plotly Charts Display in Google Colab",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nIPYNB file: View the demo file in Colab or download it↩︎\nHTML file: View the demo file in the browser or download it↩︎",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Plotly Charts Display in Google Colab"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2024-04-22-recover-shellfolder/index.html",
-    "href": "en/blogs/2024-04-22-recover-shellfolder/index.html",
-    "title": "Recovering Misplaced Windows Shell Folders",
-    "section": "",
-    "text": "9 min read · 1659 EN words · 29 中文字",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Recovering Misplaced Windows Shell Folders"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2024-04-22-recover-shellfolder/index.html#the-problem",
-    "href": "en/blogs/2024-04-22-recover-shellfolder/index.html#the-problem",
-    "title": "Recovering Misplaced Windows Shell Folders",
-    "section": "2.1 The Problem",
-    "text": "2.1 The Problem\nA Windows 10 shell folder (e.g., Desktop, Documents, Pictures ) was accidentally moved to the root of a drive (e.g., D:\\, E:\\). How can it be recovered?",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Recovering Misplaced Windows Shell Folders"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2024-04-22-recover-shellfolder/index.html#the-fix",
-    "href": "en/blogs/2024-04-22-recover-shellfolder/index.html#the-fix",
-    "title": "Recovering Misplaced Windows Shell Folders",
-    "section": "2.2 The Fix",
-    "text": "2.2 The Fix\n\nCreate the target folder (e.g., E:\\Users\\UserName\\Videos\\).\nEdit the registry.\n\nPress Win + R and type regedit.\nGo to HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders.\nFind the entry whose value is the drive root (e.g., E:\\).\nChange it to the path of the folder you just created (e.g., E:\\Users\\UserName\\Videos\\).\nSave and restart the computer.\n\nShow hidden system files.\n\nOpen the target folder.\nGo to File &gt; Options &gt; View.\nCheck ⏺ Show hidden files, folders, and drives.\nUncheck ◻ Hide protected operating system files.\n\nRestore icon & display name.\n\nFind desktop.ini in the target folder, open it in Notepad.\nSet the IconResource and LocalizedResourceName entries to the right resource index (listed in Table 1).\n\n\n\n\ndesktop.ini\n\n[.ShellClassInfo]\nLocalizedResourceName=@%SystemRoot%\\system32\\shell32.dll,&lt;NameResource index&gt;\nIconResource=%SystemRoot%\\system32\\imageres.dll,&lt;IconResource index&gt;\n&lt;OtherEntries...&gt;\n\n\nOnce finished, remember to re-hide the system files revealed in step 3.",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Recovering Misplaced Windows Shell Folders"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2024-04-22-recover-shellfolder/index.html#restoring-the-icon",
-    "href": "en/blogs/2024-04-22-recover-shellfolder/index.html#restoring-the-icon",
-    "title": "Recovering Misplaced Windows Shell Folders",
-    "section": "4.1 Restoring the Icon",
-    "text": "4.1 Restoring the Icon\nAn article was found explaining where Windows stores its system icons.\n\n\n\n\n\n\nFigure 8: Article: Where Windows Stores Icons\n\n\n\nThrough Properties &gt; Customize &gt; Change Icon, I found that the current icon source was SHELL32.dll . However, the Saved Games icon was not included there, suggesting that shell folder icons are stored across multiple DLL files.\n\n\n\n\n\n\n\n\nProperties &gt; Customize &gt; Change Icon\n\n\n\n\n\n\n\nCurrent Icon Location\n\n\n\n\n\n\nFigure 9: Current icon file: SHELL32.dll\n\n\n\nI went through the DLL files listed in the article and eventually found the Saved Games icon in imageres.dll, along with the icons for Desktop, Videos, and others.\n\n\n\n\n\n\nFigure 10: Other System Files Containing Icons\n\n\n\n\n\n\n\n\n\nFigure 11: Icon found in imageres.dll\n\n\n\nOnce the icon was linked to the correct resource, it’s icon was restored.\n\n\n\n\n\n\nFigure 12: Icon Restored\n\n\n\nOn an English-language system, this completes the recovery. On other systems, the folder’s localized display name may still need to be restored. For example, on Simplified Chinese systems, the folder should display 保存的游戏 while keeping the actual folder name Saved Games.",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Recovering Misplaced Windows Shell Folders"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2024-04-22-recover-shellfolder/index.html#localized-name",
-    "href": "en/blogs/2024-04-22-recover-shellfolder/index.html#localized-name",
-    "title": "Recovering Misplaced Windows Shell Folders",
-    "section": "4.2 Restoring a Localized Display Name",
-    "text": "4.2 Restoring a Localized Display Name\nSearching for how to make a folder’s display name differ from its actual folder name, I found the following solution:\n\n\n\n\n\n\nFigure 13: Search Results\n\n\n\nSteps:\n\nOpen the target folder in File Explorer.\nClick the View tab on the toolbar of the File Explorer window.\nCheck the Hidden items box, then click Options.\nClick the View tab.\nUncheck “Hide protected operating system files”, then click Yes and OK to confirm change.\n\n\n\n\n\n\n\nFigure 14: Show Hidden Items\n\n\n\n\n\n\n\n\n\nFigure 15: Unhide Protected Operating System Files\n\n\n\nA desktop.ini file now appears inside the Saved Games folder.\n\n\n\n\n\n\nFigure 16: The desktop.ini File\n\n\n\nStep 6: Open it in Notepad.\nWe can see the IconResource entry is pointing to imageres.dll, which is the icon we restored previously.\n\n\n\n\n\n\nFigure 17: Content of desktop.ini\n\n\n\nFollowing the guide, I added the following line to desktop.ini (Figure 18):\nLocalizedResourceName=保存的游戏\n\n\n\n\n\n\nFigure 18: Editing the Display Name\n\n\n\nAfter saving, however, the name appeared as garbled text (Figure 19). English displayed correctly while the Chinese characters turned into mojibake, indicating that the file encoding was wrong.\n\n\n\n\n\n\nFigure 19: Display Name Turned into Mojibake\n\n\n\n\nMethod 1: Change the File Encoding1\nThe bottom-right corner of Notepad showed the current encoding as UTF-8, but desktop.ini should be saved as UTF-16 LE.\n\n\n\n\n\n\nFigure 20: Notepad’s Default Encoding Method\n\n\n\nTo avoid garbling the Chinese name, enter it and then click File &gt; Save As.\n\n\n\n\n\n\nFigure 21: Save As\n\n\n\nSet Save as type to All Files (*.*) and Encoding to UTF-16 LE, then save and overwrite the original file.\n\n\n\n\n\n\nFigure 22: Changing the Encoding Method\n\n\n\nA moment later, the display name was restored.\n\n\n\n\n\n\nFigure 23: Saved Games Restored\n\n\n\n\n\nMethod 2: Reference a Resource Index\nInstead of changing the encoding, you can also reference a resource index. The index points to a localized string inside shell32.dll file, which resolves to the display name according to your Windows display language.\nFor example, Figure 24 shows the LocalizedResourceName entry in the original desktop.ini file of the Videos folder is pointing to the resource in shell32.dll with the index -21791.\n\n\n\n\n\n\nFigure 24: Where the Videos Display Name Comes From\n\n\n\nI thus started to looking for name resource indices inside shell32.dll , but the results covered mainly icon resources instead of name resources.\nThen, I turned to AI for help, but ChatGPT gave me fabricated answers .\nWhen I asked how to inspect the contents of shell32.dll, ChatGPT recommended Visual Studio.\n\n\n\n\n\n\nFigure 25: Asking How to Inspect shell32.dll\n\n\n\nWith no programming background, I mistakenly downloaded Visual Studio Code instead. It became my first encounter with an IDE. Later, when my professor noticed I was doing assignments in VSCode rather than Jupyter and asked why, I just pulled up this article .\n\n\n\n\n\n\nFigure 26: VSCode and Visual Studio\n\n\n\nFollowing ChatGPT’s instructions, I created a new solution in Visual Studio and loaded C:\\Windows\\System32\\shell32.dll to view its resource directory.\n\n\n\n\n\n\nFigure 27: AI’s Instructions\n\n\n\n\n\n\n\n\n\nFigure 28: Interface of Visual Studio\n\n\n\nVisual Studio showed only the structure of the resource directory, not the actual entry indices. Since shell32.dll is very large, checking every entry by hand was not realistic.\nIn the end, I compared the desktop.ini file with one from another computer that hadn’t be modified. The correct resource index turned out to be -21814 — just four numbers away from the -21810 I had tried earlier. I might have found it with a few more guesses .\nI added the following line to the desktop.ini in the Saved Games folder:\nLocalizedResourceName=@%SystemRoot%\\system32\\shell32.dll,-21814\n\n\n\n\n\n\nFigure 29: After the Change\n\n\n\n\nMore resource indices of display names and icons for common shell folders are listed in Table 1.\n\nSaved Games shell folder is finally fully restored!\n\n\n\n\n\n\nFigure 30: Saved Games Restored\n\n\n\nSo far, both the icon and the display name were restored to their defaults.\n\n\n\n\n\n\nFigure 31: Default Icon Restored\n\n\n\nLesson Learned: When moving a shell folder, change only the drive letter in the path. Do not set the bare root directory as the destination.\n\n\n\n\n\n\nFigure 32: Moving a Shell Folder: Change Only the Drive Letter",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Recovering Misplaced Windows Shell Folders"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2024-04-22-recover-shellfolder/index.html#footnotes",
-    "href": "en/blogs/2024-04-22-recover-shellfolder/index.html#footnotes",
-    "title": "Recovering Misplaced Windows Shell Folders",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nAdded June 16, 2026↩︎\nUnless marked otherwise, name resources come from @%SystemRoot%\\system32\\shell32.dll,&lt;index&gt;.↩︎\nIcon resources come from %SystemRoot%\\system32\\imageres.dll,&lt;index&gt;.↩︎\nThe Contacts name resource comes from @%CommonProgramFiles%\\system\\wab32res.dll,-10100.↩︎\nThe 3D Objects name resource comes from @%SystemRoot%\\system32\\windows.storage.dll,-21825.↩︎",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Recovering Misplaced Windows Shell Folders"
-    ]
-  },
-  {
-    "objectID": "en/about/index.html",
-    "href": "en/about/index.html",
-    "title": "Pinn (Aiqi) Xu",
-    "section": "",
-    "text": "“Coding saves lifes.”",
-    "crumbs": [
-      "Projects",
-      "About"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2024-12-22-easy-canvas-connection/index.html",
-    "href": "en/blogs/2024-12-22-easy-canvas-connection/index.html",
-    "title": "Fixing Easy Canvas Connection Problems",
-    "section": "",
-    "text": "4 min read · 659 EN words · 0 中文字",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Fixing Easy Canvas Connection Problems"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2024-12-22-easy-canvas-connection/index.html#amds-bonjour-services",
-    "href": "en/blogs/2024-12-22-easy-canvas-connection/index.html#amds-bonjour-services",
-    "title": "Fixing Easy Canvas Connection Problems",
-    "section": "1.1 AMDS & Bonjour Services",
-    "text": "1.1 AMDS & Bonjour Services\n\nPress Win + R to open the Run dialog, type services.msc, and click OK to open the Services window.\n\n\n\n\nOpen services.msc\n\n\n\nCheck that the Apple Mobile Device Service (AMDS), Bonjour, and EL Display Hub Service Application services are present, and confirm each one is Running with its startup type set to Automatic.\n\n\n\n\n\n\n\nCheck the Bonjour service\n\n\n\n\n\n\n\nCheck the AMDS service\n\n\n\n\n\n\n\n\nCheck the EL Display Hub service\n\n\n\nIf a service is present but not running, right-click it and open Properties.\n\n\n\n\nOpen Properties\n\n\n\nSet Startup type to Automatic and click OK.\n\n\n\n\nChange the startup type\n\n\n\nRight-click the service again and choose Restart. (Do the same for AMDS.)\n\n\n\n\nRestart the service",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Fixing Easy Canvas Connection Problems"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2024-12-22-easy-canvas-connection/index.html#reinstall-itunes",
-    "href": "en/blogs/2024-12-22-easy-canvas-connection/index.html#reinstall-itunes",
-    "title": "Fixing Easy Canvas Connection Problems",
-    "section": "1.2 Reinstall iTunes",
-    "text": "1.2 Reinstall iTunes\nIf AMDS and Bonjour services are missing, reinstall iTunes.\n\nPress Win + S to open search, search for iTunes, and check whether it’s already installed.\n\n\n\n\nCheck for iTunes\n\n\n\nIf iTunes is installed but the AMDS or Bonjour services are missing, uninstall it and reinstall. Open Control Panel and choose Uninstall a program.\n\n\n\n\nUninstall a program\n\n\n\nRight-click to uninstall both Bonjour and iTunes.\n\n\n\n\n\n\n\nUninstall Bonjour\n\n\n\n\n\n\n\nUninstall iTunes\n\n\n\n\n\n\nIf you can’t find iTunes in the uninstall list, press Win to open the Start menu, find iTunes, and right-click to uninstall it.\n\n\n\n\nUninstall iTunes from the Start menu\n\n\n\nReinstall iTunes. Don’t install it from the Microsoft Store; instead, open the official site, scroll down to “Looking for other versions?”, choose Windows, download iTunes64Setup.exe, and install it manually.\n\n\n\n\nLooking for other versions\n\n\n\n\n\nDownload iTunes for Windows\n\n\n\nAfter installing, reopen the Services window and check the AMDS and Bonjour services.",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Fixing Easy Canvas Connection Problems"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2025-10-07-fix-network-diagram/index.html",
-    "href": "en/blogs/2025-10-07-fix-network-diagram/index.html",
-    "title": "Network Diagram Display in Google Colab",
-    "section": "",
-    "text": "3 min read · 473 EN words · 0 中文字",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Network Diagram Display in Google Colab"
-    ]
-  },
-  {
-    "objectID": "en/blogs/2025-10-07-fix-network-diagram/index.html#footnotes",
-    "href": "en/blogs/2025-10-07-fix-network-diagram/index.html#footnotes",
-    "title": "Network Diagram Display in Google Colab",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nIPYNB file: View the demo file in Colab or download it↩︎\nHTML file: View the demo file in the browser or download it↩︎",
-    "crumbs": [
-      "Projects",
-      "Blogs",
-      "Network Diagram Display in Google Colab"
+      "Notion Database Workflows"
     ]
   },
   {
@@ -2400,7 +2067,7 @@
     "href": "en/blogs/2026-07-08-ntn-db-auto-sync/index.html",
     "title": "Notion Database Auto-Sync Tips",
     "section": "",
-    "text": "5 min read · 935 EN words · 0 中文字",
+    "text": "5 min read · 946 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Blogs",
@@ -2480,11 +2147,382 @@
     ]
   },
   {
+    "objectID": "en/blogs/2025-10-07-fix-network-diagram/index.html",
+    "href": "en/blogs/2025-10-07-fix-network-diagram/index.html",
+    "title": "Network Diagram Display in Google Colab",
+    "section": "",
+    "text": "3 min read · 484 EN words · 0 中文字",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Network Diagram Display in Google Colab"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2025-10-07-fix-network-diagram/index.html#footnotes",
+    "href": "en/blogs/2025-10-07-fix-network-diagram/index.html#footnotes",
+    "title": "Network Diagram Display in Google Colab",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nIPYNB file: View the demo file in Colab or download it↩︎\nHTML file: View the demo file in the browser or download it↩︎",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Network Diagram Display in Google Colab"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2024-12-22-easy-canvas-connection/index.html",
+    "href": "en/blogs/2024-12-22-easy-canvas-connection/index.html",
+    "title": "Fixing Easy Canvas Connection Problems",
+    "section": "",
+    "text": "4 min read · 673 EN words · 0 中文字",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Fixing Easy Canvas Connection Problems"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2024-12-22-easy-canvas-connection/index.html#amds-bonjour-services",
+    "href": "en/blogs/2024-12-22-easy-canvas-connection/index.html#amds-bonjour-services",
+    "title": "Fixing Easy Canvas Connection Problems",
+    "section": "1.1 AMDS & Bonjour Services",
+    "text": "1.1 AMDS & Bonjour Services\n\nPress Win + R to open the Run dialog, type services.msc, and click OK to open the Services window.\n\n\n\n\nOpen services.msc\n\n\n\nCheck that the Apple Mobile Device Service (AMDS), Bonjour, and EL Display Hub Service Application services are present, and confirm each one is Running with its startup type set to Automatic.\n\n\n\n\n\n\n\nCheck the Bonjour service\n\n\n\n\n\n\n\nCheck the AMDS service\n\n\n\n\n\n\n\n\nCheck the EL Display Hub service\n\n\n\nIf a service is present but not running, right-click it and open Properties.\n\n\n\n\nOpen Properties\n\n\n\nSet Startup type to Automatic and click OK.\n\n\n\n\nChange the startup type\n\n\n\nRight-click the service again and choose Restart. (Do the same for AMDS.)\n\n\n\n\nRestart the service",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Fixing Easy Canvas Connection Problems"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2024-12-22-easy-canvas-connection/index.html#reinstall-itunes",
+    "href": "en/blogs/2024-12-22-easy-canvas-connection/index.html#reinstall-itunes",
+    "title": "Fixing Easy Canvas Connection Problems",
+    "section": "1.2 Reinstall iTunes",
+    "text": "1.2 Reinstall iTunes\nIf AMDS and Bonjour services are missing, reinstall iTunes.\n\nPress Win + S to open search, search for iTunes, and check whether it’s already installed.\n\n\n\n\nCheck for iTunes\n\n\n\nIf iTunes is installed but the AMDS or Bonjour services are missing, uninstall it and reinstall. Open Control Panel and choose Uninstall a program.\n\n\n\n\nUninstall a program\n\n\n\nRight-click to uninstall both Bonjour and iTunes.\n\n\n\n\n\n\n\nUninstall Bonjour\n\n\n\n\n\n\n\nUninstall iTunes\n\n\n\n\n\n\nIf you can’t find iTunes in the uninstall list, press Win to open the Start menu, find iTunes, and right-click to uninstall it.\n\n\n\n\nUninstall iTunes from the Start menu\n\n\n\nReinstall iTunes. Don’t install it from the Microsoft Store; instead, open the official site, scroll down to “Looking for other versions?”, choose Windows, download iTunes64Setup.exe, and install it manually.\n\n\n\n\nLooking for other versions\n\n\n\n\n\nDownload iTunes for Windows\n\n\n\nAfter installing, reopen the Services window and check the AMDS and Bonjour services.",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Fixing Easy Canvas Connection Problems"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2024-04-22-recover-shellfolder/index.html",
+    "href": "en/blogs/2024-04-22-recover-shellfolder/index.html",
+    "title": "Recovering Misplaced Windows Shell Folders",
+    "section": "",
+    "text": "9 min read · 1673 EN words · 29 中文字",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Recovering Misplaced Windows Shell Folders"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2024-04-22-recover-shellfolder/index.html#the-problem",
+    "href": "en/blogs/2024-04-22-recover-shellfolder/index.html#the-problem",
+    "title": "Recovering Misplaced Windows Shell Folders",
+    "section": "2.1 The Problem",
+    "text": "2.1 The Problem\nA Windows 10 shell folder (e.g., Desktop, Documents, Pictures ) was accidentally moved to the root of a drive (e.g., D:\\, E:\\). How can it be recovered?",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Recovering Misplaced Windows Shell Folders"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2024-04-22-recover-shellfolder/index.html#the-fix",
+    "href": "en/blogs/2024-04-22-recover-shellfolder/index.html#the-fix",
+    "title": "Recovering Misplaced Windows Shell Folders",
+    "section": "2.2 The Fix",
+    "text": "2.2 The Fix\n\nCreate the target folder (e.g., E:\\Users\\UserName\\Videos\\).\nEdit the registry.\n\nPress Win + R and type regedit.\nGo to HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders.\nFind the entry whose value is the drive root (e.g., E:\\).\nChange it to the path of the folder you just created (e.g., E:\\Users\\UserName\\Videos\\).\nSave and restart the computer.\n\nShow hidden system files.\n\nOpen the target folder.\nGo to File &gt; Options &gt; View.\nCheck ⏺ Show hidden files, folders, and drives.\nUncheck ◻ Hide protected operating system files.\n\nRestore icon & display name.\n\nFind desktop.ini in the target folder, open it in Notepad.\nSet the IconResource and LocalizedResourceName entries to the right resource index (listed in Table 1).\n\n\n\n\ndesktop.ini\n\n[.ShellClassInfo]\nLocalizedResourceName=@%SystemRoot%\\system32\\shell32.dll,&lt;NameResource index&gt;\nIconResource=%SystemRoot%\\system32\\imageres.dll,&lt;IconResource index&gt;\n&lt;OtherEntries...&gt;\n\n\nOnce finished, remember to re-hide the system files revealed in step 3.",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Recovering Misplaced Windows Shell Folders"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2024-04-22-recover-shellfolder/index.html#restoring-the-icon",
+    "href": "en/blogs/2024-04-22-recover-shellfolder/index.html#restoring-the-icon",
+    "title": "Recovering Misplaced Windows Shell Folders",
+    "section": "4.1 Restoring the Icon",
+    "text": "4.1 Restoring the Icon\nAn article was found explaining where Windows stores its system icons.\n\n\n\n\n\n\nFigure 8: Article: Where Windows Stores Icons\n\n\n\nThrough Properties &gt; Customize &gt; Change Icon, I found that the current icon source was SHELL32.dll . However, the Saved Games icon was not included there, suggesting that shell folder icons are stored across multiple DLL files.\n\n\n\n\n\n\n\n\nProperties &gt; Customize &gt; Change Icon\n\n\n\n\n\n\n\nCurrent Icon Location\n\n\n\n\n\n\nFigure 9: Current icon file: SHELL32.dll\n\n\n\nI went through the DLL files listed in the article and eventually found the Saved Games icon in imageres.dll, along with the icons for Desktop, Videos, and others.\n\n\n\n\n\n\nFigure 10: Other System Files Containing Icons\n\n\n\n\n\n\n\n\n\nFigure 11: Icon found in imageres.dll\n\n\n\nOnce the icon was linked to the correct resource, it’s icon was restored.\n\n\n\n\n\n\nFigure 12: Icon Restored\n\n\n\nOn an English-language system, this completes the recovery. On other systems, the folder’s localized display name may still need to be restored. For example, on Simplified Chinese systems, the folder should display 保存的游戏 while keeping the actual folder name Saved Games.",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Recovering Misplaced Windows Shell Folders"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2024-04-22-recover-shellfolder/index.html#localized-name",
+    "href": "en/blogs/2024-04-22-recover-shellfolder/index.html#localized-name",
+    "title": "Recovering Misplaced Windows Shell Folders",
+    "section": "4.2 Restoring a Localized Display Name",
+    "text": "4.2 Restoring a Localized Display Name\nSearching for how to make a folder’s display name differ from its actual folder name, I found the following solution:\n\n\n\n\n\n\nFigure 13: Search Results\n\n\n\nSteps:\n\nOpen the target folder in File Explorer.\nClick the View tab on the toolbar of the File Explorer window.\nCheck the Hidden items box, then click Options.\nClick the View tab.\nUncheck “Hide protected operating system files”, then click Yes and OK to confirm change.\n\n\n\n\n\n\n\nFigure 14: Show Hidden Items\n\n\n\n\n\n\n\n\n\nFigure 15: Unhide Protected Operating System Files\n\n\n\nA desktop.ini file now appears inside the Saved Games folder.\n\n\n\n\n\n\nFigure 16: The desktop.ini File\n\n\n\nStep 6: Open it in Notepad.\nWe can see the IconResource entry is pointing to imageres.dll, which is the icon we restored previously.\n\n\n\n\n\n\nFigure 17: Content of desktop.ini\n\n\n\nFollowing the guide, I added the following line to desktop.ini (Figure 18):\nLocalizedResourceName=保存的游戏\n\n\n\n\n\n\nFigure 18: Editing the Display Name\n\n\n\nAfter saving, however, the name appeared as garbled text (Figure 19). English displayed correctly while the Chinese characters turned into mojibake, indicating that the file encoding was wrong.\n\n\n\n\n\n\nFigure 19: Display Name Turned into Mojibake\n\n\n\n\nMethod 1: Change the File Encoding1\nThe bottom-right corner of Notepad showed the current encoding as UTF-8, but desktop.ini should be saved as UTF-16 LE.\n\n\n\n\n\n\nFigure 20: Notepad’s Default Encoding Method\n\n\n\nTo avoid garbling the Chinese name, enter it and then click File &gt; Save As.\n\n\n\n\n\n\nFigure 21: Save As\n\n\n\nSet Save as type to All Files (*.*) and Encoding to UTF-16 LE, then save and overwrite the original file.\n\n\n\n\n\n\nFigure 22: Changing the Encoding Method\n\n\n\nA moment later, the display name was restored.\n\n\n\n\n\n\nFigure 23: Saved Games Restored\n\n\n\n\n\nMethod 2: Reference a Resource Index\nInstead of changing the encoding, you can also reference a resource index. The index points to a localized string inside shell32.dll file, which resolves to the display name according to your Windows display language.\nFor example, Figure 24 shows the LocalizedResourceName entry in the original desktop.ini file of the Videos folder is pointing to the resource in shell32.dll with the index -21791.\n\n\n\n\n\n\nFigure 24: Where the Videos Display Name Comes From\n\n\n\nI thus started to looking for name resource indices inside shell32.dll , but the results covered mainly icon resources instead of name resources.\nThen, I turned to AI for help, but ChatGPT gave me fabricated answers .\nWhen I asked how to inspect the contents of shell32.dll, ChatGPT recommended Visual Studio.\n\n\n\n\n\n\nFigure 25: Asking How to Inspect shell32.dll\n\n\n\nWith no programming background, I mistakenly downloaded Visual Studio Code instead. It became my first encounter with an IDE. Later, when my professor noticed I was doing assignments in VSCode rather than Jupyter and asked why, I just pulled up this article .\n\n\n\n\n\n\nFigure 26: VSCode and Visual Studio\n\n\n\nFollowing ChatGPT’s instructions, I created a new solution in Visual Studio and loaded C:\\Windows\\System32\\shell32.dll to view its resource directory.\n\n\n\n\n\n\nFigure 27: AI’s Instructions\n\n\n\n\n\n\n\n\n\nFigure 28: Interface of Visual Studio\n\n\n\nVisual Studio showed only the structure of the resource directory, not the actual entry indices. Since shell32.dll is very large, checking every entry by hand was not realistic.\nIn the end, I compared the desktop.ini file with one from another computer that hadn’t be modified. The correct resource index turned out to be -21814 — just four numbers away from the -21810 I had tried earlier. I might have found it with a few more guesses .\nI added the following line to the desktop.ini in the Saved Games folder:\nLocalizedResourceName=@%SystemRoot%\\system32\\shell32.dll,-21814\n\n\n\n\n\n\nFigure 29: After the Change\n\n\n\n\nMore resource indices of display names and icons for common shell folders are listed in Table 1.\n\nSaved Games shell folder is finally fully restored!\n\n\n\n\n\n\nFigure 30: Saved Games Restored\n\n\n\nSo far, both the icon and the display name were restored to their defaults.\n\n\n\n\n\n\nFigure 31: Default Icon Restored\n\n\n\nLesson Learned: When moving a shell folder, change only the drive letter in the path. Do not set the bare root directory as the destination.\n\n\n\n\n\n\nFigure 32: Moving a Shell Folder: Change Only the Drive Letter",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Recovering Misplaced Windows Shell Folders"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2024-04-22-recover-shellfolder/index.html#footnotes",
+    "href": "en/blogs/2024-04-22-recover-shellfolder/index.html#footnotes",
+    "title": "Recovering Misplaced Windows Shell Folders",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAdded June 16, 2026↩︎\nUnless marked otherwise, name resources come from @%SystemRoot%\\system32\\shell32.dll,&lt;index&gt;.↩︎\nIcon resources come from %SystemRoot%\\system32\\imageres.dll,&lt;index&gt;.↩︎\nThe Contacts name resource comes from @%CommonProgramFiles%\\system\\wab32res.dll,-10100.↩︎\nThe 3D Objects name resource comes from @%SystemRoot%\\system32\\windows.storage.dll,-21825.↩︎",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Recovering Misplaced Windows Shell Folders"
+    ]
+  },
+  {
+    "objectID": "en/about/index.html",
+    "href": "en/about/index.html",
+    "title": "Pinn (Aiqi) Xu",
+    "section": "",
+    "text": "“Coding saves lifes.”",
+    "crumbs": [
+      "Projects",
+      "About"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2024-05-16-snipaste-fix/index.html",
+    "href": "en/blogs/2024-05-16-snipaste-fix/index.html",
+    "title": "Fix Snipaste Stuck on Top of the Screen",
+    "section": "",
+    "text": "3 min read · 567 EN words · 0 中文字\n\n1 The Problem\n\nOperating system: Windows 10\nSnipaste version: 2.9.1\n\nSnipaste froze while taking a screenshot. The paste pinned itself over the entire screen and could not be closed, and it blocked every other window.\n\n\n\n\nThe Frozen Paste Pinned over the Entire Screen\n\n\n\n\n\n2 Method 1: Kill the Snipaste Process\nThis takes advantage of how Snipaste replaces pastes: swap the full-screen paste for a small one first, then end the process.\n\nPress Win + S to bring up the taskbar and the search bar.\nType one or two short words in the search box and copy them.\nPress F3 to paste. The new paste (the text you just copied) replaces the old full-screen one. It is still frozen, but small enough to leave the rest of the screen usable.\nPress Ctrl + Shift + Esc (or right-click the taskbar) to open Task Manager, switch to the Details tab, find snipaste.exe, right-click it, and end the task. Reopen Snipaste afterwards and it works normally.\n\n\n\n\n\nBring Up the Search Bar and Copy Some Text\n\n\n\n\n\n\n\nEnd snipaste.exe in Task Manager\n\n\n\n\n\n3 Method 2: Restart the Computer\n\nPress Win + D (or another shortcut such as Win + S) to bring up the taskbar.\nClose all other programs from the taskbar, then restart the computer.\n\n\n\n4 Method 3: Uninstall and Reinstall\n\nPress Win + D (or another shortcut) to bring up the taskbar.\nOpen the Start menu, find Snipaste, right-click to uninstall, then install it again.\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Fix Snipaste Stuck on Top of the Screen"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2025-10-07-colab-plotly-export/index.html",
+    "href": "en/blogs/2025-10-07-colab-plotly-export/index.html",
+    "title": "Plotly Charts Display in Google Colab",
+    "section": "",
+    "text": "3 min read · 530 EN words · 0 中文字",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Plotly Charts Display in Google Colab"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2025-10-07-colab-plotly-export/index.html#problem",
+    "href": "en/blogs/2025-10-07-colab-plotly-export/index.html#problem",
+    "title": "Plotly Charts Display in Google Colab",
+    "section": "1.1 Problem",
+    "text": "1.1 Problem\nAfter editing an ipynb file in Google Colab and exporting it to HTML, the Plotly charts fail to display.",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Plotly Charts Display in Google Colab"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2025-10-07-colab-plotly-export/index.html#solution",
+    "href": "en/blogs/2025-10-07-colab-plotly-export/index.html#solution",
+    "title": "Plotly Charts Display in Google Colab",
+    "section": "1.2 Solution",
+    "text": "1.2 Solution\nAfter testing, in Google Colab the ipynb file 1 behaves as follows:\n\nfig.show() displays the chart correctly.\nfig.show(renderer=\"notebook_connected\") fails to display the chart.\n\nBut once exported to HTML 2 and opened in a browser:\n\nCharts generated by fig.show() fail to display.\nOnly charts generated by fig.show(renderer=\"notebook_connected\") display correctly.\n\nSo when editing a notebook in Colab, use the default renderer (fig.show()), and switch the renderer to \"notebook_connected\" right before exporting to HTML.\n\n\n\n\n\n\nIn Colab\n\n\n\n\n\n\n\nExported HTML",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Plotly Charts Display in Google Colab"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2025-10-07-colab-plotly-export/index.html#notes",
+    "href": "en/blogs/2025-10-07-colab-plotly-export/index.html#notes",
+    "title": "Plotly Charts Display in Google Colab",
+    "section": "1.3 Notes",
+    "text": "1.3 Notes\nAfter editing an ipynb file in Colab, if you want to export it to HTML, be sure to press Ctrl+S first (saving to Google Drive) so that you export the most recently saved version. If you run the export command without saving first, the exported HTML may not be the latest version, and it may even have missing content or other issues.\nRecommended workflow:\n\nFinish editing the entire ipynb file.\nChoose Runtime → Restart and run all.\nPress Ctrl+S to save the notebook.\nRun the code below in another notebook to export the HTML.\n\n%%shell\njupyter nbconvert --to html /content/drive/MyDrive/path/filename.ipynb\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n%%shell is a cell magic of Google Colab ( %%bash in Jupyter ) used to run shell commands within a code cell. For a single-line shell command, you can also use !, such as !pip install pyvis.",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Plotly Charts Display in Google Colab"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2025-10-07-colab-plotly-export/index.html#footnotes",
+    "href": "en/blogs/2025-10-07-colab-plotly-export/index.html#footnotes",
+    "title": "Plotly Charts Display in Google Colab",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nIPYNB file: View the demo file in Colab or download it↩︎\nHTML file: View the demo file in the browser or download it↩︎",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Plotly Charts Display in Google Colab"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2026-06-15-quarto-img-styles/index.html",
+    "href": "en/blogs/2026-06-15-quarto-img-styles/index.html",
+    "title": "Quarto Image Centering Styles",
+    "section": "",
+    "text": "4 min read · 705 EN words · 0 中文字",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Quarto Image Centering Styles"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2026-06-15-quarto-img-styles/index.html#step-1-external-css",
+    "href": "en/blogs/2026-06-15-quarto-img-styles/index.html#step-1-external-css",
+    "title": "Quarto Image Centering Styles",
+    "section": "1.1 Step 1: External CSS",
+    "text": "1.1 Step 1: External CSS\n.quarto-float.quarto-figure.quarto-figure-center.anchored {\n    width: 100% !important;\n}\nRegister it in _quarto.yml:\nformat:\n  html:\n    css:\n      - path/to/style.css",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Quarto Image Centering Styles"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2026-06-15-quarto-img-styles/index.html#step-2-page-level-internal-css",
+    "href": "en/blogs/2026-06-15-quarto-img-styles/index.html#step-2-page-level-internal-css",
+    "title": "Quarto Image Centering Styles",
+    "section": "1.2 Step 2: Page-level Internal CSS",
+    "text": "1.2 Step 2: Page-level Internal CSS\nAdd a &lt;style&gt; tag at the top of the page (below the YAML block):\n&lt;style&gt;\n    figcaption {\n        text-align: center;\n    }\n&lt;/style&gt;",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Quarto Image Centering Styles"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2026-06-15-quarto-img-styles/index.html#step-3-image-inline-styles",
+    "href": "en/blogs/2026-06-15-quarto-img-styles/index.html#step-3-image-inline-styles",
+    "title": "Quarto Image Centering Styles",
+    "section": "1.3 Step 3: Image Inline Styles",
+    "text": "1.3 Step 3: Image Inline Styles\n![Caption a](URL){#fig-a style=\"width:20rem;\"}\n![Caption b](URL){#fig-b style=\"width:15rem;\"}\n\nThis post is implemented using the approach above. Click &lt;/&gt; Code in the top-right corner of the page to view the full source.\n\n\nHere is the full walkthrough:",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Quarto Image Centering Styles"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2026-06-15-quarto-img-styles/index.html#the-traditional-approach",
+    "href": "en/blogs/2026-06-15-quarto-img-styles/index.html#the-traditional-approach",
+    "title": "Quarto Image Centering Styles",
+    "section": "2.1 The Traditional Approach",
+    "text": "2.1 The Traditional Approach\nWhen writing my Quarto Website, I initially controlled image size using Quarto’s built-in width attribute:\n![Caption](image URL){#fig-title width=\"15%\"}\nThis approach is clean and intuitive — no need to write inline styles like style=\"width:15%\" — and the results looked good.\n\n\n\n\n\n\n\nFig 1: Img Width: Percentage",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Quarto Image Centering Styles"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2026-06-15-quarto-img-styles/index.html#issue-1-hover-preview-breaks",
+    "href": "en/blogs/2026-06-15-quarto-img-styles/index.html#issue-1-hover-preview-breaks",
+    "title": "Quarto Image Centering Styles",
+    "section": "2.2 Issue 1: Hover Preview Breaks",
+    "text": "2.2 Issue 1: Hover Preview Breaks\nAfter using cross-references (e.g. @fig-title) in the body text, I noticed the hover preview inherited the width percentage, causing it to display incorrectly.\n\n\n\n\n\n\n\nFig 2: Issue 1: Hover Preview Broken\n\n\n\n\nTo fix this, I tried switching to rem as the width unit, which behaves consistently regardless of page scaling and hover context.\nI first tried:\n![Caption](image URL){#fig-title width=\"7rem\"}\nThis had no effect — Quarto’s width attribute does not support rem (it accepts px, percentages, etc.).\nI then switched to:\n![Caption](image URL){#fig-title style=\"width:7rem;\"}",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Quarto Image Centering Styles"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2026-06-15-quarto-img-styles/index.html#issue-2-image-no-longer-centers",
+    "href": "en/blogs/2026-06-15-quarto-img-styles/index.html#issue-2-image-no-longer-centers",
+    "title": "Quarto Image Centering Styles",
+    "section": "2.3 Issue 2: Image No Longer Centers",
+    "text": "2.3 Issue 2: Image No Longer Centers\nA new problem appeared: the image was no longer centered, and setting {fig-align=\"center\"} had no effect.\n\n\n\n\n\n\n\nFig 3: Issue 2: Image No Longer Centered\n\n\n\n\nInspecting with browser DevTools revealed that when style=\"width:7rem\" is set, Quarto also constrains the parent container’s width to 7rem.\n\n\n\n\n\n\n\nFig 4: Parent Container Width Constraint\n\n\n\n\nRemoving the parent container’s width constraint restored image centering.\n\n\n\n\n\n\n\nFig 5: Centering Restored\n\n\n\n\nI also tried several other approaches, such as:\n# Attempt 1\n:::{#fig-title width=\"100%\"}\n![](image URL){style=\"width:7rem;\"}\nCaption\n:::\n\n# Attempt 2\n:::{#fig-title style=\"width:100% !important;\"}\n![Caption](image URL){style=\"width:7rem;\"}\n:::\n\n# Attempt 3\n:::{#fig-title style=\"text-align:center; width:100% !important;\"}\n![](image URL){style=\"width:7rem;\"}\nCaption\n:::\n\n# ...\nNone of them achieved the desired result.\nIn the end, I decided to target the parent container directly via CSS, adding this rule to style.css:\n.quarto-float.quarto-figure.quarto-figure-center.anchored {\n    width: 100% !important;\n}\nCombined with the image syntax:\n![Caption](image URL){#fig-title style=\"width:7rem;\"}\nThis successfully centered the image while keeping the hover preview intact:\n\n\n\n\n\n\n\nFig 6: Centering Achieved\n\n\n\n\n\n\n\n\n\n\n\nFig 7: Hover Preview Working",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "Quarto Image Centering Styles"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2026-07-11-vps-ssh-login/index.html",
+    "href": "en/blogs/2026-07-11-vps-ssh-login/index.html",
+    "title": "VPS SSH Login Troubleshooting",
+    "section": "",
+    "text": "3 min read · 567 EN words · 0 中文字",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "VPS SSH Login Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2026-07-11-vps-ssh-login/index.html#access-vps-via-remote-console",
+    "href": "en/blogs/2026-07-11-vps-ssh-login/index.html#access-vps-via-remote-console",
+    "title": "VPS SSH Login Troubleshooting",
+    "section": "2.1 Access VPS via Remote Console",
+    "text": "2.1 Access VPS via Remote Console\nLogged into the VPS through the provider’s Remote Console and started troubleshooting locally.\n\n\n\n\nRemote Console",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "VPS SSH Login Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2026-07-11-vps-ssh-login/index.html#check-ssh-service-status",
+    "href": "en/blogs/2026-07-11-vps-ssh-login/index.html#check-ssh-service-status",
+    "title": "VPS SSH Login Troubleshooting",
+    "section": "2.2 Check SSH Service Status",
+    "text": "2.2 Check SSH Service Status\nCheck SSH status:\nsystemctl status ssh\nFound that the SSH service was not running.\n\n\n\nSSH status\n\n\nStart SSH and enable it on boot:\nsudo systemctl start ssh   # start\nsudo systemctl enable ssh  # enable on boot\nsystemctl status ssh       # check status",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "VPS SSH Login Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2026-07-11-vps-ssh-login/index.html#check-firewall-configuration",
+    "href": "en/blogs/2026-07-11-vps-ssh-login/index.html#check-firewall-configuration",
+    "title": "VPS SSH Login Troubleshooting",
+    "section": "2.3 Check Firewall Configuration",
+    "text": "2.3 Check Firewall Configuration\nCheck UFW status:\nufw status\nConfirmed that the SSH port was not blocked by UFW and ruled out firewall issues.",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "VPS SSH Login Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2026-07-11-vps-ssh-login/index.html#check-fail2ban-ban-status",
+    "href": "en/blogs/2026-07-11-vps-ssh-login/index.html#check-fail2ban-ban-status",
+    "title": "VPS SSH Login Troubleshooting",
+    "section": "2.4 Check fail2ban Ban Status",
+    "text": "2.4 Check fail2ban Ban Status\nCheck fail2ban service:\nsudo systemctl status fail2ban\nSee my own IP locally:\ncurl https://api.ipify.org\nOn the remote console, see whether my IP was banned:\n# Check SSH jail status:\nsudo fail2ban-client status sshd\n# Banned IP list: &lt;my_ip&gt;\n\n\n\nCheck Banned IP List\n\n\nCause:\n\nThe SSH connection snippet still used the old username after the username change\nMultiple login attempts were made with an invalid username/password\nFailed attempts exceeded the fail2ban threshold (5 attempts)\nfail2ban automatically banned my IP (ban duration: 1 hour)",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "VPS SSH Login Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "en/blogs/2026-07-11-vps-ssh-login/index.html#unban-my-ip",
+    "href": "en/blogs/2026-07-11-vps-ssh-login/index.html#unban-my-ip",
+    "title": "VPS SSH Login Troubleshooting",
+    "section": "2.5 Unban My IP",
+    "text": "2.5 Unban My IP\nCheck current banned IPs:\nsudo fail2ban-client status sshd\nRemove the IP ban:\nsudo fail2ban-client set sshd unbanip &lt;my_ip&gt;\nRestart fail2ban if needed:\nsudo systemctl restart fail2ban",
+    "crumbs": [
+      "Projects",
+      "Blogs",
+      "VPS SSH Login Troubleshooting"
+    ]
+  },
+  {
     "objectID": "en/blogs/index.html",
     "href": "en/blogs/index.html",
     "title": "Blogs",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nVPS SSH Login Troubleshooting\n\n\n\nVPS\n\nSSH\n\nLinux\n\nTips\n\n\n\nRestored SSH access after fail2ban blocked VPS login attempts caused by outdated username…\n\n\n\nPinn Xu\n\n\nJul 11, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotion Database Auto-Sync Tips\n\n\n\nNotion\n\nDatabase\n\nQuarto\n\nWeb Dev\n\nTips\n\n\n\nTips for Notion database Formulas & Rollups when syncing via API.\n\n\n\nPinn Xu\n\n\nJul 8, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto Image Centering Styles\n\n\n\nQuarto\n\nCSS\n\nWeb Dev\n\nTips\n\n\n\nExploring image centering styles in a Quarto Website and fixing hover preview issues.\n\n\n\nPinn Xu\n\n\nJun 15, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nNetwork Diagram Display in Google Colab\n\n\n\nPython\n\nColab\n\nPyvis\n\nTips\n\n\n\nDisplay a Pyvis network diagram both in Colab and the exported notebook HTML, without dependencies.\n\n\n\nPinn Xu\n\n\nOct 7, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlotly Charts Display in Google Colab\n\n\n\nPython\n\nColab\n\nPlotly\n\nTutorial\n\n\n\nHow Plotly render inside Colab and in the browser after exporting notebook to HTML.\n\n\n\nPinn Xu\n\n\nOct 7, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nFixing Easy Canvas Connection Problems\n\n\n\nWindows\n\nTutorial\n\n\n\nHow to fix Easy Canvas failing to connect to a Windows PC over Wi-Fi or a USB cable.\n\n\n\nPinn Xu\n\n\nDec 22, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nRecovering Misplaced Windows Shell Folders\n\n\n\nWindows\n\nTutorial\n\n\n\nRecovering Windows shell folders such as Documents, Videos, and Pictures after they were…\n\n\n\nPinn Xu\n\n\nApr 22, 2024\n\n\n\n\n\n\nNo matching items",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nNotion Database Workflows\n\n\n\nNotion\n\nDatabase\n\nTips\n\n\n\nMy automatic workflows with Notion databases.\n\n\n\nPinn Xu\n\n\nJul 16, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nVPS SSH Login Troubleshooting\n\n\n\nVPS\n\nSSH\n\nLinux\n\nTips\n\n\n\nRestored SSH access after fail2ban blocked VPS login attempts caused by outdated username…\n\n\n\nPinn Xu\n\n\nJul 11, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotion Database Auto-Sync Tips\n\n\n\nNotion\n\nDatabase\n\nQuarto\n\nWeb Dev\n\nTips\n\n\n\nTips for Notion database Formulas & Rollups when syncing via API.\n\n\n\nPinn Xu\n\n\nJul 8, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto Image Centering Styles\n\n\n\nQuarto\n\nCSS\n\nWeb Dev\n\nTips\n\n\n\nExploring image centering styles in a Quarto Website and fixing hover preview issues.\n\n\n\nPinn Xu\n\n\nJun 15, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nNetwork Diagram Display in Google Colab\n\n\n\nPython\n\nColab\n\nPyvis\n\nTips\n\n\n\nDisplay a Pyvis network diagram both in Colab and the exported notebook HTML, without dependencies.\n\n\n\nPinn Xu\n\n\nOct 7, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlotly Charts Display in Google Colab\n\n\n\nPython\n\nColab\n\nPlotly\n\nTutorial\n\n\n\nHow Plotly render inside Colab and in the browser after exporting notebook to HTML.\n\n\n\nPinn Xu\n\n\nOct 7, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nFixing Easy Canvas Connection Problems\n\n\n\nWindows\n\nTutorial\n\n\n\nHow to fix Easy Canvas failing to connect to a Windows PC over Wi-Fi or a USB cable.\n\n\n\nPinn Xu\n\n\nDec 22, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nFix Snipaste Stuck on Top of the Screen\n\n\n\nWindows\n\nTutorial\n\n\n\nThree ways to handle a frozen Snipaste paste that pins itself over the whole screen.\n\n\n\nPinn Xu\n\n\nMay 16, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nRecovering Misplaced Windows Shell Folders\n\n\n\nWindows\n\nTutorial\n\n\n\nRecovering Windows shell folders such as Documents, Videos, and Pictures after they were…\n\n\n\nPinn Xu\n\n\nApr 22, 2024\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Projects",
       "Blogs"
@@ -2495,7 +2533,7 @@
     "href": "en/projects/2024-11-01-catalan-referendum/index.html",
     "title": "Twitter Sentiment Analysis of Catalan Referendum",
     "section": "",
-    "text": "8 min read · 1529 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "8 min read · 1540 EN words · 0 中文字\nEnvironment & Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "Projects",
       "Twitter Sentiment Analysis of Catalan Referendum"
@@ -2583,7 +2621,7 @@
     "href": "en/projects/2025-12-10-bayanihan/index.html",
     "title": "Bayanihan UI/UX Design",
     "section": "",
-    "text": "3 min read · 527 EN words · 0 中文字",
+    "text": "3 min read · 538 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Bayanihan UI/UX Design"
@@ -2638,7 +2676,7 @@
     "href": "en/projects/2026-02-25-most-streamed-songs/index.html",
     "title": "Spotify Most Streamed Songs",
     "section": "",
-    "text": "9 min read · 1609 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
+    "text": "9 min read · 1620 EN words · 0 中文字\nEnvironment & Versions\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
     "crumbs": [
       "Projects",
       "Spotify Most Streamed Songs"
@@ -2769,7 +2807,7 @@
     "href": "en/tools/2026-04-17-news-hub/index.html",
     "title": "News Hub",
     "section": "",
-    "text": "3 min read · 469 EN words · 0 中文字",
+    "text": "3 min read · 480 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Tools",
@@ -2817,7 +2855,7 @@
     "href": "en/tools/2026-06-23-monthly-love/index.html",
     "title": "Monthly Love",
     "section": "",
-    "text": "4 min read · 631 EN words · 2 中文字",
+    "text": "4 min read · 642 EN words · 2 中文字",
     "crumbs": [
       "Projects",
       "Tools",
@@ -2865,7 +2903,7 @@
     "href": "en/tutorials/2024-10-01-amounts-and-distribution/index.html",
     "title": "Amounts and Distribution",
     "section": "",
-    "text": "9 min read · 1663 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "9 min read · 1674 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "Projects",
       "Tutorials",
@@ -3021,7 +3059,7 @@
     "href": "en/tutorials/2024-10-27-multivariate-plots/index.html",
     "title": "Multivariate Plots",
     "section": "",
-    "text": "20 min read · 3878 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "20 min read · 3889 EN words · 0 中文字\nEnvironment and Versions\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "Projects",
       "Tutorials",
@@ -3105,7 +3143,7 @@
     "href": "en/tutorials/2026-03-27-r-tips/index.html",
     "title": "R Tips",
     "section": "",
-    "text": "5 min read · 963 EN words · 0 中文字",
+    "text": "5 min read · 974 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Tutorials",
@@ -3408,135 +3446,212 @@
     "text": "Back to top"
   },
   {
-    "objectID": "zh/blogs/2024-12-22-easy-canvas-connection/index.html",
-    "href": "zh/blogs/2024-12-22-easy-canvas-connection/index.html",
-    "title": "Easy Canvas 无法连接解决方法",
+    "objectID": "zh/blogs/2024-05-16-snipaste-fix/index.html",
+    "href": "zh/blogs/2024-05-16-snipaste-fix/index.html",
+    "title": "Snipaste 截图卡死在最前端解决办法",
     "section": "",
-    "text": "4 min read · 253 EN words · 790 中文字",
+    "text": "4 min read · 176 EN words · 730 中文字\n\n1 问题描述\n\n操作系统：Windows 10\nSnipaste 版本：2.9.1\n\n使用 Snipaste 截图时程序卡死，贴图置顶覆盖整个屏幕，无法关闭，也无法操作其他窗口。\n\n\n\n\n卡死的贴图置顶覆盖整个屏幕\n\n\n\n\n\n2 方法一：结束 Snipaste 进程\n利用 Snipaste 的贴图替换机制，先把全屏贴图换成小尺寸贴图，再结束进程：\n\n按 Win + S 唤出任务栏和搜索栏。\n在搜索栏内输入一两个简短的文字并复制。\n按 F3 触发贴图。新贴图（刚复制的文字）会替换掉覆盖全屏的旧贴图；它仍处于卡死状态，但尺寸小，不再遮挡屏幕。\n按 Ctrl + Shift + Esc（或右击任务栏）打开任务管理器，切换到【详细信息】，找到 snipaste.exe，右击结束任务。之后重新打开 Snipaste 即可正常使用。\n\n\n\n\n\n唤出搜索栏并复制一段文字\n\n\n\n\n\n\n\n在任务管理器中结束 snipaste.exe\n\n\n\n\n\n3 方法二：重启电脑\n\n按 Win + D（或 Win + S 等其他快捷键）唤出任务栏。\n从任务栏关闭其他所有程序，然后重启电脑。\n\n\n\n4 方法三：卸载重装\n\n按 Win + D（或其他快捷键）唤出任务栏。\n打开开始菜单，找到 Snipaste，右击卸载，然后重新安装。\n\n\n\n\n\n\n\n 回到顶部",
     "crumbs": [
       "经验博客",
-      "Easy Canvas 无法连接解决方法"
+      "Snipaste 截图卡死在最前端解决办法"
     ]
   },
   {
-    "objectID": "zh/blogs/2024-12-22-easy-canvas-connection/index.html#检查-amds-和-bonjour-服务",
-    "href": "zh/blogs/2024-12-22-easy-canvas-connection/index.html#检查-amds-和-bonjour-服务",
-    "title": "Easy Canvas 无法连接解决方法",
-    "section": "1.1 检查 AMDS 和 Bonjour 服务",
-    "text": "1.1 检查 AMDS 和 Bonjour 服务\n\n按 Win + R 打开 “运行” 窗口；输入“ services.msc ”，点击 “确定” 打开 “服务” 窗口。\n\n\n\n\n打开 service.msc\n\n\n\n检查是否存在 Apple Mobile Device Service（AMDS）、Bonjour 以及 EL Display Hub Service Application 服务，并确认它们均处于 “正在运行” 状态、启动类型为 “自动”。\n\n\n\n\n\n\n\n检查 Bonjour 服务\n\n\n\n\n\n\n\n检查 AMDS 服务\n\n\n\n\n\n\n\n\n检查 EL Display Hub 服务\n\n\n\n如果这些服务存在但未运行，右击服务并打开 “属性”。\n\n\n\n\n打开属性\n\n\n\n将 “启动类型” 改成 “自动”，点击 “确定”。\n\n\n\n\n修改启动类型\n\n\n\n重新右击服务，点击 “重新启动”。（AMDS 服务同理）\n\n\n\n\n重启服务",
-    "crumbs": [
-      "经验博客",
-      "Easy Canvas 无法连接解决方法"
-    ]
-  },
-  {
-    "objectID": "zh/blogs/2024-12-22-easy-canvas-connection/index.html#若无-amds-和-bonjour-服务重新安装-itunes",
-    "href": "zh/blogs/2024-12-22-easy-canvas-connection/index.html#若无-amds-和-bonjour-服务重新安装-itunes",
-    "title": "Easy Canvas 无法连接解决方法",
-    "section": "1.2 若无 AMDS 和 Bonjour 服务：重新安装 iTunes",
-    "text": "1.2 若无 AMDS 和 Bonjour 服务：重新安装 iTunes\n\n按 Win + S 打开搜索栏，搜索 “iTunes”，查看电脑里是否已经安装了 iTunes。\n\n\n\n\n检查iTunes\n\n\n\n如果已安装 iTunes 但没有 AMDS 或 Bonjour 服务，就需要卸载后重新安装。打开控制面板，选择 “卸载程序”。\n\n\n\n\n卸载程序\n\n\n\n右击卸载 Bonjour 和 iTunes\n\n\n\n\n\n\n\n卸载 Bonjour\n\n\n\n\n\n\n\n卸载 iTunes\n\n\n\n\n\n\n如果在卸载列表中找不到 iTunes，按 Win 打开开始菜单，找到 iTunes 后右击卸载。\n\n\n\n\n在菜单中卸载 iTunes\n\n\n\n重新安装 iTunes。注意不要从 Microsoft Store 安装，而应打开官网，向下找到 “需要其他版本？”，选择 “Windows”，下载 iTunes64Setup.exe 后手动安装。\n\n\n\n\n需要其他版本\n\n\n\n\n\n下载 Win iTunes\n\n\n\n安装完成后重新打开服务窗口，检查 AMDS 和 Bonjour 服务。",
-    "crumbs": [
-      "经验博客",
-      "Easy Canvas 无法连接解决方法"
-    ]
-  },
-  {
-    "objectID": "zh/blogs/2025-10-07-fix-network-diagram/index.html",
-    "href": "zh/blogs/2025-10-07-fix-network-diagram/index.html",
-    "title": "在 Google Colab 中显示网络关系图",
+    "objectID": "zh/blogs/2025-10-07-colab-plotly-export/index.html",
+    "href": "zh/blogs/2025-10-07-colab-plotly-export/index.html",
+    "title": "Colab 导出 HTML 后无法显示 Plotly 图表问题",
     "section": "",
-    "text": "4 min read · 195 EN words · 638 中文字",
+    "text": "4 min read · 226 EN words · 665 中文字",
     "crumbs": [
       "经验博客",
-      "在 Google Colab 中显示网络关系图"
+      "Colab 导出 HTML 后无法显示 Plotly 图表问题"
     ]
   },
   {
-    "objectID": "zh/blogs/2025-10-07-fix-network-diagram/index.html#footnotes",
-    "href": "zh/blogs/2025-10-07-fix-network-diagram/index.html#footnotes",
-    "title": "在 Google Colab 中显示网络关系图",
+    "objectID": "zh/blogs/2025-10-07-colab-plotly-export/index.html#问题",
+    "href": "zh/blogs/2025-10-07-colab-plotly-export/index.html#问题",
+    "title": "Colab 导出 HTML 后无法显示 Plotly 图表问题",
+    "section": "1.1 问题",
+    "text": "1.1 问题\n使用 Google Colab 编辑 ipynb 文件并导出为 HTML 后，Plotly 图表无法显示。",
+    "crumbs": [
+      "经验博客",
+      "Colab 导出 HTML 后无法显示 Plotly 图表问题"
+    ]
+  },
+  {
+    "objectID": "zh/blogs/2025-10-07-colab-plotly-export/index.html#解决",
+    "href": "zh/blogs/2025-10-07-colab-plotly-export/index.html#解决",
+    "title": "Colab 导出 HTML 后无法显示 Plotly 图表问题",
+    "section": "1.2 解决",
+    "text": "1.2 解决\n经过测试，ipynb 文件在 Google Colab 中 1：\n\nfig.show() 可以正常显示图表。\nfig.show(renderer=\"notebook_connected\") 无法显示图表。\n\n但导出为 HTML 并用浏览器打开后 2：\n\nfig.show() 生成的图表无法显示。\n只有 fig.show(renderer=\"notebook_connected\") 生成的图表可以正常显示。\n\n因此，建议在 Colab 中编辑 Notebook 时使用默认渲染器（ fig.show() ），在导出 HTML 前再将 renderer 改为 \"notebook_connected\"。\n\n\n\n\n\n\n在 Colab 中\n\n\n\n\n\n\n\n导出的 HTML 中",
+    "crumbs": [
+      "经验博客",
+      "Colab 导出 HTML 后无法显示 Plotly 图表问题"
+    ]
+  },
+  {
+    "objectID": "zh/blogs/2025-10-07-colab-plotly-export/index.html#注意事项",
+    "href": "zh/blogs/2025-10-07-colab-plotly-export/index.html#注意事项",
+    "title": "Colab 导出 HTML 后无法显示 Plotly 图表问题",
+    "section": "1.3 注意事项",
+    "text": "1.3 注意事项\n使用 Colab 编辑 ipynb 文件后，如果要导出为 HTML，务必先按 Ctrl+S（保存到 Google Drive），确保导出的是最新保存的版本。如果没有先保存就执行导出命令，导出的 HTML 可能不是最新版本，甚至会出现内容缺失等问题。\n推荐流程：\n\n完成整个 ipynb 的编辑。\n选择 Runtime → Restart and run all（或重新启动运行时并运行全部）。\n按 Ctrl+S 保存 Notebook。\n运行下面的代码导出 HTML。\n导出完成后，如 Notebook 有新的修改，再按一次 Ctrl+S 保存。\n\n%%shell\njupyter nbconvert --to html /content/drive/MyDrive/路径/文件名.ipynb\n\n\n\n\n%%shell 是 Google Colab 的 特殊语法 (cell magic) (Jupyter 用 %%bash )，用于执行一个代码单元中的 shell 命令；对于单行 shell 命令，也可以使用 !，如 !pip install pyvis。",
+    "crumbs": [
+      "经验博客",
+      "Colab 导出 HTML 后无法显示 Plotly 图表问题"
+    ]
+  },
+  {
+    "objectID": "zh/blogs/2025-10-07-colab-plotly-export/index.html#footnotes",
+    "href": "zh/blogs/2025-10-07-colab-plotly-export/index.html#footnotes",
+    "title": "Colab 导出 HTML 后无法显示 Plotly 图表问题",
     "section": "脚注",
-    "text": "脚注\n\n\nIPYNB 文件：在 Colab 中查看演示文件 或 下载文件↩︎\nHTML 文件：在浏览器中查看演示文件 或 下载文件↩︎",
+    "text": "脚注\n\n\nIPYNB 文件：在Colab中查看示例文件 或 下载示例文件↩︎\nHTML 文件：在浏览器中查看演示文件 或 下载示例文件↩︎",
     "crumbs": [
       "经验博客",
-      "在 Google Colab 中显示网络关系图"
+      "Colab 导出 HTML 后无法显示 Plotly 图表问题"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html",
-    "href": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html",
-    "title": "Notion 数据库自动同步技巧",
+    "objectID": "zh/blogs/2026-06-15-quarto-img-styles/index.html",
+    "href": "zh/blogs/2026-06-15-quarto-img-styles/index.html",
+    "title": "Quarto 图片居中样式",
     "section": "",
-    "text": "6 min read · 250 EN words · 1382 中文字",
+    "text": "5 min read · 195 EN words · 1032 中文字",
     "crumbs": [
       "经验博客",
-      "Notion 数据库自动同步技巧"
+      "Quarto 图片居中样式"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#任务数据库",
-    "href": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#任务数据库",
-    "title": "Notion 数据库自动同步技巧",
-    "section": "2.1 任务数据库",
-    "text": "2.1 任务数据库\nDev Track 数据库将每项日常任务存为一条记录。其中一个 Relation 属性关联到 Change Log 数据库，此外还包含时间线、时长等基础属性。\n\n\n\n\nDev 数据库总览\n\n\n\n值得一提的是，我并非通过 Notion 界面逐行添加记录，而是用 Notion Calendar 记录任务。它提供清晰的日历视图，也便于我在做事时随手记笔记。\n\n\n\n\nNotion Calendar 中的 Dev 数据库",
+    "objectID": "zh/blogs/2026-06-15-quarto-img-styles/index.html#第一步外部-css",
+    "href": "zh/blogs/2026-06-15-quarto-img-styles/index.html#第一步外部-css",
+    "title": "Quarto 图片居中样式",
+    "section": "1.1 第一步：外部 CSS",
+    "text": "1.1 第一步：外部 CSS\n.quarto-float.quarto-figure.quarto-figure-center.anchored {\n    width: 100% !important;\n}\n并在 _quarto.yml 中挂载：\nformat:\n  html:\n    css:\n      - path/to/style.css",
     "crumbs": [
       "经验博客",
-      "Notion 数据库自动同步技巧"
+      "Quarto 图片居中样式"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#进度数据库",
-    "href": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#进度数据库",
-    "title": "Notion 数据库自动同步技巧",
-    "section": "2.2 进度数据库",
-    "text": "2.2 进度数据库\nChange Log 数据库按阶段记录站点的开发进度。每条记录关联了 Dev Track 数据库中的若干任务，并将它们汇总为 Rollup 属性。例如 Start (实际开始日期：开始时间早于凌晨 5 点的任务计入前一天) 和 Hours（该阶段内所有任务的总时间跨度）。\n\n\n\n\nLog 数据库总览\n\n\n\nFormula 属性负责计算并返回格式化的结果。例如 Date label 属性会判断某条记录的时间跨度是一天还是多天，同时对于最新阶段返回 &lt;start&gt; - now。\n\n\n\n此外还有一些隐藏属性支撑这些计算：_days 供 Days 使用，_end 与 _phase 供 Date label 使用。_BU 后缀则表示“备份” (backup)，即原先手动编辑属性的备份。",
+    "objectID": "zh/blogs/2026-06-15-quarto-img-styles/index.html#第二步页面级-internal-css",
+    "href": "zh/blogs/2026-06-15-quarto-img-styles/index.html#第二步页面级-internal-css",
+    "title": "Quarto 图片居中样式",
+    "section": "1.2 第二步：页面级 Internal CSS",
+    "text": "1.2 第二步：页面级 Internal CSS\n在页面最上方 (yaml块的下方) 添加 &lt;style&gt; 标签：\n&lt;style&gt;\n    figcaption {\n        text-align: center;\n    }\n&lt;/style&gt;",
     "crumbs": [
       "经验博客",
-      "Notion 数据库自动同步技巧"
+      "Quarto 图片居中样式"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#项目数据库",
-    "href": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#项目数据库",
-    "title": "Notion 数据库自动同步技巧",
-    "section": "2.3 项目数据库",
-    "text": "2.3 项目数据库\nAll Projects 数据库汇集所有项目并展示整体 Rollup 统计。其中每一行同时也是一个汇总页面，用于管理各子数据库，并展示图表等信息。",
+    "objectID": "zh/blogs/2026-06-15-quarto-img-styles/index.html#第三步图片行内样式",
+    "href": "zh/blogs/2026-06-15-quarto-img-styles/index.html#第三步图片行内样式",
+    "title": "Quarto 图片居中样式",
+    "section": "1.3 第三步：图片行内样式",
+    "text": "1.3 第三步：图片行内样式\n![图a](URL){#fig-a style=\"width:20rem;\"}\n![图b](URL){#fig-b style=\"width:15rem;\"}\n\n本文即采用上述方案实现，点击页面右上角 &lt;/&gt; 代码 可查看完整源代码。\n\n\n下面是具体实现过程：",
     "crumbs": [
       "经验博客",
-      "Notion 数据库自动同步技巧"
+      "Quarto 图片居中样式"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#时区",
-    "href": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#时区",
-    "title": "Notion 数据库自动同步技巧",
-    "section": "3.1 时区",
-    "text": "3.1 时区\n在用 Formula 与 Rollup 替换掉手动输入的属性后，我发现日期类 Formula 属性在 Notion 界面与 API 中返回的值并不一致。例如：\nprop(\"Timeline\").dateStart().formatDate(\"YYYY-MM-DD\").parseDate()\n这个 Formula 会去掉 Timeline 起始日期中的时间部分，返回纯日期。无论工作区设为哪个时区，它在 Notion 界面中都正常，但 API 可能返回不同的日期。\n原因在于 formatDate() 以 UTC+0 解析和输出。如果你的时区是 UTC-4，结果就会相差 4 小时。\n解决办法是：只要你的时区不是 UTC+0，就在调用 formatDate() 时传入时区参数。\nprop(\"Timeline\").dateStart().formatDate(\"YYYY-MM-DD\", UTC-4).parseDate()\n如果你所在地区实行夏令时，建议使用 IANA 时区名称，例如用 America/New_York 而非 UTC-4。",
+    "objectID": "zh/blogs/2026-06-15-quarto-img-styles/index.html#传统方法",
+    "href": "zh/blogs/2026-06-15-quarto-img-styles/index.html#传统方法",
+    "title": "Quarto 图片居中样式",
+    "section": "2.1 传统方法",
+    "text": "2.1 传统方法\n在 Quarto Website 撰写过程中，最初，我通过 Quarto 内置的 width 属性控制图片大小：\n![图片标题](图片URL){#fig-title width=\"15%\"}\n这种方式简洁直观，无需额外编写 style=\"width:15%\" 等行内样式，显示效果也较为理想。\n\n\n\n\n\n\n\n图 1: 通过 width 百分比控制图片效果预览",
     "crumbs": [
       "经验博客",
-      "Notion 数据库自动同步技巧"
+      "Quarto 图片居中样式"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#数据类型",
-    "href": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#数据类型",
-    "title": "Notion 数据库自动同步技巧",
-    "section": "3.2 数据类型",
-    "text": "3.2 数据类型\nFormula 属性在源属性为空时并不强制要求设置回退值（fallback）。若要设置，请使用与该属性相同的类型。\n同时应避免用 empty() 作为回退值：它会导致图表视图（Chart View）无法使用。例如：\nifs(\n    /* set empty() as fallback if $Timeline is empty */\n    prop(\"Timeline\") == empty(),\n    empty(),\n\n    /* if start time is before 5am, subtract 1 day */\n    prop(\"Timeline\").dateStart().hours() &lt;= 5,\n    prop(\"Timeline\").dateStart().dateSubtract()\n    .formatDate(\"YYYY-MM-DD\", UTC-4).parseDate(),\n\n    /* else: set start time */\n    prop(\"Timeline\").dateStart().formatDate(\"YYYY-MM-DD\", UTC-4).parseDate()\n)\n这个 Formula 根据 Timeline 属性给出任务的实际日期，并将开始时间早于凌晨 5 点的任务计入前一天。\n它在常规视图（表格、列表、日历等）中正常工作，但该属性无法用作图表视图的 X 轴。\n解决办法是去掉 empty() 回退值。要么完全不设回退值——源属性为空时该属性也为空，同时仍可用于图表视图；要么使用一个日期作为回退，例如 1900-01-01 或 today()。\nifs(\n    /* date fallback if $Timeline is empty */\n    prop(\"Timeline\") == empty(),\n    parseDate(\"1900-01-01\"),\n\n    /* if start time is before 5am, subtract 1 day */\n    prop(\"Timeline\").dateStart().hours() &lt;= 5,\n    prop(\"Timeline\").dateStart().dateSubtract()\n    .formatDate(\"YYYY-MM-DD\", UTC-4).parseDate(),\n\n    /* else: set start time */\n    prop(\"Timeline\").dateStart().formatDate(\"YYYY-MM-DD\", UTC-4).parseDate()\n)\n其他类型同理：字符串用 \"\"，数字用 0，布尔用 false，列表用 []。",
+    "objectID": "zh/blogs/2026-06-15-quarto-img-styles/index.html#问题1引用悬浮预览异常",
+    "href": "zh/blogs/2026-06-15-quarto-img-styles/index.html#问题1引用悬浮预览异常",
+    "title": "Quarto 图片居中样式",
+    "section": "2.2 问题1：引用悬浮预览异常",
+    "text": "2.2 问题1：引用悬浮预览异常\n在正文中使用交叉引用（如 @fig-title）后，我发现图片悬浮预览会继承 width 百分比设置，导致预览显示异常。\n\n\n\n\n\n\n\n图 2: 问题1 - 悬浮预览异常\n\n\n\n\n为了解决这个问题，我尝试改用 rem 作为图片宽度单位，以兼顾页面缩放和悬浮预览。\n首先尝试：\n![图片标题](图片URL){#fig-title width=\"7rem\"}\n但并未生效，因为 Quarto 的 width 属性不支持 rem 单位（支持 px、百分比等）。\n随后改为：\n![图片标题](图片URL){#fig-title style=\"width:7rem;\"}",
     "crumbs": [
       "经验博客",
-      "Notion 数据库自动同步技巧"
+      "Quarto 图片居中样式"
     ]
   },
   {
-    "objectID": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#降低运行开销",
-    "href": "zh/blogs/2026-07-08-ntn-db-auto-sync/index.html#降低运行开销",
-    "title": "Notion 数据库自动同步技巧",
-    "section": "3.3 降低运行开销",
-    "text": "3.3 降低运行开销\n每个 Rollup 属性都会重新从源数据库拉取全部内容，因此 Rollup 过多的数据库在维护时可能变得很慢。应尽量减少 Rollup 数量。与其用多个 Rollup 分别取关联数据，不如用一个 Rollup 配合 Formula 来实现。",
+    "objectID": "zh/blogs/2026-06-15-quarto-img-styles/index.html#问题2图片无法居中",
+    "href": "zh/blogs/2026-06-15-quarto-img-styles/index.html#问题2图片无法居中",
+    "title": "Quarto 图片居中样式",
+    "section": "2.3 问题2：图片无法居中",
+    "text": "2.3 问题2：图片无法居中\n新的问题随之出现：图片不再居中，即使设置 {fig-align=\"center\"} 也无效。\n\n\n\n\n\n\n\n图 3: 问题2：图片不再居中显示\n\n\n\n\n使用浏览器 DevTools 排查后发现，设置 style=\"width:7rem\" 时，Quarto 会同步将父容器宽度限制为 7rem。\n\n\n\n\n\n\n\n图 4: 父容器宽度限制\n\n\n\n\n移除父容器宽度限制后，图片即可重新居中。\n\n\n\n\n\n\n\n图 5: 去除父容器宽度限制后：恢复居中\n\n\n\n\n期间我还尝试过多种方案，例如：\n# 尝试1\n:::{#fig-title width=\"100%\"}\n![](图片URL){style=\"width:7rem;\"}\n图片标题\n:::\n\n# 尝试2\n:::{#fig-title style=\"width:100% !important;\"}\n![图片标题](图片URL){style=\"width:7rem;\"}\n:::\n\n# 尝试3\n:::{#fig-title style=\"text-align:center; width:100% !important;\"}\n![](图片URL){style=\"width:7rem;\"}\n图片标题\n:::\n\n# ...\n但都未达到理想效果。\n最终，我决定直接修改 css 样式，在 style.css 里添加了针对父容器的设置：\n.quarto-float.quarto-figure.quarto-figure-center.anchored {\n    width: 100% !important;\n}\n再配合图片设置：\n![图片标题](图片URL){#fig-title style=\"width:7rem;\"}\n成功实现图片居中的同时，引用悬浮预览正常：\n\n\n\n\n\n\n\n图 6: 实现居中\n\n\n\n\n\n\n\n\n\n\n\n图 7: 实现悬浮正常",
     "crumbs": [
       "经验博客",
-      "Notion 数据库自动同步技巧"
+      "Quarto 图片居中样式"
+    ]
+  },
+  {
+    "objectID": "zh/blogs/2026-07-11-vps-ssh-login/index.html",
+    "href": "zh/blogs/2026-07-11-vps-ssh-login/index.html",
+    "title": "VPS SSH 连接失败排查",
+    "section": "",
+    "text": "4 min read · 225 EN words · 814 中文字",
+    "crumbs": [
+      "经验博客",
+      "VPS SSH 连接失败排查"
+    ]
+  },
+  {
+    "objectID": "zh/blogs/2026-07-11-vps-ssh-login/index.html#通过远程控制台访问-vps",
+    "href": "zh/blogs/2026-07-11-vps-ssh-login/index.html#通过远程控制台访问-vps",
+    "title": "VPS SSH 连接失败排查",
+    "section": "2.1 通过远程控制台访问 VPS",
+    "text": "2.1 通过远程控制台访问 VPS\n通过服务商提供的远程控制台（Remote Console）登录 VPS，在本地开始排查。\n\n\n\n\n远程控制台",
+    "crumbs": [
+      "经验博客",
+      "VPS SSH 连接失败排查"
+    ]
+  },
+  {
+    "objectID": "zh/blogs/2026-07-11-vps-ssh-login/index.html#检查-ssh-服务状态",
+    "href": "zh/blogs/2026-07-11-vps-ssh-login/index.html#检查-ssh-服务状态",
+    "title": "VPS SSH 连接失败排查",
+    "section": "2.2 检查 SSH 服务状态",
+    "text": "2.2 检查 SSH 服务状态\n检查 SSH 状态：\nsystemctl status ssh\n发现 SSH 服务没有运行。\n\n\n\nSSH状态\n\n\n启动 SSH 并设置开机自启：\nsudo systemctl start ssh   # 启动\nsudo systemctl enable ssh  # 开机自启\nsystemctl status ssh       # 检查状态",
+    "crumbs": [
+      "经验博客",
+      "VPS SSH 连接失败排查"
+    ]
+  },
+  {
+    "objectID": "zh/blogs/2026-07-11-vps-ssh-login/index.html#检查防火墙配置",
+    "href": "zh/blogs/2026-07-11-vps-ssh-login/index.html#检查防火墙配置",
+    "title": "VPS SSH 连接失败排查",
+    "section": "2.3 检查防火墙配置",
+    "text": "2.3 检查防火墙配置\n检查 UFW 状态：\nufw status\n确认 SSH 端口没有被 UFW 拦截，排除了防火墙的问题。",
+    "crumbs": [
+      "经验博客",
+      "VPS SSH 连接失败排查"
+    ]
+  },
+  {
+    "objectID": "zh/blogs/2026-07-11-vps-ssh-login/index.html#检查-fail2ban-封禁状态",
+    "href": "zh/blogs/2026-07-11-vps-ssh-login/index.html#检查-fail2ban-封禁状态",
+    "title": "VPS SSH 连接失败排查",
+    "section": "2.4 检查 fail2ban 封禁状态",
+    "text": "2.4 检查 fail2ban 封禁状态\n检查 fail2ban 服务：\nsudo systemctl status fail2ban\n在本地查看自己的 IP：\ncurl https://api.ipify.org\n在远程控制台上，查看自己的 IP 是否被封禁：\n# 检查 SSH jail 状态：\nsudo fail2ban-client status sshd\n# Banned IP list: &lt;my_ip&gt;\n\n\n\n查看自己 IP 是否被封\n\n\n原因：\n\n修改用户名后，用来连接 VPS 的 snippet 仍然使用旧用户名\n多次使用无效的用户名/密码尝试登录\n失败次数超过了 fail2ban 的阈值（5次）\nfail2ban 自动封禁了我的 IP（封禁时长: 1小时）",
+    "crumbs": [
+      "经验博客",
+      "VPS SSH 连接失败排查"
+    ]
+  },
+  {
+    "objectID": "zh/blogs/2026-07-11-vps-ssh-login/index.html#解封我的-ip",
+    "href": "zh/blogs/2026-07-11-vps-ssh-login/index.html#解封我的-ip",
+    "title": "VPS SSH 连接失败排查",
+    "section": "2.5 解封我的 IP",
+    "text": "2.5 解封我的 IP\n查看当前被封禁的 IP：\nsudo fail2ban-client status sshd\n解除该 IP 的封禁：\nsudo fail2ban-client set sshd unbanip &lt;my_ip&gt;\n如有需要，重启 fail2ban：\nsudo systemctl restart fail2ban",
+    "crumbs": [
+      "经验博客",
+      "VPS SSH 连接失败排查"
     ]
   },
   {
@@ -3544,7 +3659,7 @@
     "href": "zh/blogs/index.html",
     "title": "博客",
     "section": "",
-    "text": "排序方式\n      默认\n      \n        标题\n      \n      \n        日期 - 日期升序\n      \n      \n        日期 - 日期降序\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nVPS SSH 连接失败排查\n\n\n\nVPS\n\nSSH\n\nLinux\n\n技巧\n\n\n\n因使用旧用户名配置导致多次登录失败，触发 fail2ban IP 封禁，最终恢复 VPS SSH 访问。\n\n\n\nPinn Xu\n\n\n2026年7月11日\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotion 数据库自动同步技巧\n\n\n\nNotion\n\nDatabase\n\nQuarto\n\nWeb Dev\n\n技巧\n\n\n\n通过 API 同步 Notion 数据库时，Formula 与 Rollup 属性的使用技巧。\n\n\n\nPinn Xu\n\n\n2026年7月8日\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto 图片居中样式\n\n\n\nQuarto\n\nCSS\n\nWeb Dev\n\n技巧\n\n\n\nQuarto Website 图片居中样式探索与悬浮预览异常解决。\n\n\n\nPinn Xu\n\n\n2026年6月15日\n\n\n\n\n\n\n\n\n\n\n\n\n\nColab 导出 HTML 后无法显示 Plotly 图表问题\n\n\n\nPython\n\nColab\n\nPlotly\n\n教程\n\n\n\n对于 Plotly 图表，Google Colab 内部渲染和导出 HTML 后浏览器渲染的差异。\n\n\n\nPinn Xu\n\n\n2025年10月7日\n\n\n\n\n\n\n\n\n\n\n\n\n\n在 Google Colab 中显示网络关系图\n\n\n\nPython\n\nColab\n\nPyvis\n\n技巧\n\n\n\n让 Pyvis 网络关系图同时在 Colab 和导出的 HTML 中正常显示，且不依赖外部文件。\n\n\n\nPinn Xu\n\n\n2025年10月7日\n\n\n\n\n\n\n\n\n\n\n\n\n\nEasy Canvas 无法连接解决方法\n\n\n\nWindows\n\n教程\n\n\n\nEasy Canvas 无法通过 Wi-Fi 或数据线连接 Windows 电脑解决办法\n\n\n\nPinn Xu\n\n\n2024年12月22日\n\n\n\n\n\n\n\n\n\n\n\n\n\n误移系统文件夹恢复\n\n\n\nWindows\n\n教程\n\n\n\n恢复意外移到磁盘根目录的 Windows 系统文件夹, 如 文档, 视频, 图片等。\n\n\n\nPinn Xu\n\n\n2024年4月22日\n\n\n\n\n\n\n无匹配项",
+    "text": "排序方式\n      默认\n      \n        标题\n      \n      \n        日期 - 日期升序\n      \n      \n        日期 - 日期降序\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nNotion 数据库工作流\n\n\n\nNotion\n\nDatabase\n\n技巧\n\n\n\n我基于 Notion 数据库搭建的自动化工作流。\n\n\n\nPinn Xu\n\n\n2026年7月16日\n\n\n\n\n\n\n\n\n\n\n\n\n\nVPS SSH 连接失败排查\n\n\n\nVPS\n\nSSH\n\nLinux\n\n技巧\n\n\n\n因使用旧用户名配置导致多次登录失败，触发 fail2ban IP 封禁，最终恢复 VPS SSH 访问。\n\n\n\nPinn Xu\n\n\n2026年7月11日\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotion 数据库自动同步技巧\n\n\n\nNotion\n\nDatabase\n\nQuarto\n\nWeb Dev\n\n技巧\n\n\n\n通过 API 同步 Notion 数据库时，Formula 与 Rollup 属性的使用技巧。\n\n\n\nPinn Xu\n\n\n2026年7月8日\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto 图片居中样式\n\n\n\nQuarto\n\nCSS\n\nWeb Dev\n\n技巧\n\n\n\nQuarto Website 图片居中样式探索与悬浮预览异常解决。\n\n\n\nPinn Xu\n\n\n2026年6月15日\n\n\n\n\n\n\n\n\n\n\n\n\n\nColab 导出 HTML 后无法显示 Plotly 图表问题\n\n\n\nPython\n\nColab\n\nPlotly\n\n教程\n\n\n\n对于 Plotly 图表，Google Colab 内部渲染和导出 HTML 后浏览器渲染的差异。\n\n\n\nPinn Xu\n\n\n2025年10月7日\n\n\n\n\n\n\n\n\n\n\n\n\n\n在 Google Colab 中显示网络关系图\n\n\n\nPython\n\nColab\n\nPyvis\n\n技巧\n\n\n\n让 Pyvis 网络关系图同时在 Colab 和导出的 HTML 中正常显示，且不依赖外部文件。\n\n\n\nPinn Xu\n\n\n2025年10月7日\n\n\n\n\n\n\n\n\n\n\n\n\n\nEasy Canvas 无法连接解决方法\n\n\n\nWindows\n\n教程\n\n\n\nEasy Canvas 无法通过 Wi-Fi 或数据线连接 Windows 电脑解决办法\n\n\n\nPinn Xu\n\n\n2024年12月22日\n\n\n\n\n\n\n\n\n\n\n\n\n\nSnipaste 截图卡死在最前端解决办法\n\n\n\nWindows\n\n教程\n\n\n\nSnipaste 贴图卡死并置顶覆盖整个屏幕时的三种处理方法。\n\n\n\nPinn Xu\n\n\n2024年5月16日\n\n\n\n\n\n\n\n\n\n\n\n\n\n误移系统文件夹恢复\n\n\n\nWindows\n\n教程\n\n\n\n恢复意外移到磁盘根目录的 Windows 系统文件夹, 如 文档, 视频, 图片等。\n\n\n\nPinn Xu\n\n\n2024年4月22日\n\n\n\n\n\n\n无匹配项",
     "crumbs": [
       "经验博客"
     ]
@@ -3554,7 +3669,7 @@
     "href": "zh/projects/2024-11-01-catalan-referendum/index.html",
     "title": "Twitter 加泰罗尼亚公投情感分析",
     "section": "",
-    "text": "9 min read · 346 EN words · 2026 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "9 min read · 348 EN words · 2044 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "可视化项目",
       "Twitter 加泰罗尼亚公投情感分析"
@@ -3642,7 +3757,7 @@
     "href": "zh/projects/2025-12-10-bayanihan/index.html",
     "title": "Bayanihan UI/UX 设计",
     "section": "",
-    "text": "4 min read · 207 EN words · 825 中文字",
+    "text": "4 min read · 209 EN words · 843 中文字",
     "crumbs": [
       "可视化项目",
       "Bayanihan UI/UX 设计"
@@ -3697,7 +3812,7 @@
     "href": "zh/projects/2026-02-25-most-streamed-songs/index.html",
     "title": "Spotify 流量歌曲的音乐特征与受众趋势分析",
     "section": "",
-    "text": "9 min read · 265 EN words · 2278 中文字\n环境与版本\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
+    "text": "9 min read · 267 EN words · 2296 中文字\n环境与版本\nR==4.5.2\nplotly==4.12.0\nsampling==2.11\ntidyverse==2.0.0",
     "crumbs": [
       "可视化项目",
       "Spotify 流量歌曲的音乐特征与受众趋势分析"
@@ -3828,7 +3943,7 @@
     "href": "zh/tools/2026-04-17-news-hub/index.html",
     "title": "新闻汇总收藏站",
     "section": "",
-    "text": "4 min read · 217 EN words · 662 中文字",
+    "text": "4 min read · 219 EN words · 680 中文字",
     "crumbs": [
       "Web工具",
       "新闻汇总收藏站"
@@ -3872,7 +3987,7 @@
     "href": "zh/tools/2026-06-23-monthly-love/index.html",
     "title": "每月情书",
     "section": "",
-    "text": "4 min read · 208 EN words · 812 中文字",
+    "text": "4 min read · 210 EN words · 830 中文字",
     "crumbs": [
       "Web工具",
       "每月情书"
@@ -3916,7 +4031,7 @@
     "href": "zh/tutorials/2024-10-01-amounts-and-distribution/index.html",
     "title": "数量与分布可视化",
     "section": "",
-    "text": "10 min read · 445 EN words · 2236 中文字\n环境和版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "10 min read · 447 EN words · 2254 中文字\n环境和版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "数据分析教程",
       "数量与分布可视化"
@@ -4059,7 +4174,7 @@
     "href": "zh/tutorials/2024-10-27-multivariate-plots/index.html",
     "title": "多变量图表",
     "section": "",
-    "text": "21 min read · 725 EN words · 5187 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
+    "text": "21 min read · 727 EN words · 5205 中文字\n环境与版本\npython==3.12\npandas==2.2.2\nmatplotlib==3.9.x\nseaborn==0.13.2",
     "crumbs": [
       "数据分析教程",
       "多变量图表"
@@ -4136,7 +4251,7 @@
     "href": "zh/tutorials/2026-03-27-r-tips/index.html",
     "title": "R 语言技巧",
     "section": "",
-    "text": "7 min read · 371 EN words · 1311 中文字",
+    "text": "7 min read · 373 EN words · 1329 中文字",
     "crumbs": [
       "数据分析教程",
       "R 语言技巧"

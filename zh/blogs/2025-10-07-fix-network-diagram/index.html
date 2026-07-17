@@ -530,6 +530,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../zh/blogs/2026-07-16-ntn-workflows/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notion 数据库工作流</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../zh/blogs/2026-07-11-vps-ssh-login/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">VPS SSH 连接失败排查</span></a>
   </div>
@@ -562,6 +568,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../../zh/blogs/2024-12-22-easy-canvas-connection/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Easy Canvas 无法连接解决方法</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../zh/blogs/2024-05-16-snipaste-fix/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Snipaste 截图卡死在最前端解决办法</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -657,7 +669,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     4 min read</span><span> · </span><span>195 EN words</span><span> · </span><span>638 中文字</span></div>
+     4 min read</span><span> · </span><span>197 EN words</span><span> · </span><span>656 中文字</span></div>
 <section id="问题" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> 问题</h1>
 <p>要想实现让 Pyvis 网络关系图同时在 Google Colab 内部和从 Notebook 导出的 HTML 中正常显示，且不依赖单独的 <code>net.html</code> 文件或其他外部依赖，常见的几种显示方法都无法同时满足这些场景。</p>
@@ -666,7 +678,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="2"><span class="header-section-number">2</span> 解决</h1>
 <p>调用 <code>Network()</code> 时不传入任何参数，手动生成关系图的 HTML，再通过 <code>srcdoc</code> 属性将其包进一个 iframe。由于 <code>srcdoc</code> 的值以单引号界定，需先把生成的 HTML 中的单引号全部替换为双引号。</p>
 <p>该方法在 Notebook 能渲染的各种环境下都有效：Jupyter、Colab <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>、导出的 HTML <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>，乃至 VS Code。</p>
-<div id="d4a9c2bf" class="cell" data-execution_count="1">
+<div id="b61f1263" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个空的网络关系图</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>gp <span class="op">=</span> Network()  <span class="co"># 不指定任何参数</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 将网络关系添加到关系图中</span></span>
@@ -696,7 +708,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="其他方法及其缺陷" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> 其他方法及其缺陷</h1>
 <p>其他方法都需要在调用 <code>Network()</code> 时指定 <code>notebook</code> 和 <code>cdn_resources</code> 参数：</p>
-<div id="636ac2c7" class="cell" data-execution_count="2">
+<div id="639622c6" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gp <span class="op">=</span> Network(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    notebook<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    cdn_resources<span class="op">=</span><span class="st">"in_line"</span>,</span>
@@ -714,7 +726,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="在线演示" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> 在线演示</h1>
-<div id="1cbf2cbb" class="cell" data-execution_count="3">
+<div id="5df4ea5a" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>代码</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 导入库</span></span>
