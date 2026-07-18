@@ -691,7 +691,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="2"><span class="header-section-number">2</span> Solution</h1>
 <p>Call <code>Network()</code> without parameters, generate the diagram’s HTML manually, and wrap it in an iframe through the <code>srcdoc</code> attribute. Since the <code>srcdoc</code> value is delimited by single quotes, replace all single quotes in the generated HTML with double quotes first.</p>
 <p>This method works everywhere the notebook renders: Jupyter, Colab <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, the exported HTML <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, and even VS Code.</p>
-<div id="1d53dfb2" class="cell" data-execution_count="1">
+<div id="5c9cfed4" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create an empty network diagram</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>gp <span class="op">=</span> Network()  <span class="co"># don't specify parameters</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># add network relation to the diagram</span></span>
@@ -721,7 +721,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="other-methods-and-their-drawbacks" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Other Methods and Their Drawbacks</h1>
 <p>The alternatives require specifying <code>notebook</code> and <code>cdn_resources</code> when calling <code>Network()</code>:</p>
-<div id="9b8c6285" class="cell" data-execution_count="2">
+<div id="25fe04e9" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gp <span class="op">=</span> Network(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    notebook<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    cdn_resources<span class="op">=</span><span class="st">"in_line"</span>,</span>
@@ -739,7 +739,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="live-demo" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Live Demo</h1>
-<div id="92eb084c" class="cell" data-execution_count="3">
+<div id="26f6e27f" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import libraries</span></span>
