@@ -286,9 +286,9 @@ Improved image loading and cross-reference support, refined figure and SCSS styl
 - fix: crossref not working in executable cells & customize styles (mv lst-cap to buttom center)
 - style: restructure scss: extract common styles, keep only variables
 
-## Phase 8 · Blogs {range="Jul 10 - now"}
+## Phase 8 · More Blogs & Tools {range="Jul 10 - now"}
 
-### Blogs: Notion DB Auto-Sync Tips & VPS Login Fix {date="Jul 10 - Jul 11" iso="2026-07-10T12:15:00.000-04:00" commits="3" hours="7.25" days="2"}
+### Blog x2: Notion DB Auto-Sync Tips & VPS Login Fix {date="Jul 10 - Jul 11" iso="2026-07-10T12:15:00.000-04:00" commits="3" hours="7.25" days="2"}
 
 Added two new blogs: VPS login troubleshooting & Notion DB auto sync tips; fixed SVG to match theme.
 
@@ -296,7 +296,7 @@ Added two new blogs: VPS login troubleshooting & Notion DB auto sync tips; fixed
 - Jul 11 · blg: vps-ssh-login-troubleshooting
 - Jul 11 · fix: svg (flowchart by draw.io) switch theme by system setting
 
-### Blogs: Plotly & Network Diagram Display Fix {date="Jul 12" iso="2026-07-12T10:00:00.000-04:00" commits="6" hours="12.5" days="1"}
+### Blog x2: Plotly & Network Diagram Display Fix {date="Jul 12" iso="2026-07-12T10:00:00.000-04:00" commits="6" hours="12.5" days="1"}
 
 Improved navigation, styling, blog organization, and bilingual content while refining Plotly and network diagram solutions.
 
@@ -306,3 +306,24 @@ Improved navigation, styling, blog organization, and bilingual content while ref
 - blg: zh/en fix-colab-plotly-export
 - dev: debug & test network diagram, find new solutions (denied, maintain original one)
 - blg: zh/en network diagram display
+
+### Blog: Easy Canvas + Tool: Monthly Love {date="Jul 13 - Jul 15" iso="2026-07-13T11:30:00.000-04:00" commits="6" hours="4.75" days="2"}
+
+Add Easy Canvas blog & Monthly Love tool; refine & link content.
+
+- Jul 13 · blg: plotly-display-fix — more visuals & fix `%%shell` code magic instruction
+- Jul 13 · ttl: link network ttl with network-display-fix blg
+- Jul 13 · blg: zh/en easy-canvas-connection
+- Jul 13 · contnt: refine tags & page-size
+- Jul 15 · dev: store keys in `.env` instead of `.zshrc`
+- Jul 15 · contnt: refine blg & home
+- Jul 15 · tool: monthly love; bayanihan (redirect to proj)
+
+### Blog x2: Notion Workflow & Snipaste Stuck on Top Fix {date="Jul 16 - Jul 18" iso="2026-07-16T13:15:00.000-04:00" commits="4" hours="3" days="2"}
+
+Add two blogs: Notion Automatic Workflow & Snipaste Stuck on Top Fix. Refine content, sync change log, and publish.
+
+- Jul 16 · blg: Notion automatic workflow
+- Jul 16 · blg: Snipaste stuck on top fix
+- Jul 18 · contnt: refine & cl-sync & publish
+- Jul 18 · dev: cl-sync script use `.env`

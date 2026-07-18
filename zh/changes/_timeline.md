@@ -286,9 +286,9 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - fix: 修复可执行代码单元中的交叉引用失效问题，并自定义样式 (lst-cap 移至底部居中)
 - style: 重构 SCSS：提取公共样式，仅保留变量
 
-## 阶段 8 · 博客 {range="Jul 10 - now"}
+## 阶段 8 · 更多博客与工具 {range="Jul 10 - now"}
 
-### Notion 库自动同步技巧 & VPS 连接失败排查博客 {date="Jul 10 - Jul 11" iso="2026-07-10T12:15:00.000-04:00" commits="3" hours="7.25" days="2"}
+### 博客x2: Notion 库自动同步技巧 & VPS 连接失败排查 {date="Jul 10 - Jul 11" iso="2026-07-10T12:15:00.000-04:00" commits="3" hours="7.25" days="2"}
 
 新增两篇博客: VPS 登录失败排查、Notion 库自动同步技巧，并修复 SVG 自动切换主题问题
 
@@ -296,7 +296,7 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - Jul 11 · blg: VPS SSH 登录失败排查
 - Jul 11 · fix: 修复 SVG（draw.io 流程图）根据系统设置切换主题
 
-### Plotly图表与网络图谱渲染问题解决博客 {date="Jul 12" iso="2026-07-12T10:00:00.000-04:00" commits="6" hours="12.5" days="1"}
+### 博客x2: Plotly图表与网络图谱渲染问题解决博客 {date="Jul 12" iso="2026-07-12T10:00:00.000-04:00" commits="6" hours="12.5" days="1"}
 
 改进网站导航、样式与博客组织，完善中英文内容，并优化 Plotly 导出与网络图谱解决方案。
 
@@ -306,3 +306,24 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - blg: 中英文博客：修复 Colab Plotly 导出问题
 - dev: 调试并测试网络图谱，尝试新的解决方案 (未采用，保留原方案)
 - blg: 中英文博客：网络图谱渲染问题
+
+### 博客: Easy Canvas + 工具: Monthly Love {date="Jul 13 - Jul 15" iso="2026-07-13T11:30:00.000-04:00" commits="6" hours="4.75" days="2"}
+
+增加 Easy Canvas 博客和 Monthly Love 工具；优化文本，增强不同文章间的联系。
+
+- Jul 13 · blg: plotly-display-fix — 增加更多可视化内容，并修复 `%%shell` 代码说明
+- Jul 13 · ttl: 联系 network 教程与 network-display-fix 博客
+- Jul 13 · blg: Easy Canvas Connection 中英文博客
+- Jul 13 · contnt: 优化 tag 与页面大小
+- Jul 15 · dev: 将密钥存储到 `.env`，替代 `.zshrc`
+- Jul 15 · contnt: 优化博客与首页内容
+- Jul 15 · tool: Monthly Love; Bayanihan (重定向至项目页面)
+
+### 博客x2: Notion 自动化工作流与 Snipaste 卡死在前端问题解决 {date="Jul 16 - Jul 18" iso="2026-07-16T13:15:00.000-04:00" commits="4" hours="3" days="2"}
+
+新增两篇博客：Notion 自动化工作流与 Snipaste 卡死在前端问题解决；优化内容，同步更新日志并发布。
+
+- Jul 16 · blg: Notion 数据库自动化工作流
+- Jul 16 · blg: Snipaste 卡死在前端解决办法
+- Jul 18 · contnt: 优化内容、同步更新日志，并发布
+- Jul 18 · dev: 更新日志同步脚本使用 `.env`
