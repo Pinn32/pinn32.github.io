@@ -46,7 +46,7 @@ Monthly Love 是我的一个 Web 项目，用 Notion 数据库作为内容管理
 
 我用 Notion 管理每学期的课程，结合 Notion Calendar 记录作业，实时查看作业进度，自动计算成绩，结课后生成图表与统计数据并提供改进意见。
 
-在线示例：[2025 Fall Course Dashboard](https://app.notion.com/p/2dea25f9fecd800691d6eccfac51b7cd)。
+在线示例：[2026春季学期课程管理](https://app.notion.com/p/3232/2026-Spring-Course-Dashboard-2e8a25f9fecd8075a3d1d5e4dc0df493)
 
 :::{.macbook-frame style="width:40rem;"}
 ![课程作业统计与图表](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716191715075.png)

@@ -13,12 +13,14 @@ Sync change log data from Notion databases to _timeline.md files
 
 
 Usage:
-    NOTION_TOKEN=ntn_... python3 scripts/sync-changelog.py [--strict]
+    python3 scripts/sync-changelog.py [--strict]
 
 Config:
     NOTION_TOKEN            integration token (required; never commit it)
     NOTION_CHANGELOG_DB     database id (optional; falls back to
                             scripts/notion-changelog.json {"database_id": ...})
+    Both are read from the environment first, then from a repo-root .env
+    file (KEY=VALUE lines; comments, `export `, and quotes tolerated).
 
 Behavior:
     - stdlib only; no third-party packages
@@ -501,6 +503,34 @@ def print_translation_report(missing):
 # Main
 # ---------------------------------------------------------------------------
 
+def load_dotenv(path):
+    """Parse KEY=VALUE lines from a .env file (comments, blank lines, an
+    optional `export ` prefix, and single/double quotes tolerated)."""
+    values = {}
+    try:
+        text = path.read_text()
+    except OSError:
+        return values
+    for line in text.splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        key = key.strip()
+        if key.startswith("export "):
+            key = key[len("export "):].strip()
+        value = value.strip()
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in "'\"":
+            value = value[1:-1]
+        values[key] = value
+    return values
+
+
+def getenv(name, dotenv):
+    """Real environment wins; .env is the fallback."""
+    return os.environ.get(name) or dotenv.get(name)
+
+
 def write_if_changed(path, content):
     if path.exists() and path.read_text() == content:
         print(f"unchanged: {path.relative_to(REPO_ROOT)}")
@@ -519,11 +549,12 @@ def main():
         warn(f"{msg}; keeping existing timeline partials")
         sys.exit(1 if strict else 0)
 
-    token = os.environ.get("NOTION_TOKEN")
+    dotenv = load_dotenv(REPO_ROOT / ".env")
+    token = getenv("NOTION_TOKEN", dotenv)
     if not token:
-        bail("NOTION_TOKEN not set")
+        bail("NOTION_TOKEN not set (env or .env)")
 
-    db_id = os.environ.get("NOTION_CHANGELOG_DB")
+    db_id = getenv("NOTION_CHANGELOG_DB", dotenv)
     if not db_id and CONFIG_FILE.exists():
         try:
             db_id = json.loads(CONFIG_FILE.read_text()).get("database_id")

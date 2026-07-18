@@ -44,7 +44,7 @@ The code is on GitHub at [Pinn32/monthly-love](https://github.com/Pinn32/monthly
 
 I manage each term's courses with a dashboard page in Notion. Each dashboard tracks progress in real time, integrates with Notion Calendar, calculates grades automatically, and ends the term with reflections, charts, and insights.
 
-View live dashboard at [2025 Fall Course Dashboard](https://app.notion.com/p/2dea25f9fecd800691d6eccfac51b7cd).
+View live dashboard at: [2026 Spring Course Dashboard](https://app.notion.com/p/3232/2026-Spring-Course-Dashboard-2e8a25f9fecd8075a3d1d5e4dc0df493)
 
 :::{.macbook-frame style="width:40rem;"}
 ![Dashboard Preview: Statistics & Charts](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716191715075.png)
