@@ -1152,8 +1152,9 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
     100% { background-position: 0%   50%; }
 }
 @keyframes blink-cursor {
-    0%, 100% { opacity: 1; }
-    50%      { opacity: 0; }
+    /* use visibility instead of opacity */
+    0%, 100% { visibility: visible; }
+    50%      { visibility: hidden; }
 }
 @keyframes fade-up {
     from { opacity: 0; transform: translateY(10px); }
@@ -1369,5 +1370,11 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+
+    /* no blink under reduced motion; leave a static (visible) cursor */
+    body:not(.quarto-sidebar-visible) .quarto-title h1.title::after {
+        animation: none;
+        visibility: visible;
     }
 }
