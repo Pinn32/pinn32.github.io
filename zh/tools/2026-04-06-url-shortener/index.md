@@ -18,8 +18,12 @@ URL Shortener 可以把长网址转换成带有自定义后缀的短链接。无
 [点击此处在线体验](https://url-to.vercel.app/){.btn .btn-outline-primary target="_blank"}
 :::
 
-:::{.macbook-frame style="width:35rem;"}
+<!-- :::{.macbook-frame style="width:35rem;"}
 ![URL Shortener](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623194155759.png)
+::: -->
+
+:::{style="max-width:40rem; margin:0 auto;"}
+{{<video /src/video/url-demo.mov title="URL Shortener Demo">}}
 :::
 
 短链接是长网址的精简版本，分享时占用的篇幅更少，也更容易记住。自定义后缀（slug）还能让链接的含义一目了然，例如 `url-to.vercel.app/my-portfolio`，不必使用随机生成的字符串。

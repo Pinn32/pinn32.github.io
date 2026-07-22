@@ -18,8 +18,12 @@ URL Shortener turns long web addresses into compact, shareable links with custom
 [Click Here to Try](https://url-to.vercel.app/){.btn .btn-outline-primary target="_blank"}
 :::
 
-:::{.macbook-frame style="width:35rem;"}
+<!-- :::{.macbook-frame style="width:35rem;"}
 ![URL Shortener](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623194155759.png)
+::: -->
+
+:::{style="max-width:40rem; margin:0 auto;"}
+{{<video /src/video/url-demo.mov title="URL Shortener Demo">}}
 :::
 
 A short link is a compact version of a long web address. It saves space, looks cleaner when shared, and is easier to remember. A custom slug also gives the link a meaningful ending, such as `url-to.vercel.app/my-portfolio`, instead of an arbitrary sequence of characters.
@@ -72,6 +76,10 @@ From **Your shortened URLs**, select a saved item to:
 To back up or reuse your link data, download all account-specific saved URLs as a JSON file or copy the JSON to your clipboard.
 
 Under **Your account**, select **Edit username** to change the name displayed in the app header. The initial username is derived from the Gmail address connected to your Google login.
+
+<!-- :::{.macbook-frame style="width:40rem;"}
+![Manage Saved Links](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260722124055952.png)
+::: -->
 
 ## Technology
 
