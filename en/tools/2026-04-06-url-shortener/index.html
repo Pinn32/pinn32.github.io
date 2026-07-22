@@ -8,7 +8,7 @@
 
 <meta name="author" content="Pinn Xu">
 <meta name="dcterms.date" content="2026-04-06">
-<meta name="description" content="Compact long URLs into shareable short links with customized slugs.">
+<meta name="description" content="Create custom short links as a guest, or sign in to save, edit, export, and manage them.">
 
 <title>URL Shortener – pinn.xu</title>
 <style>
@@ -628,7 +628,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#url-shortener" id="toc-url-shortener" class="nav-link active" data-scroll-target="#url-shortener">URL Shortener</a>
   <ul class="collapse">
   <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features">Key Features</a></li>
-  <li><a href="#how-to-use" id="toc-how-to-use" class="nav-link" data-scroll-target="#how-to-use">How to Use</a></li>
+  <li><a href="#create-a-short-link" id="toc-create-a-short-link" class="nav-link" data-scroll-target="#create-a-short-link">Create a Short Link</a></li>
+  <li><a href="#guest-and-account-modes" id="toc-guest-and-account-modes" class="nav-link" data-scroll-target="#guest-and-account-modes">Guest and Account Modes</a></li>
+  <li><a href="#manage-saved-links" id="toc-manage-saved-links" class="nav-link" data-scroll-target="#manage-saved-links">Manage Saved Links</a></li>
+  <li><a href="#technology" id="toc-technology" class="nav-link" data-scroll-target="#technology">Technology</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Pinn32/pinn32.github.io/edit/main/en/tools/2026-04-06-url-shortener/index.md" target="_blank" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/blob/main/en/tools/2026-04-06-url-shortener/index.md" target="_blank" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -644,12 +647,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="quarto-category">Web App</div>
     <div class="quarto-category">Next.js</div>
     <div class="quarto-category">MongoDB</div>
+    <div class="quarto-category">OAuth</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Compact long URLs into shareable short links with customized slugs.
+    Create custom short links as a guest, or sign in to save, edit, export, and manage them.
   </div>
 </div>
 
@@ -682,10 +686,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     3 min read</span><span> · </span><span>471 EN words</span><span> · </span><span>0 中文字</span></div>
+     4 min read</span><span> · </span><span>787 EN words</span><span> · </span><span>0 中文字</span></div>
 <section id="url-shortener" class="level1">
 <h1>URL Shortener</h1>
-<p>This web tool helps you compact long URLs into shareable short links with customized slugs. It was developed by <strong>Next.js</strong>, <strong>TypeScript</strong>, and <strong>MongoDB</strong>.</p>
+<p>URL Shortener turns long web addresses into compact, shareable links with custom slugs. You can create a link immediately as a guest, or sign in with Google to save and manage links under your account.</p>
 <div style="text-align:center;">
 <p><a href="https://url-to.vercel.app/" class="btn btn-outline-primary" target="_blank">Click Here to Try</a></p>
 </div>
@@ -697,24 +701,87 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </div>
-<p>A short link is a compact version of a long web address. It saves characters when space is limited, looks cleaner when shared, and is far easier to remember and pass along.</p>
+<p>A short link is a compact version of a long web address. It saves space, looks cleaner when shared, and is easier to remember. A custom slug also gives the link a meaningful ending, such as <code>url-to.vercel.app/my-portfolio</code>, instead of an arbitrary sequence of characters.</p>
 <section id="key-features" class="level2">
 <h2 class="anchored" data-anchor-id="key-features">Key Features</h2>
 <ul>
-<li><strong>Compact long URLs</strong> — turn a sprawling web address into a short, tidy link that’s easy to share in messages, slides, or print.</li>
-<li><strong>Custom slugs</strong> — pick your own memorable ending (e.g.&nbsp;<code>/my-portfolio</code>) instead of a random string of characters.</li>
-<li><strong>Instant redirect</strong> — visiting the short link forwards to the original URL right away, with no intermediate page.</li>
-<li><strong>Persistent storage</strong> — links are saved in MongoDB, so they keep working every time you share them.</li>
+<li><strong>Custom short links</strong> — pair a long destination URL with a memorable slug that you choose.</li>
+<li><strong>Guest access</strong> — create a working short link without registering or signing in.</li>
+<li><strong>Instant redirects</strong> — send anyone who opens the short link directly to its original destination.</li>
+<li><strong>Google sign-in</strong> — authenticate securely through Google OAuth with Auth.js.</li>
+<li><strong>Account-based storage</strong> — automatically save links created while signed in and view them together in <strong>Your shortened URLs</strong>.</li>
+<li><strong>Link editing</strong> — change the slug of a saved link and add an optional description of up to 10 words.</li>
+<li><strong>Link details</strong> — see when a saved link was created and when it was last edited.</li>
+<li><strong>Link deletion</strong> — remove an account-owned link after confirming the action.</li>
+<li><strong>JSON export</strong> — download all links saved to your account as JSON or copy the JSON directly to the clipboard.</li>
+<li><strong>Editable profile name</strong> — use the username initially derived from your Gmail address, or replace it with the name you want displayed in the app header.</li>
+<li><strong>Persistent redirects</strong> — short-link mappings are stored in MongoDB so created links continue to resolve.</li>
 </ul>
 </section>
-<section id="how-to-use" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-use">How to Use</h2>
-<p>To use it, enter your long URL:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>https://example.com/your/very/long/url/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then, choose a slug for your shortened URL:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>https://url-to.vercel.app/<span class="dt">&lt;</span><span class="kw">your-slug</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Click the compact button, and the tool will give you a shortened link that redirects to your URL.</p>
-<p><a href="https://github.com/Pinn32/mp-5" target="_blank">&gt;&gt; View source on GitHub</a></p>
+<section id="create-a-short-link" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-short-link">Create a Short Link</h2>
+<ol type="1">
+<li><p>Enter the complete destination URL, including <code>https://</code>:</p>
+<pre class="text"><code>https://example.com/your/very/long/url/</code></pre></li>
+<li><p>Choose the custom slug that will appear after the app’s domain:</p>
+<pre class="text"><code>https://url-to.vercel.app/your-slug</code></pre></li>
+<li><p>Select <strong>Click to Compact</strong>. The generated short link is ready to share and redirects visitors to the destination URL.</p></li>
+</ol>
+</section>
+<section id="guest-and-account-modes" class="level2">
+<h2 class="anchored" data-anchor-id="guest-and-account-modes">Guest and Account Modes</h2>
+<p>You can use the core shortening feature as a guest. Guest-created links continue to redirect normally, but they are not associated with an account and therefore do not appear in the saved-link manager.</p>
+<p>To keep and manage new links, sign in with Google before creating them. Every link you create while signed in is added to <strong>Your shortened URLs</strong>.</p>
+</section>
+<section id="manage-saved-links" class="level2">
+<h2 class="anchored" data-anchor-id="manage-saved-links">Manage Saved Links</h2>
+<p>From <strong>Your shortened URLs</strong>, select a saved item to:</p>
+<ul>
+<li>change its slug;</li>
+<li>add or revise an optional description of up to 10 words;</li>
+<li>review its creation and last-edited dates; or</li>
+<li>delete it after a confirmation prompt.</li>
+</ul>
+<p>To back up or reuse your link data, download all account-specific saved URLs as a JSON file or copy the JSON to your clipboard.</p>
+<p>Under <strong>Your account</strong>, select <strong>Edit username</strong> to change the name displayed in the app header. The initial username is derived from the Gmail address connected to your Google login.</p>
+</section>
+<section id="technology" class="level2">
+<h2 class="anchored" data-anchor-id="technology">Technology</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Area</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Framework</td>
+<td>Next.js 16 with the App Router</td>
+</tr>
+<tr class="even">
+<td>UI</td>
+<td>React 19 + styled-components</td>
+</tr>
+<tr class="odd">
+<td>Authentication</td>
+<td>Auth.js with Google OAuth</td>
+</tr>
+<tr class="even">
+<td>Account persistence</td>
+<td>Auth.js MongoDB adapter</td>
+</tr>
+<tr class="odd">
+<td>Database</td>
+<td>MongoDB</td>
+</tr>
+<tr class="even">
+<td>Typography</td>
+<td>Quantico through <code>next/font</code></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://github.com/Pinn32/url-shortener" target="_blank">&gt;&gt; View source on GitHub</a></p>
 
 
 <!-- -->
@@ -1652,8 +1719,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> 'URL Shortener'</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> 'Pinn Xu'</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2026-04-06</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> 'Compact long URLs into shareable short links with customized slugs.'</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Web App, Next.js, MongoDB]</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> 'Create custom short links as a guest, or sign in to save, edit, export, and manage them.'</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Web App, Next.js, MongoDB, OAuth]</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623194155759.png"</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="an">order:</span><span class="co"> 2</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="an">aliases:</span></span>
@@ -1662,7 +1729,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># URL Shortener</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>This web tool helps you compact long URLs into shareable short links with customized slugs. It was developed by **Next.js**, **TypeScript**, and **MongoDB**.</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>URL Shortener turns long web addresses into compact, shareable links with custom slugs. You can create a link immediately as a guest, or sign in with Google to save and manage links under your account.</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>:::{style="text-align:center;"}</span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Click Here to Try</span><span class="co">](https://url-to.vercel.app/)</span>{.btn .btn-outline-primary target="_blank"}</span>
@@ -1672,32 +1739,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="al">![URL Shortener](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623194155759.png)</span></span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>A short link is a compact version of a long web address. It saves characters when space is limited, looks cleaner when shared, and is far easier to remember and pass along.</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>A short link is a compact version of a long web address. It saves space, looks cleaner when shared, and is easier to remember. A custom slug also gives the link a meaningful ending, such as <span class="in">`url-to.vercel.app/my-portfolio`</span>, instead of an arbitrary sequence of characters.</span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Features</span></span>
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Compact long URLs** — turn a sprawling web address into a short, tidy link that's easy to share in messages, slides, or print.</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Custom slugs** — pick your own memorable ending (e.g. <span class="in">`/my-portfolio`</span>) instead of a random string of characters.</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Instant redirect** — visiting the short link forwards to the original URL right away, with no intermediate page.</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Persistent storage** — links are saved in MongoDB, so they keep working every time you share them.</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## How to Use</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>To use it, enter your long URL:</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="in">```html</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>https<span class="op">:</span><span class="co">//example.com/your/very/long/url/</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>Then, choose a slug for your shortened URL:</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="in">```html</span></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>https<span class="op">:</span><span class="co">//url-to.vercel.app/&lt;your-slug&gt;</span></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>Click the compact button, and the tool will give you a shortened link that redirects to your URL.</span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">&gt;&gt; View source on GitHub</span><span class="co">](https://github.com/Pinn32/mp-5)</span>{target="_blank"}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Custom short links** — pair a long destination URL with a memorable slug that you choose.</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Guest access** — create a working short link without registering or signing in.</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Instant redirects** — send anyone who opens the short link directly to its original destination.</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Google sign-in** — authenticate securely through Google OAuth with Auth.js.</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Account-based storage** — automatically save links created while signed in and view them together in **Your shortened URLs**.</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Link editing** — change the slug of a saved link and add an optional description of up to 10 words.</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Link details** — see when a saved link was created and when it was last edited.</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Link deletion** — remove an account-owned link after confirming the action.</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**JSON export** — download all links saved to your account as JSON or copy the JSON directly to the clipboard.</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Editable profile name** — use the username initially derived from your Gmail address, or replace it with the name you want displayed in the app header.</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Persistent redirects** — short-link mappings are stored in MongoDB so created links continue to resolve.</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Create a Short Link</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Enter the complete destination URL, including <span class="in">`https://`</span>:</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>   <span class="in">```text</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="in">   https://example.com/your/very/long/url/</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Choose the custom slug that will appear after the app's domain:</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>   <span class="in">```text</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="in">   https://url-to.vercel.app/your-slug</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Select **Click to Compact**. The generated short link is ready to share and redirects visitors to the destination URL.</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Guest and Account Modes</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>You can use the core shortening feature as a guest. Guest-created links continue to redirect normally, but they are not associated with an account and therefore do not appear in the saved-link manager.</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>To keep and manage new links, sign in with Google before creating them. Every link you create while signed in is added to **Your shortened URLs**.</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Manage Saved Links</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>From **Your shortened URLs**, select a saved item to:</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>change its slug;</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>add or revise an optional description of up to 10 words;</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>review its creation and last-edited dates; or</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>delete it after a confirmation prompt.</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>To back up or reuse your link data, download all account-specific saved URLs as a JSON file or copy the JSON to your clipboard.</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>Under **Your account**, select **Edit username** to change the name displayed in the app header. The initial username is derived from the Gmail address connected to your Google login.</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Technology</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Area <span class="pp">|</span> Technology <span class="pp">|</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="pp">| ---</span> <span class="pp">| ---</span> <span class="pp">|</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Framework <span class="pp">|</span> Next.js 16 with the App Router <span class="pp">|</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> UI <span class="pp">|</span> React 19 + styled-components <span class="pp">|</span></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Authentication <span class="pp">|</span> Auth.js with Google OAuth <span class="pp">|</span></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Account persistence <span class="pp">|</span> Auth.js MongoDB adapter <span class="pp">|</span></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Database <span class="pp">|</span> MongoDB <span class="pp">|</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Typography <span class="pp">|</span> Quantico through <span class="in">`next/font`</span> <span class="pp">|</span></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">&gt;&gt; View source on GitHub</span><span class="co">](https://github.com/Pinn32/url-shortener)</span>{target="_blank"}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

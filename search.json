@@ -212,7 +212,7 @@
     "href": "zh/tools/index.html",
     "title": "工具",
     "section": "",
-    "text": "排序方式\n      默认\n      \n        作者\n      \n      \n        标题\n      \n      \n        日期 - 日期升序\n      \n      \n        日期 - 日期降序\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n每月情书\n\n\n\nWeb App\n\nNext.js\n\nNotion API\n\n\n\n在 Notion 中写信，发布为受密码保护的网页，一信一密。\n\n\n\nPinn Xu\n\n\n2026年6月23日\n\n\n\n\n\n\n\n\n\n\n\n\n\n新闻汇总收藏站\n\n\n\nWeb App\n\nNext.js\n\nMongoDB\n\nSupabase\n\nOAuth\n\n\n\n最新资讯流与新闻聚合 Web 应用。\n\n\n\nPinn Xu, Yuchen Bao, Tianpeng Xu\n\n\n2026年4月17日\n\n\n\n\n\n\n\n\n\n\n\n\n\n短链接生成器\n\n\n\nWeb App\n\nNext.js\n\nMongoDB\n\n\n\n快速缩短网址，支持自定义链接后缀 (slug)。\n\n\n\nPinn Xu\n\n\n2026年4月6日\n\n\n\n\n\n\n\n\n\n\n\n\n\n猫咪图片收藏站\n\n\n\nWeb App\n\nNext.js\n\nMongoDB\n\nOAuth\n\n\n\n浏览随机猫咪图片，登录后收藏自己喜欢的猫咪图片。\n\n\n\nPinn Xu, Yuchen Bao, Tianpeng Xu\n\n\n2026年4月19日\n\n\n\n\n\n\n\n\n\n\n\n\n\nBayanihan UI/UX 设计\n\n\n\nUI/UX\n\nFigma\n\n设计\n\n\n\n在 Figma 中重新设计 Bayanihan 网站，聚焦导航体验、无障碍设计与艺术家互动。\n\n\n\nPinn Xu, Mandy Chen, Danica Juntura, Junli Long\n\n\n2025年12月10日\n\n\n\n\n\n\n无匹配项",
+    "text": "排序方式\n      默认\n      \n        作者\n      \n      \n        标题\n      \n      \n        日期 - 日期升序\n      \n      \n        日期 - 日期降序\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n每月情书\n\n\n\nWeb App\n\nNext.js\n\nNotion API\n\n\n\n在 Notion 中写信，发布为受密码保护的网页，一信一密。\n\n\n\nPinn Xu\n\n\n2026年6月23日\n\n\n\n\n\n\n\n\n\n\n\n\n\n新闻汇总收藏站\n\n\n\nWeb App\n\nNext.js\n\nMongoDB\n\nSupabase\n\nOAuth\n\n\n\n最新资讯流与新闻聚合 Web 应用。\n\n\n\nPinn Xu, Yuchen Bao, Tianpeng Xu\n\n\n2026年4月17日\n\n\n\n\n\n\n\n\n\n\n\n\n\n短链接生成器\n\n\n\nWeb App\n\nNext.js\n\nMongoDB\n\nOAuth\n\n\n\n无需登录即可创建自定义短链接；登录后还能保存、编辑、导出和管理链接。\n\n\n\nPinn Xu\n\n\n2026年4月6日\n\n\n\n\n\n\n\n\n\n\n\n\n\n猫咪图片收藏站\n\n\n\nWeb App\n\nNext.js\n\nMongoDB\n\nOAuth\n\n\n\n浏览随机猫咪图片，登录后收藏自己喜欢的猫咪图片。\n\n\n\nPinn Xu, Yuchen Bao, Tianpeng Xu\n\n\n2026年4月19日\n\n\n\n\n\n\n\n\n\n\n\n\n\nBayanihan UI/UX 设计\n\n\n\nUI/UX\n\nFigma\n\n设计\n\n\n\n在 Figma 中重新设计 Bayanihan 网站，聚焦导航体验、无障碍设计与艺术家互动。\n\n\n\nPinn Xu, Mandy Chen, Danica Juntura, Junli Long\n\n\n2025年12月10日\n\n\n\n\n\n\n无匹配项",
     "crumbs": [
       "Web工具"
     ]
@@ -277,7 +277,7 @@
     "href": "zh/tools/2026-04-06-url-shortener/index.html",
     "title": "短链接生成器",
     "section": "",
-    "text": "4 min read · 180 EN words · 677 中文字",
+    "text": "5 min read · 218 EN words · 1135 中文字",
     "crumbs": [
       "Web工具",
       "短链接生成器"
@@ -288,18 +288,51 @@
     "href": "zh/tools/2026-04-06-url-shortener/index.html#功能介绍",
     "title": "短链接生成器",
     "section": "功能介绍",
-    "text": "功能介绍\n\n缩短长网址 —— 将冗长的网址转换为简短整洁的链接，方便在消息、幻灯片或纸质材料中分享。\n自定义后缀 (slug) —— 自由设置易记的链接后缀（如 /my-portfolio），告别随机字符串。\n即时跳转 —— 访问短链接会立即跳转至原始网址，没有多余的中间页面。\n持久化存储 —— 链接保存在 MongoDB 中，每次分享都能稳定访问。",
+    "text": "功能介绍\n\n自定义短链接：为目标网址设置一个自己容易记住的后缀。\n免登录使用：不注册账户也能创建可正常访问的短链接。\n直接跳转：打开短链接后，浏览器会直接前往原始网址。\nGoogle 登录：通过 Auth.js 和 Google OAuth 完成身份验证。\n按账户保存：登录状态下创建的链接会自动加入「我的短链接」（Your shortened URLs）列表。\n编辑链接：修改已保存链接的后缀，并添加不超过 10 个单词的说明。\n查看时间：编辑链接时可查看创建日期和最后修改日期。\n删除链接：确认后可删除账户中的链接。\n导出 JSON：将账户中的全部链接下载为 JSON 文件，也可以直接复制 JSON 到剪贴板。\n修改显示名称：系统会根据 Gmail 地址生成初始用户名，你也可以改成希望显示在页面顶部的名称。\n持久化跳转：链接映射保存在 MongoDB 中，创建后的短链接可以持续使用。",
     "crumbs": [
       "Web工具",
       "短链接生成器"
     ]
   },
   {
-    "objectID": "zh/tools/2026-04-06-url-shortener/index.html#使用方法",
-    "href": "zh/tools/2026-04-06-url-shortener/index.html#使用方法",
+    "objectID": "zh/tools/2026-04-06-url-shortener/index.html#创建短链接",
+    "href": "zh/tools/2026-04-06-url-shortener/index.html#创建短链接",
     "title": "短链接生成器",
-    "section": "使用方法",
-    "text": "使用方法\n使用方法非常简单，首先输入需要缩短的长网址：\nhttps://example.com/your/very/long/url/\n然后为短链接设置一个自定义后缀 (slug)：\nhttps://url-to.vercel.app/&lt;your-slug&gt;\n点击「Click to Compact」按钮后，系统会生成对应的短链接。访问该短链接时，将自动跳转到原始网址。\n&gt;&gt; 查看 GitHub 源码",
+    "section": "创建短链接",
+    "text": "创建短链接\n\n输入完整的目标网址，包括 https://：\nhttps://example.com/your/very/long/url/\n设置短链接后缀。生成后的链接格式如下：\nhttps://url-to.vercel.app/your-slug\n点击 Click to Compact。生成的短链接可以直接复制和分享，访问者打开后会跳转到目标网址。",
+    "crumbs": [
+      "Web工具",
+      "短链接生成器"
+    ]
+  },
+  {
+    "objectID": "zh/tools/2026-04-06-url-shortener/index.html#游客模式与登录模式",
+    "href": "zh/tools/2026-04-06-url-shortener/index.html#游客模式与登录模式",
+    "title": "短链接生成器",
+    "section": "游客模式与登录模式",
+    "text": "游客模式与登录模式\n短链接生成功能无需登录。游客创建的链接仍会正常跳转，但不会关联到任何账户，因此不会出现在链接管理列表中。\n如果需要保存和管理新链接，请先通过 Google 登录。登录后创建的链接都会加入「我的短链接」（Your shortened URLs）。",
+    "crumbs": [
+      "Web工具",
+      "短链接生成器"
+    ]
+  },
+  {
+    "objectID": "zh/tools/2026-04-06-url-shortener/index.html#管理已保存的链接",
+    "href": "zh/tools/2026-04-06-url-shortener/index.html#管理已保存的链接",
+    "title": "短链接生成器",
+    "section": "管理已保存的链接",
+    "text": "管理已保存的链接\n在「我的短链接」中选择一条记录，可以进行以下操作：\n\n修改链接后缀；\n添加或修改说明，最多 10 个单词；\n查看创建日期和最后修改日期；\n确认后删除链接。\n\n如需备份或另作处理，可以把账户中的全部链接下载为 JSON 文件，也可以将 JSON 直接复制到剪贴板。\n在「我的账户」（Your account）中点击 Edit username，可以修改页面顶部显示的名称。初始用户名来自登录时使用的 Gmail 地址。",
+    "crumbs": [
+      "Web工具",
+      "短链接生成器"
+    ]
+  },
+  {
+    "objectID": "zh/tools/2026-04-06-url-shortener/index.html#技术栈",
+    "href": "zh/tools/2026-04-06-url-shortener/index.html#技术栈",
+    "title": "短链接生成器",
+    "section": "技术栈",
+    "text": "技术栈\n\n\n\n部分\n技术\n\n\n\n\n框架\nNext.js 16（App Router）\n\n\n前端界面\nReact 19 + styled-components\n\n\n身份验证\nAuth.js + Google OAuth\n\n\n账户数据\nAuth.js MongoDB adapter\n\n\n数据库\nMongoDB\n\n\n字体\n通过 next/font 加载 Quantico\n\n\n\n&gt;&gt; 查看 GitHub 源码",
     "crumbs": [
       "Web工具",
       "短链接生成器"
@@ -1348,7 +1381,7 @@
     "href": "en/tools/index.html",
     "title": "Tools",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Author\n      \n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nMonthly Love\n\n\n\nWeb App\n\nNext.js\n\nNotion API\n\n\n\nWrite letters in Notion and publish them as password-protected pages, one password per letter.\n\n\n\nPinn Xu\n\n\nJun 23, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nNews Hub\n\n\n\nWeb App\n\nNext.js\n\nMongoDB\n\nSupabase\n\nOAuth\n\n\n\nLatest news feed and aggregation web app.\n\n\n\nPinn Xu, Yuchen Bao, Tianpeng Xu\n\n\nApr 17, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nURL Shortener\n\n\n\nWeb App\n\nNext.js\n\nMongoDB\n\n\n\nCompact long URLs into shareable short links with customized slugs.\n\n\n\nPinn Xu\n\n\nApr 6, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nCat Image Hub\n\n\n\nWeb App\n\nNext.js\n\nMongoDB\n\nOAuth\n\n\n\nBrowse random cat images and save your favorites after signing in.\n\n\n\nPinn Xu, Yuchen Bao, Tianpeng Xu\n\n\nApr 19, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nBayanihan UI/UX Design\n\n\n\nUI/UX\n\nFigma\n\ndesign\n\n\n\nRedesigning Bayanihan’s website in Figma focusing on navigation, accessibility, and artist…\n\n\n\nPinn Xu, Mandy Chen, Danica Juntura, Junli Long\n\n\nDec 10, 2025\n\n\n\n\n\n\nNo matching items",
+    "text": "Order By\n      Default\n      \n        Author\n      \n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nMonthly Love\n\n\n\nWeb App\n\nNext.js\n\nNotion API\n\n\n\nWrite letters in Notion and publish them as password-protected pages, one password per letter.\n\n\n\nPinn Xu\n\n\nJun 23, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nNews Hub\n\n\n\nWeb App\n\nNext.js\n\nMongoDB\n\nSupabase\n\nOAuth\n\n\n\nLatest news feed and aggregation web app.\n\n\n\nPinn Xu, Yuchen Bao, Tianpeng Xu\n\n\nApr 17, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nURL Shortener\n\n\n\nWeb App\n\nNext.js\n\nMongoDB\n\nOAuth\n\n\n\nCreate custom short links as a guest, or sign in to save, edit, export, and manage them.\n\n\n\nPinn Xu\n\n\nApr 6, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nCat Image Hub\n\n\n\nWeb App\n\nNext.js\n\nMongoDB\n\nOAuth\n\n\n\nBrowse random cat images and save your favorites after signing in.\n\n\n\nPinn Xu, Yuchen Bao, Tianpeng Xu\n\n\nApr 19, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nBayanihan UI/UX Design\n\n\n\nUI/UX\n\nFigma\n\ndesign\n\n\n\nRedesigning Bayanihan’s website in Figma focusing on navigation, accessibility, and artist…\n\n\n\nPinn Xu, Mandy Chen, Danica Juntura, Junli Long\n\n\nDec 10, 2025\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Projects",
       "Tools"
@@ -1419,7 +1452,7 @@
     "href": "en/tools/2026-04-06-url-shortener/index.html",
     "title": "URL Shortener",
     "section": "",
-    "text": "3 min read · 471 EN words · 0 中文字",
+    "text": "4 min read · 787 EN words · 0 中文字",
     "crumbs": [
       "Projects",
       "Tools",
@@ -1431,7 +1464,7 @@
     "href": "en/tools/2026-04-06-url-shortener/index.html#key-features",
     "title": "URL Shortener",
     "section": "Key Features",
-    "text": "Key Features\n\nCompact long URLs — turn a sprawling web address into a short, tidy link that’s easy to share in messages, slides, or print.\nCustom slugs — pick your own memorable ending (e.g. /my-portfolio) instead of a random string of characters.\nInstant redirect — visiting the short link forwards to the original URL right away, with no intermediate page.\nPersistent storage — links are saved in MongoDB, so they keep working every time you share them.",
+    "text": "Key Features\n\nCustom short links — pair a long destination URL with a memorable slug that you choose.\nGuest access — create a working short link without registering or signing in.\nInstant redirects — send anyone who opens the short link directly to its original destination.\nGoogle sign-in — authenticate securely through Google OAuth with Auth.js.\nAccount-based storage — automatically save links created while signed in and view them together in Your shortened URLs.\nLink editing — change the slug of a saved link and add an optional description of up to 10 words.\nLink details — see when a saved link was created and when it was last edited.\nLink deletion — remove an account-owned link after confirming the action.\nJSON export — download all links saved to your account as JSON or copy the JSON directly to the clipboard.\nEditable profile name — use the username initially derived from your Gmail address, or replace it with the name you want displayed in the app header.\nPersistent redirects — short-link mappings are stored in MongoDB so created links continue to resolve.",
     "crumbs": [
       "Projects",
       "Tools",
@@ -1439,11 +1472,47 @@
     ]
   },
   {
-    "objectID": "en/tools/2026-04-06-url-shortener/index.html#how-to-use",
-    "href": "en/tools/2026-04-06-url-shortener/index.html#how-to-use",
+    "objectID": "en/tools/2026-04-06-url-shortener/index.html#create-a-short-link",
+    "href": "en/tools/2026-04-06-url-shortener/index.html#create-a-short-link",
     "title": "URL Shortener",
-    "section": "How to Use",
-    "text": "How to Use\nTo use it, enter your long URL:\nhttps://example.com/your/very/long/url/\nThen, choose a slug for your shortened URL:\nhttps://url-to.vercel.app/&lt;your-slug&gt;\nClick the compact button, and the tool will give you a shortened link that redirects to your URL.\n&gt;&gt; View source on GitHub",
+    "section": "Create a Short Link",
+    "text": "Create a Short Link\n\nEnter the complete destination URL, including https://:\nhttps://example.com/your/very/long/url/\nChoose the custom slug that will appear after the app’s domain:\nhttps://url-to.vercel.app/your-slug\nSelect Click to Compact. The generated short link is ready to share and redirects visitors to the destination URL.",
+    "crumbs": [
+      "Projects",
+      "Tools",
+      "URL Shortener"
+    ]
+  },
+  {
+    "objectID": "en/tools/2026-04-06-url-shortener/index.html#guest-and-account-modes",
+    "href": "en/tools/2026-04-06-url-shortener/index.html#guest-and-account-modes",
+    "title": "URL Shortener",
+    "section": "Guest and Account Modes",
+    "text": "Guest and Account Modes\nYou can use the core shortening feature as a guest. Guest-created links continue to redirect normally, but they are not associated with an account and therefore do not appear in the saved-link manager.\nTo keep and manage new links, sign in with Google before creating them. Every link you create while signed in is added to Your shortened URLs.",
+    "crumbs": [
+      "Projects",
+      "Tools",
+      "URL Shortener"
+    ]
+  },
+  {
+    "objectID": "en/tools/2026-04-06-url-shortener/index.html#manage-saved-links",
+    "href": "en/tools/2026-04-06-url-shortener/index.html#manage-saved-links",
+    "title": "URL Shortener",
+    "section": "Manage Saved Links",
+    "text": "Manage Saved Links\nFrom Your shortened URLs, select a saved item to:\n\nchange its slug;\nadd or revise an optional description of up to 10 words;\nreview its creation and last-edited dates; or\ndelete it after a confirmation prompt.\n\nTo back up or reuse your link data, download all account-specific saved URLs as a JSON file or copy the JSON to your clipboard.\nUnder Your account, select Edit username to change the name displayed in the app header. The initial username is derived from the Gmail address connected to your Google login.",
+    "crumbs": [
+      "Projects",
+      "Tools",
+      "URL Shortener"
+    ]
+  },
+  {
+    "objectID": "en/tools/2026-04-06-url-shortener/index.html#technology",
+    "href": "en/tools/2026-04-06-url-shortener/index.html#technology",
+    "title": "URL Shortener",
+    "section": "Technology",
+    "text": "Technology\n\n\n\nArea\nTechnology\n\n\n\n\nFramework\nNext.js 16 with the App Router\n\n\nUI\nReact 19 + styled-components\n\n\nAuthentication\nAuth.js with Google OAuth\n\n\nAccount persistence\nAuth.js MongoDB adapter\n\n\nDatabase\nMongoDB\n\n\nTypography\nQuantico through next/font\n\n\n\n&gt;&gt; View source on GitHub",
     "crumbs": [
       "Projects",
       "Tools",

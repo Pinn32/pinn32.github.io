@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Pinn Xu">
-<meta name="description" content="快速缩短网址，支持自定义链接后缀 (slug)。">
+<meta name="description" content="无需登录即可创建自定义短链接；登录后还能保存、编辑、导出和管理链接。">
 
 <title>短链接生成器 – pinn.xu</title>
 <style>
@@ -627,7 +627,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#短链接生成器-url-shortener" id="toc-短链接生成器-url-shortener" class="nav-link active" data-scroll-target="#短链接生成器-url-shortener">短链接生成器 (URL Shortener)</a>
   <ul class="collapse">
   <li><a href="#功能介绍" id="toc-功能介绍" class="nav-link" data-scroll-target="#功能介绍">功能介绍</a></li>
-  <li><a href="#使用方法" id="toc-使用方法" class="nav-link" data-scroll-target="#使用方法">使用方法</a></li>
+  <li><a href="#创建短链接" id="toc-创建短链接" class="nav-link" data-scroll-target="#创建短链接">创建短链接</a></li>
+  <li><a href="#游客模式与登录模式" id="toc-游客模式与登录模式" class="nav-link" data-scroll-target="#游客模式与登录模式">游客模式与登录模式</a></li>
+  <li><a href="#管理已保存的链接" id="toc-管理已保存的链接" class="nav-link" data-scroll-target="#管理已保存的链接">管理已保存的链接</a></li>
+  <li><a href="#技术栈" id="toc-技术栈" class="nav-link" data-scroll-target="#技术栈">技术栈</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Pinn32/pinn32.github.io/edit/main/zh/tools/2026-04-06-url-shortener/index.md" target="_blank" class="toc-action"><i class="bi bi-github"></i>编辑该页面</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/blob/main/zh/tools/2026-04-06-url-shortener/index.md" target="_blank" class="toc-action"><i class="bi empty"></i>查看代码</a></li><li><a href="https://github.com/Pinn32/pinn32.github.io/issues/new" target="_blank" class="toc-action"><i class="bi empty"></i>反馈问题</a></li></ul></div></nav>
@@ -643,12 +646,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="quarto-category">Web App</div>
     <div class="quarto-category">Next.js</div>
     <div class="quarto-category">MongoDB</div>
+    <div class="quarto-category">OAuth</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    快速缩短网址，支持自定义链接后缀 (slug)。
+    无需登录即可创建自定义短链接；登录后还能保存、编辑、导出和管理链接。
   </div>
 </div>
 
@@ -681,10 +685,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     4 min read</span><span> · </span><span>180 EN words</span><span> · </span><span>677 中文字</span></div>
+     5 min read</span><span> · </span><span>218 EN words</span><span> · </span><span>1135 中文字</span></div>
 <section id="短链接生成器-url-shortener" class="level1">
 <h1>短链接生成器 (URL Shortener)</h1>
-<p>这是一款简洁易用的短链接生成工具，支持将长网址转换为短链接，并自定义专属链接后缀。基于 <strong>Next.js</strong>、<strong>TypeScript</strong> 和 <strong>MongoDB</strong> 构建，帮助用户更方便地分享和管理链接。</p>
+<p>URL Shortener 可以把长网址转换成带有自定义后缀的短链接。无需注册即可直接使用；通过 Google 登录后，新建的链接会保存到个人账户中，之后可以集中管理。</p>
 <div style="text-align:center;">
 <p><a href="https://url-to.vercel.app/" class="btn btn-outline-primary" target="_blank">点击此处在线体验</a></p>
 </div>
@@ -696,24 +700,87 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </div>
-<p>短链接是将冗长网址转换成简短网址的服务。它能在字数受限时节省篇幅，让分享时的外观更美观整洁，也更容易记忆和传播。</p>
+<p>短链接是长网址的精简版本，分享时占用的篇幅更少，也更容易记住。自定义后缀（slug）还能让链接的含义一目了然，例如 <code>url-to.vercel.app/my-portfolio</code>，不必使用随机生成的字符串。</p>
 <section id="功能介绍" class="level2">
 <h2 class="anchored" data-anchor-id="功能介绍">功能介绍</h2>
 <ul>
-<li><strong>缩短长网址</strong> —— 将冗长的网址转换为简短整洁的链接，方便在消息、幻灯片或纸质材料中分享。</li>
-<li><strong>自定义后缀 (slug)</strong> —— 自由设置易记的链接后缀（如 <code>/my-portfolio</code>），告别随机字符串。</li>
-<li><strong>即时跳转</strong> —— 访问短链接会立即跳转至原始网址，没有多余的中间页面。</li>
-<li><strong>持久化存储</strong> —— 链接保存在 MongoDB 中，每次分享都能稳定访问。</li>
+<li><strong>自定义短链接</strong>：为目标网址设置一个自己容易记住的后缀。</li>
+<li><strong>免登录使用</strong>：不注册账户也能创建可正常访问的短链接。</li>
+<li><strong>直接跳转</strong>：打开短链接后，浏览器会直接前往原始网址。</li>
+<li><strong>Google 登录</strong>：通过 Auth.js 和 Google OAuth 完成身份验证。</li>
+<li><strong>按账户保存</strong>：登录状态下创建的链接会自动加入「我的短链接」（<strong>Your shortened URLs</strong>）列表。</li>
+<li><strong>编辑链接</strong>：修改已保存链接的后缀，并添加不超过 10 个单词的说明。</li>
+<li><strong>查看时间</strong>：编辑链接时可查看创建日期和最后修改日期。</li>
+<li><strong>删除链接</strong>：确认后可删除账户中的链接。</li>
+<li><strong>导出 JSON</strong>：将账户中的全部链接下载为 JSON 文件，也可以直接复制 JSON 到剪贴板。</li>
+<li><strong>修改显示名称</strong>：系统会根据 Gmail 地址生成初始用户名，你也可以改成希望显示在页面顶部的名称。</li>
+<li><strong>持久化跳转</strong>：链接映射保存在 MongoDB 中，创建后的短链接可以持续使用。</li>
 </ul>
 </section>
-<section id="使用方法" class="level2">
-<h2 class="anchored" data-anchor-id="使用方法">使用方法</h2>
-<p>使用方法非常简单，首先输入需要缩短的长网址：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>https://example.com/your/very/long/url/</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>然后为短链接设置一个自定义后缀 (slug)：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>https://url-to.vercel.app/<span class="dt">&lt;</span><span class="kw">your-slug</span><span class="dt">&gt;</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
-<p>点击「Click to Compact」按钮后，系统会生成对应的短链接。访问该短链接时，将自动跳转到原始网址。</p>
-<p><a href="https://github.com/Pinn32/mp-5" target="_blank">&gt;&gt; 查看 GitHub 源码</a></p>
+<section id="创建短链接" class="level2">
+<h2 class="anchored" data-anchor-id="创建短链接">创建短链接</h2>
+<ol type="1">
+<li><p>输入完整的目标网址，包括 <code>https://</code>：</p>
+<pre class="text"><code>https://example.com/your/very/long/url/</code></pre></li>
+<li><p>设置短链接后缀。生成后的链接格式如下：</p>
+<pre class="text"><code>https://url-to.vercel.app/your-slug</code></pre></li>
+<li><p>点击 <strong>Click to Compact</strong>。生成的短链接可以直接复制和分享，访问者打开后会跳转到目标网址。</p></li>
+</ol>
+</section>
+<section id="游客模式与登录模式" class="level2">
+<h2 class="anchored" data-anchor-id="游客模式与登录模式">游客模式与登录模式</h2>
+<p>短链接生成功能无需登录。游客创建的链接仍会正常跳转，但不会关联到任何账户，因此不会出现在链接管理列表中。</p>
+<p>如果需要保存和管理新链接，请先通过 Google 登录。登录后创建的链接都会加入「我的短链接」（<strong>Your shortened URLs</strong>）。</p>
+</section>
+<section id="管理已保存的链接" class="level2">
+<h2 class="anchored" data-anchor-id="管理已保存的链接">管理已保存的链接</h2>
+<p>在「我的短链接」中选择一条记录，可以进行以下操作：</p>
+<ul>
+<li>修改链接后缀；</li>
+<li>添加或修改说明，最多 10 个单词；</li>
+<li>查看创建日期和最后修改日期；</li>
+<li>确认后删除链接。</li>
+</ul>
+<p>如需备份或另作处理，可以把账户中的全部链接下载为 JSON 文件，也可以将 JSON 直接复制到剪贴板。</p>
+<p>在「我的账户」（<strong>Your account</strong>）中点击 <strong>Edit username</strong>，可以修改页面顶部显示的名称。初始用户名来自登录时使用的 Gmail 地址。</p>
+</section>
+<section id="技术栈" class="level2">
+<h2 class="anchored" data-anchor-id="技术栈">技术栈</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>部分</th>
+<th>技术</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>框架</td>
+<td>Next.js 16（App Router）</td>
+</tr>
+<tr class="even">
+<td>前端界面</td>
+<td>React 19 + styled-components</td>
+</tr>
+<tr class="odd">
+<td>身份验证</td>
+<td>Auth.js + Google OAuth</td>
+</tr>
+<tr class="even">
+<td>账户数据</td>
+<td>Auth.js MongoDB adapter</td>
+</tr>
+<tr class="odd">
+<td>数据库</td>
+<td>MongoDB</td>
+</tr>
+<tr class="even">
+<td>字体</td>
+<td>通过 <code>next/font</code> 加载 Quantico</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://github.com/Pinn32/url-shortener" target="_blank">&gt;&gt; 查看 GitHub 源码</a></p>
 
 
 <!-- -->
@@ -1651,8 +1718,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> '短链接生成器'</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> 'Pinn Xu'</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2026-04-06</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> '快速缩短网址，支持自定义链接后缀 (slug)。'</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Web App, Next.js, MongoDB]</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> '无需登录即可创建自定义短链接；登录后还能保存、编辑、导出和管理链接。'</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Web App, Next.js, MongoDB, OAuth]</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623194155759.png"</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="an">order:</span><span class="co"> 2</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="an">aliases:</span></span>
@@ -1661,7 +1728,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># 短链接生成器 (URL Shortener)</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>这是一款简洁易用的短链接生成工具，支持将长网址转换为短链接，并自定义专属链接后缀。基于 **Next.js**、**TypeScript** 和 **MongoDB** 构建，帮助用户更方便地分享和管理链接。</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>URL Shortener 可以把长网址转换成带有自定义后缀的短链接。无需注册即可直接使用；通过 Google 登录后，新建的链接会保存到个人账户中，之后可以集中管理。</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>:::{style="text-align:center;"}</span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">点击此处在线体验</span><span class="co">](https://url-to.vercel.app/)</span>{.btn .btn-outline-primary target="_blank"}</span>
@@ -1671,32 +1738,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="al">![URL Shortener](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623194155759.png)</span></span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>短链接是将冗长网址转换成简短网址的服务。它能在字数受限时节省篇幅，让分享时的外观更美观整洁，也更容易记忆和传播。</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>短链接是长网址的精简版本，分享时占用的篇幅更少，也更容易记住。自定义后缀（slug）还能让链接的含义一目了然，例如 <span class="in">`url-to.vercel.app/my-portfolio`</span>，不必使用随机生成的字符串。</span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## 功能介绍</span></span>
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**缩短长网址** —— 将冗长的网址转换为简短整洁的链接，方便在消息、幻灯片或纸质材料中分享。</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**自定义后缀 (slug)** —— 自由设置易记的链接后缀（如 <span class="in">`/my-portfolio`</span>），告别随机字符串。</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**即时跳转** —— 访问短链接会立即跳转至原始网址，没有多余的中间页面。</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**持久化存储** —— 链接保存在 MongoDB 中，每次分享都能稳定访问。</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## 使用方法</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>使用方法非常简单，首先输入需要缩短的长网址：</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="in">```html</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>https<span class="op">:</span><span class="co">//example.com/your/very/long/url/</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>然后为短链接设置一个自定义后缀 (slug)：</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="in">```html</span></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>https<span class="op">:</span><span class="co">//url-to.vercel.app/&lt;your-slug&gt;</span></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>点击「Click to Compact」按钮后，系统会生成对应的短链接。访问该短链接时，将自动跳转到原始网址。</span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">&gt;&gt; 查看 GitHub 源码</span><span class="co">](https://github.com/Pinn32/mp-5)</span>{target="_blank"}</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**自定义短链接**：为目标网址设置一个自己容易记住的后缀。</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**免登录使用**：不注册账户也能创建可正常访问的短链接。</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**直接跳转**：打开短链接后，浏览器会直接前往原始网址。</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Google 登录**：通过 Auth.js 和 Google OAuth 完成身份验证。</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**按账户保存**：登录状态下创建的链接会自动加入「我的短链接」（**Your shortened URLs**）列表。</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**编辑链接**：修改已保存链接的后缀，并添加不超过 10 个单词的说明。</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**查看时间**：编辑链接时可查看创建日期和最后修改日期。</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**删除链接**：确认后可删除账户中的链接。</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**导出 JSON**：将账户中的全部链接下载为 JSON 文件，也可以直接复制 JSON 到剪贴板。</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**修改显示名称**：系统会根据 Gmail 地址生成初始用户名，你也可以改成希望显示在页面顶部的名称。</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**持久化跳转**：链接映射保存在 MongoDB 中，创建后的短链接可以持续使用。</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## 创建短链接</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>输入完整的目标网址，包括 <span class="in">`https://`</span>：</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>   <span class="in">```text</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="in">   https://example.com/your/very/long/url/</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>设置短链接后缀。生成后的链接格式如下：</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>   <span class="in">```text</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="in">   https://url-to.vercel.app/your-slug</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>点击 **Click to Compact**。生成的短链接可以直接复制和分享，访问者打开后会跳转到目标网址。</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## 游客模式与登录模式</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>短链接生成功能无需登录。游客创建的链接仍会正常跳转，但不会关联到任何账户，因此不会出现在链接管理列表中。</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>如果需要保存和管理新链接，请先通过 Google 登录。登录后创建的链接都会加入「我的短链接」（**Your shortened URLs**）。</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## 管理已保存的链接</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>在「我的短链接」中选择一条记录，可以进行以下操作：</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>修改链接后缀；</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>添加或修改说明，最多 10 个单词；</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>查看创建日期和最后修改日期；</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>确认后删除链接。</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>如需备份或另作处理，可以把账户中的全部链接下载为 JSON 文件，也可以将 JSON 直接复制到剪贴板。</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>在「我的账户」（**Your account**）中点击 **Edit username**，可以修改页面顶部显示的名称。初始用户名来自登录时使用的 Gmail 地址。</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## 技术栈</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 部分 <span class="pp">|</span> 技术 <span class="pp">|</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="pp">| ---</span> <span class="pp">| ---</span> <span class="pp">|</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 框架 <span class="pp">|</span> Next.js 16（App Router） <span class="pp">|</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 前端界面 <span class="pp">|</span> React 19 + styled-components <span class="pp">|</span></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 身份验证 <span class="pp">|</span> Auth.js + Google OAuth <span class="pp">|</span></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 账户数据 <span class="pp">|</span> Auth.js MongoDB adapter <span class="pp">|</span></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 数据库 <span class="pp">|</span> MongoDB <span class="pp">|</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 字体 <span class="pp">|</span> 通过 <span class="in">`next/font`</span> 加载 Quantico <span class="pp">|</span></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">&gt;&gt; 查看 GitHub 源码</span><span class="co">](https://github.com/Pinn32/url-shortener)</span>{target="_blank"}</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
