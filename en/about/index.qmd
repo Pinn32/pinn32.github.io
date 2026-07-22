@@ -18,7 +18,7 @@ about:
           href: https://github.com/pinn32
         - icon: linkedin
           text: LinkedIn
-          href: https://www.linkedin.com/in/aiqi-xu-71943b378/
+          href: https://www.linkedin.com/in/pinn-aiqi-xu/
 ---
 
 :::{.caption}
