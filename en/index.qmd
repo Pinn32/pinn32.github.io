@@ -40,7 +40,7 @@ listing:
 <!-- Start: GitHub Contribution Map -->
 <a href="https://github.com/Pinn32" data-image-link target="_blank">
 
-<!-- Heatmap -->
+<!-- Mobile: Heatmap -->
 ::::::{#gh-heatmap .mobile-only}
 :::{.light-content}
 ![Pinn's Contribution Graph](https://brettterpstra.com/contrib/generate?username=Pinn32&months=6&theme=light&font=helvetica&width=1200&corner_radius=36&caption_year=1&caption_month=1&caption_day=0&download=0)
@@ -52,7 +52,8 @@ listing:
 ::::::
 
 <!-- ---------------------------------------------------------------------- -->
-<!-- Line Chart -->
+<!-- Desktop: Line Chart (deprecated) -->
+<!-- 
 ::::::{#gh-line-chart .mobile-hide}
 :::{style="overflow:hidden;" .light-content}
 ![](https://github-readme-activity-graph.vercel.app/graph?username=pinn32&bg_color=ffffff&color=448883&line=80cbc4&point=ffab91&area=true&hide_border=true){style="display:block;
@@ -71,7 +72,33 @@ listing:
     max-width: none;
 "}
 :::
+:::::: 
+-->
+
+<!-- Desktop: Snake Heatmap -->
+::::::{#gh-line-chart .mobile-hide}
+:::{style="overflow:hidden;" .light-content}
+![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260805130318220.svg){style="display:block;
+    clip-path: inset(1px);
+    margin: 1px 1px 1px -12px;
+    width: calc(100% + 13px);
+    max-width: none;
+"}
+:::
+
+:::{style="overflow:hidden;" .dark-content}
+![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260805142319729.svg){style="display:block;
+    clip-path: inset(1px);
+    margin: 1px 1px 1px -12px;
+    width: calc(100% + 13px);
+    max-width: none;
+"}
+:::
 ::::::
+<!-- SNK Generator: https://platane.github.io/snk/ -->
+<!-- Light Color: color_snake=pink&color_dots=#edf1f2,#9bddd9,#42a8a8,#3893a3,#027184 -->
+<!-- Dark Color: color_snake=#db4a89&color_dots=#1b2028,#12536d,#027b91,#00b3bc,#1effe4 -->
+
 
 </a>
 <!-- End: GitHub Contribution Map -->
