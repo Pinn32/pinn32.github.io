@@ -23,7 +23,7 @@ URL Shortener turns long web addresses into compact, shareable links with custom
 ::: -->
 
 :::{style="max-width:40rem; margin:0 auto;"}
-{{<video /src/video/url-demo.mov title="URL Shortener Demo">}}
+{{<video /src/video/tools/2026-07-22-url-shortener-demo.mov title="URL Shortener Demo">}}
 :::
 
 A short link is a compact version of a long web address. It saves space, looks cleaner when shared, and is easier to remember. A custom slug also gives the link a meaningful ending, such as `url-to.vercel.app/my-portfolio`, instead of an arbitrary sequence of characters.
