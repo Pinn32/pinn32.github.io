@@ -1100,13 +1100,23 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
     display: flex;
     flex-wrap: wrap;
     gap: 0.45rem;
-    margin-bottom: 1.5rem;
+    /* Keep the 3px active ring inside the bar's paint area. Negative outer
+       margins preserve the original pill alignment and surrounding spacing. */
+    padding: 3px;
+    margin: -3px -3px calc(1.5rem - 3px);
+    overflow: visible;
 }
 .quarto-listing-category {
     flex-direction: row !important;
     display: flex !important;
-    padding: 0 !important;
+    padding: 3px !important;
     border: none !important;
+}
+
+/* The category listing lives in Quarto's margin sidebar. Keep that outer
+   boundary from clipping the active pill's 3px ring. */
+#quarto-margin-sidebar:has(.quarto-listing-category) {
+    overflow: visible !important;
 }
 
 .quarto-listing-category-title {
