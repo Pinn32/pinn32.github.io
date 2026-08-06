@@ -289,7 +289,12 @@
 
     document.addEventListener("DOMContentLoaded", function () {
         const el = document.getElementById("copyright-year");
-        if (el) el.textContent = new Date().getFullYear();
+        if (el) {
+            const currentYear = new Date().getFullYear();
+            el.textContent = currentYear > 2026
+                ? `2026 – ${currentYear}`
+                : "2026";
+        }
     });
 </script>
 
