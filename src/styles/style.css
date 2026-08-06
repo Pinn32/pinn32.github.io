@@ -208,6 +208,11 @@ body:not(.quarto-sidebar-visible) .quarto-title h1.title::after {
     animation: blink-cursor 1.1s step-end infinite;
 }
 
+/* On pages with a rotating subtitle, the cursor follows the typed text. */
+body.subtitle-typing-active .quarto-title h1.title::after {
+    content: none;
+}
+
 body:not(.quarto-sidebar-visible) .quarto-title p.subtitle {
     font-family: var(--pf-mono);
     font-size: 0.95rem;
@@ -222,6 +227,27 @@ body:not(.quarto-sidebar-visible) .quarto-title p.subtitle::before {
     content: '# ';
     color: var(--pf-primary-mid);
     font-weight: 600;
+}
+
+body.subtitle-typing-active .quarto-title p.subtitle-typewriter {
+    min-height: 1.5em;
+}
+
+body.subtitle-typing-active .quarto-title p.subtitle-typewriter::after {
+    content: '|';
+    color: var(--pf-primary-mid);
+    font-weight: 300;
+    margin-left: 2px;
+    animation: blink-cursor 1.1s step-end infinite;
+}
+
+body.subtitle-typing-active .quarto-title p.subtitle-typewriter.is-reduced-motion {
+    white-space: pre-line;
+}
+
+body.subtitle-typing-active .quarto-title p.subtitle-typewriter.is-reduced-motion::after {
+    content: none;
+    animation: none;
 }
 
 p.subtitle.lead { margin: 1rem 0; }

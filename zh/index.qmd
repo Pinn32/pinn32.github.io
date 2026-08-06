@@ -1,6 +1,8 @@
 ---
 title: "Pinn (Aiqi) Xu"
-subtitle: "数据与设计作品集：分析、交互与可视化实践"
+subtitle: 
+  - "数据分析/可视化；UI/UX设计；网页开发"
+  - "项目/产品管理；数字媒体艺术"
 sidebar: false
 toc: false
 lightbox: false

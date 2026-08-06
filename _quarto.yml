@@ -1,3 +1,5 @@
+validate-yaml: false # subtitle lists are normalized by the subtitle filter
+
 project:
   type: website
   render:
@@ -147,6 +149,7 @@ format:
     ###### JS Scripts ######
     include-after-body:
       - ./src/scripts/site-fixes.html        # combined global fixes & tweaks
+      - ./src/scripts/subtitle-typewriter.html
 
     toc: true
     # toc-expand: true
@@ -165,6 +168,7 @@ format:
 brand: _brand.yml
 editor: source
 filters:
+  - src/filters/subtitle-typing.lua  # string = static; list = rotating typewriter
   - src/filters/reading-stats.lua  # for reading time
   - src/filters/changelog-timeline.lua  # change-log timeline (en/changes)
   - src/filters/lazy-images.lua  # lazy-load + async-decode body images
