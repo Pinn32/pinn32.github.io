@@ -552,7 +552,7 @@ Apr 17, 2026
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="V2ViJTIwQXBwJTJDTmV4dC5qcyUyQ01vbmdvREIlMkNPQXV0aA==" data-listing-date-sort="1775448000000" data-listing-file-modified-sort="1784757271844" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="542">
+<div class="g-col-1" data-index="2" data-categories="V2ViJTIwQXBwJTJDTmV4dC5qcyUyQ01vbmdvREIlMkNPQXV0aA==" data-listing-date-sort="1775448000000" data-listing-file-modified-sort="1785980912745" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="542">
 <a href="../../en/tools/2026-04-06-url-shortener/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -1067,6 +1067,107 @@ Dec 10, 2025
             cap.classList.add('quarto-float-caption-bottom');
         });
     })();
+</script>
+<script id="script-subtitle-typewriter">
+(() => {
+    const data = document.getElementById("subtitle-typing-lines");
+    const subtitle = document.querySelector(".quarto-title p.subtitle");
+
+    if (!data || !subtitle) return;
+
+    let lines;
+
+    try {
+        lines = JSON.parse(data.textContent);
+    } catch {
+        return;
+    }
+
+    if (!Array.isArray(lines) || lines.length < 2) return;
+
+    const TYPE_TIME_PER_CHARACTER = 40;
+    const LINE_PAUSE = 2000;
+    const DELETE_DURATION = 750;
+    const BETWEEN_LINES_PAUSE = 160;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const wait = (milliseconds) => new Promise((resolve) => {
+        window.setTimeout(resolve, milliseconds);
+    });
+    let run = 0;
+
+    document.body.classList.add("subtitle-typing-active");
+    subtitle.classList.add("subtitle-typewriter");
+    subtitle.setAttribute("aria-label", lines.join(". "));
+    subtitle.setAttribute("aria-live", "off");
+
+    function animateCharacters(characters, duration, deleting, currentRun) {
+        return new Promise((resolve) => {
+            const startedAt = performance.now();
+
+            function frame(now) {
+                if (currentRun !== run || reducedMotion.matches) {
+                    resolve(false);
+                    return;
+                }
+
+                const progress = Math.min((now - startedAt) / duration, 1);
+                const count = deleting
+                    ? Math.ceil(characters.length * (1 - progress))
+                    : Math.floor(characters.length * progress);
+
+                subtitle.textContent = characters.slice(0, count).join("");
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(frame);
+                } else {
+                    resolve(true);
+                }
+            }
+
+            window.requestAnimationFrame(frame);
+        });
+    }
+
+    async function typeLines(currentRun) {
+        let lineIndex = 0;
+
+        while (currentRun === run && !reducedMotion.matches) {
+            const characters = Array.from(lines[lineIndex]);
+            const typeDuration = characters.length * TYPE_TIME_PER_CHARACTER;
+
+            if (!await animateCharacters(characters, typeDuration, false, currentRun)) return;
+            await wait(LINE_PAUSE);
+
+            if (currentRun !== run || reducedMotion.matches) return;
+            if (!await animateCharacters(characters, DELETE_DURATION, true, currentRun)) return;
+            await wait(BETWEEN_LINES_PAUSE);
+
+            lineIndex = (lineIndex + 1) % lines.length;
+        }
+    }
+
+    function start() {
+        run += 1;
+
+        if (reducedMotion.matches) {
+            subtitle.classList.add("is-reduced-motion");
+            subtitle.textContent = lines.join("\n");
+            return;
+        }
+
+        subtitle.classList.remove("is-reduced-motion");
+        subtitle.textContent = "";
+        typeLines(run);
+    }
+
+    if (typeof reducedMotion.addEventListener === "function") {
+        reducedMotion.addEventListener("change", start);
+    } else {
+        reducedMotion.addListener(start);
+    }
+
+    start();
+})();
 </script>
 <script id="script-responsive-tag-bar">
     // Relocate tag-bar on mobile view (screen max-width:768px)

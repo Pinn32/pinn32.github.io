@@ -696,7 +696,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ![URL Shortener](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623194155759.png)
 ::: -->
 <div style="max-width:40rem; margin:0 auto;">
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="URL Shortener Demo"><source src="../../../src/video/url-demo.mov"></video></div>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="URL Shortener Demo"><source src="../../../src/video/tools/2026-07-22-url-shortener-demo.mov"></video></div>
 </div>
 <p>A short link is a compact version of a long web address. It saves space, looks cleaner when shared, and is easier to remember. A custom slug also gives the link a meaningful ending, such as <code>url-to.vercel.app/my-portfolio</code>, instead of an arbitrary sequence of characters.</p>
 <section id="key-features" class="level2">
@@ -719,9 +719,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="create-a-short-link">Create a Short Link</h2>
 <ol type="1">
 <li><p>Enter the complete destination URL, including <code>https://</code>:</p>
-<pre class="text"><code>https://example.com/your/very/long/url/</code></pre></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>https://example.com/your/very/long/url/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Choose the custom slug that will appear after the app’s domain:</p>
-<pre class="text"><code>https://url-to.vercel.app/your-slug</code></pre></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>https://url-to.vercel.app/your-slug</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Select <strong>Click to Compact</strong>. The generated short link is ready to share and redirects visitors to the destination URL.</p></li>
 </ol>
 </section>
@@ -1199,6 +1199,107 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             cap.classList.add('quarto-float-caption-bottom');
         });
     })();
+</script>
+<script id="script-subtitle-typewriter">
+(() => {
+    const data = document.getElementById("subtitle-typing-lines");
+    const subtitle = document.querySelector(".quarto-title p.subtitle");
+
+    if (!data || !subtitle) return;
+
+    let lines;
+
+    try {
+        lines = JSON.parse(data.textContent);
+    } catch {
+        return;
+    }
+
+    if (!Array.isArray(lines) || lines.length < 2) return;
+
+    const TYPE_TIME_PER_CHARACTER = 40;
+    const LINE_PAUSE = 2000;
+    const DELETE_DURATION = 750;
+    const BETWEEN_LINES_PAUSE = 160;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const wait = (milliseconds) => new Promise((resolve) => {
+        window.setTimeout(resolve, milliseconds);
+    });
+    let run = 0;
+
+    document.body.classList.add("subtitle-typing-active");
+    subtitle.classList.add("subtitle-typewriter");
+    subtitle.setAttribute("aria-label", lines.join(". "));
+    subtitle.setAttribute("aria-live", "off");
+
+    function animateCharacters(characters, duration, deleting, currentRun) {
+        return new Promise((resolve) => {
+            const startedAt = performance.now();
+
+            function frame(now) {
+                if (currentRun !== run || reducedMotion.matches) {
+                    resolve(false);
+                    return;
+                }
+
+                const progress = Math.min((now - startedAt) / duration, 1);
+                const count = deleting
+                    ? Math.ceil(characters.length * (1 - progress))
+                    : Math.floor(characters.length * progress);
+
+                subtitle.textContent = characters.slice(0, count).join("");
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(frame);
+                } else {
+                    resolve(true);
+                }
+            }
+
+            window.requestAnimationFrame(frame);
+        });
+    }
+
+    async function typeLines(currentRun) {
+        let lineIndex = 0;
+
+        while (currentRun === run && !reducedMotion.matches) {
+            const characters = Array.from(lines[lineIndex]);
+            const typeDuration = characters.length * TYPE_TIME_PER_CHARACTER;
+
+            if (!await animateCharacters(characters, typeDuration, false, currentRun)) return;
+            await wait(LINE_PAUSE);
+
+            if (currentRun !== run || reducedMotion.matches) return;
+            if (!await animateCharacters(characters, DELETE_DURATION, true, currentRun)) return;
+            await wait(BETWEEN_LINES_PAUSE);
+
+            lineIndex = (lineIndex + 1) % lines.length;
+        }
+    }
+
+    function start() {
+        run += 1;
+
+        if (reducedMotion.matches) {
+            subtitle.classList.add("is-reduced-motion");
+            subtitle.textContent = lines.join("\n");
+            return;
+        }
+
+        subtitle.classList.remove("is-reduced-motion");
+        subtitle.textContent = "";
+        typeLines(run);
+    }
+
+    if (typeof reducedMotion.addEventListener === "function") {
+        reducedMotion.addEventListener("change", start);
+    } else {
+        reducedMotion.addListener(start);
+    }
+
+    start();
+})();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1740,7 +1841,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">::: --&gt;</span></span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>:::{style="max-width:40rem; margin:0 auto;"}</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>{{<span class="dt">&lt;</span><span class="kw">video</span><span class="ot"> </span><span class="er">/</span><span class="ot">src</span><span class="er">/</span><span class="ot">video</span><span class="er">/</span><span class="ot">url-demo.mov title</span><span class="op">=</span><span class="st">"URL Shortener Demo"</span><span class="dt">&gt;</span>}}</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>{{<span class="dt">&lt;</span><span class="kw">video</span><span class="ot"> </span><span class="er">/</span><span class="ot">src</span><span class="er">/</span><span class="ot">video</span><span class="er">/</span><span class="ot">tools</span><span class="er">/2026-07-22-</span><span class="ot">url-shortener-demo.mov title</span><span class="op">=</span><span class="st">"URL Shortener Demo"</span><span class="dt">&gt;</span>}}</span>
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>A short link is a compact version of a long web address. It saves space, looks cleaner when shared, and is easier to remember. A custom slug also gives the link a meaningful ending, such as <span class="in">`url-to.vercel.app/my-portfolio`</span>, instead of an arbitrary sequence of characters.</span>
@@ -1763,13 +1864,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Enter the complete destination URL, including <span class="in">`https://`</span>:</span>
 <span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>   <span class="in">```text</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>   <span class="in">```txt</span></span>
 <span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="in">   https://example.com/your/very/long/url/</span></span>
 <span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
 <span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Choose the custom slug that will appear after the app's domain:</span>
 <span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>   <span class="in">```text</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>   <span class="in">```txt</span></span>
 <span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="in">   https://url-to.vercel.app/your-slug</span></span>
 <span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
 <span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>

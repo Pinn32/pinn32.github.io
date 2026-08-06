@@ -1334,6 +1334,107 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         });
     })();
 </script>
+<script id="script-subtitle-typewriter">
+(() => {
+    const data = document.getElementById("subtitle-typing-lines");
+    const subtitle = document.querySelector(".quarto-title p.subtitle");
+
+    if (!data || !subtitle) return;
+
+    let lines;
+
+    try {
+        lines = JSON.parse(data.textContent);
+    } catch {
+        return;
+    }
+
+    if (!Array.isArray(lines) || lines.length < 2) return;
+
+    const TYPE_TIME_PER_CHARACTER = 40;
+    const LINE_PAUSE = 2000;
+    const DELETE_DURATION = 750;
+    const BETWEEN_LINES_PAUSE = 160;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const wait = (milliseconds) => new Promise((resolve) => {
+        window.setTimeout(resolve, milliseconds);
+    });
+    let run = 0;
+
+    document.body.classList.add("subtitle-typing-active");
+    subtitle.classList.add("subtitle-typewriter");
+    subtitle.setAttribute("aria-label", lines.join(". "));
+    subtitle.setAttribute("aria-live", "off");
+
+    function animateCharacters(characters, duration, deleting, currentRun) {
+        return new Promise((resolve) => {
+            const startedAt = performance.now();
+
+            function frame(now) {
+                if (currentRun !== run || reducedMotion.matches) {
+                    resolve(false);
+                    return;
+                }
+
+                const progress = Math.min((now - startedAt) / duration, 1);
+                const count = deleting
+                    ? Math.ceil(characters.length * (1 - progress))
+                    : Math.floor(characters.length * progress);
+
+                subtitle.textContent = characters.slice(0, count).join("");
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(frame);
+                } else {
+                    resolve(true);
+                }
+            }
+
+            window.requestAnimationFrame(frame);
+        });
+    }
+
+    async function typeLines(currentRun) {
+        let lineIndex = 0;
+
+        while (currentRun === run && !reducedMotion.matches) {
+            const characters = Array.from(lines[lineIndex]);
+            const typeDuration = characters.length * TYPE_TIME_PER_CHARACTER;
+
+            if (!await animateCharacters(characters, typeDuration, false, currentRun)) return;
+            await wait(LINE_PAUSE);
+
+            if (currentRun !== run || reducedMotion.matches) return;
+            if (!await animateCharacters(characters, DELETE_DURATION, true, currentRun)) return;
+            await wait(BETWEEN_LINES_PAUSE);
+
+            lineIndex = (lineIndex + 1) % lines.length;
+        }
+    }
+
+    function start() {
+        run += 1;
+
+        if (reducedMotion.matches) {
+            subtitle.classList.add("is-reduced-motion");
+            subtitle.textContent = lines.join("\n");
+            return;
+        }
+
+        subtitle.classList.remove("is-reduced-motion");
+        subtitle.textContent = "";
+        typeLines(run);
+    }
+
+    if (typeof reducedMotion.addEventListener === "function") {
+        reducedMotion.addEventListener("change", start);
+    } else {
+        reducedMotion.addListener(start);
+    }
+
+    start();
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

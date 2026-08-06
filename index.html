@@ -371,7 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Pinn (Aiqi) Xu</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Data Science &amp; Visualization Portfolio</p>
+<p class="subtitle lead">Data Analyst • UI/UX • Web App Developer</p>
 </div>
 
 
@@ -395,6 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <!-- -->
 
+<script type="application/json" id="subtitle-typing-lines">["Data Analyst • UI/UX • Web App Developer","Product/Project Manager • Media Specialist","Coding, Art \u0026 Design Enthusiast"]</script>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <!--
@@ -806,6 +807,107 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             cap.classList.add('quarto-float-caption-bottom');
         });
     })();
+</script>
+<script id="script-subtitle-typewriter">
+(() => {
+    const data = document.getElementById("subtitle-typing-lines");
+    const subtitle = document.querySelector(".quarto-title p.subtitle");
+
+    if (!data || !subtitle) return;
+
+    let lines;
+
+    try {
+        lines = JSON.parse(data.textContent);
+    } catch {
+        return;
+    }
+
+    if (!Array.isArray(lines) || lines.length < 2) return;
+
+    const TYPE_TIME_PER_CHARACTER = 40;
+    const LINE_PAUSE = 2000;
+    const DELETE_DURATION = 750;
+    const BETWEEN_LINES_PAUSE = 160;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const wait = (milliseconds) => new Promise((resolve) => {
+        window.setTimeout(resolve, milliseconds);
+    });
+    let run = 0;
+
+    document.body.classList.add("subtitle-typing-active");
+    subtitle.classList.add("subtitle-typewriter");
+    subtitle.setAttribute("aria-label", lines.join(". "));
+    subtitle.setAttribute("aria-live", "off");
+
+    function animateCharacters(characters, duration, deleting, currentRun) {
+        return new Promise((resolve) => {
+            const startedAt = performance.now();
+
+            function frame(now) {
+                if (currentRun !== run || reducedMotion.matches) {
+                    resolve(false);
+                    return;
+                }
+
+                const progress = Math.min((now - startedAt) / duration, 1);
+                const count = deleting
+                    ? Math.ceil(characters.length * (1 - progress))
+                    : Math.floor(characters.length * progress);
+
+                subtitle.textContent = characters.slice(0, count).join("");
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(frame);
+                } else {
+                    resolve(true);
+                }
+            }
+
+            window.requestAnimationFrame(frame);
+        });
+    }
+
+    async function typeLines(currentRun) {
+        let lineIndex = 0;
+
+        while (currentRun === run && !reducedMotion.matches) {
+            const characters = Array.from(lines[lineIndex]);
+            const typeDuration = characters.length * TYPE_TIME_PER_CHARACTER;
+
+            if (!await animateCharacters(characters, typeDuration, false, currentRun)) return;
+            await wait(LINE_PAUSE);
+
+            if (currentRun !== run || reducedMotion.matches) return;
+            if (!await animateCharacters(characters, DELETE_DURATION, true, currentRun)) return;
+            await wait(BETWEEN_LINES_PAUSE);
+
+            lineIndex = (lineIndex + 1) % lines.length;
+        }
+    }
+
+    function start() {
+        run += 1;
+
+        if (reducedMotion.matches) {
+            subtitle.classList.add("is-reduced-motion");
+            subtitle.textContent = lines.join("\n");
+            return;
+        }
+
+        subtitle.classList.remove("is-reduced-motion");
+        subtitle.textContent = "";
+        typeLines(run);
+    }
+
+    if (typeof reducedMotion.addEventListener === "function") {
+        reducedMotion.addEventListener("change", start);
+    } else {
+        reducedMotion.addListener(start);
+    }
+
+    start();
+})();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1312,15 +1414,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> 'Pinn (Aiqi) Xu'</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Data Science &amp; Visualization Portfolio"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> 'en'</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">sidebar:</span><span class="co"> false</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> false</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">window</span><span class="op">.</span><span class="at">location</span><span class="op">.</span><span class="fu">replace</span>(<span class="st">"en/"</span>)<span class="op">;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">  - "Data Analyst • UI/UX • Web App Developer"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - "Product/Project Manager • Media Specialist"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  - "Coding, Art &amp; Design Enthusiast"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> 'en'</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">sidebar:</span><span class="co"> false</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> false</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">window</span><span class="op">.</span><span class="at">location</span><span class="op">.</span><span class="fu">replace</span>(<span class="st">"en/"</span>)<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
