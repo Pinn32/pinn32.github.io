@@ -666,8 +666,8 @@ a.sidebar-item-text.sidebar-link.active > .menu-text {
     border-bottom: 2px solid var(--pf-table-head-border);
     text-align: left;
 }
-.quarto-document-content table:not(.dataframe) td,
-#quarto-document-content table:not(.dataframe) td {
+.quarto-document-content table:not(.dataframe):not(.card-other-values) td,
+#quarto-document-content table:not(.dataframe):not(.card-other-values) td {
     padding: 0.55rem 0.9rem;
     border-bottom: 1px solid var(--pf-border);
     color: var(--pf-text-secondary);
@@ -999,6 +999,7 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
     padding: 0 !important;
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto;
     gap: 0.25rem;
 }
 
@@ -1054,6 +1055,12 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
     cursor: pointer;
 }
 .quarto-grid-item .listing-category:hover { background-color: var(--pf-primary-tint) !important; }
+
+/* Homepage categories are descriptive tags, not listing filters. */
+#listing-home-listing .listing-category {
+    pointer-events: none;
+    cursor: default;
+}
 
 
 /* 15. Listing Filter / Sort Controls =================================== */
@@ -1175,9 +1182,36 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
     color: var(--pf-primary-mid);
 }
 
-/* Post-type filter (all-posts page) — hide the "post-type: project" cell
-   Quarto renders for the custom field */
-#listing-all-listing .card-other-values { display: none !important; }
+/* Post type — Quarto renders custom fields as a table. Keep only the value
+   and align it like the author metadata at the card's bottom-right. */
+.quarto-grid-item .card-other-values {
+    display: contents;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: #6c757d;
+}
+.quarto-grid-item .card-other-values tbody,
+.quarto-grid-item .card-other-values tr {
+    display: contents;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.quarto-grid-item .card-other-values td:not(.post-type) {
+    display: none;
+}
+.quarto-grid-item .card-other-values .post-type {
+    display: block;
+    margin: 0 0 0 auto;
+    padding: 0;
+    border: 0;
+    font-size: 0.65rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: right;
+    text-transform: uppercase;
+}
 
 
 /* 16. Keyframe Animations & Frames ===================================== */

@@ -46,13 +46,13 @@ A short link is a compact version of a long web address. It saves space, looks c
 
 1. Enter the complete destination URL, including `https://`:
 
-   ```text
+   ```txt
    https://example.com/your/very/long/url/
    ```
 
 2. Choose the custom slug that will appear after the app's domain:
 
-   ```text
+   ```txt
    https://url-to.vercel.app/your-slug
    ```
 

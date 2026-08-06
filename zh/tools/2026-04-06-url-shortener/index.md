@@ -46,13 +46,13 @@ URL Shortener 可以把长网址转换成带有自定义后缀的短链接。无
 
 1. 输入完整的目标网址，包括 `https://`：
 
-   ```text
+   ```txt
    https://example.com/your/very/long/url/
    ```
 
 2. 设置短链接后缀。生成后的链接格式如下：
 
-   ```text
+   ```txt
    https://url-to.vercel.app/your-slug
    ```
 
