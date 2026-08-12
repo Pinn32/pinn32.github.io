@@ -40,8 +40,14 @@ website:
         href: en/tools/index.qmd
       - text: Blogs
         href: en/blogs/index.qmd
-      # - text: Hobbies
-      #   href: en/hobbies/index.qmd
+      - text: Hobbies
+        menu:
+          - text: Art
+            href: en/hobbies/art/index.qmd
+          - text: Music
+            href: en/hobbies/music/index.qmd
+          - text: Video
+            href: en/hobbies/video/index.qmd
       # - text: All Posts
       #   href: en/all-posts/index.qmd
 

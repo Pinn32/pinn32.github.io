@@ -1,14 +1,21 @@
 ---
 title: 'Hobbies'
-subtitle: 'Subtitle Placeholder'
-sidebar: false
+subtitle: 'Video, Art, Music, and more'
+include-after-body: '../../src/scripts/responsive-tag-bar.html'
 toc: false
+sidebar: false
+number-sections: false
+back-to-top-navigation: false
+page-navigation: false
+reading-meta-enabled: false
 
-draft: true
-draft-mode: unlinked
+listing:
+  id: blogs-listing
+  contents: "*/index.*md"
+  type: grid
+  categories: false
+  max-description-length: 100
+  fields: [image, title, description]
+  grid-columns: 3
+  image-height: "10rem"
 ---
-
-# Placeholder: H1
-## H2
-something text
-

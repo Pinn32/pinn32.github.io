@@ -1,0 +1,10 @@
+---
+title: 'Digital Art and Paintings'
+author: 'Pinn Xu'
+date: 2026-08-12
+order: 3
+description: ''
+categories: []
+image: ""
+---
+

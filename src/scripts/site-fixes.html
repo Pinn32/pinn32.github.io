@@ -114,6 +114,9 @@
             Tools: 'Tools',
             Blogs: 'Blogs',
             Hobbies: 'Hobbies',
+            Art: 'Art',
+            Video: 'Video',
+            Music: 'Music',
             'All Posts': 'All Posts',
             About: 'About',
             Contact: 'Contact',
@@ -125,6 +128,9 @@
             Tools: '工具',
             Blogs: '博客',
             Hobbies: '爱好',
+            Art: '绘画',
+            Video: '视频',
+            Music: '音乐',
             'All Posts': '所有文章',
             About: '关于',
             Contact: '联系作者',
@@ -154,7 +160,7 @@
         const lang = langMatch ? langMatch[1] : 'en';
         const translations = NAV_TRANSLATIONS[lang] ?? NAV_TRANSLATIONS.en;
 
-        document.querySelectorAll('.navbar-nav .nav-link').forEach(el => {
+        document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .dropdown-item').forEach(el => {
             const text = el.textContent.trim();
             if (translations[text]) {
                 el.textContent = translations[text];
