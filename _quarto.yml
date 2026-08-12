@@ -1,5 +1,3 @@
-validate-yaml: false # subtitle lists are normalized by the subtitle filter
-
 project:
   type: website
   render:

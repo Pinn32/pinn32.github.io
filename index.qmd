@@ -1,9 +1,9 @@
 ---
 title: 'Pinn (Aiqi) Xu'
-subtitle:
-  - "Data Analyst • UI/UX • Web App Developer"
-  - "Product/Project Manager • Media Specialist"
-  - "Coding, Art & Design Enthusiast"
+subtitle: |
+  Data Analyst • UI/UX • Web App Developer
+  Product/Project Manager • Media Specialist
+  Coding, Art & Design Enthusiast
 lang: 'en'
 sidebar: false
 toc: false
