@@ -72,7 +72,7 @@ listing:
 
 <!-- ---------------------------------------------------------------------- -->
 <!-- Desktop: Line Chart -->
-
+<!-- 
 ::::::{#gh-line-chart .mobile-hide}
 :::{style="overflow:hidden;" .light-content}
 ![](https://github-readme-activity-graph.vercel.app/graph?username=pinn32&bg_color=ffffff&color=448883&line=80cbc4&point=ffab91&area=true&hide_border=true){style="display:block;
@@ -92,10 +92,10 @@ listing:
 "}
 :::
 :::::: 
-
+-->
 
 <!-- Desktop: Snake Heatmap -->
-<!-- 
+
 ::::::{#gh-line-chart .mobile-hide}
 :::{style="overflow:hidden;" .light-content}
 ![](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260805130318220.svg){style="display:block;
@@ -115,7 +115,7 @@ listing:
 "}
 :::
 :::::: 
--->
+
 
 <!-- SNK Generator: https://platane.github.io/snk/ -->
 <!-- Light Color: color_snake=pink&color_dots=#edf1f2,#9bddd9,#42a8a8,#3893a3,#027184 -->
