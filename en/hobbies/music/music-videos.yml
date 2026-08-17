@@ -1,0 +1,63 @@
+- title: Blossom
+  date: 2017-05-12
+  video: ../../../src/video/hobb/msc/2017-05-12-msc-auxy-Blossom.mp4
+  description: "My first music production using Auxy. Made for Mothers' Day."
+  instrument: Auxy
+  categories: [music production]
+
+- title: Selfish Barracuda
+  date: 2018-02-10
+  video: >-
+    ../../../src/video/hobb/msc/2018-02-10-msc-auxy-Selfish_Barracuda.mp4
+  description: "A fun experiment with rythm and melody."
+  instrument: Auxy
+  categories: [music production]
+
+- title: Polite Puffin
+  date: 2018-02-10
+  video: ../../../src/video/hobb/msc/2018-02-10-msc-auxy-Polite_Puffin.mp4
+  description: "A positive piece."
+  instrument: Auxy
+  categories: [music production]
+
+- title: 帰る場所 (Return Place)
+  date: 2020-11-22
+  video: ../../../src/video/hobb/msc/2020-11-22-msc-sky-JiuZheYangBa.mp4
+  description: "Adapted the ending theme 帰る場所 from STAND BY ME Doraemon into a Sky music sheet that can be played on instruments in Sky: Children of the Light."
+  instrument: SkyStudio
+  categories: [music production]
+
+- title: Fantasy
+  date: 2020-12-12
+  video: ../../../src/video/hobb/msc/2020-12-12-msc-medly-Test.mp4
+  description: "A fantasy-themed composition."
+  instrument: Medly
+  categories: [music production]
+
+- title: Coffee R&B
+  date: 2024-02-26
+  video: ../../../src/video/hobb/msc/2024-02-26-msc-medly-coffee_R&B.mp4
+  description: "A relaxing R&B track inspired by the aroma of fresh coffee."
+  instrument: Medly
+  categories: [music production]
+
+- title: Classical with Cello
+  date: 2024-11-05
+  video: ../../../src/video/hobb/msc/2024-11-05-msc-grgb-Cello.mp4
+  description: "A classical piece with a cello accompaniment."
+  instrument: GarageBand
+  categories: [music production]
+
+- title: Children's Folk
+  date: 2025-07-03
+  video: ../../../src/video/hobb/msc/2025-07-03-msc-grgb-Childish.mp4
+  description: "A short piece of playful folk tune reminiscent of children's songs."
+  instrument: GarageBand
+  categories: [music production]
+
+- title: CN Rock
+  date: 2025-07-04
+  video: ../../../src/video/hobb/msc/2025-07-04-msc-grgb-CN_Rock.mp4
+  description: "A energetic rock piece inspired by Chinese rock songs."
+  instrument: GarageBand
+  categories: [music production]

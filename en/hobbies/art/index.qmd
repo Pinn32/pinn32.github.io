@@ -1,10 +1,47 @@
 ---
 title: 'Digital Art and Paintings'
-author: 'Pinn Xu'
-date: 2026-08-12
-order: 3
-description: ''
-categories: []
-image: ""
+subtitle: 'Visual design, fanart (doujin), and original characters (OCs).'
+sidebar: false
+toc: false
+lightbox: true
+listing:
+  - id: oc-gallery
+    contents: oc.yml
+    type: custom
+    template: art-gallery.ejs.md
+    fields: [title, date, image]
+    sort: "date desc"
+    template-params:
+      gallery-group: oc
+  - id: fanart-gallery
+    contents: fanart.yml
+    type: custom
+    template: art-gallery.ejs.md
+    fields: [title, date, image]
+    sort: "date desc"
+    template-params:
+      gallery-group: fanart
+  - id: visual-gallery
+    contents: visual.yml
+    type: custom
+    template: art-gallery.ejs.md
+    fields: [title, date, image]
+    sort: "date desc"
+    template-params:
+      gallery-group: visual
 ---
 
+# Original Characters (OCs)
+
+::: {#oc-gallery}
+:::
+
+# Fanart (Doujin)
+
+::: {#fanart-gallery}
+:::
+
+# Visual Design
+
+::: {#visual-gallery}
+:::

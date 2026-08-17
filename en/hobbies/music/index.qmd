@@ -1,9 +1,20 @@
 ---
 title: 'Music and Instruments'
-author: 'Pinn Xu'
-date: 2026-08-12
-order: 2
-description: ''
-categories: []
-image: ""
+subtitle: 'Gallery of music production and instrument performances.'
+sidebar: false
+toc: false
+lightbox: false
+listing:
+  id: music-videos-listing
+  contents: music-videos.yml
+  type: custom
+  template: music-video-gallery.ejs.md
+  fields: [title, date, video, description, instrument]
+  sort:
+    - "date desc"
+    - "title asc"
+  sort-ui: [title, date, instrument]
+  filter-ui: [title, date, description, instrument]
+  template-params:
+    grid-columns: 3
 ---

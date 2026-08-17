@@ -4,6 +4,9 @@ project:
     - "*.{qmd,R,py,md}"
     - "!archive/**/*"
     - "!README.zh.md"
+    - "!*.ejs.md"
+  resources:
+    - "src/**"
   preview: 
     # host: 0.0.0.0
     port: 4200
@@ -152,8 +155,7 @@ format:
     
     ###### JS Scripts ######
     include-after-body:
-      - ./src/scripts/site-fixes.html        # combined global fixes & tweaks
-      - ./src/scripts/subtitle-typewriter.html
+      - ./src/scripts/site-fixes.html  # all global fixes & add-on features
 
     toc: true
     # toc-expand: true
