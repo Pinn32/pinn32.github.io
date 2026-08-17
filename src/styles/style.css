@@ -1225,13 +1225,21 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
 .input-group-sm > .form-select:hover  { background-color: var(--pf-primary-light); }
 .input-group-sm > .form-select:focus  { box-shadow: none; }
 
-/* pagination page numbers */
+/* page-navigation: pagination page numbers */
 .page-link.active,
 .active > .page-link,
 .page-link:hover {
     background-color: var(--pf-primary);
     border-color: var(--pf-primary);
-    color: var(--pf-on-primary);
+    color: var(--pf-on-primary) !important;
+    opacity: 1;
+}
+.page-link {
+    background-color: var(--pf-primary);
+    border-color: var(--pf-primary);
+    color: var(--pf-on-primary) !important;
+    opacity: 0.65;
+    transition: opacity 0.15s, background-color 0.15s, border-color 0.15s;
 }
 
 /* Filter pill buttons — shared shell for the category filter, post-type

@@ -47,9 +47,10 @@
                 btn.dataset.type = type;
                 btn.textContent = L[type];
                 btn.addEventListener('click', () => {
+                    const nextType = btn.classList.contains('active') ? 'all' : type;
                     bar.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    filterByType(type);
+                    bar.querySelector(`[data-type="${nextType}"]`)?.classList.add('active');
+                    filterByType(nextType);
                 });
                 bar.appendChild(btn);
             }
