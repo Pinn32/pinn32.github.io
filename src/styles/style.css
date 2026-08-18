@@ -878,7 +878,7 @@ hr {
 }
 .video-production-gallery {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.25rem;
     margin-top: 1.5rem;
 }
@@ -936,9 +936,6 @@ hr {
     font-size: 0.82rem;
 }
 .music-video-instrument { color: var(--pf-primary); }
-@media (max-width: 991.98px) {
-    .video-production-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
 @media (max-width: 575.98px) {
     .video-production-gallery { grid-template-columns: 1fr; }
 }

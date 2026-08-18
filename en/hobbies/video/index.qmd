@@ -1,6 +1,6 @@
 ---
 title: 'Video & Animation Production'
-subtitle: 'Video & Animation Production'
+subtitle: 'Video Projects and Animation Works'
 toc: false
 sidebar: false
 listing:
@@ -15,5 +15,5 @@ listing:
   sort-ui: [title, date]
   filter-ui: [title, date, description]
   template-params:
-    grid-columns: 3
+    grid-columns: 2
 ---
