@@ -25,7 +25,7 @@ URL Shortener 可以把长网址转换成带有自定义后缀的短链接。无
 :::{style="max-width:40rem; margin:0 auto;"}
 ```{=html}
 <video class="site-video-player" controls preload="metadata" playsinline title="URL Shortener Demo" style="display:block; width:100%;">
-  <source data-video-src="../../../src/video/tools/2026-07-22-url-shortener-demo.mp4" type="video/mp4">
+  <source data-video-src="https://raw.githubusercontent.com/Pinn32/img/main/video/personal-web/tool/2026-07-22-url-shortener-demo.mp4" type="video/mp4">
   Your browser does not support HTML video.
 </video>
 ```
