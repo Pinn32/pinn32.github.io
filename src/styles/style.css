@@ -792,6 +792,10 @@ hr {
     background: var(--pf-surface);
     box-shadow: var(--pf-shadow);
 }
+.art-gallery-item.is-filter-revealing {
+    animation: fade-up 0.4s ease both;
+    animation-delay: var(--art-reveal-delay, 0ms);
+}
 .art-gallery-item > p {
     margin: 0;
 }
@@ -815,13 +819,50 @@ hr {
     transform: scale(1.025);
 }
 .art-gallery-caption {
-    padding: 0.65rem 0.8rem;
+    padding: 0.7rem 0.8rem 0.75rem;
     color: var(--pf-text-secondary);
     font-size: 0.88rem;
     line-height: 1.35;
 }
 .art-gallery-caption > p {
     margin: 0;
+}
+.art-gallery-title {
+    color: var(--pf-text);
+    font-weight: 600;
+}
+.art-gallery-title > p,
+.art-gallery-date > p,
+.art-gallery-categories > p {
+    margin: 0;
+}
+.art-gallery-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: 0.45rem;
+}
+.art-gallery-date {
+    color: var(--pf-text-muted);
+    font-size: 0.72rem;
+    white-space: nowrap;
+}
+.art-gallery-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.3rem;
+}
+.art-gallery-category {
+    padding: 0.05rem 0.4rem;
+    border: 1px solid var(--pf-primary-border-soft);
+    border-radius: 5px;
+    background: var(--pf-primary-light);
+    color: var(--pf-primary-hover);
+    font-family: var(--pf-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
 }
 @media (max-width: 767.98px) {
     .art-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -830,12 +871,23 @@ hr {
     .art-gallery { grid-template-columns: 1fr; }
 }
 
-/* Music video gallery */
+/* Music and video production galleries */
 .music-video-gallery {
     gap: 1.25rem;
     margin-top: 1.5rem;
 }
-.music-video-card {
+.video-production-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+.music-video-gallery > .is-filter-revealing {
+    animation: fade-up 0.4s ease both;
+    animation-delay: var(--music-reveal-delay, 0ms);
+}
+.music-video-card,
+.video-production-card {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -845,31 +897,36 @@ hr {
     background: var(--pf-surface);
     box-shadow: var(--pf-shadow);
 }
-.music-video-player {
+.music-video-player,
+.video-production-player {
     display: block;
     width: 100%;
     aspect-ratio: 16 / 9;
     background: #111;
     object-fit: contain;
 }
-.music-video-card-body {
+.music-video-card-body,
+.video-production-card-body {
     display: flex;
     flex: 1;
     flex-direction: column;
     padding: 0.55rem 1rem 1rem;
 }
-.music-video-title {
+.music-video-title,
+.video-production-title {
     margin: 0 !important;
     font-size: 1.05rem;
     line-height: 1.3;
 }
-.music-video-description {
+.music-video-description,
+.video-production-description {
     margin: 0.45rem 0 0;
     font-size: 0.88rem;
     line-height: 1.45;
     color: var(--pf-text-secondary);
 }
-.music-video-meta {
+.music-video-meta,
+.video-production-meta {
     display: flex;
     justify-content: space-between;
     gap: 0.75rem;
@@ -879,6 +936,12 @@ hr {
     font-size: 0.82rem;
 }
 .music-video-instrument { color: var(--pf-primary); }
+@media (max-width: 991.98px) {
+    .video-production-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 575.98px) {
+    .video-production-gallery { grid-template-columns: 1fr; }
+}
 
 button#quarto-code-tools-menu, button#quarto-code-tools-source {
     padding: 0 .5rem;
@@ -1246,6 +1309,8 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
    filter, and "show more" toggle (all render as outlined pill buttons). */
 .quarto-listing-category .category,
 #post-type-filter .type-btn,
+#art-category-filter .type-btn,
+#music-category-filter .type-btn,
 .quarto-listing-category .category-show-more {
     display: inline-flex;
     align-items: center;
@@ -1263,12 +1328,16 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
 }
 .quarto-listing-category .category:hover,
 #post-type-filter .type-btn:hover,
+#art-category-filter .type-btn:hover,
+#music-category-filter .type-btn:hover,
 .quarto-listing-category .category-show-more:hover {
     background: var(--pf-primary-light);
     color: var(--pf-primary-hover);
 }
 .quarto-listing-category .category.active,
-#post-type-filter .type-btn.active {
+#post-type-filter .type-btn.active,
+#art-category-filter .type-btn.active,
+#music-category-filter .type-btn.active {
     background: var(--pf-primary) !important;
     color: var(--pf-on-primary) !important;
     box-shadow: 0 0 0 3px var(--pf-primary-ring);
@@ -1289,7 +1358,9 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
 
 /* Filter bar containers */
 .quarto-listing-category,
-#post-type-filter {
+#post-type-filter,
+#art-category-filter,
+#music-category-filter {
     display: flex;
     flex-wrap: wrap;
     gap: 0.45rem;

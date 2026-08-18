@@ -1,47 +1,24 @@
 ---
 title: 'Digital Art and Paintings'
 subtitle: 'Visual design, fanart (doujin), and original characters (OCs).'
+include-after-body: '../../../src/scripts/art-category-filter.html'
 sidebar: false
 toc: false
 lightbox: true
 listing:
-  - id: oc-gallery
-    contents: oc.yml
-    type: custom
-    template: art-gallery.ejs.md
-    fields: [title, date, image]
-    sort: "date desc"
-    template-params:
-      gallery-group: oc
-  - id: fanart-gallery
-    contents: fanart.yml
-    type: custom
-    template: art-gallery.ejs.md
-    fields: [title, date, image]
-    sort: "date desc"
-    template-params:
-      gallery-group: fanart
-  - id: visual-gallery
-    contents: visual.yml
-    type: custom
-    template: art-gallery.ejs.md
-    fields: [title, date, image]
-    sort: "date desc"
-    template-params:
-      gallery-group: visual
+  id: art-gallery
+  contents: art.yml
+  type: custom
+  template: art-gallery.ejs.md
+  fields: [title, date, image, categories]
+  categories: false
+  page-size: 50
+  sort:
+    - "date desc"
+    - "title asc"
+  sort-ui: [title, date]
+  filter-ui: [title, date]
 ---
 
-# Original Characters (OCs)
-
-::: {#oc-gallery}
-:::
-
-# Fanart (Doujin)
-
-::: {#fanart-gallery}
-:::
-
-# Visual Design
-
-::: {#visual-gallery}
+::: {#art-gallery}
 :::

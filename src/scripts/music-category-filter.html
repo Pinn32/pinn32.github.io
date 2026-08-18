@@ -1,0 +1,75 @@
+<script id="script-music-category-filter">
+    // Usage: en/hobbies/music/index.qmd
+    (() => {
+        const LISTING_ID = 'listing-music-videos-listing';
+        const LABELS = {
+            all: 'All',
+            music: 'Music',
+            keyboard: 'Keyboard',
+            string: 'String',
+            instrument: 'Instrument'
+        };
+
+        const revealVisibleCards = (list) => {
+            const listing = document.getElementById(LISTING_ID);
+            if (!listing) return;
+
+            listing.querySelectorAll('.music-video-gallery > div').forEach((card) => {
+                card.classList.remove('is-filter-revealing');
+                card.style.removeProperty('--music-reveal-delay');
+            });
+
+            void listing.offsetWidth;
+            list.visibleItems.forEach((item, index) => {
+                item.elm.style.setProperty('--music-reveal-delay', `${Math.min(index, 8) * 35}ms`);
+                item.elm.classList.add('is-filter-revealing');
+            });
+        };
+
+        const filterByCategory = (category) => {
+            const list = window['quarto-listings']?.[LISTING_ID];
+            if (!list) return;
+            if (category === 'all') {
+                list.filter();
+            } else {
+                list.filter((item) => {
+                    const encoded = item.values().categories;
+                    if (!encoded) return false;
+                    const categories = decodeURIComponent(atob(encoded)).split(',');
+                    return categories.includes(category);
+                });
+            }
+            revealVisibleCards(list);
+        };
+
+        const inject = () => {
+            const listing = document.getElementById(LISTING_ID);
+            if (!listing) return;
+
+            const bar = document.createElement('div');
+            bar.id = 'music-category-filter';
+            bar.setAttribute('role', 'group');
+            bar.setAttribute('aria-label', 'Filter music videos by category');
+
+            for (const category of ['all', 'music', 'instrument', 'string', 'keyboard']) {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'type-btn' + (category === 'all' ? ' active' : '');
+                btn.dataset.category = category;
+                btn.textContent = LABELS[category];
+                btn.addEventListener('click', () => {
+                    const nextCategory = btn.classList.contains('active') ? 'all' : category;
+                    bar.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+                    bar.querySelector(`[data-category="${nextCategory}"]`)?.classList.add('active');
+                    filterByCategory(nextCategory);
+                });
+                bar.appendChild(btn);
+            }
+
+            const actions = listing.querySelector('.listing-actions-group');
+            listing.insertBefore(bar, actions || listing.firstElementChild);
+        };
+
+        document.addEventListener('DOMContentLoaded', inject);
+    })();
+</script>

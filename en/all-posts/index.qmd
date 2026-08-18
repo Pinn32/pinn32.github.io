@@ -17,6 +17,10 @@ listing:
     - ../tutorials/*/index.*md
     - ../blogs/*/index.*md
     - ../tools/*/index.*md
+    # Redirect-only duplicates of canonical project/blog posts
+    - "!../tools/2025-12-10-bayanihan/index.*md"
+    - "!../tutorials/2025-10-07-colab-plotly-export/index.*md"
+    - "!../tutorials/2025-10-07-fix-network-diagram/index.*md"
   type: grid
   # categories: true
   max-description-length: 100

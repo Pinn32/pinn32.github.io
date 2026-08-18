@@ -1,0 +1,70 @@
+<script id="script-art-category-filter">
+    // Usage: en/hobbies/art/index.qmd
+    (() => {
+        const LISTING_ID = 'listing-art-gallery';
+        const LABELS = { all: 'All', fanart: 'Fanart', oc: 'OC', visual: 'Visual' };
+
+        const revealVisibleCards = (list) => {
+            const listing = document.getElementById(LISTING_ID);
+            if (!listing) return;
+
+            listing.querySelectorAll('.art-gallery-item').forEach((card) => {
+                card.classList.remove('is-filter-revealing');
+                card.style.removeProperty('--art-reveal-delay');
+            });
+
+            // Flush the removed animation before applying it to the new result set.
+            void listing.offsetWidth;
+            list.visibleItems.forEach((item, index) => {
+                item.elm.style.setProperty('--art-reveal-delay', `${Math.min(index, 8) * 35}ms`);
+                item.elm.classList.add('is-filter-revealing');
+            });
+        };
+
+        const filterByCategory = (category) => {
+            const list = window['quarto-listings']?.[LISTING_ID];
+            if (!list) return;
+            if (category === 'all') {
+                list.filter();
+            } else {
+                list.filter((item) => {
+                    const encoded = item.values().categories;
+                    if (!encoded) return false;
+                    const categories = decodeURIComponent(atob(encoded)).split(',');
+                    return categories.includes(category);
+                });
+            }
+            revealVisibleCards(list);
+        };
+
+        const inject = () => {
+            const listing = document.getElementById(LISTING_ID);
+            if (!listing) return;
+
+            const bar = document.createElement('div');
+            bar.id = 'art-category-filter';
+            bar.setAttribute('role', 'group');
+            bar.setAttribute('aria-label', 'Filter artwork by category');
+
+            for (const category of ['all', 'fanart', 'oc', 'visual']) {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'type-btn' + (category === 'all' ? ' active' : '');
+                btn.dataset.category = category;
+                btn.textContent = LABELS[category];
+                btn.addEventListener('click', () => {
+                    const nextCategory = btn.classList.contains('active') ? 'all' : category;
+                    bar.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+                    bar.querySelector(`[data-category="${nextCategory}"]`)?.classList.add('active');
+                    filterByCategory(nextCategory);
+                });
+                bar.appendChild(btn);
+            }
+
+            const actions = listing.querySelector('.listing-actions-group');
+            listing.insertBefore(bar, actions || listing.firstElementChild);
+        };
+
+        document.addEventListener('DOMContentLoaded', inject);
+    })();
+</script>

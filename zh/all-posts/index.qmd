@@ -16,6 +16,10 @@ listing:
     - ../projects/*/index.*md
     - ../tutorials/*/index.*md
     - ../blogs/*/index.*md
+    # 排除指向正式项目或博客文章的重复跳转页
+    - "!../tools/2025-12-10-bayanihan/index.*md"
+    - "!../tutorials/2025-10-07-colab-plotly-export/index.*md"
+    - "!../tutorials/2025-10-07-fix-network-diagram/index.*md"
   type: grid
   # categories: true
   max-description-length: 100

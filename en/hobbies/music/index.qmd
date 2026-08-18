@@ -1,6 +1,7 @@
 ---
 title: 'Music and Instruments'
 subtitle: 'Gallery of music production and instrument performances.'
+include-after-body: '../../../src/scripts/music-category-filter.html'
 sidebar: false
 toc: false
 lightbox: false
@@ -9,7 +10,8 @@ listing:
   contents: music-videos.yml
   type: custom
   template: music-video-gallery.ejs.md
-  fields: [title, date, video, description, instrument]
+  fields: [title, date, video, description, instrument, categories]
+  categories: false
   sort:
     - "date desc"
     - "title asc"

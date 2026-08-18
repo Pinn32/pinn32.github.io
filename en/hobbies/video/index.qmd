@@ -1,10 +1,19 @@
 ---
 title: 'Video & Animation Production'
-author: 'Pinn Xu'
-date: 2026-08-12
-order: 1
-description: ''
-categories: []
-image: ""
+subtitle: 'Video & Animation Production'
+toc: false
+sidebar: false
+listing:
+  id: video-production-listing
+  contents: videos.yml
+  type: custom
+  template: video-gallery.ejs.md
+  fields: [title, date, video, description]
+  sort:
+    - "date asc"
+    - "title asc"
+  sort-ui: [title, date]
+  filter-ui: [title, date, description]
+  template-params:
+    grid-columns: 3
 ---
-
