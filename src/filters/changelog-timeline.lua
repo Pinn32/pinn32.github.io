@@ -29,7 +29,7 @@ end
 -- bullet tag prefixes ("feat: ...") grouped for coloring (see changes.css)
 local TAG_CLASS = {
     contnt = 'content', proj = 'content', blg = 'content',
-    tool = 'content', hobb = 'content', ttl = 'content',
+    tool = 'content', hobb = 'content', media = 'content', ttl = 'content',
     feat = 'feat',
     dev = 'dev', fix = 'dev', style = 'dev', script = 'dev',
 }
