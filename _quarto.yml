@@ -19,6 +19,12 @@ project:
     # host: 0.0.0.0
     port: 4200
 
+# Reuse stored computational results during full-site renders (including the
+# render performed by `quarto publish gh-pages`). Render an individual page or
+# subdirectory when its executable output needs to be refreshed.
+execute:
+  freeze: true
+
 website:
   site-url: https://pinn32.github.io
   title: "pinn.xu"
