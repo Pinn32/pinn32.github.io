@@ -148,11 +148,57 @@ a:hover {
     transition: width 0.22s ease;
 }
 .navbar-nav .nav-link:hover::after,
-.navbar-nav .nav-link.active::after { width: calc(100% - 1.5rem); }
+.navbar-nav .nav-link.active::after,
+.navbar-nav .nav-link:focus-visible::after,
+.navbar-nav .nav-link.show::after { width: calc(100% - 1.5rem); }
 .navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:focus-visible,
+.navbar-nav .nav-link.show {
     color: var(--pf-primary) !important;
     background-color: var(--pf-primary-light);
+}
+
+/* Dropdown parents keep the same underline treatment as other first-level
+   links. The indicator is separate so it stays on the button's right edge. */
+.navbar-nav .nav-link.dropdown-toggle {
+    padding-right: 1.5rem;
+}
+.navbar-nav .nav-link.dropdown-toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0.7rem;
+    width: 0;
+    height: 0;
+    border-top: 0.3em solid currentColor;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    transform: translateY(-20%);
+}
+.navbar-nav .nav-link.dropdown-toggle.show::before {
+    transform: translateY(-20%) rotate(180deg);
+}
+.navbar-nav .nav-link.dropdown-toggle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    margin: 0;
+    border: 0;
+    border-radius: 2px;
+    background: var(--pf-gradient);
+    transform: translateX(-50%);
+    transition: width 0.22s ease;
+}
+.navbar-nav .nav-link.dropdown-toggle:hover::after,
+.navbar-nav .nav-link.dropdown-toggle.active::after,
+.navbar-nav .nav-link.dropdown-toggle:focus-visible::after,
+.navbar-nav .nav-link.dropdown-toggle.show::after {
+    width: calc(100% - 1.5rem);
 }
 
 .navbar-toggler {
@@ -160,6 +206,13 @@ a:hover {
 }
 .navbar-toggler-icon {
     background-image: var(--pf-navbar-toggler-icon);
+}
+
+/* Quarto listings can still emit inherited sidebar breadcrumbs and pagination
+   even when their page-level navigation flags are disabled. */
+body.hobbies-gallery-page .quarto-page-breadcrumbs,
+body.hobbies-gallery-page .page-navigation {
+    display: none !important;
 }
 
 /* Desktop: Margin between Nav Right and Nav Tools */
@@ -724,9 +777,218 @@ hr {
     width: 100%;
     white-space: nowrap;
     text-align: center;
-    padding: .4rem .6rem;
+    padding: .4em .8em;
 }
-.navbar .dropdown-menu[data-bs-popper] { left: -50%; }
+.navbar .navbar-nav.me-auto > .nav-item.dropdown > .dropdown-menu[data-bs-popper] {
+    left: 0.75rem !important;
+    margin-top: 0.25rem;
+}
+
+/* Desktop navbar popovers share the same floating surface. Media items follow
+   reading direction; the compact language choices remain centered. */
+@media (min-width: 992px) {
+    .navbar .navbar-nav.me-auto > .nav-item.dropdown >
+    .dropdown-menu[aria-labelledby="nav-menu-media"] {
+        padding: 0.45rem;
+        border-radius: var(--pf-radius);
+        box-shadow: var(--pf-shadow-hover);
+        transform-origin: top left;
+    }
+    .navbar .navbar-nav.me-auto > .nav-item.dropdown >
+    .dropdown-menu[aria-labelledby="nav-menu-media"][data-bs-popper] {
+        margin-top: 0.55rem;
+    }
+    .navbar .dropdown-menu[aria-labelledby="nav-menu-media"] .dropdown-item {
+        padding: 0.55rem 0.9rem;
+        border-radius: var(--pf-radius-sm);
+        text-align: left;
+    }
+    .navbar .quarto-navbar-tools
+    .dropdown-menu[aria-labelledby="quarto-navigation-tool-dropdown-0"] {
+        padding: 0.35em;
+        border-radius: var(--pf-radius);
+        box-shadow: var(--pf-shadow-hover);
+        transform-origin: top center;
+    }
+    .navbar .quarto-navbar-tools
+    .dropdown-menu[aria-labelledby="quarto-navigation-tool-dropdown-0"][data-bs-popper] {
+        margin-top: 0.55rem;
+    }
+    .navbar .dropdown-menu[aria-labelledby="quarto-navigation-tool-dropdown-0"]
+    .dropdown-item {
+        padding: 0.3em 0.75em;
+        border-radius: var(--pf-radius-sm);
+        font-size: 0.9rem;
+        text-align: center;
+    }
+}
+
+/* Art galleries */
+.art-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 1.5rem 0 2.5rem;
+}
+.art-gallery-item {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--pf-border);
+    border-radius: var(--pf-radius);
+    background: var(--pf-surface);
+    box-shadow: var(--pf-shadow);
+}
+.art-gallery-item.is-filter-revealing {
+    animation: fade-up 0.4s ease both;
+    animation-delay: var(--art-reveal-delay, 0ms);
+}
+.art-gallery-item > p {
+    margin: 0;
+}
+.art-gallery-item > p > br {
+    display: none;
+}
+.art-gallery-item .lightbox {
+    display: block;
+    overflow: hidden;
+    background: var(--pf-bg-muted);
+}
+.art-gallery-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+}
+.art-gallery-item .lightbox:hover .art-gallery-image,
+.art-gallery-item .lightbox:focus-visible .art-gallery-image {
+    transform: scale(1.025);
+}
+.art-gallery-caption {
+    padding: 0.7rem 0.8rem 0.75rem;
+    color: var(--pf-text-secondary);
+    font-size: 0.88rem;
+    line-height: 1.35;
+}
+.art-gallery-caption > p {
+    margin: 0;
+}
+.art-gallery-title {
+    color: var(--pf-text);
+    font-weight: 600;
+}
+.art-gallery-title > p,
+.art-gallery-date > p,
+.art-gallery-categories > p {
+    margin: 0;
+}
+.art-gallery-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: 0.45rem;
+}
+.art-gallery-date {
+    color: var(--pf-text-muted);
+    font-size: 0.72rem;
+    white-space: nowrap;
+}
+.art-gallery-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.3rem;
+}
+.art-gallery-category {
+    padding: 0.05rem 0.4rem;
+    border: 1px solid var(--pf-primary-border-soft);
+    border-radius: 5px;
+    background: var(--pf-primary-light);
+    color: var(--pf-primary-hover);
+    font-family: var(--pf-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+}
+@media (max-width: 767.98px) {
+    .art-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 479.98px) {
+    .art-gallery { grid-template-columns: 1fr; }
+}
+
+/* Music and video production galleries */
+.music-video-gallery {
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+.video-production-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+.music-video-gallery > .is-filter-revealing {
+    animation: fade-up 0.4s ease both;
+    animation-delay: var(--music-reveal-delay, 0ms);
+}
+.music-video-card,
+.video-production-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--pf-border);
+    border-radius: var(--pf-radius);
+    background: var(--pf-surface);
+    box-shadow: var(--pf-shadow);
+}
+.music-video-player,
+.video-production-player {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #111;
+    object-fit: contain;
+}
+.music-video-embed,
+.video-production-embed {
+    border: 0;
+}
+.music-video-card-body,
+.video-production-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 0.55rem 1rem 1rem;
+}
+.music-video-title,
+.video-production-title {
+    margin: 0 !important;
+    font-size: 1.05rem;
+    line-height: 1.3;
+}
+.music-video-description,
+.video-production-description {
+    margin: 0.45rem 0 0;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--pf-text-secondary);
+}
+.music-video-meta,
+.video-production-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    color: var(--pf-text-muted);
+    font-size: 0.82rem;
+}
+.music-video-instrument { color: var(--pf-primary); }
+@media (max-width: 575.98px) {
+    .video-production-gallery { grid-template-columns: 1fr; }
+}
 
 button#quarto-code-tools-menu, button#quarto-code-tools-source {
     padding: 0 .5rem;
@@ -1073,19 +1335,29 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
 .input-group-sm > .form-select:hover  { background-color: var(--pf-primary-light); }
 .input-group-sm > .form-select:focus  { box-shadow: none; }
 
-/* pagination page numbers */
+/* page-navigation: pagination page numbers */
 .page-link.active,
 .active > .page-link,
 .page-link:hover {
     background-color: var(--pf-primary);
     border-color: var(--pf-primary);
-    color: var(--pf-on-primary);
+    color: var(--pf-on-primary) !important;
+    opacity: 1;
+}
+.page-link {
+    background-color: var(--pf-primary);
+    border-color: var(--pf-primary);
+    color: var(--pf-on-primary) !important;
+    opacity: 0.65;
+    transition: opacity 0.15s, background-color 0.15s, border-color 0.15s;
 }
 
 /* Filter pill buttons — shared shell for the category filter, post-type
    filter, and "show more" toggle (all render as outlined pill buttons). */
 .quarto-listing-category .category,
 #post-type-filter .type-btn,
+#art-category-filter .type-btn,
+#music-category-filter .type-btn,
 .quarto-listing-category .category-show-more {
     display: inline-flex;
     align-items: center;
@@ -1103,12 +1375,16 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
 }
 .quarto-listing-category .category:hover,
 #post-type-filter .type-btn:hover,
+#art-category-filter .type-btn:hover,
+#music-category-filter .type-btn:hover,
 .quarto-listing-category .category-show-more:hover {
     background: var(--pf-primary-light);
     color: var(--pf-primary-hover);
 }
 .quarto-listing-category .category.active,
-#post-type-filter .type-btn.active {
+#post-type-filter .type-btn.active,
+#art-category-filter .type-btn.active,
+#music-category-filter .type-btn.active {
     background: var(--pf-primary) !important;
     color: var(--pf-on-primary) !important;
     box-shadow: 0 0 0 3px var(--pf-primary-ring);
@@ -1129,7 +1405,9 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
 
 /* Filter bar containers */
 .quarto-listing-category,
-#post-type-filter {
+#post-type-filter,
+#art-category-filter,
+#music-category-filter {
     display: flex;
     flex-wrap: wrap;
     gap: 0.45rem;
@@ -1326,6 +1604,76 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
     a.nav-link {
         font-size: 1rem !important;
         padding: 0.5rem 1rem !important;
+    }
+    .navbar .quarto-navbar-tools
+    .dropdown-menu[aria-labelledby="quarto-navigation-tool-dropdown-0"] {
+        padding: 0.35em;
+        border-radius: var(--pf-radius);
+    }
+    .navbar .dropdown-menu[aria-labelledby="quarto-navigation-tool-dropdown-0"]
+    .dropdown-item {
+        padding: 0.3em 0.75em;
+        border-radius: var(--pf-radius-sm);
+        font-size: 1rem;
+        text-align: center;
+    }
+    /* In the collapsed navbar, nested links belong to the same vertical list
+       as the first-level links rather than a desktop-style floating popover. */
+    .navbar .navbar-nav > .nav-item > .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 0.75rem);
+        max-height: 0;
+        margin: 0 0 0 0.75rem;
+        padding: 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-0.25rem);
+        transform-origin: top;
+        transition:
+            max-height 0.22s cubic-bezier(0.2, 0, 0, 1),
+            opacity 0.16s ease-out,
+            transform 0.22s cubic-bezier(0.2, 0, 0, 1),
+            visibility 0s linear 0.22s;
+    }
+    .navbar .navbar-nav > .nav-item > .dropdown-menu.show {
+        max-height: 7.5rem;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+        transition-delay: 0s;
+    }
+    .navbar .navbar-nav > .nav-item.dropdown > .nav-link.dropdown-toggle::before {
+        transform-origin: center;
+        transition: transform 0.22s cubic-bezier(0.2, 0, 0, 1);
+    }
+    .navbar .navbar-nav.me-auto > .nav-item.dropdown > .dropdown-menu[data-bs-popper] {
+        left: auto !important;
+        margin-top: 0;
+    }
+    .navbar .navbar-nav > .nav-item > .dropdown-menu .dropdown-item {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border-radius: var(--pf-radius-sm);
+        color: var(--pf-text-secondary);
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        text-align: left;
+        transition: color 0.15s, background-color 0.15s;
+    }
+    .navbar .navbar-nav > .nav-item > .dropdown-menu .dropdown-item:hover,
+    .navbar .navbar-nav > .nav-item > .dropdown-menu .dropdown-item:focus,
+    .navbar .navbar-nav > .nav-item > .dropdown-menu .dropdown-item.active {
+        color: var(--pf-primary);
+        background-color: var(--pf-primary-light);
     }
     nav.quarto-secondary-nav { background-color: var(--pf-bg); }
     nav.quarto-secondary-nav button.btn.quarto-search-button { display: none; }

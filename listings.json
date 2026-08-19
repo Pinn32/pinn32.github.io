@@ -33,36 +33,73 @@
     ]
   },
   {
-    "listing": "/en/tutorials/index.html",
+    "listing": "/zh/hobbies/music/index.html",
+    "items": []
+  },
+  {
+    "listing": "/zh/hobbies/art/index.html",
+    "items": []
+  },
+  {
+    "listing": "/zh/blogs/index.html",
     "items": [
-      "/en/tutorials/2024-10-10-data-processing/index.html",
-      "/en/tutorials/2024-10-01-amounts-and-distribution/index.html",
-      "/en/tutorials/2024-10-27-multivariate-plots/index.html",
-      "/en/tutorials/2024-12-05-sankey-and-network/index.html",
-      "/en/tutorials/2026-03-27-r-tips/index.html",
-      "/en/tutorials/2025-10-07-colab-plotly-export/index.html",
-      "/en/tutorials/2025-10-07-fix-network-diagram/index.html"
+      "/zh/blogs/2026-07-16-ntn-workflows/index.html",
+      "/zh/blogs/2026-07-11-vps-ssh-login/index.html",
+      "/zh/blogs/2026-07-08-ntn-db-auto-sync/index.html",
+      "/zh/blogs/2026-06-15-quarto-img-styles/index.html",
+      "/zh/blogs/2025-10-07-colab-plotly-export/index.html",
+      "/zh/blogs/2025-10-07-fix-network-diagram/index.html",
+      "/zh/blogs/2024-12-22-easy-canvas-connection/index.html",
+      "/zh/blogs/2024-05-16-snipaste-fix/index.html",
+      "/zh/blogs/2024-04-22-recover-shellfolder/index.html"
     ]
   },
   {
-    "listing": "/en/tools/index.html",
+    "listing": "/zh/all-posts/index.html",
     "items": [
-      "/en/tools/2026-06-23-monthly-love/index.html",
-      "/en/tools/2026-04-17-news-hub/index.html",
-      "/en/tools/2026-04-06-url-shortener/index.html",
-      "/en/tools/2026-04-19-cat-img-hub/index.html",
-      "/en/tools/2025-12-10-bayanihan/index.html"
+      "/zh/blogs/2026-07-16-ntn-workflows/index.html",
+      "/zh/blogs/2026-07-11-vps-ssh-login/index.html",
+      "/zh/blogs/2026-07-08-ntn-db-auto-sync/index.html",
+      "/zh/blogs/2026-06-15-quarto-img-styles/index.html",
+      "/zh/blogs/2025-10-07-colab-plotly-export/index.html",
+      "/zh/blogs/2025-10-07-fix-network-diagram/index.html",
+      "/zh/blogs/2024-12-22-easy-canvas-connection/index.html",
+      "/zh/blogs/2024-05-16-snipaste-fix/index.html",
+      "/zh/blogs/2024-04-22-recover-shellfolder/index.html",
+      "/zh/projects/2026-05-01-ai-discourse/index.html",
+      "/zh/tutorials/2024-10-10-data-processing/index.html",
+      "/zh/projects/2026-02-23-student-media-usage/index.html",
+      "/zh/tutorials/2024-10-01-amounts-and-distribution/index.html",
+      "/zh/projects/2024-11-01-catalan-referendum/index.html",
+      "/zh/tutorials/2024-10-27-multivariate-plots/index.html",
+      "/zh/projects/2024-12-12-global-visa-cost/index.html",
+      "/zh/tutorials/2024-12-05-sankey-and-network/index.html",
+      "/zh/tutorials/2026-03-27-r-tips/index.html",
+      "/zh/projects/2026-02-25-most-streamed-songs/index.html",
+      "/zh/projects/2025-12-10-bayanihan/index.html"
     ]
   },
   {
-    "listing": "/en/index.html",
+    "listing": "/en/projects/index.html",
     "items": [
       "/en/projects/2026-05-01-ai-discourse/index.html",
+      "/en/projects/2026-02-23-student-media-usage/index.html",
+      "/en/projects/2024-11-01-catalan-referendum/index.html",
       "/en/projects/2024-12-12-global-visa-cost/index.html",
-      "/en/tools/2026-04-06-url-shortener/index.html",
-      "/en/projects/2025-12-10-bayanihan/index.html",
-      "/en/tools/2026-04-17-news-hub/index.html",
-      "/en/blogs/2026-07-16-ntn-workflows/index.html"
+      "/en/projects/2026-02-25-most-streamed-songs/index.html",
+      "/en/projects/2025-12-10-bayanihan/index.html"
+    ]
+  },
+  {
+    "listing": "/en/hobbies/video/index.html",
+    "items": []
+  },
+  {
+    "listing": "/en/hobbies/index.html",
+    "items": [
+      "/en/hobbies/art/index.html",
+      "/en/hobbies/music/index.html",
+      "/en/hobbies/video/index.html"
     ]
   },
   {
@@ -81,10 +118,7 @@
       "/en/projects/2026-02-25-most-streamed-songs/index.html",
       "/en/projects/2026-02-23-student-media-usage/index.html",
       "/en/projects/2025-12-10-bayanihan/index.html",
-      "/en/tools/2025-12-10-bayanihan/index.html",
-      "/en/tutorials/2025-10-07-fix-network-diagram/index.html",
       "/en/blogs/2025-10-07-fix-network-diagram/index.html",
-      "/en/tutorials/2025-10-07-colab-plotly-export/index.html",
       "/en/blogs/2025-10-07-colab-plotly-export/index.html",
       "/en/blogs/2024-12-22-easy-canvas-connection/index.html",
       "/en/projects/2024-12-12-global-visa-cost/index.html",
@@ -112,56 +146,57 @@
     ]
   },
   {
-    "listing": "/en/projects/index.html",
+    "listing": "/en/hobbies/art/index.html",
+    "items": []
+  },
+  {
+    "listing": "/en/hobbies/music/index.html",
+    "items": []
+  },
+  {
+    "listing": "/en/index.html",
     "items": [
       "/en/projects/2026-05-01-ai-discourse/index.html",
-      "/en/projects/2026-02-23-student-media-usage/index.html",
-      "/en/projects/2024-11-01-catalan-referendum/index.html",
       "/en/projects/2024-12-12-global-visa-cost/index.html",
-      "/en/projects/2026-02-25-most-streamed-songs/index.html",
-      "/en/projects/2025-12-10-bayanihan/index.html"
+      "/en/tools/2026-04-06-url-shortener/index.html",
+      "/en/projects/2025-12-10-bayanihan/index.html",
+      "/en/tools/2026-04-17-news-hub/index.html",
+      "/en/blogs/2026-07-16-ntn-workflows/index.html"
     ]
   },
   {
-    "listing": "/zh/all-posts/index.html",
+    "listing": "/en/tools/index.html",
     "items": [
-      "/zh/blogs/2026-07-16-ntn-workflows/index.html",
-      "/zh/blogs/2026-07-11-vps-ssh-login/index.html",
-      "/zh/blogs/2026-07-08-ntn-db-auto-sync/index.html",
-      "/zh/blogs/2026-06-15-quarto-img-styles/index.html",
-      "/zh/blogs/2025-10-07-colab-plotly-export/index.html",
-      "/zh/blogs/2025-10-07-fix-network-diagram/index.html",
-      "/zh/blogs/2024-12-22-easy-canvas-connection/index.html",
-      "/zh/blogs/2024-05-16-snipaste-fix/index.html",
-      "/zh/blogs/2024-04-22-recover-shellfolder/index.html",
-      "/zh/projects/2026-05-01-ai-discourse/index.html",
-      "/zh/tutorials/2024-10-10-data-processing/index.html",
-      "/zh/projects/2026-02-23-student-media-usage/index.html",
-      "/zh/tutorials/2024-10-01-amounts-and-distribution/index.html",
-      "/zh/projects/2024-11-01-catalan-referendum/index.html",
-      "/zh/tutorials/2024-10-27-multivariate-plots/index.html",
-      "/zh/projects/2024-12-12-global-visa-cost/index.html",
-      "/zh/tutorials/2024-12-05-sankey-and-network/index.html",
-      "/zh/tutorials/2026-03-27-r-tips/index.html",
-      "/zh/projects/2026-02-25-most-streamed-songs/index.html",
-      "/zh/tutorials/2025-10-07-colab-plotly-export/index.html",
-      "/zh/tutorials/2025-10-07-fix-network-diagram/index.html",
-      "/zh/projects/2025-12-10-bayanihan/index.html"
+      "/en/tools/2026-06-23-monthly-love/index.html",
+      "/en/tools/2026-04-17-news-hub/index.html",
+      "/en/tools/2026-04-06-url-shortener/index.html",
+      "/en/tools/2026-04-19-cat-img-hub/index.html",
+      "/en/tools/2025-12-10-bayanihan/index.html"
     ]
   },
   {
-    "listing": "/zh/blogs/index.html",
+    "listing": "/en/tutorials/index.html",
     "items": [
-      "/zh/blogs/2026-07-16-ntn-workflows/index.html",
-      "/zh/blogs/2026-07-11-vps-ssh-login/index.html",
-      "/zh/blogs/2026-07-08-ntn-db-auto-sync/index.html",
-      "/zh/blogs/2026-06-15-quarto-img-styles/index.html",
-      "/zh/blogs/2025-10-07-colab-plotly-export/index.html",
-      "/zh/blogs/2025-10-07-fix-network-diagram/index.html",
-      "/zh/blogs/2024-12-22-easy-canvas-connection/index.html",
-      "/zh/blogs/2024-05-16-snipaste-fix/index.html",
-      "/zh/blogs/2024-04-22-recover-shellfolder/index.html"
+      "/en/tutorials/2024-10-10-data-processing/index.html",
+      "/en/tutorials/2024-10-01-amounts-and-distribution/index.html",
+      "/en/tutorials/2024-10-27-multivariate-plots/index.html",
+      "/en/tutorials/2024-12-05-sankey-and-network/index.html",
+      "/en/tutorials/2026-03-27-r-tips/index.html",
+      "/en/tutorials/2025-10-07-colab-plotly-export/index.html",
+      "/en/tutorials/2025-10-07-fix-network-diagram/index.html"
     ]
+  },
+  {
+    "listing": "/zh/hobbies/index.html",
+    "items": [
+      "/zh/hobbies/art/index.html",
+      "/zh/hobbies/video/index.html",
+      "/zh/hobbies/music/index.html"
+    ]
+  },
+  {
+    "listing": "/zh/hobbies/video/index.html",
+    "items": []
   },
   {
     "listing": "/zh/projects/index.html",

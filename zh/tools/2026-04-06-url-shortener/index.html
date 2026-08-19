@@ -330,6 +330,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../../en/blogs/index.html"> 
 <span class="menu-text">Blogs</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-media" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Media</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-media">    
+        <li>
+    <a class="dropdown-item" href="../../../en/hobbies/video/index.html">
+ <span class="dropdown-text">Video &amp; Animation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../en/hobbies/art/index.html">
+ <span class="dropdown-text">Art &amp; Painting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../en/hobbies/music/index.html">
+ <span class="dropdown-text">Music &amp; Instrument</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -595,6 +614,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">媒体</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../zh/hobbies/video/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">视频与动画</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../zh/hobbies/art/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">艺术与绘画</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../zh/hobbies/music/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">音乐与乐器</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../zh/readme/index.html" class="sidebar-item-text sidebar-link">
@@ -684,7 +732,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     5 min read</span><span> · </span><span>215 EN words</span><span> · </span><span>1135 中文字</span></div>
+     6 min read</span><span> · </span><span>237 EN words</span><span> · </span><span>1152 中文字</span></div>
 <section id="短链接生成器-url-shortener" class="level1">
 <h1>短链接生成器 (URL Shortener)</h1>
 <p>URL Shortener 可以把长网址转换成带有自定义后缀的短链接。无需注册即可直接使用；通过 Google 登录后，新建的链接会保存到个人账户中，之后可以集中管理。</p>
@@ -694,9 +742,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- :::{.macbook-frame style="width:35rem;"}
 ![URL Shortener](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623194155759.png)
 ::: -->
-<div style="max-width:40rem; margin:0 auto;">
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="URL Shortener Demo"><source src="../../../src/video/tools/2026-07-22-url-shortener-demo.mov"></video></div>
-</div>
+<!-- :::{style="max-width:40rem; margin:0 auto;"}
+```{=html}
+<video class="site-video-player" controls preload="metadata" playsinline title="URL Shortener Demo" style="display:block; width:100%;">
+  <source data-video-src="https://cdn.mcp32.com/video/tool/2026-07-22-url-shortener-demo.mp4" type="video/mp4">
+  Your browser does not support HTML video.
+</video>
+```
+::: -->
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="https://cdn.mcp32.com/video/tool/2026-07-22-url-shortener-demo.mp4"></video></div>
 <p>短链接是长网址的精简版本，分享时占用的篇幅更少，也更容易记住。自定义后缀（slug）还能让链接的含义一目了然，例如 <code>url-to.vercel.app/my-portfolio</code>，不必使用随机生成的字符串。</p>
 <section id="功能介绍" class="level2">
 <h2 class="anchored" data-anchor-id="功能介绍">功能介绍</h2>
@@ -796,14 +850,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     1. script-strip-index-html   Strip internal links' .../index.html suffixes
     2. script-fix-navbar-active  Fix navbar active state when a global sidebar is present
     3. script-nav-lang-switch    Switch navbar header language
-    3. script-fix-code-fold      Wire the "show all / hide all code" buttons
-    4. script-fix-sidebar-toggle Make sidebar section row's empty area toggle collapse
-    5. script-fix-sidebar-search Replace the dead sidebar search box with a working button
-    6. script-fix-tag-redirect   Redirect post-page tag links to their listing page
-    7. script-copyright-year     Update the copyright year in the footer
-    8. script-mermaid-early      Render Mermaid diagrams at parse time, not on window.load
-    9. script-lst-wrap-output    Pull knitr's output cell into the listing <figure> (like Jupyter)
-   10. script-lst-caption-below  Move code-listing (lst) captions below the output
+    4. script-fix-code-fold      Wire the "show all / hide all code" buttons
+    5. script-fix-sidebar-toggle Make sidebar section row's empty area toggle collapse
+    6. script-fix-sidebar-search Replace the dead sidebar search box with a working button
+    7. script-fix-tag-redirect   Redirect post-page tag links to their listing page
+    8. script-copyright-year     Update the copyright year in the footer
+    9. script-mermaid-early      Render Mermaid diagrams at parse time, not on window.load
+   10. script-lst-wrap-output    Pull knitr's output cell into the listing <figure> (like Jupyter)
+   11. script-lst-caption-below  Move code-listing (lst) captions below the output
+   12. script-fix-video-playback Load videos reliably with or without HTTP byte ranges
+   13. script-subtitle-typewriter Animate rotating page subtitles
 
     Page-specific scripts (responsive-tag-bar, post-type-filter)
     live in their own files and are included separately.
@@ -857,19 +913,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         const pageSection = pageSectionMatch ? pageSectionMatch[1] : null;
 
         document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-            const href = link.getAttribute('href');
-            if (!href) return;
+            let linkSections = [];
 
-            let linkSection = null;
-            try {
-                const linkPath = new URL(href, window.location.href).pathname.replace(/\/index\.html$/, '/');
-                const linkSectionMatch = linkPath.match(/\/(?:en|zh)\/([^/]+)/);
-                linkSection = linkSectionMatch ? linkSectionMatch[1] : null;
-            } catch {
-                // href is malformed — skip this link
+            if (link.classList.contains('dropdown-toggle')) {
+                // A dropdown toggle uses href="#", which resolves to the current
+                // page and must not determine its active state. Derive the parent
+                // section from the destinations represented by its submenu.
+                const dropdown = link.closest('.nav-item.dropdown');
+                linkSections = [...(dropdown?.querySelectorAll('.dropdown-item[href]') ?? [])]
+                    .map(item => {
+                        try {
+                            const itemPath = new URL(item.getAttribute('href'), window.location.href).pathname;
+                            return itemPath.match(/\/(?:en|zh)\/([^/]+)/)?.[1] ?? null;
+                        } catch {
+                            return null;
+                        }
+                    })
+                    .filter(Boolean);
+            } else {
+                const href = link.getAttribute('href');
+                if (href) {
+                    try {
+                        const linkPath = new URL(href, window.location.href).pathname;
+                        const linkSectionMatch = linkPath.match(/\/(?:en|zh)\/([^/]+)/);
+                        linkSections = linkSectionMatch ? [linkSectionMatch[1]] : [];
+                    } catch {
+                        // href is malformed — leave this link inactive
+                    }
+                }
             }
 
-            const isActive = pageSection !== null && pageSection === linkSection;
+            const isActive = pageSection !== null && linkSections.includes(pageSection);
             link.classList.toggle('active', isActive);
             if (isActive) link.setAttribute('aria-current', 'page');
             else link.removeAttribute('aria-current');
@@ -901,7 +975,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             Tutorials: 'Tutorials',
             Tools: 'Tools',
             Blogs: 'Blogs',
-            Hobbies: 'Hobbies',
+            Media: 'Media',
+            'Video & Animation': 'Video & Animation',
+            'Art & Painting': 'Art & Painting',
+            'Music & Instrument': 'Music & Instrument',
             'All Posts': 'All Posts',
             About: 'About',
             Contact: 'Contact',
@@ -912,7 +989,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             Tutorials: '教程',
             Tools: '工具',
             Blogs: '博客',
-            Hobbies: '爱好',
+            Media: '媒体',
+            'Video & Animation': '视频与动画',
+            'Art & Painting': '艺术与绘画',
+            'Music & Instrument': '音乐与乐器',
             'All Posts': '所有文章',
             About: '关于',
             Contact: '联系作者',
@@ -942,7 +1022,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         const lang = langMatch ? langMatch[1] : 'en';
         const translations = NAV_TRANSLATIONS[lang] ?? NAV_TRANSLATIONS.en;
 
-        document.querySelectorAll('.navbar-nav .nav-link').forEach(el => {
+        document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .dropdown-item').forEach(el => {
             const text = el.textContent.trim();
             if (translations[text]) {
                 el.textContent = translations[text];
@@ -1077,7 +1157,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
     document.addEventListener("DOMContentLoaded", function () {
         const el = document.getElementById("copyright-year");
-        if (el) el.textContent = new Date().getFullYear();
+        if (el) {
+            const currentYear = new Date().getFullYear();
+            el.textContent = currentYear > 2026
+                ? `2026 – ${currentYear}`
+                : "2026";
+        }
     });
 </script>
 
@@ -1196,106 +1281,203 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         });
     })();
 </script>
-<script id="script-subtitle-typewriter">
-(() => {
-    const data = document.getElementById("subtitle-typing-lines");
-    const subtitle = document.querySelector(".quarto-title p.subtitle");
 
-    if (!data || !subtitle) return;
 
-    let lines;
+<!-- ====================================================================== -->
+<script id="script-fix-video-playback">
+    // Make native MP4 players seek and resume reliably across browsers.
+    //
+    // Chrome cannot seek reliably when an MP4's metadata is at the end of the
+    // file and the web server does not honor byte-range requests. Probe range
+    // support before assigning the source: capable servers keep normal streamed
+    // playback, while incapable servers use the already-downloaded response as
+    // a seekable Blob URL. Safari and Firefox retain their native players too.
+    (() => {
+        const objectUrls = new Set();
 
-    try {
-        lines = JSON.parse(data.textContent);
-    } catch {
-        return;
-    }
+        async function loadVideo(source) {
+            const videoSrc = source?.dataset.videoSrc;
+            if (!videoSrc || source.dataset.loading === "true") return;
 
-    if (!Array.isArray(lines) || lines.length < 2) return;
+            const video = source.closest("video");
+            if (!video) return;
 
-    const TYPE_TIME_PER_CHARACTER = 40;
-    const LINE_PAUSE = 2000;
-    const DELETE_DURATION = 750;
-    const BETWEEN_LINES_PAUSE = 160;
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const wait = (milliseconds) => new Promise((resolve) => {
-        window.setTimeout(resolve, milliseconds);
-    });
-    let run = 0;
+            source.dataset.loading = "true";
+            video.setAttribute("aria-busy", "true");
 
-    document.body.classList.add("subtitle-typing-active");
-    subtitle.classList.add("subtitle-typewriter");
-    subtitle.setAttribute("aria-label", lines.join(". "));
-    subtitle.setAttribute("aria-live", "off");
+            try {
+                const response = await fetch(videoSrc, {
+                    headers: { Range: "bytes=0-0" },
+                    cache: "no-store"
+                });
 
-    function animateCharacters(characters, duration, deleting, currentRun) {
-        return new Promise((resolve) => {
-            const startedAt = performance.now();
-
-            function frame(now) {
-                if (currentRun !== run || reducedMotion.matches) {
-                    resolve(false);
-                    return;
-                }
-
-                const progress = Math.min((now - startedAt) / duration, 1);
-                const count = deleting
-                    ? Math.ceil(characters.length * (1 - progress))
-                    : Math.floor(characters.length * progress);
-
-                subtitle.textContent = characters.slice(0, count).join("");
-
-                if (progress < 1) {
-                    window.requestAnimationFrame(frame);
+                if (response.status === 206) {
+                    await response.body?.cancel();
+                    source.src = videoSrc;
+                } else if (response.ok) {
+                    const objectUrl = URL.createObjectURL(await response.blob());
+                    objectUrls.add(objectUrl);
+                    source.src = objectUrl;
                 } else {
-                    resolve(true);
+                    throw new Error(`Video request failed with status ${response.status}`);
                 }
+            } catch (error) {
+                // Direct playback remains the safest fallback for offline pages,
+                // restrictive privacy settings, and unexpected server responses.
+                console.warn(`Unable to prepare ${videoSrc} for seeking.`, error);
+                source.src = videoSrc;
+            } finally {
+                source.removeAttribute("data-video-src");
+                source.removeAttribute("data-loading");
+                video.removeAttribute("aria-busy");
+                video.load();
             }
-
-            window.requestAnimationFrame(frame);
-        });
-    }
-
-    async function typeLines(currentRun) {
-        let lineIndex = 0;
-
-        while (currentRun === run && !reducedMotion.matches) {
-            const characters = Array.from(lines[lineIndex]);
-            const typeDuration = characters.length * TYPE_TIME_PER_CHARACTER;
-
-            if (!await animateCharacters(characters, typeDuration, false, currentRun)) return;
-            await wait(LINE_PAUSE);
-
-            if (currentRun !== run || reducedMotion.matches) return;
-            if (!await animateCharacters(characters, DELETE_DURATION, true, currentRun)) return;
-            await wait(BETWEEN_LINES_PAUSE);
-
-            lineIndex = (lineIndex + 1) % lines.length;
         }
-    }
 
-    function start() {
-        run += 1;
+        const videos = [...document.querySelectorAll("video")].filter(video =>
+            video.querySelector("source[data-video-src]")
+        );
 
-        if (reducedMotion.matches) {
-            subtitle.classList.add("is-reduced-motion");
-            subtitle.textContent = lines.join("\n");
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    observer.unobserve(entry.target);
+                    loadVideo(entry.target.querySelector("source[data-video-src]"));
+                });
+            }, { rootMargin: "200px 0px" });
+
+            videos.forEach(video => observer.observe(video));
+        } else {
+            videos.forEach(video => loadVideo(video.querySelector("source[data-video-src]")));
+        }
+
+        videos.forEach(video => {
+            ["pointerdown", "focus"].forEach(eventName => {
+                video.addEventListener(eventName, () => {
+                    loadVideo(video.querySelector("source[data-video-src]"));
+                }, { once: true });
+            });
+
+            // Do not let gallery players continue over one another.
+            video.addEventListener("play", () => {
+                document.querySelectorAll("video").forEach(otherVideo => {
+                    if (otherVideo !== video && !otherVideo.paused) otherVideo.pause();
+                });
+            });
+        });
+
+        window.addEventListener("pagehide", () => {
+            objectUrls.forEach(objectUrl => URL.revokeObjectURL(objectUrl));
+            objectUrls.clear();
+        });
+    })();
+</script>
+
+
+<!-- ====================================================================== -->
+<script id="script-subtitle-typewriter">
+    // Animate rotating page subtitles.
+
+    (() => {
+        const data = document.getElementById("subtitle-typing-lines");
+        const subtitle = document.querySelector(".quarto-title p.subtitle");
+
+        if (!data || !subtitle) return;
+
+        let lines;
+
+        try {
+            lines = JSON.parse(data.textContent);
+        } catch {
             return;
         }
 
-        subtitle.classList.remove("is-reduced-motion");
-        subtitle.textContent = "";
-        typeLines(run);
-    }
+        if (!Array.isArray(lines) || lines.length < 2) return;
 
-    if (typeof reducedMotion.addEventListener === "function") {
-        reducedMotion.addEventListener("change", start);
-    } else {
-        reducedMotion.addListener(start);
-    }
+        const TYPE_TIME_PER_CHARACTER = 40;
+        const LINE_PAUSE = 2000;
+        const DELETE_DURATION = 750;
+        const BETWEEN_LINES_PAUSE = 160;
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        const wait = (milliseconds) => new Promise((resolve) => {
+            window.setTimeout(resolve, milliseconds);
+        });
+        let run = 0;
 
-    start();
-})();
+        document.body.classList.add("subtitle-typing-active");
+        subtitle.classList.add("subtitle-typewriter");
+        subtitle.setAttribute("aria-label", lines.join(". "));
+        subtitle.setAttribute("aria-live", "off");
+
+        function animateCharacters(characters, duration, deleting, currentRun) {
+            return new Promise((resolve) => {
+                const startedAt = performance.now();
+
+                function frame(now) {
+                    if (currentRun !== run || reducedMotion.matches) {
+                        resolve(false);
+                        return;
+                    }
+
+                    const progress = Math.min((now - startedAt) / duration, 1);
+                    const count = deleting
+                        ? Math.ceil(characters.length * (1 - progress))
+                        : Math.floor(characters.length * progress);
+
+                    subtitle.textContent = characters.slice(0, count).join("");
+
+                    if (progress < 1) {
+                        window.requestAnimationFrame(frame);
+                    } else {
+                        resolve(true);
+                    }
+                }
+
+                window.requestAnimationFrame(frame);
+            });
+        }
+
+        async function typeLines(currentRun) {
+            let lineIndex = 0;
+
+            while (currentRun === run && !reducedMotion.matches) {
+                const characters = Array.from(lines[lineIndex]);
+                const typeDuration = characters.length * TYPE_TIME_PER_CHARACTER;
+
+                if (!await animateCharacters(characters, typeDuration, false, currentRun)) return;
+                await wait(LINE_PAUSE);
+
+                if (currentRun !== run || reducedMotion.matches) return;
+                if (!await animateCharacters(characters, DELETE_DURATION, true, currentRun)) return;
+                await wait(BETWEEN_LINES_PAUSE);
+
+                lineIndex = (lineIndex + 1) % lines.length;
+            }
+        }
+
+        function start() {
+            run += 1;
+
+            if (reducedMotion.matches) {
+                subtitle.classList.add("is-reduced-motion");
+                subtitle.textContent = lines.join("\n");
+                return;
+            }
+
+            subtitle.classList.remove("is-reduced-motion");
+            subtitle.textContent = "";
+            typeLines(run);
+        }
+
+        if (typeof reducedMotion.addEventListener === "function") {
+            reducedMotion.addEventListener("change", start);
+        } else {
+            reducedMotion.addListener(start);
+        }
+
+        start();
+    })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1836,73 +2018,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">![URL Shortener](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623194155759.png)</span></span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">::: --&gt;</span></span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>:::{style="max-width:40rem; margin:0 auto;"}</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>{{<span class="dt">&lt;</span><span class="kw">video</span><span class="ot"> </span><span class="er">/</span><span class="ot">src</span><span class="er">/</span><span class="ot">video</span><span class="er">/</span><span class="ot">tools</span><span class="er">/2026-07-22-</span><span class="ot">url-shortener-demo.mov title</span><span class="op">=</span><span class="st">"URL Shortener Demo"</span><span class="dt">&gt;</span>}}</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>短链接是长网址的精简版本，分享时占用的篇幅更少，也更容易记住。自定义后缀（slug）还能让链接的含义一目了然，例如 <span class="in">`url-to.vercel.app/my-portfolio`</span>，不必使用随机生成的字符串。</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## 功能介绍</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**自定义短链接**：为目标网址设置一个自己容易记住的后缀。</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**免登录使用**：不注册账户也能创建可正常访问的短链接。</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**直接跳转**：打开短链接后，浏览器会直接前往原始网址。</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Google 登录**：通过 Auth.js 和 Google OAuth 完成身份验证。</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**按账户保存**：登录状态下创建的链接会自动加入「我的短链接」（**Your shortened URLs**）列表。</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**编辑链接**：修改已保存链接的后缀，并添加不超过 10 个单词的说明。</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**查看时间**：编辑链接时可查看创建日期和最后修改日期。</span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**删除链接**：确认后可删除账户中的链接。</span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**导出 JSON**：将账户中的全部链接下载为 JSON 文件，也可以直接复制 JSON 到剪贴板。</span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**修改显示名称**：系统会根据 Gmail 地址生成初始用户名，你也可以改成希望显示在页面顶部的名称。</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**持久化跳转**：链接映射保存在 MongoDB 中，创建后的短链接可以持续使用。</span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## 创建短链接</span></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>输入完整的目标网址，包括 <span class="in">`https://`</span>：</span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>   <span class="in">```txt</span></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="in">   https://example.com/your/very/long/url/</span></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>设置短链接后缀。生成后的链接格式如下：</span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>   <span class="in">```txt</span></span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="in">   https://url-to.vercel.app/your-slug</span></span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>点击 **Click to Compact**。生成的短链接可以直接复制和分享，访问者打开后会跳转到目标网址。</span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## 游客模式与登录模式</span></span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>短链接生成功能无需登录。游客创建的链接仍会正常跳转，但不会关联到任何账户，因此不会出现在链接管理列表中。</span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>如果需要保存和管理新链接，请先通过 Google 登录。登录后创建的链接都会加入「我的短链接」（**Your shortened URLs**）。</span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## 管理已保存的链接</span></span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>在「我的短链接」中选择一条记录，可以进行以下操作：</span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>修改链接后缀；</span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>添加或修改说明，最多 10 个单词；</span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>查看创建日期和最后修改日期；</span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>确认后删除链接。</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- :::{style="max-width:40rem; margin:0 auto;"}</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co">```{=html}</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;video class="site-video-player" controls preload="metadata" playsinline title="URL Shortener Demo" style="display:block; width:100%;"&gt;</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co">  &lt;source data-video-src="https://cdn.mcp32.com/video/tool/2026-07-22-url-shortener-demo.mp4" type="video/mp4"&gt;</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co">  Your browser does not support HTML video.</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;/video&gt;</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co">```</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co">::: --&gt;</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>{{<span class="dt">&lt;</span><span class="kw">video</span><span class="ot"> https:</span><span class="er">//</span><span class="ot">cdn.mcp32.com</span><span class="er">/</span><span class="ot">video</span><span class="er">/</span><span class="ot">tool</span><span class="er">/2026-07-22-</span><span class="ot">url-shortener-demo.mp4</span><span class="dt">&gt;</span>}}</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>短链接是长网址的精简版本，分享时占用的篇幅更少，也更容易记住。自定义后缀（slug）还能让链接的含义一目了然，例如 <span class="in">`url-to.vercel.app/my-portfolio`</span>，不必使用随机生成的字符串。</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## 功能介绍</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**自定义短链接**：为目标网址设置一个自己容易记住的后缀。</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**免登录使用**：不注册账户也能创建可正常访问的短链接。</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**直接跳转**：打开短链接后，浏览器会直接前往原始网址。</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Google 登录**：通过 Auth.js 和 Google OAuth 完成身份验证。</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**按账户保存**：登录状态下创建的链接会自动加入「我的短链接」（**Your shortened URLs**）列表。</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**编辑链接**：修改已保存链接的后缀，并添加不超过 10 个单词的说明。</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**查看时间**：编辑链接时可查看创建日期和最后修改日期。</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**删除链接**：确认后可删除账户中的链接。</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**导出 JSON**：将账户中的全部链接下载为 JSON 文件，也可以直接复制 JSON 到剪贴板。</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**修改显示名称**：系统会根据 Gmail 地址生成初始用户名，你也可以改成希望显示在页面顶部的名称。</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**持久化跳转**：链接映射保存在 MongoDB 中，创建后的短链接可以持续使用。</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## 创建短链接</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>输入完整的目标网址，包括 <span class="in">`https://`</span>：</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>   <span class="in">```txt</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="in">   https://example.com/your/very/long/url/</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>设置短链接后缀。生成后的链接格式如下：</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>   <span class="in">```txt</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="in">   https://url-to.vercel.app/your-slug</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="in">   ```</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>点击 **Click to Compact**。生成的短链接可以直接复制和分享，访问者打开后会跳转到目标网址。</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="fu">## 游客模式与登录模式</span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>短链接生成功能无需登录。游客创建的链接仍会正常跳转，但不会关联到任何账户，因此不会出现在链接管理列表中。</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>如果需要保存和管理新链接，请先通过 Google 登录。登录后创建的链接都会加入「我的短链接」（**Your shortened URLs**）。</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="fu">## 管理已保存的链接</span></span>
 <span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>如需备份或另作处理，可以把账户中的全部链接下载为 JSON 文件，也可以将 JSON 直接复制到剪贴板。</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>在「我的短链接」中选择一条记录，可以进行以下操作：</span>
 <span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>在「我的账户」（**Your account**）中点击 **Edit username**，可以修改页面顶部显示的名称。初始用户名来自登录时使用的 Gmail 地址。</span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## 技术栈</span></span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 部分 <span class="pp">|</span> 技术 <span class="pp">|</span></span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="pp">| ---</span> <span class="pp">| ---</span> <span class="pp">|</span></span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 框架 <span class="pp">|</span> Next.js 16（App Router） <span class="pp">|</span></span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 前端界面 <span class="pp">|</span> React 19 + styled-components <span class="pp">|</span></span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 身份验证 <span class="pp">|</span> Auth.js + Google OAuth <span class="pp">|</span></span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 账户数据 <span class="pp">|</span> Auth.js MongoDB adapter <span class="pp">|</span></span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 数据库 <span class="pp">|</span> MongoDB <span class="pp">|</span></span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 字体 <span class="pp">|</span> 通过 <span class="in">`next/font`</span> 加载 Quantico <span class="pp">|</span></span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">&gt;&gt; 查看 GitHub 源码</span><span class="co">](https://github.com/Pinn32/url-shortener)</span>{target="_blank"}</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>修改链接后缀；</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>添加或修改说明，最多 10 个单词；</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>查看创建日期和最后修改日期；</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>确认后删除链接。</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>如需备份或另作处理，可以把账户中的全部链接下载为 JSON 文件，也可以将 JSON 直接复制到剪贴板。</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>在「我的账户」（**Your account**）中点击 **Edit username**，可以修改页面顶部显示的名称。初始用户名来自登录时使用的 Gmail 地址。</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## 技术栈</span></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 部分 <span class="pp">|</span> 技术 <span class="pp">|</span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="pp">| ---</span> <span class="pp">| ---</span> <span class="pp">|</span></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 框架 <span class="pp">|</span> Next.js 16（App Router） <span class="pp">|</span></span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 前端界面 <span class="pp">|</span> React 19 + styled-components <span class="pp">|</span></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 身份验证 <span class="pp">|</span> Auth.js + Google OAuth <span class="pp">|</span></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 账户数据 <span class="pp">|</span> Auth.js MongoDB adapter <span class="pp">|</span></span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 数据库 <span class="pp">|</span> MongoDB <span class="pp">|</span></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 字体 <span class="pp">|</span> 通过 <span class="in">`next/font`</span> 加载 Quantico <span class="pp">|</span></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">&gt;&gt; 查看 GitHub 源码</span><span class="co">](https://github.com/Pinn32/url-shortener)</span>{target="_blank"}</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
