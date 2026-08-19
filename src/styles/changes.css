@@ -599,7 +599,7 @@ body.quarto-dark .cl-hm-cell {
 
 .cl-tag-feat    { color: #d97706;; }  /* feat */
 .cl-tag-dev     { color: #2563eb; }  /* dev, fix, style, script */
-.cl-tag-content { color: #16a34a }  /* contnt, proj, blg, tool, hobb, ttl */
+.cl-tag-content { color: #16a34a }  /* contnt, proj, blg, tool, hobb, media, ttl */
 
 body.quarto-dark .cl-tag-feat    { color: #fbbf24; }
 body.quarto-dark .cl-tag-dev     { color: #60a5fa; }

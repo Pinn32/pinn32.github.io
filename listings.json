@@ -22,6 +22,18 @@
     ]
   },
   {
+    "listing": "/zh/media/video/index.html",
+    "items": []
+  },
+  {
+    "listing": "/zh/media/index.html",
+    "items": [
+      "/zh/media/art/index.html",
+      "/zh/media/video/index.html",
+      "/zh/media/music/index.html"
+    ]
+  },
+  {
     "listing": "/zh/index.html",
     "items": [
       "/zh/projects/2026-05-01-ai-discourse/index.html",
@@ -31,14 +43,6 @@
       "/zh/tools/2026-04-17-news-hub/index.html",
       "/zh/blogs/2026-07-16-ntn-workflows/index.html"
     ]
-  },
-  {
-    "listing": "/zh/hobbies/music/index.html",
-    "items": []
-  },
-  {
-    "listing": "/zh/hobbies/art/index.html",
-    "items": []
   },
   {
     "listing": "/zh/blogs/index.html",
@@ -91,16 +95,12 @@
     ]
   },
   {
-    "listing": "/en/hobbies/video/index.html",
+    "listing": "/en/media/music/index.html",
     "items": []
   },
   {
-    "listing": "/en/hobbies/index.html",
-    "items": [
-      "/en/hobbies/art/index.html",
-      "/en/hobbies/music/index.html",
-      "/en/hobbies/video/index.html"
-    ]
+    "listing": "/en/media/art/index.html",
+    "items": []
   },
   {
     "listing": "/en/all-posts/index.html",
@@ -146,14 +146,6 @@
     ]
   },
   {
-    "listing": "/en/hobbies/art/index.html",
-    "items": []
-  },
-  {
-    "listing": "/en/hobbies/music/index.html",
-    "items": []
-  },
-  {
     "listing": "/en/index.html",
     "items": [
       "/en/projects/2026-05-01-ai-discourse/index.html",
@@ -163,6 +155,18 @@
       "/en/tools/2026-04-17-news-hub/index.html",
       "/en/blogs/2026-07-16-ntn-workflows/index.html"
     ]
+  },
+  {
+    "listing": "/en/media/index.html",
+    "items": [
+      "/en/media/art/index.html",
+      "/en/media/music/index.html",
+      "/en/media/video/index.html"
+    ]
+  },
+  {
+    "listing": "/en/media/video/index.html",
+    "items": []
   },
   {
     "listing": "/en/tools/index.html",
@@ -187,15 +191,11 @@
     ]
   },
   {
-    "listing": "/zh/hobbies/index.html",
-    "items": [
-      "/zh/hobbies/art/index.html",
-      "/zh/hobbies/video/index.html",
-      "/zh/hobbies/music/index.html"
-    ]
+    "listing": "/zh/media/art/index.html",
+    "items": []
   },
   {
-    "listing": "/zh/hobbies/video/index.html",
+    "listing": "/zh/media/music/index.html",
     "items": []
   },
   {

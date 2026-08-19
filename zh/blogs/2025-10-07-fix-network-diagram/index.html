@@ -337,15 +337,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-media">    
         <li>
-    <a class="dropdown-item" href="../../../en/hobbies/video/index.html">
+    <a class="dropdown-item" href="../../../en/media/video/index.html">
  <span class="dropdown-text">Video &amp; Animation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../en/hobbies/art/index.html">
+    <a class="dropdown-item" href="../../../en/media/art/index.html">
  <span class="dropdown-text">Art &amp; Painting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../en/hobbies/music/index.html">
+    <a class="dropdown-item" href="../../../en/media/music/index.html">
  <span class="dropdown-text">Music &amp; Instrument</span></a>
   </li>  
     </ul>
@@ -626,19 +626,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../zh/hobbies/video/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../zh/media/video/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">视频与动画</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../zh/hobbies/art/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../zh/media/art/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">艺术与绘画</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../zh/hobbies/music/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../zh/media/music/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">音乐与乐器</span></a>
   </div>
 </li>
@@ -738,7 +738,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="2"><span class="header-section-number">2</span> 解决</h1>
 <p>调用 <code>Network()</code> 时不传入任何参数，手动生成关系图的 HTML，再通过 <code>srcdoc</code> 属性将其包进一个 iframe。由于 <code>srcdoc</code> 的值以单引号界定，需先把生成的 HTML 中的单引号全部替换为双引号。</p>
 <p>该方法在 Notebook 能渲染的各种环境下都有效：Jupyter、Colab <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>、导出的 HTML <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>，乃至 VS Code。</p>
-<div id="6402642b" class="cell" data-execution_count="1">
+<div id="e8eb2816" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个空的网络关系图</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>gp <span class="op">=</span> Network()  <span class="co"># 不指定任何参数</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 将网络关系添加到关系图中</span></span>
@@ -768,7 +768,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="其他方法及其缺陷" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> 其他方法及其缺陷</h1>
 <p>其他方法都需要在调用 <code>Network()</code> 时指定 <code>notebook</code> 和 <code>cdn_resources</code> 参数：</p>
-<div id="03d8d860" class="cell" data-execution_count="2">
+<div id="890dff2b" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gp <span class="op">=</span> Network(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    notebook<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    cdn_resources<span class="op">=</span><span class="st">"in_line"</span>,</span>
@@ -786,7 +786,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="在线演示" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> 在线演示</h1>
-<div id="cab7a46e" class="cell" data-execution_count="3">
+<div id="2a815cad" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>代码</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 导入库</span></span>
