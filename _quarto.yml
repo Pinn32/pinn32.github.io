@@ -1,12 +1,20 @@
 project:
   type: website
+  # A normal render updates _site in place and can leave removed resources
+  # behind. Start clean so stale local media can never enter a Pages publish.
+  pre-render: bash scripts/clean-site-output.sh
+  post-render: bash scripts/check-site-output.sh
   render:
     - "*.{qmd,R,py,md}"
     - "!archive/**/*"
     - "!README.zh.md"
     - "!*.ejs.md"
   resources:
-    - "src/**"
+    # Video and gallery media are served from cdn.mcp32.com. Do not copy local
+    # media masters or render-only datasets into the gh-pages branch.
+    - "src/img/**"
+    - "src/data/colab-plotly-export/**"
+    - "src/data/fix-network-diagram/**"
   preview: 
     # host: 0.0.0.0
     port: 4200
