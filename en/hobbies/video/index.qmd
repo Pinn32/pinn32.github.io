@@ -3,6 +3,9 @@ title: 'Video & Animation Production'
 subtitle: 'Video Projects and Animation Works'
 toc: false
 sidebar: false
+page-navigation: false
+bread-crumbs: false
+body-classes: hobbies-gallery-page
 listing:
   id: video-production-listing
   contents: videos.yml

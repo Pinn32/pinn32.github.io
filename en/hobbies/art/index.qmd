@@ -4,6 +4,9 @@ subtitle: 'Visual design, fanart (doujin), and original characters (OCs).'
 include-after-body: '../../../src/scripts/art-category-filter.html'
 sidebar: false
 toc: false
+page-navigation: false
+bread-crumbs: false
+body-classes: hobbies-gallery-page
 lightbox: true
 listing:
   id: art-gallery

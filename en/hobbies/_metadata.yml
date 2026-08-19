@@ -2,7 +2,8 @@ code-tools: true
 code-fold: false
 number-sections: true
 back-to-top-navigation: true
-page-navigation: true
+page-navigation: false
+bread-crumbs: false
 reading-meta-enabled: true
 sidebar: true
 post-type: blog

@@ -208,6 +208,13 @@ a:hover {
     background-image: var(--pf-navbar-toggler-icon);
 }
 
+/* Quarto listings can still emit inherited sidebar breadcrumbs and pagination
+   even when their page-level navigation flags are disabled. */
+body.hobbies-gallery-page .quarto-page-breadcrumbs,
+body.hobbies-gallery-page .page-navigation {
+    display: none !important;
+}
+
 /* Desktop: Margin between Nav Right and Nav Tools */
 @media (min-width: 992px) {
     .navbar .quarto-navbar-tools {
@@ -775,6 +782,45 @@ hr {
 .navbar .navbar-nav.me-auto > .nav-item.dropdown > .dropdown-menu[data-bs-popper] {
     left: 0.75rem !important;
     margin-top: 0.25rem;
+}
+
+/* Desktop navbar popovers share the same floating surface. Media items follow
+   reading direction; the compact language choices remain centered. */
+@media (min-width: 992px) {
+    .navbar .navbar-nav.me-auto > .nav-item.dropdown >
+    .dropdown-menu[aria-labelledby="nav-menu-media"] {
+        padding: 0.45rem;
+        border-radius: var(--pf-radius);
+        box-shadow: var(--pf-shadow-hover);
+        transform-origin: top left;
+    }
+    .navbar .navbar-nav.me-auto > .nav-item.dropdown >
+    .dropdown-menu[aria-labelledby="nav-menu-media"][data-bs-popper] {
+        margin-top: 0.55rem;
+    }
+    .navbar .dropdown-menu[aria-labelledby="nav-menu-media"] .dropdown-item {
+        padding: 0.55rem 0.9rem;
+        border-radius: var(--pf-radius-sm);
+        text-align: left;
+    }
+    .navbar .quarto-navbar-tools
+    .dropdown-menu[aria-labelledby="quarto-navigation-tool-dropdown-0"] {
+        padding: 0.35em;
+        border-radius: var(--pf-radius);
+        box-shadow: var(--pf-shadow-hover);
+        transform-origin: top center;
+    }
+    .navbar .quarto-navbar-tools
+    .dropdown-menu[aria-labelledby="quarto-navigation-tool-dropdown-0"][data-bs-popper] {
+        margin-top: 0.55rem;
+    }
+    .navbar .dropdown-menu[aria-labelledby="quarto-navigation-tool-dropdown-0"]
+    .dropdown-item {
+        padding: 0.3em 0.75em;
+        border-radius: var(--pf-radius-sm);
+        font-size: 0.9rem;
+        text-align: center;
+    }
 }
 
 /* Art galleries */
@@ -1558,6 +1604,18 @@ div#refs.hanging-indent .csl-entry { margin-bottom: 0.5rem; }
     a.nav-link {
         font-size: 1rem !important;
         padding: 0.5rem 1rem !important;
+    }
+    .navbar .quarto-navbar-tools
+    .dropdown-menu[aria-labelledby="quarto-navigation-tool-dropdown-0"] {
+        padding: 0.35em;
+        border-radius: var(--pf-radius);
+    }
+    .navbar .dropdown-menu[aria-labelledby="quarto-navigation-tool-dropdown-0"]
+    .dropdown-item {
+        padding: 0.3em 0.75em;
+        border-radius: var(--pf-radius-sm);
+        font-size: 1rem;
+        text-align: center;
     }
     /* In the collapsed navbar, nested links belong to the same vertical list
        as the first-level links rather than a desktop-style floating popover. */

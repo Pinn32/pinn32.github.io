@@ -4,6 +4,9 @@ subtitle: '音乐制作与乐器演奏合集。'
 include-after-body: '../../../src/scripts/music-category-filter.html'
 sidebar: false
 toc: false
+page-navigation: false
+bread-crumbs: false
+body-classes: hobbies-gallery-page
 lightbox: false
 listing:
   id: music-videos-listing

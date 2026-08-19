@@ -3,6 +3,9 @@ title: '视频与动画创作'
 subtitle: '视频项目与动画作品'
 toc: false
 sidebar: false
+page-navigation: false
+bread-crumbs: false
+body-classes: hobbies-gallery-page
 listing:
   id: video-production-listing
   contents: videos.yml
