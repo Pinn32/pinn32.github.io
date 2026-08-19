@@ -1,6 +1,8 @@
 ---
 title: 'Hobbies'
 subtitle: 'Video, Art, Music, and more'
+aliases:
+  - /en/hobbies/
 include-after-body: '../../src/scripts/responsive-tag-bar.html'
 toc: false
 sidebar: false

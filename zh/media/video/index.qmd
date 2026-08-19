@@ -1,11 +1,13 @@
 ---
-title: 'Video & Animation Production'
-subtitle: 'Video Projects and Animation Works'
+title: '视频与动画创作'
+subtitle: '视频项目与动画作品'
+aliases:
+  - /zh/hobbies/video/
 toc: false
 sidebar: false
 page-navigation: false
 bread-crumbs: false
-body-classes: hobbies-gallery-page
+body-classes: media-gallery-page
 listing:
   id: video-production-listing
   contents: videos.yml

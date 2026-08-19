@@ -1,6 +1,8 @@
 ---
 title: '媒体'
 subtitle: '视频、绘画、音乐，以及其他作品'
+aliases:
+  - /zh/hobbies/
 include-after-body: '../../src/scripts/responsive-tag-bar.html'
 sidebar: false
 toc: false

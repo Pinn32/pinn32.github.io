@@ -1,12 +1,14 @@
 ---
-title: 'Music and Instruments'
-subtitle: 'Gallery of music production and instrument performances.'
+title: '音乐与乐器'
+subtitle: '音乐制作与乐器演奏合集。'
+aliases:
+  - /zh/hobbies/music/
 include-after-body: '../../../src/scripts/music-category-filter.html'
 sidebar: false
 toc: false
 page-navigation: false
 bread-crumbs: false
-body-classes: hobbies-gallery-page
+body-classes: media-gallery-page
 lightbox: false
 listing:
   id: music-videos-listing

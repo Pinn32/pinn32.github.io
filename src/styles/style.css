@@ -210,8 +210,8 @@ a:hover {
 
 /* Quarto listings can still emit inherited sidebar breadcrumbs and pagination
    even when their page-level navigation flags are disabled. */
-body.hobbies-gallery-page .quarto-page-breadcrumbs,
-body.hobbies-gallery-page .page-navigation {
+body.media-gallery-page .quarto-page-breadcrumbs,
+body.media-gallery-page .page-navigation {
     display: none !important;
 }
 
