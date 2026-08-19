@@ -905,6 +905,10 @@ hr {
     background: #111;
     object-fit: contain;
 }
+.music-video-embed,
+.video-production-embed {
+    border: 0;
+}
 .music-video-card-body,
 .video-production-card-body {
     display: flex;

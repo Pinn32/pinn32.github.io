@@ -1,8 +1,13 @@
 <script id="script-art-category-filter">
-    // Usage: en/hobbies/art/index.qmd
+    // Usage: en&zh/hobbies/art/index.qmd
     (() => {
         const LISTING_ID = 'listing-art-gallery';
-        const LABELS = { all: 'All', fanart: 'Fanart', oc: 'OC', visual: 'Visual' };
+        const lang = document.documentElement.lang?.toLowerCase().startsWith('zh') ? 'zh' : 'en';
+        const LABELS = {
+            en: { all: 'All', fanart: 'Fanart', oc: 'OC', visual: 'Visual' },
+            zh: { all: '全部', fanart: '同人', oc: '原创角色', visual: '视觉设计' }
+        }[lang];
+        const ARIA_LABEL = lang === 'zh' ? '按类别筛选作品' : 'Filter artwork by category';
 
         const revealVisibleCards = (list) => {
             const listing = document.getElementById(LISTING_ID);
@@ -44,7 +49,7 @@
             const bar = document.createElement('div');
             bar.id = 'art-category-filter';
             bar.setAttribute('role', 'group');
-            bar.setAttribute('aria-label', 'Filter artwork by category');
+            bar.setAttribute('aria-label', ARIA_LABEL);
 
             for (const category of ['all', 'fanart', 'oc', 'visual']) {
                 const btn = document.createElement('button');

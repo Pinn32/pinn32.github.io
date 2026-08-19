@@ -1,13 +1,24 @@
 ---
-title: '爱好'
-subtitle: '副标题'
+title: '媒体'
+subtitle: '视频、绘画、音乐，以及其他作品'
+include-after-body: '../../src/scripts/responsive-tag-bar.html'
 sidebar: false
 toc: false
+number-sections: false
+back-to-top-navigation: false
+page-navigation: false
+reading-meta-enabled: false
+
+listing:
+  id: blogs-listing
+  contents: "*/index.*md"
+  type: grid
+  categories: false
+  max-description-length: 100
+  fields: [image, title, description]
+  grid-columns: 3
+  image-height: "10rem"
 
 draft: true
 draft-mode: unlinked
 ---
-
-# 标题1
-## 标题2
-巴拉巴拉巴拉

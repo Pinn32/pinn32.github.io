@@ -26,7 +26,7 @@ const youtubeId = (url) => {
 <% } else { %>
   <video class="video-production-player" controls preload="metadata" playsinline>
     <source data-video-src="<%= item.video.replace(/&/g, '&amp;') %>" type="video/mp4">
-    Your browser does not support HTML video.
+    你的浏览器不支持 HTML 视频。
   </video>
 <% } %>
   <div class="video-production-card-body">

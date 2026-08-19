@@ -1,14 +1,19 @@
 <script id="script-music-category-filter">
-    // Usage: en/hobbies/music/index.qmd
+    // Usage: en&zh/hobbies/music/index.qmd
     (() => {
         const LISTING_ID = 'listing-music-videos-listing';
+        const lang = document.documentElement.lang?.toLowerCase().startsWith('zh') ? 'zh' : 'en';
         const LABELS = {
-            all: 'All',
-            music: 'Music',
-            keyboard: 'Keyboard',
-            string: 'String',
-            instrument: 'Instrument'
-        };
+            en: {
+                all: 'All', music: 'Music', keyboard: 'Keyboard',
+                string: 'String', instrument: 'Instrument'
+            },
+            zh: {
+                all: '全部', music: '音乐制作', keyboard: '键盘乐器',
+                string: '弦乐器', instrument: '乐器演奏'
+            }
+        }[lang];
+        const ARIA_LABEL = lang === 'zh' ? '按类别筛选音乐视频' : 'Filter music videos by category';
 
         const revealVisibleCards = (list) => {
             const listing = document.getElementById(LISTING_ID);
@@ -49,7 +54,7 @@
             const bar = document.createElement('div');
             bar.id = 'music-category-filter';
             bar.setAttribute('role', 'group');
-            bar.setAttribute('aria-label', 'Filter music videos by category');
+            bar.setAttribute('aria-label', ARIA_LABEL);
 
             for (const category of ['all', 'music', 'instrument', 'string', 'keyboard']) {
                 const btn = document.createElement('button');

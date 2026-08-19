@@ -1,0 +1,22 @@
+---
+title: '音乐与乐器'
+subtitle: '音乐制作与乐器演奏合集。'
+include-after-body: '../../../src/scripts/music-category-filter.html'
+sidebar: false
+toc: false
+lightbox: false
+listing:
+  id: music-videos-listing
+  contents: music-videos.yml
+  type: custom
+  template: music-video-gallery.ejs.md
+  fields: [title, date, video, description, instrument, categories]
+  categories: false
+  sort:
+    - "date desc"
+    - "title asc"
+  sort-ui: [title, date, instrument]
+  filter-ui: [title, date, description, instrument]
+  template-params:
+    grid-columns: 3
+---

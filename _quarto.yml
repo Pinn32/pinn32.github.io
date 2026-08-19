@@ -43,14 +43,14 @@ website:
         href: en/tools/index.qmd
       - text: Blogs
         href: en/blogs/index.qmd
-      - text: Hobbies
+      - text: Media
         menu:
-          - text: Art
-            href: en/hobbies/art/index.qmd
-          - text: Music
-            href: en/hobbies/music/index.qmd
-          - text: Video
+          - text: Video & Animation
             href: en/hobbies/video/index.qmd
+          - text: Art & Painting
+            href: en/hobbies/art/index.qmd
+          - text: Music & Instrument
+            href: en/hobbies/music/index.qmd
       # - text: All Posts
       #   href: en/all-posts/index.qmd
 
@@ -97,6 +97,14 @@ website:
           contents: "en/tools/*/index.*md"
         - section: "Blogs"
           contents: "en/blogs/*/index.*md"
+        - section: "Media"
+          contents:
+            - text: "Video & Animation"
+              href: en/hobbies/video/index.qmd
+            - text: "Art & Painting"
+              href: en/hobbies/art/index.qmd
+            - text: "Music & Instrument"
+              href: en/hobbies/music/index.qmd
         # - text: "---"  # separator
         - text: "Reproduce This Project"
           href: "en/readme/index.md"
@@ -120,6 +128,14 @@ website:
           contents: "zh/tools/*/index.*md"
         - section: "经验博客"
           contents: "zh/blogs/*/index.*md"
+        - section: "媒体"
+          contents:
+            - text: "视频与动画"
+              href: zh/hobbies/video/index.qmd
+            - text: "艺术与绘画"
+              href: zh/hobbies/art/index.qmd
+            - text: "音乐与乐器"
+              href: zh/hobbies/music/index.qmd
         - text: "项目复现"
           href: "zh/readme/index.md"
         - text: "更新日志"

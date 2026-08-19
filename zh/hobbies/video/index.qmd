@@ -1,0 +1,19 @@
+---
+title: '视频与动画创作'
+subtitle: '视频项目与动画作品'
+toc: false
+sidebar: false
+listing:
+  id: video-production-listing
+  contents: videos.yml
+  type: custom
+  template: video-gallery.ejs.md
+  fields: [title, date, video, description]
+  sort:
+    - "date asc"
+    - "title asc"
+  sort-ui: [title, date]
+  filter-ui: [title, date, description]
+  template-params:
+    grid-columns: 2
+---

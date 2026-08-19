@@ -22,14 +22,16 @@ URL Shortener turns long web addresses into compact, shareable links with custom
 ![URL Shortener](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260623194155759.png)
 ::: -->
 
-:::{style="max-width:40rem; margin:0 auto;"}
+<!-- :::{style="max-width:40rem; margin:0 auto;"}
 ```{=html}
 <video class="site-video-player" controls preload="metadata" playsinline title="URL Shortener Demo" style="display:block; width:100%;">
-  <source data-video-src="https://raw.githubusercontent.com/Pinn32/img/main/video/personal-web/tool/2026-07-22-url-shortener-demo.mp4" type="video/mp4">
+  <source data-video-src="https://cdn.mcp32.com/video/tool/2026-07-22-url-shortener-demo.mp4" type="video/mp4">
   Your browser does not support HTML video.
 </video>
 ```
-:::
+::: -->
+
+{{<video https://cdn.mcp32.com/video/tool/2026-07-22-url-shortener-demo.mp4>}}
 
 A short link is a compact version of a long web address. It saves space, looks cleaner when shared, and is easier to remember. A custom slug also gives the link a meaningful ending, such as `url-to.vercel.app/my-portfolio`, instead of an arbitrary sequence of characters.
 
