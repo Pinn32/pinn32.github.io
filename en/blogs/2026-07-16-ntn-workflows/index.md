@@ -4,7 +4,7 @@ author: 'Pinn Xu'
 date: 2026-07-16
 order: -20260716   # sidebar sort key: negative date => newest first
 description: 'My automatic workflows with Notion databases.'
-categories: [Notion, Database]
+categories: [Notion, Database, Productivity]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716134621505.png"
 
 aliases:
