@@ -562,6 +562,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../en/blogs/2026-08-19-cloudflare-r2-cdn/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Don’t Assume It’s Hard: From Git LFS to Cloudflare R2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../en/blogs/2026-08-17-compressor-tips/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convert and Compress Video with Apple Compressor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../en/blogs/2026-07-16-ntn-workflows/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Notion Database Workflows</span></a>
   </div>
@@ -582,6 +594,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../../en/blogs/2026-06-15-quarto-img-styles/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto Image Centering Styles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../en/blogs/2026-05-05-computer-ergonomics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to Use a Computer with Less Strain</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -689,8 +707,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-block"><div><h1 class="title">Network Diagram Display in Google Colab</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
   <div class="quarto-categories">
     <div class="quarto-category">Python</div>
-    <div class="quarto-category">Colab</div>
-    <div class="quarto-category">Pyvis</div>
+    <div class="quarto-category">Visualization</div>
     <div class="quarto-category">Tips</div>
   </div>
   </div>
@@ -730,7 +747,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     3 min read</span><span> · </span><span>525 EN words</span><span> · </span><span>0 中文字</span></div>
+     3 min read</span><span> · </span><span>552 EN words</span><span> · </span><span>0 中文字</span></div>
 <section id="problem" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Problem</h1>
 <p>A pyvis network diagram should display both inside Google Colab and in the HTML file exported from the notebook, without relying on a separate <code>net.html</code> file or other dependencies. None of the usual display methods handles all of these cases at once.</p>
@@ -2167,7 +2184,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2025-10-07</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="an">order:</span><span class="co"> -20251007   # sidebar sort key: negative date =&gt; newest first</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> 'Display a Pyvis network diagram both in Colab and the exported notebook HTML, without dependencies.'</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Python, Colab, Pyvis, Tips]</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Python, Visualization, Tips]</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712235818208.webp"</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="an">aliases:</span></span>
@@ -2281,7 +2298,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a><span class="co"># display</span></span>
 <span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a>display(HTML(html_wrapped))</span>
 <span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

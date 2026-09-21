@@ -562,6 +562,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../en/blogs/2026-08-19-cloudflare-r2-cdn/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Don’t Assume It’s Hard: From Git LFS to Cloudflare R2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../en/blogs/2026-08-17-compressor-tips/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convert and Compress Video with Apple Compressor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../en/blogs/2026-07-16-ntn-workflows/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Notion Database Workflows</span></a>
   </div>
@@ -582,6 +594,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../../en/blogs/2026-06-15-quarto-img-styles/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto Image Centering Styles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../en/blogs/2026-05-05-computer-ergonomics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to Use a Computer with Less Strain</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -700,7 +718,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="quarto-category">Notion</div>
     <div class="quarto-category">Database</div>
     <div class="quarto-category">Quarto</div>
-    <div class="quarto-category">Web Dev</div>
+    <div class="quarto-category">Web</div>
     <div class="quarto-category">Tips</div>
   </div>
   </div>
@@ -740,7 +758,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M12 6v6l4 2"></path>
         </svg>
-     5 min read</span><span> · </span><span>987 EN words</span><span> · </span><span>0 中文字</span></div>
+     6 min read</span><span> · </span><span>1013 EN words</span><span> · </span><span>0 中文字</span></div>
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
 <p>I recently restructured the Notion databases behind this website’s change log. The site originally relied on a single database with mostly manual properties. Although AI agents generated much of the cell content, maintaining the database by hand remained tedious.</p>
@@ -2019,7 +2037,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2026-07-08</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="an">order:</span><span class="co"> -20260708   # sidebar sort key: negative date =&gt; newest first</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> 'Tips for Notion database Formulas &amp; Rollups when syncing via API.'</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Notion, Database, Quarto, Web Dev, Tips]</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Notion, Database, Quarto, Web, Tips]</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711153915114.webp"</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="an">aliases:</span></span>
@@ -2158,8 +2176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reduce Runtime</span></span>
-<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>Each Rollup property fetches all content from the source database again, so a database with many Rollups can become slow to manage. Keep the number of Rollups down: instead of pulling related data through several Rollups, combine one Rollup with Formulas.</span>
-<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>Each Rollup property fetches all content from the source database again, so a database with many Rollups can become slow to manage. Keep the number of Rollups down: instead of pulling related data through several Rollups, combine one Rollup with Formulas.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

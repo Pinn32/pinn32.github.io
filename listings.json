@@ -47,10 +47,13 @@
   {
     "listing": "/zh/blogs/index.html",
     "items": [
+      "/zh/blogs/2026-08-19-cloudflare-r2-cdn/index.html",
+      "/zh/blogs/2026-08-17-compressor-tips/index.html",
       "/zh/blogs/2026-07-16-ntn-workflows/index.html",
       "/zh/blogs/2026-07-11-vps-ssh-login/index.html",
       "/zh/blogs/2026-07-08-ntn-db-auto-sync/index.html",
       "/zh/blogs/2026-06-15-quarto-img-styles/index.html",
+      "/zh/blogs/2026-05-05-computer-ergonomics/index.html",
       "/zh/blogs/2025-10-07-colab-plotly-export/index.html",
       "/zh/blogs/2025-10-07-fix-network-diagram/index.html",
       "/zh/blogs/2024-12-22-easy-canvas-connection/index.html",
@@ -59,12 +62,128 @@
     ]
   },
   {
+    "listing": "/en/tutorials/index.html",
+    "items": [
+      "/en/tutorials/2024-10-10-data-processing/index.html",
+      "/en/tutorials/2024-10-01-amounts-and-distribution/index.html",
+      "/en/tutorials/2024-10-27-multivariate-plots/index.html",
+      "/en/tutorials/2024-12-05-sankey-and-network/index.html",
+      "/en/tutorials/2026-03-27-r-tips/index.html",
+      "/en/tutorials/2025-10-07-colab-plotly-export/index.html",
+      "/en/tutorials/2025-10-07-fix-network-diagram/index.html"
+    ]
+  },
+  {
+    "listing": "/en/tools/index.html",
+    "items": [
+      "/en/tools/2026-06-23-monthly-love/index.html",
+      "/en/tools/2026-04-17-news-hub/index.html",
+      "/en/tools/2026-04-06-url-shortener/index.html",
+      "/en/tools/2026-04-19-cat-img-hub/index.html",
+      "/en/tools/2025-12-10-bayanihan/index.html"
+    ]
+  },
+  {
+    "listing": "/en/media/video/index.html",
+    "items": []
+  },
+  {
+    "listing": "/en/media/index.html",
+    "items": [
+      "/en/media/art/index.html",
+      "/en/media/music/index.html",
+      "/en/media/video/index.html"
+    ]
+  },
+  {
+    "listing": "/en/index.html",
+    "items": [
+      "/en/projects/2026-05-01-ai-discourse/index.html",
+      "/en/projects/2024-12-12-global-visa-cost/index.html",
+      "/en/tools/2026-04-06-url-shortener/index.html",
+      "/en/projects/2025-12-10-bayanihan/index.html",
+      "/en/tools/2026-04-17-news-hub/index.html",
+      "/en/blogs/2026-07-16-ntn-workflows/index.html"
+    ]
+  },
+  {
+    "listing": "/en/blogs/index.html",
+    "items": [
+      "/en/blogs/2026-08-19-cloudflare-r2-cdn/index.html",
+      "/en/blogs/2026-08-17-compressor-tips/index.html",
+      "/en/blogs/2026-07-16-ntn-workflows/index.html",
+      "/en/blogs/2026-07-11-vps-ssh-login/index.html",
+      "/en/blogs/2026-07-08-ntn-db-auto-sync/index.html",
+      "/en/blogs/2026-06-15-quarto-img-styles/index.html",
+      "/en/blogs/2026-05-05-computer-ergonomics/index.html",
+      "/en/blogs/2025-10-07-fix-network-diagram/index.html",
+      "/en/blogs/2025-10-07-colab-plotly-export/index.html",
+      "/en/blogs/2024-12-22-easy-canvas-connection/index.html",
+      "/en/blogs/2024-05-16-snipaste-fix/index.html",
+      "/en/blogs/2024-04-22-recover-shellfolder/index.html"
+    ]
+  },
+  {
+    "listing": "/en/all-posts/index.html",
+    "items": [
+      "/en/blogs/2026-08-19-cloudflare-r2-cdn/index.html",
+      "/en/blogs/2026-08-17-compressor-tips/index.html",
+      "/en/blogs/2026-07-16-ntn-workflows/index.html",
+      "/en/blogs/2026-07-11-vps-ssh-login/index.html",
+      "/en/blogs/2026-07-08-ntn-db-auto-sync/index.html",
+      "/en/tools/2026-06-23-monthly-love/index.html",
+      "/en/blogs/2026-06-15-quarto-img-styles/index.html",
+      "/en/blogs/2026-05-05-computer-ergonomics/index.html",
+      "/en/projects/2026-05-01-ai-discourse/index.html",
+      "/en/tools/2026-04-19-cat-img-hub/index.html",
+      "/en/tools/2026-04-17-news-hub/index.html",
+      "/en/tools/2026-04-06-url-shortener/index.html",
+      "/en/tutorials/2026-03-27-r-tips/index.html",
+      "/en/projects/2026-02-25-most-streamed-songs/index.html",
+      "/en/projects/2026-02-23-student-media-usage/index.html",
+      "/en/projects/2025-12-10-bayanihan/index.html",
+      "/en/blogs/2025-10-07-fix-network-diagram/index.html",
+      "/en/blogs/2025-10-07-colab-plotly-export/index.html",
+      "/en/blogs/2024-12-22-easy-canvas-connection/index.html",
+      "/en/projects/2024-12-12-global-visa-cost/index.html",
+      "/en/tutorials/2024-12-05-sankey-and-network/index.html",
+      "/en/projects/2024-11-01-catalan-referendum/index.html",
+      "/en/tutorials/2024-10-27-multivariate-plots/index.html",
+      "/en/tutorials/2024-10-10-data-processing/index.html",
+      "/en/tutorials/2024-10-01-amounts-and-distribution/index.html",
+      "/en/blogs/2024-05-16-snipaste-fix/index.html",
+      "/en/blogs/2024-04-22-recover-shellfolder/index.html"
+    ]
+  },
+  {
+    "listing": "/en/media/art/index.html",
+    "items": []
+  },
+  {
+    "listing": "/en/media/music/index.html",
+    "items": []
+  },
+  {
+    "listing": "/en/projects/index.html",
+    "items": [
+      "/en/projects/2026-05-01-ai-discourse/index.html",
+      "/en/projects/2026-02-23-student-media-usage/index.html",
+      "/en/projects/2024-11-01-catalan-referendum/index.html",
+      "/en/projects/2024-12-12-global-visa-cost/index.html",
+      "/en/projects/2026-02-25-most-streamed-songs/index.html",
+      "/en/projects/2025-12-10-bayanihan/index.html"
+    ]
+  },
+  {
     "listing": "/zh/all-posts/index.html",
     "items": [
+      "/zh/blogs/2026-08-19-cloudflare-r2-cdn/index.html",
+      "/zh/blogs/2026-08-17-compressor-tips/index.html",
       "/zh/blogs/2026-07-16-ntn-workflows/index.html",
       "/zh/blogs/2026-07-11-vps-ssh-login/index.html",
       "/zh/blogs/2026-07-08-ntn-db-auto-sync/index.html",
       "/zh/blogs/2026-06-15-quarto-img-styles/index.html",
+      "/zh/blogs/2026-05-05-computer-ergonomics/index.html",
       "/zh/blogs/2025-10-07-colab-plotly-export/index.html",
       "/zh/blogs/2025-10-07-fix-network-diagram/index.html",
       "/zh/blogs/2024-12-22-easy-canvas-connection/index.html",
@@ -81,113 +200,6 @@
       "/zh/tutorials/2026-03-27-r-tips/index.html",
       "/zh/projects/2026-02-25-most-streamed-songs/index.html",
       "/zh/projects/2025-12-10-bayanihan/index.html"
-    ]
-  },
-  {
-    "listing": "/en/projects/index.html",
-    "items": [
-      "/en/projects/2026-05-01-ai-discourse/index.html",
-      "/en/projects/2026-02-23-student-media-usage/index.html",
-      "/en/projects/2024-11-01-catalan-referendum/index.html",
-      "/en/projects/2024-12-12-global-visa-cost/index.html",
-      "/en/projects/2026-02-25-most-streamed-songs/index.html",
-      "/en/projects/2025-12-10-bayanihan/index.html"
-    ]
-  },
-  {
-    "listing": "/en/media/music/index.html",
-    "items": []
-  },
-  {
-    "listing": "/en/media/art/index.html",
-    "items": []
-  },
-  {
-    "listing": "/en/all-posts/index.html",
-    "items": [
-      "/en/blogs/2026-07-16-ntn-workflows/index.html",
-      "/en/blogs/2026-07-11-vps-ssh-login/index.html",
-      "/en/blogs/2026-07-08-ntn-db-auto-sync/index.html",
-      "/en/tools/2026-06-23-monthly-love/index.html",
-      "/en/blogs/2026-06-15-quarto-img-styles/index.html",
-      "/en/projects/2026-05-01-ai-discourse/index.html",
-      "/en/tools/2026-04-19-cat-img-hub/index.html",
-      "/en/tools/2026-04-17-news-hub/index.html",
-      "/en/tools/2026-04-06-url-shortener/index.html",
-      "/en/tutorials/2026-03-27-r-tips/index.html",
-      "/en/projects/2026-02-25-most-streamed-songs/index.html",
-      "/en/projects/2026-02-23-student-media-usage/index.html",
-      "/en/projects/2025-12-10-bayanihan/index.html",
-      "/en/blogs/2025-10-07-fix-network-diagram/index.html",
-      "/en/blogs/2025-10-07-colab-plotly-export/index.html",
-      "/en/blogs/2024-12-22-easy-canvas-connection/index.html",
-      "/en/projects/2024-12-12-global-visa-cost/index.html",
-      "/en/tutorials/2024-12-05-sankey-and-network/index.html",
-      "/en/projects/2024-11-01-catalan-referendum/index.html",
-      "/en/tutorials/2024-10-27-multivariate-plots/index.html",
-      "/en/tutorials/2024-10-10-data-processing/index.html",
-      "/en/tutorials/2024-10-01-amounts-and-distribution/index.html",
-      "/en/blogs/2024-05-16-snipaste-fix/index.html",
-      "/en/blogs/2024-04-22-recover-shellfolder/index.html"
-    ]
-  },
-  {
-    "listing": "/en/blogs/index.html",
-    "items": [
-      "/en/blogs/2026-07-16-ntn-workflows/index.html",
-      "/en/blogs/2026-07-11-vps-ssh-login/index.html",
-      "/en/blogs/2026-07-08-ntn-db-auto-sync/index.html",
-      "/en/blogs/2026-06-15-quarto-img-styles/index.html",
-      "/en/blogs/2025-10-07-fix-network-diagram/index.html",
-      "/en/blogs/2025-10-07-colab-plotly-export/index.html",
-      "/en/blogs/2024-12-22-easy-canvas-connection/index.html",
-      "/en/blogs/2024-05-16-snipaste-fix/index.html",
-      "/en/blogs/2024-04-22-recover-shellfolder/index.html"
-    ]
-  },
-  {
-    "listing": "/en/index.html",
-    "items": [
-      "/en/projects/2026-05-01-ai-discourse/index.html",
-      "/en/projects/2024-12-12-global-visa-cost/index.html",
-      "/en/tools/2026-04-06-url-shortener/index.html",
-      "/en/projects/2025-12-10-bayanihan/index.html",
-      "/en/tools/2026-04-17-news-hub/index.html",
-      "/en/blogs/2026-07-16-ntn-workflows/index.html"
-    ]
-  },
-  {
-    "listing": "/en/media/index.html",
-    "items": [
-      "/en/media/art/index.html",
-      "/en/media/music/index.html",
-      "/en/media/video/index.html"
-    ]
-  },
-  {
-    "listing": "/en/media/video/index.html",
-    "items": []
-  },
-  {
-    "listing": "/en/tools/index.html",
-    "items": [
-      "/en/tools/2026-06-23-monthly-love/index.html",
-      "/en/tools/2026-04-17-news-hub/index.html",
-      "/en/tools/2026-04-06-url-shortener/index.html",
-      "/en/tools/2026-04-19-cat-img-hub/index.html",
-      "/en/tools/2025-12-10-bayanihan/index.html"
-    ]
-  },
-  {
-    "listing": "/en/tutorials/index.html",
-    "items": [
-      "/en/tutorials/2024-10-10-data-processing/index.html",
-      "/en/tutorials/2024-10-01-amounts-and-distribution/index.html",
-      "/en/tutorials/2024-10-27-multivariate-plots/index.html",
-      "/en/tutorials/2024-12-05-sankey-and-network/index.html",
-      "/en/tutorials/2026-03-27-r-tips/index.html",
-      "/en/tutorials/2025-10-07-colab-plotly-export/index.html",
-      "/en/tutorials/2025-10-07-fix-network-diagram/index.html"
     ]
   },
   {
