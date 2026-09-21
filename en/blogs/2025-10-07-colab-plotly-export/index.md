@@ -4,7 +4,7 @@ author: 'Pinn Xu'
 date: 2025-10-07
 order: -20251007   # sidebar sort key: negative date => newest first
 description: 'How Plotly render inside Colab and in the browser after exporting notebook to HTML.'
-categories: [Python, DV, Tips]
+categories: [Python, Visualization, Tips]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712154436828.png"
 
 aliases:

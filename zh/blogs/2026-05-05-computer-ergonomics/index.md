@@ -4,7 +4,7 @@ author: 'Pinn Xu'
 date: 2026-05-05
 order: -20260505   # sidebar sort key: negative date => newest first
 description: '通过鼠标、触控板、按键映射和双拼输入，减少操作电脑时的移动距离并均衡双手负担。'
-categories: [Mac, Windows, 效率]
+categories: [Mac, Windows, 效率, 教程]
 image: "https://cdn.mcp32.com/img/2026/09/1790028147.png"
 
 aliases:
@@ -83,4 +83,3 @@ MacBook 的触控板紧邻键盘。打字过程中需要短暂移动光标时，
 ![RayCast Snippet 例子](https://cdn.mcp32.com/img/2026/09/1790024459.png){#fig-raycast-snippet-example style="width:35rem;"}
 
 ![其他自定义快捷键例子](https://cdn.mcp32.com/img/2026/09/1790024669.png){#fig-other-custom-keys-example style="width:40rem;"}
-

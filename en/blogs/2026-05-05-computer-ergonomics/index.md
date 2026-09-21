@@ -4,7 +4,7 @@ author: 'Pinn Xu'
 date: 2026-05-05
 order: -20260505   # sidebar sort key: negative date => newest first
 description: 'Reduce movement and balance the workload between your hands with a mouse, trackpad, key remapping, and double-pinyin input.'
-categories: [Mac, Windows, Productivity]
+categories: [Mac, Windows, Productivity, Tips]
 image: "https://cdn.mcp32.com/img/2026/09/1790028147.png"
 
 aliases:
@@ -83,4 +83,3 @@ In addition to adjusting hardware and key mappings, I use Raycast, in-app shortc
 ![Raycast snippet example](https://cdn.mcp32.com/img/2026/09/1790024459.png){#fig-raycast-snippet-example style="width:35rem;"}
 
 ![Other custom shortcut examples](https://cdn.mcp32.com/img/2026/09/1790029092.png){#fig-other-custom-keys-example style="width:40rem;"}
-

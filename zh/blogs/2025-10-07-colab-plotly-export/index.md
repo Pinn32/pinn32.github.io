@@ -4,7 +4,7 @@ author: 'Pinn Xu'
 date: 2025-10-07
 order: -20251007   # sidebar sort key: negative date => newest first
 description: '对于 Plotly 图表，Google Colab 内部渲染和导出 HTML 后浏览器渲染的差异。'
-categories: [Python, DV, 教程]
+categories: [Python, 可视化, 教程]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712154436828.png"
 
 aliases:

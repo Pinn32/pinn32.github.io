@@ -4,7 +4,7 @@ author: 'Pinn Xu'
 date: 2025-10-07
 order: -20251007   # sidebar sort key: negative date => newest first
 description: '让 Pyvis 网络关系图同时在 Colab 和导出的 HTML 中正常显示，且不依赖外部文件。'
-categories: [Python, DV, 教程]
+categories: [Python, 可视化, 教程]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712235818208.webp"
 
 aliases:
