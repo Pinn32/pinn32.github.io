@@ -30,9 +30,9 @@ aliases:
 
 我的鼠标有四个可自定义按键，分别设置成拷贝 (Cmd+C)、粘贴 (Cmd+V)、删除 (Delete) 和创建副本 (Cmd+D)。此外，Logi Options+ 支持针对不同应用单独配置，因此在视频剪辑、绘图或音乐软件中，也可以把这些按键替换为更常用的专属快捷键。
 
-![鼠标自定义快捷键](https://cdn.mcp32.com/img/2026/09/1790020266.png){#fig-mouse-keys style="width:20rem;"}
+![鼠标自定义快捷键](https://cdn.mcp32.com/img/2026/09/1790029453.png){#fig-mouse-keys style="width:20rem;"}
 
-![软件专属快捷键](https://cdn.mcp32.com/img/2026/09/1790020350.png){#fig-mouse-custom-keys style="width:35rem;"}
+![软件专属快捷键](https://cdn.mcp32.com/img/2026/09/1790029501.png){#fig-mouse-custom-keys style="width:35rem;"}
 
 还可以通过 Mac Mouse Fix 等第三方工具设置长按、双击等快捷操作，但它与 Logi Options+ 不兼容，因此我没使用。而且我的现有配置已经够用，所以暂时没有叠加更多工具。
 
