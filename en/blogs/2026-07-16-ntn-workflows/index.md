@@ -4,7 +4,7 @@ author: 'Pinn Xu'
 date: 2026-07-16
 order: -20260716   # sidebar sort key: negative date => newest first
 description: 'My automatic workflows with Notion databases.'
-categories: [Notion, Database, Tips]
+categories: [Notion, Database]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716134621505.png"
 
 aliases:
@@ -83,4 +83,3 @@ This database is one of the main portals to all my pages and databases. I expand
 # Bonus
 
 When sharing Notion pages, the URL may be too long. Try my [URL Shortener](/en/tools/2026-04-06-url-shortener/) ;P.
-

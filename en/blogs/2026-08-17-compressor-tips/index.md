@@ -4,8 +4,8 @@ author: 'Pinn Xu'
 date: 2026-08-17
 order: -20260817   # sidebar sort key: negative date => newest first
 description: 'Use Apple Compressor to convert video to MP4, reduce file size, and adjust audio volume.'
-categories: [Mac, Software, Tutorial]
-image: ""
+categories: [Mac, Software, Tips]
+image: "https://cdn.mcp32.com/img/2026/09/1790014258.png"
 
 aliases:
     - ../compressor-tips/

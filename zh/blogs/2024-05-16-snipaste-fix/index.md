@@ -4,7 +4,7 @@ author: 'Pinn Xu'
 date: 2024-05-16
 order: -20240516   # sidebar sort key: negative date => newest first
 description: 'Snipaste 贴图卡死并置顶覆盖整个屏幕时的三种处理方法。'
-categories: [Windows, 教程]
+categories: [Windows, 软件, 教程]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716195638111.png"
 
 aliases:

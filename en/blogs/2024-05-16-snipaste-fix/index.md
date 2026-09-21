@@ -4,7 +4,7 @@ author: 'Pinn Xu'
 date: 2024-05-16
 order: -20240516   # sidebar sort key: negative date => newest first
 description: 'Three ways to handle a frozen Snipaste paste that pins itself over the whole screen.'
-categories: [Windows, Tutorial]
+categories: [Windows, Software, Tips]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716195638111.png"
 
 aliases:

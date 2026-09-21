@@ -4,7 +4,7 @@ author: 'Pinn Xu'
 date: 2024-12-22
 order: -20241222   # sidebar sort key: negative date => newest first
 description: "Easy Canvas 无法通过 Wi-Fi 或数据线连接 Windows 电脑解决办法"
-categories: [Windows, 教程]
+categories: [Windows, 软件, 教程]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260713135350905.png"
 
 aliases:

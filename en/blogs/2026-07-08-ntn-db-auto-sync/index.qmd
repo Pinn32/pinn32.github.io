@@ -4,7 +4,7 @@ author: 'Pinn Xu'
 date: 2026-07-08
 order: -20260708   # sidebar sort key: negative date => newest first
 description: 'Tips for Notion database Formulas & Rollups when syncing via API.'
-categories: [Notion, Database, Quarto, Web Dev, Tips]
+categories: [Notion, Database, Quarto, Web, Tips]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260711153915114.webp"
 
 aliases:
@@ -144,5 +144,4 @@ Apply the same rule to other types: `""` for string, `0` for number, `false` for
 
 ## Reduce Runtime
 Each Rollup property fetches all content from the source database again, so a database with many Rollups can become slow to manage. Keep the number of Rollups down: instead of pulling related data through several Rollups, combine one Rollup with Formulas.
-
 

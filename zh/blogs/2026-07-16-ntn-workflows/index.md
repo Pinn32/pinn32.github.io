@@ -4,7 +4,7 @@ author: 'Pinn Xu'
 date: 2026-07-16
 order: -20260716   # sidebar sort key: negative date => newest first
 description: '我基于 Notion 数据库搭建的自动化工作流。'
-categories: [Notion, Database, 技巧]
+categories: [Notion, Database]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260716134621505.png"
 
 aliases:

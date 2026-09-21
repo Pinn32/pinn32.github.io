@@ -4,7 +4,7 @@ author: 'Pinn Xu'
 date: 2024-12-22
 order: -20241222   # sidebar sort key: negative date => newest first
 description: "How to fix Easy Canvas failing to connect to a Windows PC over Wi-Fi or a USB cable."
-categories: [Windows, Tutorial]
+categories: [Windows, Software, Tips]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260713135350905.png"
 
 aliases:

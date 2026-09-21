@@ -4,7 +4,7 @@ author: 'Pinn Xu'
 date: 2025-10-07
 order: -20251007   # sidebar sort key: negative date => newest first
 description: 'Display a Pyvis network diagram both in Colab and the exported notebook HTML, without dependencies.'
-categories: [Python, Colab, Pyvis, Tips]
+categories: [Python, DV, Tips]
 image: "https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260712235818208.webp"
 
 aliases:
@@ -118,5 +118,4 @@ html_wrapped = iframe_start + html_formatted + iframe_end
 # display
 display(HTML(html_wrapped))
 ```
-
 

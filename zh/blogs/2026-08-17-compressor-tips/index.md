@@ -5,7 +5,7 @@ date: 2026-08-17
 order: -20260817   # sidebar sort key: negative date => newest first
 description: '快速掌握 Apple Compressor 的格式转换、视频压缩与音量调节。'
 categories: [Mac, 软件, 教程]
-image: ""
+image: "https://cdn.mcp32.com/img/2026/09/1790014258.png"
 
 aliases:
     - ../compressor-tips/
