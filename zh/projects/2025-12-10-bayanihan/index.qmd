@@ -208,9 +208,9 @@ E -.-> A
 
 ## 用户画像
 
-![用户画像：读者 Sophia](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704163917372.png){#fig-persona-sophia}
+![用户画像：读者 Sophia](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/202607091135.png){#fig-persona-sophia}
 
-![用户画像：艺术家 Ramon](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704164114551.png){#fig-persona-ramon}
+![用户画像：艺术家 Ramon](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/2026070911351.png){#fig-persona-ramon}
 
 
 ## 原型
@@ -220,7 +220,7 @@ E -.-> A
 <!-- ===================================================================== -->
 
 :::{.macbook-frame style="width:35rem;"}
-![Figma 原型结构](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704200150592.png){#fig-figma-prototype-structure}
+![Figma 原型结构](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/2026070911352.png){#fig-figma-prototype-structure}
 :::
 
 :::{style="text-align:center;"}
@@ -260,7 +260,7 @@ E -.-> A
 <!-- ===================================================================== -->
 
 :::{.macbook-frame style="width:35rem;"}
-![文章版式](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/20260704195417565.png){#fig-article-layout}
+![文章版式](https://raw.githubusercontent.com/Pinn32/img/main/img/pic-go/2026070911353.png){#fig-article-layout}
 :::
 
 :::{style="text-align:center;"}
