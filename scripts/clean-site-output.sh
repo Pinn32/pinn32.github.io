@@ -2,6 +2,12 @@
 
 set -euo pipefail
 
+# Preview and incremental renders reuse the existing output tree. Only clean
+# before a full-project render, including the render performed for publishing.
+if [[ "${QUARTO_PROJECT_RENDER_ALL:-}" != "1" ]]; then
+  exit 0
+fi
+
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 project_dir="$(cd "${script_dir}/.." && pwd)"
 site_dir="${project_dir}/_site"

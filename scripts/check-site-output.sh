@@ -2,6 +2,12 @@
 
 set -euo pipefail
 
+# Run publish-oriented validation only after a full-project render. Preview and
+# incremental renders may intentionally contain only a subset of current pages.
+if [[ "${QUARTO_PROJECT_RENDER_ALL:-}" != "1" ]]; then
+  exit 0
+fi
+
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 project_dir="$(cd "${script_dir}/.." && pwd)"
 site_dir="${project_dir}/_site"

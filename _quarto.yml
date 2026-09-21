@@ -2,8 +2,10 @@ project:
   type: website
   # A normal render updates _site in place and can leave removed resources
   # behind. Start clean so stale local media can never enter a Pages publish.
+
   pre-render: bash scripts/clean-site-output.sh
   post-render: bash scripts/check-site-output.sh
+
   render:
     - "*.{qmd,R,py,md}"
     - "!archive/**/*"
@@ -18,6 +20,12 @@ project:
   preview: 
     # host: 0.0.0.0
     port: 4200
+    # Serve existing output directly so browsing the site never triggers
+    # Quarto's per-page, on-demand renderer. Edited inputs are still watched
+    # and rendered; refresh the browser to see the updated page.
+    serve:
+      cmd: python3 -u -m http.server {port} --bind {host}
+      ready: "Serving HTTP on"
 
 # Reuse stored computational results during full-site renders (including the
 # render performed by `quarto publish gh-pages`). Render an individual page or
