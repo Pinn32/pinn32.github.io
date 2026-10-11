@@ -233,7 +233,7 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - dev: 新增 GitHub Actions 保持 Supabase 和 MongoDB 活跃；完善 `.gitignore`；把 About 加进导航
 - contnt: (外部站点) 搭建 Bayanihan demo；优化短链接生成器页脚
 
-## 阶段 7 · 自动化更新日志、UI项目与博客 {range="Jul 3 - Jul 9"}
+## 阶段 7 · 自动化、更新日志与 UI/UX {range="Jul 3 - Jul 9"}
 
 ### 更新日志 {date="Jul 3" iso="2026-07-03T10:30:00.000-04:00" commits="5" hours="11.5" days="1"}
 
@@ -288,7 +288,7 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 
 ## 阶段 8 · 更多博客与工具 {range="Jul 10 - now"}
 
-### 博客x2: Notion 库自动同步技巧 & VPS 连接失败排查 {date="Jul 10 - Jul 11" iso="2026-07-10T12:15:00.000-04:00" commits="3" hours="7.25" days="2"}
+### 博客\*2: Notion 库自动同步技巧 & VPS 连接失败排查 {date="Jul 10 - Jul 11" iso="2026-07-10T12:15:00.000-04:00" commits="3" hours="7.25" days="2"}
 
 新增两篇博客: VPS 登录失败排查、Notion 库自动同步技巧，并修复 SVG 自动切换主题问题
 
@@ -296,7 +296,7 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - Jul 11 · blg: VPS SSH 登录失败排查
 - Jul 11 · fix: 修复 SVG（draw.io 流程图）根据系统设置切换主题
 
-### 博客x2: Plotly图表与网络图谱渲染问题解决博客 {date="Jul 12" iso="2026-07-12T10:00:00.000-04:00" commits="6" hours="12.5" days="1"}
+### 博客\*2: Plotly图表与网络图谱渲染问题解决 {date="Jul 12" iso="2026-07-12T10:00:00.000-04:00" commits="6" hours="12.5" days="1"}
 
 改进网站导航、样式与博客组织，完善中英文内容，并优化 Plotly 导出与网络图谱解决方案。
 
@@ -319,11 +319,85 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - Jul 15 · contnt: 优化博客与首页内容
 - Jul 15 · tool: Monthly Love; Bayanihan (重定向至项目页面)
 
-### 博客x2: Notion 自动化工作流与 Snipaste 卡死在前端问题解决 {date="Jul 16 - Jul 18" iso="2026-07-16T13:15:00.000-04:00" commits="4" hours="3" days="2"}
+### 博客\*2: Notion 自动化工作流与 Snipaste 卡死在前端问题解决 {date="Jul 16 - Jul 18" iso="2026-07-16T13:15:00.000-04:00" commits="4" hours="3.25" days="2"}
 
 新增两篇博客：Notion 自动化工作流与 Snipaste 卡死在前端问题解决；优化内容，同步更新日志并发布。
 
 - Jul 16 · blg: Notion 数据库自动化工作流
 - Jul 16 · blg: Snipaste 卡死在前端解决办法
 - Jul 18 · contnt: 优化内容、同步更新日志，并发布
-- Jul 18 · dev: 更新日志同步脚本使用 `.env`
+- Jul 18 · dev: 更新日志同步脚本使用 `.env` 
+
+### 光标闪烁样式修复 {date="Jul 20" iso="2026-07-20T17:45:00.000-04:00" commits="1" hours="1" days="1"}
+
+修复光标闪烁样式，优化交互展示效果。
+
+- fix: 优化光标闪烁样式
+
+### URL Shortener：账户、管理与界面完善 {date="Jul 21 - Aug 6" iso="2026-07-21T19:45:00.000-04:00" commits="3" hours="6.5" days="3"}
+
+为 URL Shortener 增加登录与链接管理功能，并完善样式、404 页面、演示视频和整体使用体验。
+
+- Jul 21 · tool: URL Shortener 增加登录与管理功能
+- Jul 22 · tool: 优化 URL Shortener 样式，增加 404 页面与视频演示
+- Aug 6 · tool: 继续完善 URL Shortener
+
+## 阶段 9 · 爱好与媒体作品集 {range="Jul 22"}
+
+### 媒体作品集：音乐、艺术与视频 {date="Jul 22 - Aug 17" iso="2026-07-22T20:15:00.000-04:00" commits="6" hours="15.25" days="4"}
+
+扩展兴趣与媒体作品集：整理视频，加入音乐与艺术内容，优化响应式布局和视频播放器，并统一整体展示样式。
+
+- Jul 22 · hobb: 整理并收集全部视频
+- Aug 12 · hobb: 搭建媒体作品集音乐部分
+- Aug 15 · hobb: 继续完善媒体作品集音乐部分
+- Aug 17 · hobb: 音乐与艺术内容
+- Aug 17 · dev: 优化音乐页面布局与样式
+- Aug 17 · fix: 修复视频播放器与响应式标签栏
+- Aug 17 · hobb: 调整音乐视频并增加艺术照片
+- Aug 17 · hobb: 继续完善音乐与艺术内容
+- Aug 18 · hobb: 调整视频、增加描述，并统一样式
+
+### 贡献图改为 Snake 动画 {date="Aug 5" iso="2026-08-05T12:45:00.000-04:00" commits="2" hours="1" days="1"}
+
+将首页 GitHub 贡献图改造为 Snake 风格动画展示。
+
+- dev: 首页贡献图改为 Snake 动画
+- dev: 继续完善首页 Snake 贡献图
+
+### 媒体存储迁移至 Cloudflare R2 CDN {date="Aug 18" iso="2026-08-18T11:30:00.000-04:00" commits="3" hours="7.75" days="1"}
+
+在尝试 Git LFS 和非公开视频托管后，将大型作品集媒体移出仓库，最终采用 Cloudflare R2、独立媒体 CDN 与 PicGo 工作流。
+
+- Aug 18 · dev: 处理大型媒体文件存储
+- Aug 18 · dev: 尝试 GitHub LFS 与 YouTube 非公开视频后，改用 Cloudflare R2 / media CDN 存储
+- Aug 19 · dev: 使用 Cloudflare R2 存储大型媒体文件，并配置 PicGo
+
+### 执行页面冻结与发布修复 {date="Aug 18" iso="2026-08-19T03:30:00.000-04:00" commits="1" hours="1.5" days="1"}
+
+通过冻结已执行页面稳定发布流程，修复导航栏子菜单样式，并重新发布网站。
+
+- dev: 修复发布流程，为已执行页面增加 `_freeze`
+- fix: 修复导航栏子菜单样式并发布
+
+## 阶段 10 · 博客、预览修复与发布 {range="Sep 21"}
+
+### 博客 x3, 修复本地预览并发布社媒 {date="Sep 21" iso="2026-09-21T12:30:00.000-04:00" commits="4" hours="6.25" days="1"}
+
+新增双语 Compressor Tips 与 Cloudflare R2 CDN 博客及中文电脑人体工学博客；修复 Quarto 预览钩子与 Bayanihan 图片来源，重组博客分类，并将更新发布到社交媒体。
+
+- fix: 修复 `zh/proj/bayanihan` 的图片来源
+- dev: 取消注释 `_quarto.yml` 中的预渲染与后渲染选项，修复 Quarto preview
+- blg: 新增 `compressor-tips` 中英文博客
+- blg: 新增 `cloudflare-r2-cdn` 中英文博客；重组博客分类
+- blg: 新增中文电脑人体工学博客
+- dev: 将更新发布到社交媒体
+
+### 文档治理、Phase 10 与 MCP 博客 {date="Sep 23" iso="2026-09-23T22:00:00.000+00:00" commits="4" hours="5" days="1"}
+
+完善了 AI Agent Operating Documentation 的提交分组与策展规则，创建并审计了 Phase 10 标记行，验证了 Notion MCP 的能力边界，并撰写了一篇关于 Muse–Notion MCP 协作的技术博客。
+
+- doc: 完善 AI Agent Operating Documentation —— 提交分组与计数规则、xN 命名、按时间连续性分组优先级、"sync change log" 触发机制、仅报告异常的验证流程；可行性分析 → 17 项改进
+- dev: 在 Dev Track 与 Change Log 中创建 Phase 10 行（起始 2026-09-21）；10 对 phase 行 1:1 配对审计全部通过
+- test: 验证 Notion MCP 能力边界 —— 可读写/查询/创建/编辑页面内容与属性、可更新 schema；不可删除/归档页面，不可编辑 formula/status/place/rollup 代码
+- blog: 撰写关于 Muse–Notion MCP 协作、技术方案与文档设计、以及可持续 agent 工作流提示词模式的技术博客

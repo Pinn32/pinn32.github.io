@@ -319,11 +319,85 @@ Add Easy Canvas blog & Monthly Love tool; refine & link content.
 - Jul 15 · contnt: refine blg & home
 - Jul 15 · tool: monthly love; bayanihan (redirect to proj)
 
-### Blog x2: Notion Workflow & Snipaste Stuck on Top Fix {date="Jul 16 - Jul 18" iso="2026-07-16T13:15:00.000-04:00" commits="4" hours="3" days="2"}
+### Blog x2: Notion Workflow & Snipaste Stuck on Top Fix {date="Jul 16 - Jul 18" iso="2026-07-16T13:15:00.000-04:00" commits="4" hours="3.25" days="2"}
 
 Add two blogs: Notion Automatic Workflow & Snipaste Stuck on Top Fix. Refine content, sync change log, and publish.
 
 - Jul 16 · blg: Notion automatic workflow
 - Jul 16 · blg: Snipaste stuck on top fix
 - Jul 18 · contnt: refine & cl-sync & publish
-- Jul 18 · dev: cl-sync script use `.env`
+- Jul 18 · dev: cl-sync script use `.env` 
+
+### Cursor Blink Style Fix {date="Jul 20" iso="2026-07-20T17:45:00.000-04:00" commits="1" hours="1" days="1"}
+
+Fixed the cursor-blink styling for a cleaner interactive presentation.
+
+- fix: style cursor-blink
+
+### URL Shortener: Accounts, Management & Polish {date="Jul 21 - Aug 6" iso="2026-07-21T19:45:00.000-04:00" commits="3" hours="6.5" days="3"}
+
+Expanded the URL Shortener with login and link management, then refined its styling, 404 page, demo video, and overall experience.
+
+- Jul 21 · tool: url-shortener add login & management feat
+- Jul 22 · tool: url-shortener refine styles, add 404 page, add video demo
+- Aug 6 · tool: refine URL-Shortener
+
+## Phase 9 · Hobbies & Media Portfolio {range="Jul 22"}
+
+### Media Portfolio: Music, Art & Video {date="Jul 22 - Aug 17" iso="2026-07-22T20:15:00.000-04:00" commits="6" hours="15.25" days="4"}
+
+Built out the hobbies/media portfolio: collected videos, added music and art, refined responsive layouts and the video player, and unified presentation styles.
+
+- Jul 22 · hobb: collect all videos
+- Aug 12 · hobb: media portfolio (music)
+- Aug 15 · hobb: media portfolio (music)
+- Aug 17 · hobb: music & art
+- Aug 17 · dev: refine music layout & style
+- Aug 17 · fix: video player & responsive tag-bar
+- Aug 17 · hobb: adjust music videos; add art photos
+- Aug 17 · hobb: music & art
+- Aug 18 · hobb: art & video
+
+### Contribution Graph → Snake {date="Aug 5" iso="2026-08-05T12:45:00.000-04:00" commits="2" hours="1" days="1"}
+
+Reworked the homepage GitHub contribution visualization into a snake-style animation.
+
+- dev: home contrib graph → snake
+- dev: home contrib graph → snake
+
+### Media Storage → Cloudflare R2 CDN {date="Aug 18" iso="2026-08-18T11:30:00.000-04:00" commits="3" hours="7.75" days="1"}
+
+Moved large portfolio media out of the repository after testing Git LFS and unlisted video hosting. Settled on Cloudflare R2 with a dedicated media CDN and PicGo workflow.
+
+- Aug 18 · dev: track large media files
+- Aug 18 · dev: store large media files online
+- Aug 19 · dev: store large media files on Cloudflare R2 + config in PicGo
+
+### Freeze Executed Pages & Publish Fixes {date="Aug 18" iso="2026-08-19T03:30:00.000-04:00" commits="1" hours="1.5" days="1"}
+
+Stabilized publishing with frozen executed pages, fixed navbar submenu styling, and republished the site.
+
+- dev: fix publish; add `_freeze` for executed pages
+- fix: navbar submenu styles; publish
+
+## Phase 10 · Blogs, Preview Fixes & Publishing {range="Sep 21"}
+
+### Blog x3, Fix Quarto Preview & Publish {date="Sep 21" iso="2026-09-21T12:30:00.000-04:00" commits="4" hours="6.25" days="1"}
+
+Added bilingual Compressor Tips and Cloudflare R2 CDN posts plus a Chinese computer ergonomics post; fixed Quarto preview hooks and Bayanihan image sources, reorganized blog categories, and published the updates to social media.
+
+- fix: correct image sources for `zh/proj/bayanihan`
+- dev: fix Quarto preview by uncommenting the `_quarto.yml` pre-render and post-render options
+- blg: add the English and Chinese `compressor-tips` posts
+- blg: add the English and Chinese `cloudflare-r2-cdn` posts; reorganize blog categories
+- blg: add the Chinese computer-ergonomics post
+- dev: publish the updates to social media
+
+### Doc Governance, Phase 10 & MCP Blog {date="Sep 23" iso="2026-09-23T22:00:00.000+00:00" commits="4" hours="5" days="1"}
+
+Finalized the AI Agent Operating Documentation's commit-grouping and curation rules, created and audited the Phase 10 marker rows, verified Notion MCP capability boundaries, and wrote a tech blog on Muse–Notion MCP coworking.
+
+- doc: refined AI Agent Operating Documentation — commit grouping & counting rules, xN naming, chronological-continuity grouping priority, "sync change log" trigger for any agent, exceptions-only verification pass; feasibility analysis → 17 refinements
+- dev: created Phase 10 rows in Dev Track & Change Log (start 2026-09-21); 1:1 phase-pairing audit across all 10 pairs clean
+- test: verified Notion MCP capability boundaries — can read/query/create/edit page content & properties and update schemas; cannot delete/trash pages or edit formula/status/place/rollup code
+- blog: wrote tech blog on Muse–Notion MCP coworking, harness & documentation design, and prompt patterns for sustainable agent workflows
