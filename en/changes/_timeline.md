@@ -349,14 +349,14 @@ Expanded the URL Shortener with login and link management, then refined its styl
 Built out the hobbies/media portfolio: collected videos, added music and art, refined responsive layouts and the video player, and unified presentation styles.
 
 - Jul 22 · hobb: collect all videos
-- Aug 12 · hobb: media portfolio (music)
+- Aug 12 · feat: media portfolio (music)
 - Aug 15 · hobb: media portfolio (music)
 - Aug 17 · hobb: music & art
 - Aug 17 · dev: refine music layout & style
 - Aug 17 · fix: video player & responsive tag-bar
 - Aug 17 · hobb: adjust music videos; add art photos
 - Aug 17 · hobb: music & art
-- Aug 18 · hobb: art & video
+- Aug 18 · feat: art & video
 
 ### Contribution Graph → Snake {date="Aug 5" iso="2026-08-05T12:45:00.000-04:00" commits="2" hours="1" days="1"}
 
@@ -393,11 +393,9 @@ Added bilingual Compressor Tips and Cloudflare R2 CDN posts plus a Chinese compu
 - blg: add the Chinese computer-ergonomics post
 - dev: publish the updates to social media
 
-### Built Doc & Muse with Notion {date="Sep 23" iso="2026-09-23T22:00:00.000+00:00" commits="4" hours="5" days="1"}
+### Built Doc & Muse with Notion {date="Sep 23" iso="2026-09-23T22:00:00.000+00:00" commits="2" hours="5" days="1"}
 
 Refine AI Agent Operating Doc. Started Phase 10. Verified Notion MCP capability boundaries, and drafted a tech blog on Muse–Notion coworking.
 
-- doc: refined AI Agent Operating Documentation — commit grouping & counting rules, xN naming, chronological-continuity grouping priority, "sync change log" trigger for any agent, exceptions-only verification pass; feasibility analysis → 17 refinements
-- dev: created Phase 10 rows in Dev Track & Change Log (start 2026-09-21); 1:1 phase-pairing audit across all 10 pairs clean
-- test: verified Notion MCP capability boundaries — can read/query/create/edit page content & properties and update schemas; cannot delete/trash pages or edit formula/status/place/rollup code
-- blog: wrote tech blog on Muse–Notion MCP coworking, harness & documentation design, and prompt patterns for sustainable agent workflows
+- dev: refine quarto project doc (for AI agents); connect Muse with Notion mcp; started Phase 10
+- blg: draft tech blog on Muse (agent) coworking with Notion, harness & doc design, and prompt patterns for sustainable agent workflows

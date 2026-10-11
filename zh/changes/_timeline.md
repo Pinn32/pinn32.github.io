@@ -349,14 +349,14 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 扩展兴趣与媒体作品集：整理视频，加入音乐与艺术内容，优化响应式布局和视频播放器，并统一整体展示样式。
 
 - Jul 22 · hobb: 整理并收集全部视频
-- Aug 12 · hobb: 搭建媒体作品集音乐部分
+- Aug 12 · feat: 搭建媒体作品集音乐部分
 - Aug 15 · hobb: 继续完善媒体作品集音乐部分
 - Aug 17 · hobb: 音乐与艺术内容
 - Aug 17 · dev: 优化音乐页面布局与样式
 - Aug 17 · fix: 修复视频播放器与响应式标签栏
 - Aug 17 · hobb: 调整音乐视频并增加艺术照片
 - Aug 17 · hobb: 继续完善音乐与艺术内容
-- Aug 18 · hobb: 调整视频、增加描述，并统一样式
+- Aug 18 · feat: 调整视频、增加描述，并统一样式
 
 ### 贡献图改为 Snake 动画 {date="Aug 5" iso="2026-08-05T12:45:00.000-04:00" commits="2" hours="1" days="1"}
 
@@ -393,11 +393,9 @@ Giscus 评论现在会跟随页面语言切换，标签可再次点击取消高�
 - blg: 新增中文电脑人体工学博客
 - dev: 将更新发布到社交媒体
 
-### 文档治理、Phase 10 与 MCP 博客 {date="Sep 23" iso="2026-09-23T22:00:00.000+00:00" commits="4" hours="5" days="1"}
+### 文档治理、Phase 10 与 MCP 博客 {date="Sep 23" iso="2026-09-23T22:00:00.000+00:00" commits="2" hours="5" days="1"}
 
 完善了 AI Agent Operating Documentation 的提交分组与策展规则，创建并审计了 Phase 10 标记行，验证了 Notion MCP 的能力边界，并撰写了一篇关于 Muse–Notion MCP 协作的技术博客。
 
-- doc: 完善 AI Agent Operating Documentation —— 提交分组与计数规则、xN 命名、按时间连续性分组优先级、"sync change log" 触发机制、仅报告异常的验证流程；可行性分析 → 17 项改进
-- dev: 在 Dev Track 与 Change Log 中创建 Phase 10 行（起始 2026-09-21）；10 对 phase 行 1:1 配对审计全部通过
-- test: 验证 Notion MCP 能力边界 —— 可读写/查询/创建/编辑页面内容与属性、可更新 schema；不可删除/归档页面，不可编辑 formula/status/place/rollup 代码
-- blog: 撰写关于 Muse–Notion MCP 协作、技术方案与文档设计、以及可持续 agent 工作流提示词模式的技术博客
+- dev: 完善项目说明文档, 适应AI agent; 连接 Muse 和 Notion mcp; 开启 Phase 10
+- blg: 起草关于 Muse–Notion MCP 协作、技术方案与文档设计、以及可持续 agent 工作流提示词模式的博客
