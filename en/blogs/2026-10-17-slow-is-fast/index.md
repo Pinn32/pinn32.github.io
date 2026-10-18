@@ -19,10 +19,10 @@ Compared with the sad, gloomy kind of anxiety I used to feel, today (or lately) 
 
 I have felt both cycles firsthand. Gloom, fear of difficulty, and avoidance feed one another into a cycle that leaves you stuck: comparison → inferiority → gloom → fear of difficulty → avoidance → stagnation → comparison. Anger, impatience, and giving up form another that burns out as fast as it starts: comparison → envy → anger → impatience → haste → no quick results → giving up.
 
-::: {layout-ncol=2}
-![The gloom–avoidance cycle](https://cdn.mcp32.com/img/2026/10/1792289190.png){style="width:22rem;"}
+::: {layout-ncol=2 fig-align="center"}
+![The gloom–avoidance cycle](https://cdn.mcp32.com/img/2026/10/1792293586.png){style="width:21rem;"} 
 
-![The anger–impatience cycle](https://cdn.mcp32.com/img/2026/10/1792289192.png){style="width:20rem;"}
+![The anger–impatience cycle](https://cdn.mcp32.com/img/2026/10/1792293869.png){style="width:20rem;"}
 :::
 
 Both diagrams show that gloom and anger can each start from comparison. Comparison is a double-edged sword. Healthy comparison is a mirror: it shows where you stand, and may even inspire you to try something new. Excessive comparison is a swamp: it stirs up inferiority or envy and keeps you from acting — like someone swooping in to scold you while you were walking down the street minding your own business, then flying off again.
